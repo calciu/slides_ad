@@ -1,0 +1,314 @@
+Combien de réponses manquantes y à-t-il dans la variable V2 {#0.0}
+//length(X$V2[X$V3==0])
+
+Combien de réponses manquantes y à-t-il dans la variable V3 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V4 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V5 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V6 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V7 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V8 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V9 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V10 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V11 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V12 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V13 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V14 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V15 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V16 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V17 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V18 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V19 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V20 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V21 {#8}
+
+Combien de réponses manquantes y à-t-il dans la variable V22 {#6}
+
+Combien de réponses manquantes y à-t-il dans la variable V23 {#8}
+
+Combien de réponses manquantes y à-t-il dans la variable V24 {#1}
+
+Combien de réponses manquantes y à-t-il dans la variable V25 {#1}
+
+Combien de réponses manquantes y à-t-il dans la variable V26 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V27 {#1}
+
+Combien de réponses manquantes y à-t-il dans la variable V28 {#2}
+
+Combien de réponses manquantes y à-t-il dans la variable V29 {#1}
+
+Combien de réponses manquantes y à-t-il dans la variable V30 {#5}
+
+Combien de réponses manquantes y à-t-il dans la variable V31 {#13}
+
+Combien de réponses manquantes y à-t-il dans la variable V32 {#6}
+
+Combien de réponses manquantes y à-t-il dans la variable V33 {#15}
+
+Combien de réponses manquantes y à-t-il dans la variable V34 {#4}
+
+Combien de réponses manquantes y à-t-il dans la variable V35 {#12}
+
+Combien de réponses manquantes y à-t-il dans la variable V36 {#5}
+
+Combien de réponses manquantes y à-t-il dans la variable V37 {#13}
+
+Combien de réponses manquantes y à-t-il dans la variable V38 {#9}
+
+Combien de réponses manquantes y à-t-il dans la variable V39 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V40 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V41 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V42 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V43 {#0.0}
+
+Combien de réponses manquantes y à-t-il dans la variable V44 {#0.0}
+
+// influence des variable manquantes
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V21 {#0.2335929:01}
+//mean(X$V21[X$V21!=0])-mean(X$V21)
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V22 {#0.1726353:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V23 {#0.2296997:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V24 {#0.03409389:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V25 {#0.03206137:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V26 {#0:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V27 {#0.02884868:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V28 {#0.06544157:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V29 {#0.02911094:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V30 {#0.1419761:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V31 {#0.4014095:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V32 {#0.1746856:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V33 {#0.4916395:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V34 {#0.1274194:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V35 {#0.3784562:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V36 {#0.1409596:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V37 {#0.4089654:01}
+
+De combien baisse la moyenne a cause des réponses manquantes dans la variable V38 {#0.1420056:01}
+
+//moyenne
+
+Quelle est la moyenne de la variable V2{#2.0309278:0.01}
+
+Quelle est la moyenne de la variable V3{#1.9793814:0.01}
+
+Quelle est la moyenne de la variable V4{#2.0103093:0.01}
+
+Quelle est la moyenne de la variable V5{#3.2989691:0.01}
+
+Quelle est la moyenne de la variable V6{#3.2164948:0.01}
+
+Quelle est la moyenne de la variable V7{#3.2268041:0.01}
+
+Quelle est la moyenne de la variable V8{#2.9793814:0.01}
+
+Quelle est la moyenne de la variable V9{#3.1030928:0.01}
+
+Quelle est la moyenne de la variable V10{#3.6494845:0.01}
+
+Quelle est la moyenne de la variable V11{#3.9278351:0.01}
+
+Quelle est la moyenne de la variable V12{#3.7938144:0.01}
+
+Quelle est la moyenne de la variable V13{#3.9587629:0.01}
+
+Quelle est la moyenne de la variable V14{#4.0206186:0.01}
+
+Quelle est la moyenne de la variable V15{#3.0824742:0.01}
+
+Quelle est la moyenne de la variable V16{#2.9175258:0.01}
+
+Quelle est la moyenne de la variable V17{#3.3195876:0.01}
+
+Quelle est la moyenne de la variable V18{#3.3505155:0.01}
+
+Quelle est la moyenne de la variable V19{#3.371134:0.01}
+
+Quelle est la moyenne de la variable V20{#3.4123711:0.01}
+
+Quelle est la moyenne de la variable V21{#3.5773196:0.01}
+
+Quelle est la moyenne de la variable V22{#3.4948454:0.01}
+
+Quelle est la moyenne de la variable V23{#3.4845361:0.01}
+
+Quelle est la moyenne de la variable V24{#4.3195876:0.01}
+
+Quelle est la moyenne de la variable V25{#3.9484536:0.01}
+
+Quelle est la moyenne de la variable V26{#4.3195876:0.01}
+
+Quelle est la moyenne de la variable V27{#3.5773196:0.01}
+
+Quelle est la moyenne de la variable V28{#4.1340206:0.01}
+
+Quelle est la moyenne de la variable V29{#3.5257732:0.01}
+
+Quelle est la moyenne de la variable V30{#3.4639175:0.01}
+
+Quelle est la moyenne de la variable V31{#3.8453608:0.01}
+
+Quelle est la moyenne de la variable V32{#3.556701:0.01}
+
+Quelle est la moyenne de la variable V33{#4.0721649:0.01}
+
+Quelle est la moyenne de la variable V34{#3.8453608:0.01}
+
+Quelle est la moyenne de la variable V35{#3.8762887:0.01}
+
+Quelle est la moyenne de la variable V36{#3.4226804:0.01}
+
+Quelle est la moyenne de la variable V37{#3.8556701:0.01}
+
+Quelle est la moyenne de la variable V38{#2.0103093:0.01}
+
+Quelle est la moyenne de la variable V39{#3.3195876:0.01}
+
+Quelle est la moyenne de la variable V40{#2.7628866:0.01}
+
+Quelle est la moyenne de la variable V41{#0.5876289:0.01}
+
+Quelle est la moyenne de la variable V42{#20.742268:0.01}
+
+Quelle est la moyenne de la variable V43{#3.443299:0.01}
+
+Quelle est la moyenne de la variable V44{#1.4536082:0.01}
+
+
+Combien de personnes n'ont jamais acheté par catalogue{#56}
+//length(X$V2[X$V2==1])
+
+Combien de personnes ne sont pas disponibles à acheter par le catalogue CAMIP{#50}
+//length(X$V3[X$V3==1])
+
+Combien de personnes n'ont pas confiance d'acheter des ordinateurs par catalogue{#50}
+//length(X$V5[X$V5<=2])
+
+Combien de personnes n'ont pas confiance d'acheter des imprimantes par catalogue{#47}
+
+Combien de personnes n'ont pas confiance d'acheter des scanners par catalogue{#46}
+
+Combien de personnes n'ont pas confiance d'acheter des disquettes par catalogue{#61}
+
+Combien de personnes n'ont pas confiance d'acheter des logiciels par catalogue{#51}
+
+Combien de personnes n'ont pas confiance d'acheter des ordinateurs en magasin{#31}
+
+Combien de personnes n'ont pas confiance d'acheter des imprimantes en magasin{#16}
+
+Combien de personnes n'ont pas confiance d'acheter des scanners en magasin{#13}
+
+Combien de personnes n'ont pas confiance d'acheter des disquettes en magasin{#21}
+
+Combien de personnes n'ont pas confiance d'acheter des logiciels en magasin{#14}
+
+
+Combien de personnes ont acheté plus de 5 pieces d'equipement bureautique pendant la dernière année ?{#50}
+//length(X$V15[X$V15>3])
+
+Combien de personnes pensent que la société CAMIP vend une ligne de produits de haute qualite {#48}
+//length(X$V16[X$V16>3])
+
+Combien de personnes pensent que la société CAMIP offre tout les marques les plus populaires {#67}
+//length(X$V17[X$V17>3])
+
+Combien de personnes pensent que la société CAMIP a un catalogue de tres haute qualite {#69}
+//length(X$V18[X$V18>3])
+
+Combien de personnes pensent que la description des produits dans le catalogue CAMIP est tres precise {#67}
+//length(X$V19[X$V19>3])
+
+Combien de personnes pensent que la selection de produits dans le catalogue CAMIP est tres large {#71}
+//length(X$V20[X$V20>3])
+
+Combien de personnes pensent qu'en vente par corespondance il y a probabilité réduite que la marchandise soie perdue pendant l'envoie {#67}
+//V21
+
+Combien de personnes pensent qu'en vente par corespondance il  n'y a  pas besoin de se consulter avec quelqu'un qui a déjà acheté {#69}
+//V22
+
+Combien de personnes pensent qu'en vente par corespondance il  y a confiance qu'on livre le produit illustre dans le catalogue {#67}
+//V23
+
+Combien de personnes pensent que l'achat par catalogue économise du temps {#98}
+//V24
+
+Combien de personnes pensent qu'en vente par corespondance il n'est pas difficile de négocier le prix {#86}
+//V25
+
+Combien de personnes préfèrent les catalogues qui ont les formulaires d'achat les plus simples a remplir {#98}
+//V26
+
+Combien de personnes pensent que la marchandise du catalogue est moins chère {#73}
+//V27
+
+Combien de personnes prefèrent les catalogues car ils livrent la marchandise au domicile {#88}
+//V28
+
+Combien de personnes pensent qu'en vente par corespondance il y a des prix bas parce qu'on ne doit pas payer des vendeurs {#75}
+//V29
+
+Combien de personnes pensent qu'en vente par corespondance la possibilité de placer un nombre illimité de commandes  est un élément important. {#63}
+//V30
+
+Combien de personnes pensent qu'en vente par corespondance la disponibilité de discounts pour la quantité achetée  est  un élément important . {#73}
+//V31
+
+Combien de personnes pensent qu'en vente par corespondance la durée de la livraison  est un élément important . {#69}
+//V32
+
+Combien de personnes pensent qu'en vente par corespondance la politique de la société visant le retour de la marchandise  est un élément important . {#84}
+//V33
+
+Combien de personnes pensent qu'en vente par corespondance la prévision d'une période d'essai est un élément important . {#85}
+//V34
+
+Combien de personnes pensent qu'en vente par corespondance le nombre d'années de présence de la société sur le marche  est un élément important . {#79}
+//V35
+
+Combien de personnes pensent qu'en vente par corespondance la réputation de la société  est un élément important . {#63}
+//V36
+
+Combien de personnes pensent qu'en vente par corespondance les garanties  sont un élément important . {#76}
+//V37
+
+Combien de personnes pensent qu'en vente par corespondance le contacte de la société avec les producteurs des grandes marques est un élément important . {#2}
+//V38

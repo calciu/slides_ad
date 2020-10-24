@@ -1,0 +1,1854 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<title>Recherche Marketing et Analyse des données</title>
+<link href="../opencpu/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+<style>
+body {
+	padding-top: 60px;
+}
+</style>
+<link href="../opencpu/common.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap-hacks.css" rel="stylesheet"/>
+<link href="../opencpu/docs.css" rel="stylesheet"/>
+</head>
+
+<body bgcolor=white lang=FR>
+<!-- Some hidden elements that will be cloned when needed -->
+
+<div class="hidden">
+  <div class="httpfile"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls">
+            <input class="input-file realinputvalue" multiple type="file">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="httpparameter"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls"> 
+            <!-- <textarea class="input-xlarge realinputvalue" rows="2"></textarea>-->
+            <input type="text" class="input-xlarge realinputvalue" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of hidden stuff --> 
+<!-- Top Navigation bar (the black one) -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"> <a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> </a> <a class="brand" href="#"></a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><a href="./slides2.htm">Home</a></li>
+          <li><a href="../slides_adintro/slides2.htm">Intro</a></li>
+          <li><a href="../slides_adunivarie/slides2.htm">Unviarie</a></li>
+          <li><a href="../slides_adbivarie/slides2.htm">Bivarie</a></li>
+          <li><a href="../slides_adacp/slides2.htm">ACP</a></li>
+          <li><a href="../slides_adtypo/slides2.htm">Cluster</a></li>
+          <li><a href="../slides_adadiscr/slides2.htm">Discrim</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="/auth/login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- subnav, mostly invisible -->
+<div id="subnav" class="subnav subnav-fixed">
+  <ul class="nav nav-pills">
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#mgeom">MGeom</a></li>
+    <li><a href="#coefsdiscr">Coefs</a></li>
+    <li><a href="#interpfdiscr">Interp.</a></li>
+    <li><a href="#classifdiscr">Classif.</a></li>
+    <li><a href="#devmmath">Dev. Math</a></li>
+    <li><a href="#rotaxesdiscr">Rotation</a></li>
+    <li><a href="#remarques">Remarques</a></li>
+  </ul>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      <div class="page-header">
+        <h3> Testing Tool <small>learn while playing...</small> </h3>
+      </div>
+      <p><small>This side shows a little ajax tool that you can use to poke
+        around with the API. Simply select a method, endpoint and add some
+        parameters.</small></p>
+      <p><small>Your browser has multiple mechanisms to perform a HTTP
+        request. In most cases you want to do the request using Ajax, which
+        supports all methods. However, Ajax cannot be used for binary
+        streams (e.g. uploading files or displaying images). For those
+        cases you can use the form request method.</small></p>
+    </div>
+    <div class="span6">
+      <div class="page-header">
+        <h3>Text and Examples</h3>
+      </div>
+      <p><small>This side shows and overview and descriptions of the API.
+        However OpenCPU is best understood while by playing around with the
+        API.</small></p>
+        <button data-example="example">Example button</button>
+      <p class="narrowblock"><small>
+        Whenever you see a red button like the one here, this indicates an
+        example demo. Clicking an example button will automatically fill
+        out the Testing tool and perform the request. Keep your eye on the
+        testing tool while running an example! </small></p>
+    </div>
+  </div>
+  <div class="row">
+    <div id="toolkit" class="span6">
+      <form id="paramform" class="well" target="outputframe">
+        <fieldset>
+          <div class="row">
+            <div class="span0">
+              <div class="control-group">
+                <label class="control-label" for="textvalue">Example</label>
+                <div class="controls">
+                  <textarea class="input-xxlarge realinputvalue" id="textvalue" value="Example text" rows="2">Example text</textarea>
+                </div>
+              </div>
+            </div>
+            <div id="tohide">
+              <div class="span1">
+                <div class="control-group">
+                  <label class="control-label" for="httpmethod">Method</label>
+                  <div class="controls">
+                    <select class="input-small" id="httpmethod">
+                      <option>GET</option>
+                      <option>POST</option>
+                      <option>PUT</option>
+                      <option>DELETE</option>
+                      <option>OPTIONS</option>
+                      <option>HEAD</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="span4">
+                <div class="control-group">
+                  <label class="control-label" for="urlvalue">Endpoint</label>
+                  <div class="controls">
+                    <input type="text" class="input-xlarge" id="urlvalue"
+											value="/R/pub">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end tohide -->
+          
+          <div id="allparameters">
+            <div class="row show-grid">
+              <div class="span2">
+                <div class="control-group">
+                  <label class="control-label">Parameter Name</label>
+                </div>
+              </div>
+              <div class="span3">
+                <div class="control-group">
+                  <label class="control-label">Parameter Value</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div align="left">
+            <button id="addprambutton" class="btn btn-primary"> <i class="icon-plus icon-white"></i> Add parameter </button>
+            <button id="addfilebutton" class="btn btn-primary"> <i class="icon-file icon-white"></i> Add file </button>
+          </div>
+          <br />
+          <div align="right">
+            <button id="submitblank" class="btn btn-success"
+								data-targetframe="_blank"> <i class="icon-share icon-white"></i> Popup </button>
+            <button id="submitform" class="btn btn-success"> <i class="icon-share icon-white"></i> iFrame </button>
+            <img src="spinner.gif" id="formspinner" />
+            <button id="submitajax" class="btn btn-success btn-large"> <i class="icon-download-alt icon-white"></i> Ajax request </button>
+            <img src="spinner.gif" id="ajaxspinner" /> </div>
+        </fieldset>
+      </form>
+      <div id="ajaxoutput">
+        <pre id="statuspre">0</pre>
+        <pre class="pre-scrollable prettyprint linenums" id="outputpre"></pre>
+        <pre class="pre-scrollable prettyprint linenums" id="headerpre"></pre>
+      </div>
+      <iframe name="outputframe" id="outputframe" class="input-xxlarge"></iframe>
+    </div>
+    <div id="rightcolumndiv" class="span6"> 
+      <!--  
+		<div id="fullscreenwarning" class="alert alert-warning">
+					<a class="close" data-dismiss="alert">×</a> <strong>Viewer
+						tip!</strong> When viewing this page on a low resolution it might be useful
+					to enable full screen (F11) or to zoom out a bit (ctrl -) in order
+					to display the full testing tool.
+				</div>
+-->
+      
+      <H1>L'analyse discriminante </H1>
+      <H4 CLASS="western">M. Calciu</H4>
+      <H3 CLASS="western">Cours d'analyse des donn&eacute;es &agrave;
+        l'Universit&eacute; Lille 1 - 2019/2020</H3>
+      <section id="intro">
+        <h2 CLASS="western">Introduction </H2>
+        <H6 CLASS="western">Pr&eacute;sentation</H6>
+        <P>L'analyse discriminante connue dans la pratique marketing sous le
+          nom <B>&quot;scoring&quot;</B> essaye de d&eacute;terminer la
+          contribution des variables qui expliquent l'appartenance des
+          individus &agrave; des groupes. Deux ou plusieurs groupes sont
+          compar&eacute;s, pour d&eacute;terminer s'ils diff&eacute;rent et
+          pour comprendre la nature de ces diff&eacute;rences. En marketing il
+          est important d'identifier des caract&eacute;ristiques qui&nbsp;
+          d&eacute;terminent l'appartenance &agrave; des groupes, qui
+          permettraient de distinguer entre:</P>
+        <P>- utilisateurs permanents et occasionnels d'un produit;</P>
+        <P>- acheteurs d'une marque et les acheteurs de marques concurrentes;</P>
+        <P>- clients loyaux et aloyaux</P>
+        <P><A NAME="_ftnref1"></A>- vendeurs bons, m&eacute;diocres et
+          mauvais <A HREF="#_ftn1"><FONT SIZE=1 STYLE="font-size: 8pt">[1] </FONT></A> </P>
+        <H6 CLASS="western">Exemple:</H6>
+        <P><A NAME="_ftnref2"></A>Par exemple suite &agrave; un concours de
+          vente on a r&eacute;ussi de s&eacute;parer trois groupes de vendeurs.
+          Pour identifier les &eacute;l&eacute;ments (les variables) qui
+          permettent de distinguer entre un bon et un mauvais vendeur, on a
+          appliqu&eacute; un questionnaire aux participants a ce concours dans
+          le quel on s'est int&eacute;ress&eacute; d'une mani&egrave;re
+          prioritaire &agrave; quatre caract&eacute;ristiques :&nbsp;&nbsp; le
+          nombre de contacts avec des nouveaux clients&nbsp;&nbsp;&nbsp;&nbsp;
+          ;&nbsp; la proportion de contacts avec rendez-vous d'avance; les
+          coups de t&eacute;l&eacute;phone aux prospects et le nombre de
+          nouveau comptes visit&eacute;s<A HREF="#_ftn2"> </A><A HREF="#_ftn2"><FONT SIZE=1 STYLE="font-size: 8pt">[2] </FONT></A>. </P>
+        <P ALIGN=CENTER STYLE=" page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Tableau
+          1 Actions des vendeurs concernant les nouveaux clients</B></FONT></FONT></P>
+        <CENTER>
+          <TABLE WIDTH=433 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <COL WIDTH=83>
+            <COL WIDTH=85>
+            <COL WIDTH=106>
+            <COL WIDTH=85>
+            <COL WIDTH=74>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>Individus</P></TD>
+              <TD WIDTH=85><P>Nombre de contacts nouveaux clients&nbsp;&nbsp;&nbsp;&nbsp; </P></TD>
+              <TD WIDTH=106><P>Proportion de contacts avec rendez-vous d'avance</P></TD>
+              <TD WIDTH=85><P>Coups de t&eacute;l&eacute;phone aux prospects</P></TD>
+              <TD WIDTH=74><P>Nombre de nouveau comptes visit&eacute;s</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>i</P></TD>
+              <TD WIDTH=85><P>X1</P></TD>
+              <TD WIDTH=106><P>X2</P></TD>
+              <TD WIDTH=85><P>X3</P></TD>
+              <TD WIDTH=74><P>X4</P></TD>
+            </TR>
+            <TR>
+              <TD COLSPAN=5 WIDTH=433 VALIGN=TOP><P>Gagneurs du grand prix (G)</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>1 KZV</P></TD>
+              <TD WIDTH=85><P>130</P></TD>
+              <TD WIDTH=106><P>62</P></TD>
+              <TD WIDTH=85><P>148</P></TD>
+              <TD WIDTH=74><P>42</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>2 BOR</P></TD>
+              <TD WIDTH=85><P>122</P></TD>
+              <TD WIDTH=106><P>70</P></TD>
+              <TD WIDTH=85><P>186</P></TD>
+              <TD WIDTH=74><P>44</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>3 NUA</P></TD>
+              <TD WIDTH=85><P>89</P></TD>
+              <TD WIDTH=106><P>68</P></TD>
+              <TD WIDTH=85><P>171</P></TD>
+              <TD WIDTH=74><P>32</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>4 NOA</P></TD>
+              <TD WIDTH=85><P>104</P></TD>
+              <TD WIDTH=106><P>58</P></TD>
+              <TD WIDTH=85><P>135</P></TD>
+              <TD WIDTH=74><P>40</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>5 HJV</P></TD>
+              <TD WIDTH=85><P>116</P></TD>
+              <TD WIDTH=106><P>40</P></TD>
+              <TD WIDTH=85><P>160</P></TD>
+              <TD WIDTH=74><P>36</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>6 VRX</P></TD>
+              <TD WIDTH=85><P>100</P></TD>
+              <TD WIDTH=106><P>65</P></TD>
+              <TD WIDTH=85><P>151</P></TD>
+              <TD WIDTH=74><P>30</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>7 BFO</P></TD>
+              <TD WIDTH=85><P>85</P></TD>
+              <TD WIDTH=106><P>66</P></TD>
+              <TD WIDTH=85><P>183</P></TD>
+              <TD WIDTH=74><P>42</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>8 MIG</P></TD>
+              <TD WIDTH=85><P>113</P></TD>
+              <TD WIDTH=106><P>59</P></TD>
+              <TD WIDTH=85><P>130</P></TD>
+              <TD WIDTH=74><P>25</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>9 WLL</P></TD>
+              <TD WIDTH=85><P>108</P></TD>
+              <TD WIDTH=106><P>52</P></TD>
+              <TD WIDTH=85><P>163</P></TD>
+              <TD WIDTH=74><P>41</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>10 GJN</P></TD>
+              <TD WIDTH=85><P>116</P></TD>
+              <TD WIDTH=106><P>48</P></TD>
+              <TD WIDTH=85><P>154</P></TD>
+              <TD WIDTH=74><P>48</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>11OKX</P></TD>
+              <TD WIDTH=85><P>99</P></TD>
+              <TD WIDTH=106><P>57</P></TD>
+              <TD WIDTH=85><P>188</P></TD>
+              <TD WIDTH=74><P>32</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>12KAA</P></TD>
+              <TD WIDTH=85><P>78</P></TD>
+              <TD WIDTH=106><P>70</P></TD>
+              <TD WIDTH=85><P>190</P></TD>
+              <TD WIDTH=74><P>40</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>13 UHO</P></TD>
+              <TD WIDTH=85><P>106</P></TD>
+              <TD WIDTH=106><P>61</P></TD>
+              <TD WIDTH=85><P>157</P></TD>
+              <TD WIDTH=74><P>38</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>14 GCI</P></TD>
+              <TD WIDTH=85><P>94</P></TD>
+              <TD WIDTH=106><P>58</P></TD>
+              <TD WIDTH=85><P>173</P></TD>
+              <TD WIDTH=74><P>29</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>15 CSN</P></TD>
+              <TD WIDTH=85><P>98</P></TD>
+              <TD WIDTH=106><P>64</P></TD>
+              <TD WIDTH=85><P>37</P></TD>
+              <TD WIDTH=74><P>36</P></TD>
+            </TR>
+            <TR>
+              <TD COLSPAN=5 WIDTH=433 VALIGN=TOP><P>Gagneurs du prix de consolation (C)</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>1 XDC</P></TD>
+              <TD WIDTH=85><P>105</P></TD>
+              <TD WIDTH=106><P>39</P></TD>
+              <TD WIDTH=85><P>155</P></TD>
+              <TD WIDTH=74><P>45</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>2 OAH</P></TD>
+              <TD WIDTH=85><P>86</P></TD>
+              <TD WIDTH=106><P>60</P></TD>
+              <TD WIDTH=85><P>140</P></TD>
+              <TD WIDTH=74><P>33</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>3 VKS</P></TD>
+              <TD WIDTH=85><P>64</P></TD>
+              <TD WIDTH=106><P>48</P></TD>
+              <TD WIDTH=85><P>132</P></TD>
+              <TD WIDTH=74><P>36</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>4 EXL</P></TD>
+              <TD WIDTH=85><P>104</P></TD>
+              <TD WIDTH=106><P>36</P></TD>
+              <TD WIDTH=85><P>119</P></TD>
+              <TD WIDTH=74><P>29</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>5 PQT</P></TD>
+              <TD WIDTH=85><P>102</P></TD>
+              <TD WIDTH=106><P>53</P></TD>
+              <TD WIDTH=85><P>143</P></TD>
+              <TD WIDTH=74><P>41</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>6 ITE</P></TD>
+              <TD WIDTH=85><P>73</P></TD>
+              <TD WIDTH=106><P>62</P></TD>
+              <TD WIDTH=85><P>128</P></TD>
+              <TD WIDTH=74><P>30</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>7 OXX</P></TD>
+              <TD WIDTH=85><P>94</P></TD>
+              <TD WIDTH=106><P>51</P></TD>
+              <TD WIDTH=85><P>152</P></TD>
+              <TD WIDTH=74><P>36</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>8 DON</P></TD>
+              <TD WIDTH=85><P>59</P></TD>
+              <TD WIDTH=106><P>64</P></TD>
+              <TD WIDTH=85><P>130</P></TD>
+              <TD WIDTH=74><P>28</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>9 CIG</P></TD>
+              <TD WIDTH=85><P>84</P></TD>
+              <TD WIDTH=106><P>31</P></TD>
+              <TD WIDTH=85><P>102</P></TD>
+              <TD WIDTH=74><P>32</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>10 GID</P></TD>
+              <TD WIDTH=85><P>91</P></TD>
+              <TD WIDTH=106><P>47</P></TD>
+              <TD WIDTH=85><P>96</P></TD>
+              <TD WIDTH=74><P>35</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>11 PLO</P></TD>
+              <TD WIDTH=85><P>83</P></TD>
+              <TD WIDTH=106><P>40</P></TD>
+              <TD WIDTH=85><P>87</P></TD>
+              <TD WIDTH=74><P>30</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>12 KOJ</P></TD>
+              <TD WIDTH=85><P>95</P></TD>
+              <TD WIDTH=106><P>42</P></TD>
+              <TD WIDTH=85><P>114</P></TD>
+              <TD WIDTH=74><P>28</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>13 DIN</P></TD>
+              <TD WIDTH=85><P>68</P></TD>
+              <TD WIDTH=106><P>52</P></TD>
+              <TD WIDTH=85><P>123</P></TD>
+              <TD WIDTH=74><P>26</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>14 RZI</P></TD>
+              <TD WIDTH=85><P>101</P></TD>
+              <TD WIDTH=106><P>51</P></TD>
+              <TD WIDTH=85><P>98</P></TD>
+              <TD WIDTH=74><P>24</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>15 UOE</P></TD>
+              <TD WIDTH=85><P>89</P></TD>
+              <TD WIDTH=106><P>39</P></TD>
+              <TD WIDTH=85><P>117</P></TD>
+              <TD WIDTH=74><P>33</P></TD>
+            </TR>
+            <TR>
+              <TD COLSPAN=5 WIDTH=433 VALIGN=TOP><P>Vendeurs sans succ&egrave;s (S)</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>1 MJB</P></TD>
+              <TD WIDTH=85><P>80</P></TD>
+              <TD WIDTH=106><P>23</P></TD>
+              <TD WIDTH=85><P>69</P></TD>
+              <TD WIDTH=74><P>32</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>2 VKN</P></TD>
+              <TD WIDTH=85><P>47</P></TD>
+              <TD WIDTH=106><P>42</P></TD>
+              <TD WIDTH=85><P>74</P></TD>
+              <TD WIDTH=74><P>33</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>3 XOG</P></TD>
+              <TD WIDTH=85><P>26</P></TD>
+              <TD WIDTH=106><P>37</P></TD>
+              <TD WIDTH=85><P>132</P></TD>
+              <TD WIDTH=74><P>20</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>4 AUT</P></TD>
+              <TD WIDTH=85><P>94</P></TD>
+              <TD WIDTH=106><P>24</P></TD>
+              <TD WIDTH=85><P>68</P></TD>
+              <TD WIDTH=74><P>26</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>5 ZCU</P></TD>
+              <TD WIDTH=85><P>57</P></TD>
+              <TD WIDTH=106><P>32</P></TD>
+              <TD WIDTH=85><P>94</P></TD>
+              <TD WIDTH=74><P>23</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>6 AKY</P></TD>
+              <TD WIDTH=85><P>38</P></TD>
+              <TD WIDTH=106><P>41</P></TD>
+              <TD WIDTH=85><P>83</P></TD>
+              <TD WIDTH=74><P>28</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>7 HZL</P></TD>
+              <TD WIDTH=85><P>29</P></TD>
+              <TD WIDTH=106><P>52</P></TD>
+              <TD WIDTH=85><P>96</P></TD>
+              <TD WIDTH=74><P>22</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>8 NHN</P></TD>
+              <TD WIDTH=85><P>48</P></TD>
+              <TD WIDTH=106><P>24</P></TD>
+              <TD WIDTH=85><P>73</P></TD>
+              <TD WIDTH=74><P>26</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>9 KZW</P></TD>
+              <TD WIDTH=85><P>57</P></TD>
+              <TD WIDTH=106><P>36</P></TD>
+              <TD WIDTH=85><P>82</P></TD>
+              <TD WIDTH=74><P>28</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>10 ZUB</P></TD>
+              <TD WIDTH=85><P>39</P></TD>
+              <TD WIDTH=106><P>37</P></TD>
+              <TD WIDTH=85><P>98</P></TD>
+              <TD WIDTH=74><P>21</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>11 NFJ</P></TD>
+              <TD WIDTH=85><P>51</P></TD>
+              <TD WIDTH=106><P>38</P></TD>
+              <TD WIDTH=85><P>117</P></TD>
+              <TD WIDTH=74><P>24</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>12 TFJ</P></TD>
+              <TD WIDTH=85><P>40</P></TD>
+              <TD WIDTH=106><P>42</P></TD>
+              <TD WIDTH=85><P>112</P></TD>
+              <TD WIDTH=74><P>22</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>13RLM</P></TD>
+              <TD WIDTH=85><P>64</P></TD>
+              <TD WIDTH=106><P>21</P></TD>
+              <TD WIDTH=85><P>67</P></TD>
+              <TD WIDTH=74><P>29</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>14 XGF</P></TD>
+              <TD WIDTH=85><P>35</P></TD>
+              <TD WIDTH=106><P>32</P></TD>
+              <TD WIDTH=85><P>78</P></TD>
+              <TD WIDTH=74><P>25</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=83><P>15AMA</P></TD>
+              <TD WIDTH=85><P>51</P></TD>
+              <TD WIDTH=106><P>29</P></TD>
+              <TD WIDTH=85><P>81</P></TD>
+              <TD WIDTH=74><P>26</P></TD>
+            </TR>
+          </TABLE>
+        </CENTER>
+      </section>
+      <section id="mgeom">
+        <h2 CLASS="western">Mod&egrave;le g&eacute;om&eacute;trique</H2>
+        <H6 CLASS="western">Cas &agrave; deux variables</H6>
+        <P>Pour simplifier, on prend deux groupes de sujets (vendeurs)
+          mesur&eacute;s sur deux variables X et Y. Une premi&egrave;re
+          variable indiquant le nombre de contacts avec des nouveaux clients
+          sera not&eacute;e Y et la deuxi&egrave;me variable, proportion des
+          contacts par rendez-vous sera not&eacute;e par X.</P>
+        <P>Les r&eacute;ponses des individus &agrave; ces questions, sont
+          repr&eacute;sent&eacute;es dans la figure 1. Les deux questions
+          repr&eacute;sentent les variables selon lesquelles on aimerait
+          arriver &agrave; distinguer les deux groupes. </P>
+        <P><A NAME="_x0000_i1025"></A><A HREF="slides_fichiers/fig1.gif"><IMG SRC="slides_fichiers/fig1.gif" NAME="images1" ALIGN=BOTTOM WIDTH=513 HEIGHT=384 BORDER=0></A></P>
+        <P>Figure 1</P>
+        <P>En analysant le graphique on se rend compte que sur chacune des
+          axes repr&eacute;sent&eacute;s par les deux variables il y a une
+          r&eacute;gion importante d'incertitude, dans la quelle pour les m&ecirc;me
+          valeurs des variables on trouve des individus appartenant aux deux
+          groupes (bons et mauvais vendeurs).</P>
+        <H6 CLASS="western">Objectif</H6>
+        <P>Le but de l'analyse discriminante serait de trouver un nouvel axe
+          comme combinaison lin&eacute;aire des variables qui permettrait de
+          r&eacute;duire cette zone d'incertitude. Un tel axe dans l'exemple
+          donn&eacute; est illustr&eacute; dans la figure 2.</P>
+        <P><A NAME="_x0000_i1026"></A><IMG SRC="slides_fichiers/fig2.gif" NAME="images2" ALIGN=BOTTOM WIDTH=328 HEIGHT=246 BORDER=0></P>
+        <P>Figure 2</P>
+        <H6 CLASS="western">Cas g&eacute;n&eacute;ral</H6>
+        <P>Imaginons&nbsp; maintenant, d'une mani&egrave;re plus g&eacute;n&eacute;rale,
+          que ces variables sont centr&eacute;es pour l'ensemble des deux
+          groupes.</P>
+        <P><A NAME="_ftnref3"></A>On illustre dans un espace &agrave; deux
+          dimensions les coordonn&eacute;es de chaque sujet sur les variables
+          en question et on trace les lignes contours de 95 % (1,96 ) Ou 68 %
+          (1 a). Les hypoth&egrave;ses de normalit&eacute; des variables
+          conjointes et d'homog&eacute;n&eacute;it&eacute; des variances et
+          covariances sont maintenues<A HREF="#_ftn3"> </A><A HREF="#_ftn3"><FONT SIZE=1 STYLE="font-size: 8pt">[3] </FONT></A>. </P>
+        <P>La figure 3 en est un exemple.</P>
+        <P><A NAME="_x0000_i1027"></A><IMG SRC="slides_fichiers/fig3.gif" NAME="images3" ALIGN=BOTTOM WIDTH=317 HEIGHT=266 BORDER=0></P>
+        <P>Fig.3&nbsp; Lignes contours de deux &eacute;chantillons de
+          variables conjointes homog&egrave;nes et normalement distribu&eacute;es.</P>
+        <P>Dans la d&eacute;marche habituelle de l'analyse, on &eacute;prouvera
+          d'abord le besoin de d&eacute;terminer s'il faut consid&eacute;rer
+          les moyennes ou centro&iuml;des de chaque population comme
+          distinctes: L'analyse de variance multiple est un instrument bien
+          indiqu&eacute; pour cette t&acirc;che. Il appara&icirc;t ensuite
+          int&eacute;ressant, connaissant les scores d'un &eacute;ventuel sujet
+          sur les deux variables, de d&eacute;terminer, &agrave; l'int&eacute;rieur
+          d'un pourcentage d'erreur, l'appartenance de ce sujet &agrave; l'une
+          ou l'autre de ces populations.</P>
+        <H6 CLASS="western">Zones d&rsquo;incertitude et attribution
+          d&rsquo;appartenance</H6>
+        <P>&nbsp;Si l'on se base, pour une telle attribution d'appartenance,
+          sur la connaissance du seul score X, on voit que l'incertitude de la
+          d&eacute;cision va de a &agrave; b et touche les sujets situ&eacute;s
+          dans la r&eacute;gion hachur&eacute;e de la figure 4.</P>
+        <P><A NAME="_x0000_i1028"></A><IMG SRC="slides_fichiers/fig4.gif" NAME="images4" WIDTH=406 HEIGHT=246 BORDER=0></P>
+        <P>Fig.4&nbsp; R&eacute;gion d'incertitude bas&eacute;e sur la
+          variable X</P>
+        <P><A NAME="_x0000_i1029"></A><IMG SRC="slides_fichiers/fig5.gif" NAME="images5" ALIGN=BOTTOM WIDTH=347 HEIGHT=285 BORDER=0></P>
+        <P>Fig. 5&nbsp; R&eacute;gion d'incertitude bas&eacute;e sur la
+          variable Y</P>
+        <H6 CLASS="western">La r&eacute;gion sure</H6>
+        <P>Si cette d&eacute;cision est prise en tenant compte des deux
+          variables, on&nbsp; constate que la r&eacute;gion sure correspond
+          alors &agrave; la surface hachur&eacute;e</P>
+        <P><A NAME="_x0000_i1030"></A><IMG SRC="slides_fichiers/fig6.gif" NAME="images6" ALIGN=BOTTOM WIDTH=302 HEIGHT=255 BORDER=0></P>
+        <P>Fig. 6 R&eacute;gion d'incertitude bas&eacute;e sur deux variables</P>
+        <H6 CLASS="western">R&eacute;gion minimum d'incertitude </H6>
+        <P>Cette seconde fa&ccedil;on de proc&eacute;der, quoique meilleure
+          que la premi&egrave;re, peut comporter encore de grosses impr&eacute;cisions
+          (sauf cas particuliers) car la v&eacute;ritable r&eacute;gion
+          d'incertitude est celle de l'intersection des deux ellipses</P>
+        <P><A NAME="_x0000_i1031"></A><IMG SRC="slides_fichiers/fig7.gif" NAME="images7" ALIGN=BOTTOM WIDTH=306 HEIGHT=254 BORDER=0></P>
+        <P>Fig. 7&nbsp; R&eacute;gion minimum d'incertitude</P>
+        <H6 CLASS="western">Recherche des axes discriminants</H6>
+        <P>On propose de consid&eacute;rer une nouvelle variable qui soit une
+          combinaison lin&eacute;aire des pr&eacute;c&eacute;dentes;
+          g&eacute;om&eacute;triquement, cette nouvelle variable est
+          repr&eacute;sent&eacute;e par un axe sur lequel on projette les
+          divers points des groupes de sujets. Aux fins d'illustration, on
+          limite le nombre de variables de d&eacute;part ainsi que le nombre de
+          groupes &agrave; deux; dans la pratique, le mod&egrave;le
+          math&eacute;matique dont il sera question &agrave; l'article suivant
+          ne comporte pas de telles limites.</P>
+        <P>L'axe est appel&eacute; axe de la fonction discriminante. Les
+          points projet&eacute;s sur cet axe se distribuent normalement pour
+          chacun des groupes; les valeurs de cette fonction comprises entre les
+          lignes pointill&eacute;s correspondent &agrave; la r&eacute;gion
+          d'incertitude. On d&eacute;sire que l'axe occupe une position telle
+          que la projection des points donne lieu au minimum de superposition
+          des divers groupes de sujets.</P>
+        <P>La figure 8 illustre la situation particuli&egrave;re de la
+          recherche de la fonction de deux variables qui discrimine au maximum
+          deux groupes de cas.</P>
+        <H6 CLASS="western">Maximiser le pouvoir discriminant</H6>
+        <P>La qualit&eacute; de la discrimination est li&eacute;e &agrave; la
+          superposition des deux distributions de projections sur l'axe. On
+          peut mesurer la qualit&eacute; de la dispersion &agrave; la grandeur
+          du rapport de la variance entre les moyennes &agrave; la variance &agrave;
+          l'int&eacute;rieur d'un groupe variance inter-groupe / variance
+          intra-groupe.</P>
+        <P>Ce rapport est analogue au F de l'analyse de variance. On suppose
+          que la variance des scores &agrave; l'int&eacute;rieur de chaque
+          groupe r&eacute;pond au crit&egrave;re d'homog&eacute;n&eacute;it&eacute;
+          de telle sorte que cette variance intra est la moyenne des variances
+          intra des groupes consid&eacute;r&eacute;s.</P>
+        <P>Un rapport maximum est li&eacute; non seulement &agrave; la
+          grandeur de son num&eacute;rateur mais aussi &agrave; l'&eacute;troitesse
+          du d&eacute;nominateur: la variance inter atteindra son maximum pour
+          l'axe parall&egrave;le au segment joignant les centroides tandis que
+          la variance intra sera minimum pour un axe perpendiculaire &agrave;
+          l'axe principal des ellipses; c'est en une position interm&eacute;diaire
+          que se situe le rapport maximum des variances inter et intra.</P>
+        <P><A NAME="_x0000_i1032"></A><IMG SRC="slides_fichiers/fig8.gif" NAME="images8" ALIGN=BOTTOM WIDTH=323 HEIGHT=231 BORDER=0></P>
+        <P>Figure 8. Mod&egrave;le g&eacute;om&eacute;trique de la fonction
+          discriminante.</P>
+        <div class="row">
+          <div class="span2">
+            <button data-example="intragroupvarsSalesC">Variances Intra Groupes (W)</button>
+          </div>
+          <div class="span2">
+            <button data-example="intragroupvarsCAMIP">Variances Intra Groupes (W) CAMIP</button>
+          </div>
+          <div class="span2">
+            <button data-example="intragroupvarsCBC">Variances Intra Groupes (W) CBC</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span2">
+            <button data-example="intragroupvarmSalesC">Variances Intra Groupe Moyenne</button>
+          </div>
+          <div class="span2">
+            <button data-example="intragroupvarmCAMIP">Variances Intra Groupe Moyenne CAMIP</button>
+          </div>
+          <div class="span2">
+            <button data-example="intragroupvarmCBC">Variances Intra Groupe Moyenne CBC</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span2">
+            <button data-example="intergroupvarsSalesC">Variances Inter Groupes (B)</button>
+          </div>
+          <div class="span2">
+            <button data-example="intergroupvarsCAMIP">Variances Inter Groupes (B)</button>
+          </div>
+          <div class="span2">
+            <button data-example="intergroupvarsCBC">Variances Inter Groupes (B)</button>
+          </div>
+        </div>
+        <H6 CLASS="western">Resultats</H6>
+        <P>L'analyse discriminante a pour but de d&eacute;terminer cet axe
+          optimum de la fonction discriminante, c'est-&agrave;-dire de calculer
+          les &eacute;l&eacute;ments d'un vecteur k qui d&eacute;finissent une
+          combinaison lin&eacute;aire des variables X et Y. Ces exigences
+          g&eacute;om&eacute;triques peuvent &ecirc;tre avantageusement
+          trait&eacute;es &agrave; la mani&egrave;re de l'extraction des
+          composantes principales, car des fonctions discriminantes
+          orthogonales successives s'apparentent &agrave; ces composantes. On
+          comprend alors que le nombre possible de ces fonctions soit limit&eacute;
+          par le nombre de variables et aussi par le nombre de groupes: ce qui
+          est dans le sens d'une interpr&eacute;tation plus ais&eacute;e de la
+          discrimination. Ceci est d'ailleurs facilit&eacute; par le fait que
+          des fonctions discriminantes additionnelles sont responsables d'une
+          proportion de moins en moins &eacute;lev&eacute;e du pouvoir
+          discriminateur total; il est souvent souhaitable de limiter &agrave;
+          deux ou &agrave; trois ces fonctions discriminantes afin d'en rendre
+          possible l'illustration g&eacute;om&eacute;trique et donc
+          l'interpr&eacute;tation (voir Cooley et Lohnes, 1971, p. 244-246).</P>
+      </section>
+      <section id="coefsdiscr">
+        <h2 CLASS="western">Les coefficients de la fonction discriminante</H2>
+        <H6 CLASS="western">Utilisation des coefficients</H6>
+        <P>Une mani&egrave;re de d&eacute;terminer quelles sont les variables
+          qui discriminent entre les deux types de gagnants aux concours de
+          ventes est de construire un index, bas&eacute; sur les valeurs des
+          caract&eacute;ristiques mesur&eacute;es, qui s&eacute;pare les deux
+          groupes, formant une combinaison lin&eacute;aire de ces derni&egrave;res
+          du genre:</P>
+        <P ALIGN=CENTER><IMG SRC="slides_fichiers/image002.gif" NAME="images9" ALIGN=BOTTOM WIDTH=250 HEIGHT=22 BORDER=0> </P>
+        <P>ou&nbsp; <IMG SRC="slides_fichiers/image004.gif" NAME="images10" ALIGN=BOTTOM WIDTH=99 HEIGHT=22 BORDER=0> sont des coefficients arbitraires. En analyse discriminante les
+          coefficients sont d&eacute;riv&eacute;s de telle mani&egrave;re que
+          la variation des scores de Y entre les (deux) groupes soit si large
+          que possible et la variation des scores de Y &agrave; l'int&eacute;rieur
+          des groupes (within group ou intra-groupe) soie si petite que
+          possible. Autrement dit on calcule les coefficients qui maximisent le
+          rapport&nbsp;variance inter-groupe / variance intra-groupe.</P>
+        <P>Ce ci fait les groupes aussi distincts que possible du point de
+          vue des nouveaux scores de l'index.</P>
+        <P><A NAME="_ftnref4"></A>Pour l'exemple analys&eacute; les
+          coefficients discriminants sont <IMG SRC="slides_fichiers/image006.gif" NAME="images11" ALIGN=BOTTOM WIDTH=379 HEIGHT=22 BORDER=0> et la combinaison lin&eacute;aire qui diff&eacute;rencie de mani&egrave;re
+          maximale entre les groupes est<A HREF="#_ftn4"> </A><A HREF="#_ftn4"><FONT SIZE=1 STYLE="font-size: 8pt">[4] </FONT></A> </P>
+        <P>Y = 0,059 X<SUB>1</SUB> +&nbsp; 0,063 X<SUB>2</SUB> +&nbsp; 0,034
+          X<SUB>3</SUB> - 0,032 X<SUB>4</SUB>,</P>
+        <H6 CLASS="western">Calcul des scores sur les axes discriminants</H6>
+        <P>Ayant les coefficients discriminants on peut calculer le score de
+          chaque vendeur, si ce score est plus proche de la moyenne des scores
+          du groupe des gagnants du grand prix, l'individu sera affect&eacute;
+          &agrave; ce groupe si non il &eacute;tait affect&eacute; &agrave;
+          l'autre groupe.</P>
+        <P>On peut observer que l'approche de l'analyse&nbsp; discriminante
+          est proche de celui de la <I><B>r&eacute;gression</B></I>. Dans les
+          chacun des cas on essaye d'expliquer (pr&eacute;voir) une variable
+          d&eacute;pendante par une combinaison lin&eacute;aire de variables
+          ind&eacute;pendantes. En r&eacute;gression la variable expliqu&eacute;e
+          est continue. En analyse discriminante la variable d&eacute;pendante
+          est l'appartenance &agrave; un groupe. On peut transformer le
+          probl&egrave;me d'analyse discriminante pour de groupes en probl&egrave;me
+          de r&eacute;gression en utilisant une variable muette (dummy) comme
+          variable d&eacute;pendante. Les coefficients de r&eacute;gression
+          r&eacute;sultants seront proportionnels &agrave; ceux obtenus par
+          l'analyse discriminante.</P>
+        <P>Scores calcul&eacute;s des gagnants du grand prix et du prix de
+          consolation utilisant la fonction discriminante </P>
+        <P>Y = 0,059 X<SUB>1</SUB> +&nbsp; 0,063 X<SUB>2</SUB> +&nbsp; 0,034
+          X<SUB>3</SUB> - 0,032 X<SUB>4</SUB>,</P>
+        <div class="row">
+          <div class="span2">
+            <button data-example="coefsdiscrSalesC">Coeffs. discrim.</button>
+          </div>
+          <div class="span2">
+            <button data-example="coefsdiscrCAMIP">Coeffs. discrim. CAMIP</button>
+          </div>
+          <div class="span2">
+            <button data-example="coefsdiscrCBC">Coeffs. discrim. CBC</button>
+          </div>
+        </div>
+        <P ALIGN=CENTER STYLE=" page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Tableau
+          2 - Calcul de scores discriminants</B></FONT></FONT></P>
+        <CENTER>
+          <TABLE WIDTH=349 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <COL WIDTH=69>
+            <COL WIDTH=56>
+            <COL WIDTH=56>
+            <COL WIDTH=56>
+            <COL WIDTH=56>
+            <COL WIDTH=56>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69>&nbsp;</TD>
+              <TD WIDTH=56><P>X1</P></TD>
+              <TD WIDTH=56><P>X2</P></TD>
+              <TD WIDTH=56><P>X3</P></TD>
+              <TD WIDTH=56><P>X4</P></TD>
+              <TD WIDTH=56><P>Y</P></TD>
+            </TR>
+            <TR>
+              <TD COLSPAN=6 WIDTH=349 VALIGN=TOP><P>Gagneurs du grand prix (G)</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>1 KZV</P></TD>
+              <TD WIDTH=56><P>130</P></TD>
+              <TD WIDTH=56><P>62</P></TD>
+              <TD WIDTH=56><P>148</P></TD>
+              <TD WIDTH=56><P>42</P></TD>
+              <TD WIDTH=56><P>15,1</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>2 BOR</P></TD>
+              <TD WIDTH=56><P>122</P></TD>
+              <TD WIDTH=56><P>70</P></TD>
+              <TD WIDTH=56><P>186</P></TD>
+              <TD WIDTH=56><P>44</P></TD>
+              <TD WIDTH=56><P>16,4</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>3&nbsp; NUA</P></TD>
+              <TD WIDTH=56><P>89</P></TD>
+              <TD WIDTH=56><P>68</P></TD>
+              <TD WIDTH=56><P>171</P></TD>
+              <TD WIDTH=56><P>32</P></TD>
+              <TD WIDTH=56><P>14,2</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>4 NOA</P></TD>
+              <TD WIDTH=56><P>104</P></TD>
+              <TD WIDTH=56><P>58</P></TD>
+              <TD WIDTH=56><P>135</P></TD>
+              <TD WIDTH=56><P>40</P></TD>
+              <TD WIDTH=56><P>13,0</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>5 HJV</P></TD>
+              <TD WIDTH=56><P>116</P></TD>
+              <TD WIDTH=56><P>40</P></TD>
+              <TD WIDTH=56><P>160</P></TD>
+              <TD WIDTH=56><P>36</P></TD>
+              <TD WIDTH=56><P>13,5</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>6 VRX</P></TD>
+              <TD WIDTH=56><P>100</P></TD>
+              <TD WIDTH=56><P>65</P></TD>
+              <TD WIDTH=56><P>151</P></TD>
+              <TD WIDTH=56><P>30</P></TD>
+              <TD WIDTH=56><P>14,1</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>7 BFO</P></TD>
+              <TD WIDTH=56><P>85</P></TD>
+              <TD WIDTH=56><P>66</P></TD>
+              <TD WIDTH=56><P>183</P></TD>
+              <TD WIDTH=56><P>42</P></TD>
+              <TD WIDTH=56><P>14,0</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>8 MIG</P></TD>
+              <TD WIDTH=56><P>113</P></TD>
+              <TD WIDTH=56><P>59</P></TD>
+              <TD WIDTH=56><P>130</P></TD>
+              <TD WIDTH=56><P>25</P></TD>
+              <TD WIDTH=56><P>13,9</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>9 WLL</P></TD>
+              <TD WIDTH=56><P>108</P></TD>
+              <TD WIDTH=56><P>52</P></TD>
+              <TD WIDTH=56><P>163</P></TD>
+              <TD WIDTH=56><P>41</P></TD>
+              <TD WIDTH=56><P>13,8</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>10 GJN</P></TD>
+              <TD WIDTH=56><P>116</P></TD>
+              <TD WIDTH=56><P>48</P></TD>
+              <TD WIDTH=56><P>154</P></TD>
+              <TD WIDTH=56><P>48</P></TD>
+              <TD WIDTH=56><P>13,5</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>11OKX</P></TD>
+              <TD WIDTH=56><P>99</P></TD>
+              <TD WIDTH=56><P>57</P></TD>
+              <TD WIDTH=56><P>188</P></TD>
+              <TD WIDTH=56><P>32</P></TD>
+              <TD WIDTH=56><P>14,7</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>12KAA</P></TD>
+              <TD WIDTH=56><P>78</P></TD>
+              <TD WIDTH=56><P>70</P></TD>
+              <TD WIDTH=56><P>190</P></TD>
+              <TD WIDTH=56><P>40</P></TD>
+              <TD WIDTH=56><P>14,1</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>13 UHO</P></TD>
+              <TD WIDTH=56><P>106</P></TD>
+              <TD WIDTH=56><P>61</P></TD>
+              <TD WIDTH=56><P>157</P></TD>
+              <TD WIDTH=56><P>38</P></TD>
+              <TD WIDTH=56><P>14,1</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>14 GCI</P></TD>
+              <TD WIDTH=56><P>94</P></TD>
+              <TD WIDTH=56><P>58</P></TD>
+              <TD WIDTH=56><P>173</P></TD>
+              <TD WIDTH=56><P>29</P></TD>
+              <TD WIDTH=56><P>14,1</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>15 CSN</P></TD>
+              <TD WIDTH=56><P>98</P></TD>
+              <TD WIDTH=56><P>64</P></TD>
+              <TD WIDTH=56><P>37</P></TD>
+              <TD WIDTH=56><P>36</P></TD>
+              <TD WIDTH=56><P>9,8</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>Moyenne</P></TD>
+              <TD WIDTH=56><P>103,9</P></TD>
+              <TD WIDTH=56><P>59,9</P></TD>
+              <TD WIDTH=56><P>155,1</P></TD>
+              <TD WIDTH=56><P>37,0</P></TD>
+              <TD WIDTH=56><P>13,9</P></TD>
+            </TR>
+            <TR>
+              <TD COLSPAN=6 WIDTH=349 VALIGN=TOP><P>Gagneurs du prix de consolation (C)</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>1 XDC</P></TD>
+              <TD WIDTH=56><P>105</P></TD>
+              <TD WIDTH=56><P>39</P></TD>
+              <TD WIDTH=56><P>155</P></TD>
+              <TD WIDTH=56><P>45</P></TD>
+              <TD WIDTH=56><P>12,4</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>2 OAH</P></TD>
+              <TD WIDTH=56><P>86</P></TD>
+              <TD WIDTH=56><P>60</P></TD>
+              <TD WIDTH=56><P>140</P></TD>
+              <TD WIDTH=56><P>33</P></TD>
+              <TD WIDTH=56><P>12,5</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>3 VKS</P></TD>
+              <TD WIDTH=56><P>64</P></TD>
+              <TD WIDTH=56><P>48</P></TD>
+              <TD WIDTH=56><P>132</P></TD>
+              <TD WIDTH=56><P>36</P></TD>
+              <TD WIDTH=56><P>10,1</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>4 EXL</P></TD>
+              <TD WIDTH=56><P>104</P></TD>
+              <TD WIDTH=56><P>36</P></TD>
+              <TD WIDTH=56><P>119</P></TD>
+              <TD WIDTH=56><P>29</P></TD>
+              <TD WIDTH=56><P>11,4</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>5 PQT</P></TD>
+              <TD WIDTH=56><P>102</P></TD>
+              <TD WIDTH=56><P>53</P></TD>
+              <TD WIDTH=56><P>143</P></TD>
+              <TD WIDTH=56><P>41</P></TD>
+              <TD WIDTH=56><P>12,8</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>6 ITE</P></TD>
+              <TD WIDTH=56><P>73</P></TD>
+              <TD WIDTH=56><P>62</P></TD>
+              <TD WIDTH=56><P>128</P></TD>
+              <TD WIDTH=56><P>30</P></TD>
+              <TD WIDTH=56><P>11,5</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>7 OXX</P></TD>
+              <TD WIDTH=56><P>94</P></TD>
+              <TD WIDTH=56><P>51</P></TD>
+              <TD WIDTH=56><P>152</P></TD>
+              <TD WIDTH=56><P>36</P></TD>
+              <TD WIDTH=56><P>12,7</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>8 DON</P></TD>
+              <TD WIDTH=56><P>59</P></TD>
+              <TD WIDTH=56><P>64</P></TD>
+              <TD WIDTH=56><P>130</P></TD>
+              <TD WIDTH=56><P>28</P></TD>
+              <TD WIDTH=56><P>11,0</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>9 CIG</P></TD>
+              <TD WIDTH=56><P>84</P></TD>
+              <TD WIDTH=56><P>31</P></TD>
+              <TD WIDTH=56><P>102</P></TD>
+              <TD WIDTH=56><P>32</P></TD>
+              <TD WIDTH=56><P>9,3</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>10 GID</P></TD>
+              <TD WIDTH=56><P>91</P></TD>
+              <TD WIDTH=56><P>47</P></TD>
+              <TD WIDTH=56><P>96</P></TD>
+              <TD WIDTH=56><P>35</P></TD>
+              <TD WIDTH=56><P>10,4</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>11 PLO</P></TD>
+              <TD WIDTH=56><P>83</P></TD>
+              <TD WIDTH=56><P>40</P></TD>
+              <TD WIDTH=56><P>87</P></TD>
+              <TD WIDTH=56><P>30</P></TD>
+              <TD WIDTH=56><P>9,3</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>12 KOJ</P></TD>
+              <TD WIDTH=56><P>95</P></TD>
+              <TD WIDTH=56><P>42</P></TD>
+              <TD WIDTH=56><P>114</P></TD>
+              <TD WIDTH=56><P>28</P></TD>
+              <TD WIDTH=56><P>11,1</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>13 DIN</P></TD>
+              <TD WIDTH=56><P>68</P></TD>
+              <TD WIDTH=56><P>52</P></TD>
+              <TD WIDTH=56><P>123</P></TD>
+              <TD WIDTH=56><P>26</P></TD>
+              <TD WIDTH=56><P>10,6</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>14 RZI</P></TD>
+              <TD WIDTH=56><P>101</P></TD>
+              <TD WIDTH=56><P>51</P></TD>
+              <TD WIDTH=56><P>98</P></TD>
+              <TD WIDTH=56><P>24</P></TD>
+              <TD WIDTH=56><P>11,6</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>15 UOE</P></TD>
+              <TD WIDTH=56><P>89</P></TD>
+              <TD WIDTH=56><P>39</P></TD>
+              <TD WIDTH=56><P>117</P></TD>
+              <TD WIDTH=56><P>33</P></TD>
+              <TD WIDTH=56><P>10,5</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=56>&nbsp;</TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=69><P>Moyenne</P></TD>
+              <TD WIDTH=56><P>86,5</P></TD>
+              <TD WIDTH=56><P>47,7</P></TD>
+              <TD WIDTH=56><P>122,4</P></TD>
+              <TD WIDTH=56><P>32,4</P></TD>
+              <TD WIDTH=56><P>11,1</P></TD>
+            </TR>
+          </TABLE>
+        </CENTER>
+        <div class="row">
+          <div class="span2">
+            <button data-example="scorsdiscrSalesC">Scores discrim.</button>
+          </div>
+          <div class="span2">
+            <button data-example="scorsdiscrCAMIP">Scores discrim. CAMIP</button>
+          </div>
+          <div class="span2">
+            <button data-example="scorsdiscrCBC">Scores discrim. CBC</button>
+          </div>
+        </div>
+      </section>
+      <section id="interpfdiscr">
+        <h2 CLASS="western">Interpr&eacute;tation de la fonction
+          discriminante</H2>
+        <H6 CLASS="western">Tester la diff&eacute;rentiation obtenue</H6>
+        <P>Dans une approche rigoureuse avant d'interpr&eacute;ter la
+          fonction discriminante, on doit tester si au niveau des scores
+          discriminants on obtient une diff&eacute;rentiation significative
+          entre les groupes. Cela se fait en appliquant un test en F aux
+          valeurs de la statistique D<SUP>2</SUP> de Mahalanobis&nbsp; (qui
+          mesure la distance de chaque case &agrave; la moyenne du groupe, tout
+          en permettant des axes corr&eacute;l&eacute;s et des unit&eacute;s de
+          mesure diff&eacute;rentes).</P>
+        <H6 CLASS="western">Les coefficients discriminants</H6>
+        <P>La fonction discriminante originale contient des poids
+          (coefficients) &agrave; appliquer aux valeurs brutes des variables.
+          Ces poids sont influenc&eacute;s par l'&eacute;chelle de mesure des
+          variables. Pour &eacute;viter des effets d'&eacute;chelle de mesure
+          arbitraire <I>quand on compare les contributions de chaque variable
+          on utilise des coefficients standardis&eacute;s</I>, obtenus par
+          multiplication des coefficients bruts de chaque variable par l'&eacute;cart
+          type pour l'ensemble des groupes (pooled standard deviation) de. </P>
+      </section>
+      <section id="classifdiscr">
+        <h2 CLASS="western">Classification des individus utilisant la
+          fonction discriminante</H2>
+        <H6 CLASS="western">Calcul de cutting score</H6>
+        <P>Pour classifier les individus dans un des groupes on doit fixer un
+          score (cutting score) qui joue le r&ocirc;le de fronti&egrave;re
+          entre les groupes. Normalement c'est la moyenne des scores des deux
+          groupes. Si les groupes sont de dimensions &eacute;gales le <B>cutting
+          score</B> (Y<SUB>CS</SUB>) est &eacute;gale &agrave; la moyenne des
+          moyennes des scores des groupes.</P>
+        <P><IMG SRC="slides_fichiers/image008.gif" NAME="images12" ALIGN=BOTTOM WIDTH=323 HEIGHT=22 BORDER=0> </P>
+        <P>Si les groupes ne sont pas &eacute;gaux on utilisera une moyenne
+          pond&eacute;r&eacute;e du genre:</P>
+        <P><IMG SRC="slides_fichiers/image010.gif" NAME="images13" ALIGN=BOTTOM WIDTH=144 HEIGHT=43 BORDER=0> </P>
+        <P>o&ugrave; <IMG SRC="slides_fichiers/image012.gif" NAME="images14" ALIGN=BOTTOM WIDTH=15 HEIGHT=22 BORDER=0> <SUB>1 </SUB>et <IMG SRC="slides_fichiers/image013.gif" NAME="images15" ALIGN=BOTTOM WIDTH=15 HEIGHT=22 BORDER=0> <SUB>2</SUB> sont les scores discriminants moyens et n<SUB>1</SUB> et
+          n<SUB>2</SUB> sont les dimensions des groupes (on observe que la
+          moyenne de chaque groupe est pond&eacute;r&eacute;e avec la dimension
+          de l'autre.</P>
+        <div class="row">
+          <div class="span2">
+            <button data-example="cuttingscoreSalesC">Cutting Scores</button>
+          </div>
+          <div class="span2">
+            <button data-example="cuttingscoreCAMIP">Cutting Scores CAMIP</button>
+          </div>
+          <div class="span2">
+            <button data-example="cuttingscoreCBC">Cutting Scores CBC</button>
+          </div>
+        </div>
+        <H6 CLASS="western">Attribution aux groupes</H6>
+        <P>Dans le cas du concours des vendeurs, une r&egrave;gle de d&eacute;cision
+          simple serait de classifier un vendeur dans le groupe des gagnants du
+          grand prix si son score est plus proche de la moyenne des scores du
+          groupe des gagnants du grand prix, que de la moyenne des scores du
+          groupe des gagnants du prix de consolation,&nbsp; si non il sera
+          affect&eacute; au groupe des gagnants du prix de consolation.</P>
+        <P ALIGN=CENTER STYLE=" page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Tableau
+          3 - L'appartenance de groupe pr&eacute;dite utilisant la r&egrave;gle
+          de classification simple</B></FONT></FONT></P>
+        <CENTER>
+          <TABLE WIDTH=473 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <COL WIDTH=56>
+            <COL WIDTH=69>
+            <COL WIDTH=138>
+            <COL WIDTH=90>
+            <COL WIDTH=121>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=69>&nbsp;</TD>
+              <TD COLSPAN=2 WIDTH=228><P>Diff&eacute;rences par ra p-port &agrave; la moyenne du</P></TD>
+              <TD WIDTH=121><P>Appartenance de </P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=69><P>Score dis- criminant</P></TD>
+              <TD WIDTH=138><P>Premier groupe</P></TD>
+              <TD WIDTH=90><P>Deuxieme groupe</P></TD>
+              <TD WIDTH=121><P>&nbsp;groupe predite</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56>&nbsp;</TD>
+              <TD WIDTH=69><P>Yi</P></TD>
+              <TD WIDTH=138><P>Yi&nbsp; - Yg</P></TD>
+              <TD WIDTH=90><P>Yi - Yc</P></TD>
+              <TD WIDTH=121>&nbsp;</TD>
+            </TR>
+            <TR>
+              <TD COLSPAN=5 WIDTH=473 VALIGN=TOP><P>Gagneurs du grand prix (G)</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>1</P></TD>
+              <TD WIDTH=69><P>15,1</P></TD>
+              <TD WIDTH=138><P>1,0</P></TD>
+              <TD WIDTH=90><P>4,0</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>2</P></TD>
+              <TD WIDTH=69><P>16,4</P></TD>
+              <TD WIDTH=138><P>2,3</P></TD>
+              <TD WIDTH=90><P>5,3</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>3</P></TD>
+              <TD WIDTH=69><P>14,2</P></TD>
+              <TD WIDTH=138><P>0,1</P></TD>
+              <TD WIDTH=90><P>3,1</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>4</P></TD>
+              <TD WIDTH=69><P>13,0</P></TD>
+              <TD WIDTH=138><P>-1,1</P></TD>
+              <TD WIDTH=90><P>1,8</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>5</P></TD>
+              <TD WIDTH=69><P>13,5</P></TD>
+              <TD WIDTH=138><P>-0,6</P></TD>
+              <TD WIDTH=90><P>2,4</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>6</P></TD>
+              <TD WIDTH=69><P>14,1</P></TD>
+              <TD WIDTH=138><P>0,0</P></TD>
+              <TD WIDTH=90><P>2,9</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>7</P></TD>
+              <TD WIDTH=69><P>14,0</P></TD>
+              <TD WIDTH=138><P>-0,1</P></TD>
+              <TD WIDTH=90><P>2,8</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>8</P></TD>
+              <TD WIDTH=69><P>13,9</P></TD>
+              <TD WIDTH=138><P>-0,2</P></TD>
+              <TD WIDTH=90><P>2,7</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>9</P></TD>
+              <TD WIDTH=69><P>13,8</P></TD>
+              <TD WIDTH=138><P>-0,3</P></TD>
+              <TD WIDTH=90><P>2,6</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>10</P></TD>
+              <TD WIDTH=69><P>13,5</P></TD>
+              <TD WIDTH=138><P>-0,7</P></TD>
+              <TD WIDTH=90><P>2,3</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>11</P></TD>
+              <TD WIDTH=69><P>14,7</P></TD>
+              <TD WIDTH=138><P>0,6</P></TD>
+              <TD WIDTH=90><P>3,6</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>12</P></TD>
+              <TD WIDTH=69><P>14,1</P></TD>
+              <TD WIDTH=138><P>0,0</P></TD>
+              <TD WIDTH=90><P>3,0</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>13</P></TD>
+              <TD WIDTH=69><P>14,1</P></TD>
+              <TD WIDTH=138><P>0,0</P></TD>
+              <TD WIDTH=90><P>3,0</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>14</P></TD>
+              <TD WIDTH=69><P>14,1</P></TD>
+              <TD WIDTH=138><P>-0,1</P></TD>
+              <TD WIDTH=90><P>2,9</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>15</P></TD>
+              <TD WIDTH=69><P>13,2</P></TD>
+              <TD WIDTH=138><P>-0,9</P></TD>
+              <TD WIDTH=90><P>2,1</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR>
+              <TD COLSPAN=5 WIDTH=473 VALIGN=TOP><P>Gagneurs du prix de consolation (C)</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>1</P></TD>
+              <TD WIDTH=69><P>12,4</P></TD>
+              <TD WIDTH=138><P>-1,7</P></TD>
+              <TD WIDTH=90><P>1,2</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>2</P></TD>
+              <TD WIDTH=69><P>12,5</P></TD>
+              <TD WIDTH=138><P>-1,6</P></TD>
+              <TD WIDTH=90><P>1,3</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>3</P></TD>
+              <TD WIDTH=69><P>10,1</P></TD>
+              <TD WIDTH=138><P>-4,0</P></TD>
+              <TD WIDTH=90><P>-1,1</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>4</P></TD>
+              <TD WIDTH=69><P>11,4</P></TD>
+              <TD WIDTH=138><P>-2,7</P></TD>
+              <TD WIDTH=90><P>0,3</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>5</P></TD>
+              <TD WIDTH=69><P>12,8</P></TD>
+              <TD WIDTH=138><P>-1,3</P></TD>
+              <TD WIDTH=90><P>1,7</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>6</P></TD>
+              <TD WIDTH=69><P>11,5</P></TD>
+              <TD WIDTH=138><P>-2,6</P></TD>
+              <TD WIDTH=90><P>0,4</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>7</P></TD>
+              <TD WIDTH=69><P>12,7</P></TD>
+              <TD WIDTH=138><P>-1,4</P></TD>
+              <TD WIDTH=90><P>1,5</P></TD>
+              <TD WIDTH=121><P>G</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>8</P></TD>
+              <TD WIDTH=69><P>11,0</P></TD>
+              <TD WIDTH=138><P>-3,1</P></TD>
+              <TD WIDTH=90><P>-0,2</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>9</P></TD>
+              <TD WIDTH=69><P>9,3</P></TD>
+              <TD WIDTH=138><P>-4,8</P></TD>
+              <TD WIDTH=90><P>-1,9</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>10</P></TD>
+              <TD WIDTH=69><P>10,4</P></TD>
+              <TD WIDTH=138><P>-3,7</P></TD>
+              <TD WIDTH=90><P>-0,8</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>11</P></TD>
+              <TD WIDTH=69><P>9,3</P></TD>
+              <TD WIDTH=138><P>-4,8</P></TD>
+              <TD WIDTH=90><P>-1,8</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>12</P></TD>
+              <TD WIDTH=69><P>11,1</P></TD>
+              <TD WIDTH=138><P>-3,0</P></TD>
+              <TD WIDTH=90><P>0,0</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>13</P></TD>
+              <TD WIDTH=69><P>10,6</P></TD>
+              <TD WIDTH=138><P>-3,5</P></TD>
+              <TD WIDTH=90><P>-0,6</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>14</P></TD>
+              <TD WIDTH=69><P>11,6</P></TD>
+              <TD WIDTH=138><P>-2,5</P></TD>
+              <TD WIDTH=90><P>0,5</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=56><P>15</P></TD>
+              <TD WIDTH=69><P>10,5</P></TD>
+              <TD WIDTH=138><P>-3,6</P></TD>
+              <TD WIDTH=90><P>-0,6</P></TD>
+              <TD WIDTH=121><P>C</P></TD>
+            </TR>
+          </TABLE>
+        </CENTER>
+        <H6 CLASS="western">La qualit&eacute; de la classification</H6>
+        <P>La conformit&eacute; de cette classification pr&eacute;dictive
+          avec la r&eacute;alit&eacute; est illustr&eacute;e par le tableau
+          suivant, appel&eacute; matrice des confusions</P>
+        <P ALIGN=CENTER STYLE=" page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Tableau
+          4 - Matrice des confusions </B></FONT></FONT> </P>
+        <CENTER>
+          <TABLE WIDTH=303 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+            <COL WIDTH=127>
+            <COL WIDTH=88>
+            <COL WIDTH=88>
+            <TR VALIGN=TOP>
+              <TD WIDTH=127><P>Apparte-nance pr&eacute;dite</P></TD>
+              <TD COLSPAN=2 WIDTH=176><P>Appartenance r&eacute;elle</P>
+                <P>G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  C</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=127><P>G</P></TD>
+              <TD WIDTH=88><P>15</P></TD>
+              <TD WIDTH=88><P>2</P></TD>
+            </TR>
+            <TR VALIGN=TOP>
+              <TD WIDTH=127><P>C</P></TD>
+              <TD WIDTH=88><P>0</P></TD>
+              <TD WIDTH=88><P>13</P></TD>
+            </TR>
+          </TABLE>
+        </CENTER>
+        <P><A NAME="_ftnref5"></A><A NAME="_ftnref6"></A>En g&eacute;n&eacute;rale
+          cette matrice est un tableau de contingence g x g ( o&ugrave; g est
+          le nombre de groupes), en ligne figurent les appartenances r&eacute;elles
+          et en colonnes les affectations par le mod&egrave;le. On peut y
+          rep&eacute;rer le nombre d'affectations correctes et erron&eacute;es<A HREF="#_ftn5"> </A><A HREF="#_ftn5"><FONT SIZE=1 STYLE="font-size: 8pt">[5] </FONT></A>.
+          Le <B>hit rate </B>est le pourcentage d'affectations correctes par
+          rapport au nombre total d'individus.&nbsp; Pour que le mod&egrave;le
+          pr&eacute;sente un int&eacute;r&ecirc;t, il faut que le hit score
+          soit suffisamment &eacute;lev&eacute;.</P>
+        <div class="row">
+          <div class="span2">
+            <button data-example="hitrateSalesC">Hitrate affectations</button>
+          </div>
+          <div class="span2">
+            <button data-example="hitrateCAMIP">Hitrate affectationsCAMIP</button>
+          </div>
+          <div class="span2">
+            <button data-example="hitrateCBC">Hitrate affectations CBC</button>
+          </div>
+        </div>
+        <P> Dans le cas de deux groupes &agrave;
+          effectifs &eacute;gaux <A HREF="#_ftn6"><FONT SIZE=1 STYLE="font-size: 8pt">[6] </FONT></A>, une proc&eacute;dure de r&eacute;partition purement
+          al&eacute;atoire entra&icirc;nerait 50 % d'affectations correctes. La
+          diff&eacute;rence entre le hit score et 50 % mesure ainsi la qualit&eacute;
+          du mod&egrave;le. Le caract&egrave;re significatif de cette
+          diff&eacute;rence est rep&eacute;r&eacute; &agrave; l'aide de
+          l'expression:</P>
+        <P LANG="nl-NL">Z = (p &nbsp; 0,5)/[(0,5)(0,5)/n]<SUP>1/2</SUP></P>
+        <P><A NAME="_ftnref7"></A>o&ugrave; n est le nombre d'individus. Si Z
+          est sup&eacute;rieur &agrave; 1,64, le mod&egrave;le a
+          significativement mieux r&eacute;ussi &agrave; classer les individus
+          qu'un processus al&eacute;atoire, &agrave; un seuil de 95 % <A HREF="#_ftn7"><FONT SIZE=1 STYLE="font-size: 8pt">[7] </FONT></A>.</P>
+        <H6 CLASS="western">Crit&egrave;res du maximum chance et proportional
+          chance</H6>
+        <P>Quand les groupes sont de dimensions diff&eacute;rentes le hit
+          rate ne peut plus &ecirc;tre compar&eacute; au crit&egrave;re du 50%
+          dans ce cas on peut utiliser deux crit&egrave;res: le crit&egrave;re
+          de la probabilit&eacute; maximum (maximum chance) et le crit&egrave;re
+          de la probabilit&eacute; proportionnelle (proportional chance). Le
+          crit&egrave;re <B>maximum chance </B>consid&egrave;re que tout
+          individu choisit al&eacute;atoirement doit &ecirc;tre class&eacute;
+          comme appartenant au plus grand groupe. Le crit&egrave;re <B>proportional chance</B> est donn&eacute; par la somme des carr&eacute;s
+          des proportions de chaque groupe par rapport au nombre totale
+          d'individus (dans le cas de deux groupes C<SUB>pro </SUB>= p<SUP>2</SUP> + (1 - p)<SUP>2</SUP>).</P>
+        <P><A NAME="_ftnref8"></A>Si le groupe G (grand prix) avait 20
+          membres et le groupe C (prix de consolations) avait 80 membres<A HREF="#_ftn8"> </A><A HREF="#_ftn8"><FONT SIZE=1 STYLE="font-size: 8pt">[8] </FONT></A>le
+          crit&egrave;re maximum chance serait 80 et le crit&egrave;re
+          proportional chance (0,20)<SUP>2</SUP> + (0,80)<SUP>2</SUP> = 0,68.
+          Un hit rate de 85% montrera une bonne am&eacute;lioration par rapport
+          &agrave; la pure chance mais il sera moins fort par rapport au
+          crit&egrave;re maximum chance.</P>
+      </section>
+      <section id="devmmath">
+        <h2 CLASS="western"><A NAME="_ftnref9"></A>D&eacute;veloppement
+          math&eacute;matique du mod&egrave;le<A HREF="#_ftn9"> </A><A HREF="#_ftn9"><FONT SIZE=1 STYLE="font-size: 8pt">[9] </FONT></A> </H2>
+        <H6 CLASS="western">Matrice de covariances intra-groupes</H6>
+        <P>Soit une matrice <B>X</B> de scores centr&eacute;s sur v
+          variables. Celle-ci est partitionn&eacute;e en g sous-matrices <B>D</B><SUB>i</SUB> de n<SUB>i</SUB> cas.</P>
+        <P>&Agrave; chaque partition correspond un centro&iuml;de de <B>m</B><SUB>i</SUB> = (m<SUB>i1</SUB>,...m<SUB>iv</SUB>), une matrice de dispersion
+          (sommes des carr&eacute;s des &eacute;carts et des produits des
+          &eacute;carts aux moyennes) <B>W</B><SUB>i</SUB> ainsi qu'une matrice
+          de covariances <B>V</B><SUB>i</SUB> = <B>W</B><SUB>i</SUB> /(n<SUB>i</SUB> - 1).</P>
+        <P>Les matrices de covariances de chaque groupe &eacute;tant
+          homog&egrave;nes, il y a int&eacute;r&ecirc;t &agrave; consid&eacute;rer
+          la matrice de dispersion au sein des groupes <B>W</B> = <B>W</B><SUB>1</SUB> + &middot; &middot; &middot; + <B>W</B><SUB>g</SUB> &agrave; laquelle
+          correspond la matrice moyenne de covariances intra groupes <B>V</B>= <B>W</B>/( <IMG SRC="slides_fichiers/image015.gif" NAME="images16" ALIGN=BOTTOM WIDTH=10 HEIGHT=22 BORDER=0> n<SUB>i</SUB>-g).</P>
+        <P>L'ensemble des centro&iuml;des mj constitue la matrice</P>
+        <P><IMG SRC="slides_fichiers/image017.gif" NAME="images17" ALIGN=BOTTOM WIDTH=139 HEIGHT=42 BORDER=0> </P>
+        <P>Soit <IMG SRC="slides_fichiers/image019.gif" NAME="images18" ALIGN=BOTTOM WIDTH=47 HEIGHT=54 BORDER=0> = 0. </P>
+        <div class="row">
+          <div class="span2">
+            <button data-example="groupmeansSalesC">Moyennes Groupes</button>
+          </div>
+          <div class="span2">
+            <button data-example="groupmeansCAMIP">Moyennes Groupes CAMIP</button>
+          </div>
+          <div class="span2">
+            <button data-example="groupmeansCBC">Moyennes Groupes CBC</button>
+          </div>
+        </div>
+        <H6 CLASS="western">Matrice de covariances inter-groupes</H6>
+        <P>La matrice correspondante des covariances est dite d'intergroupes
+          et s'obtient ainsi:</P>
+        <P><B>B</B> = <B>M'M</B>/(g - 1)</P>
+        <P>La fonction discriminante <B>y</B> recherch&eacute;e est celle
+          qu'on obtient au moyen d'une combinaison lin&eacute;aire <B>k</B> de
+          la matrice <B>X</B> de telle sorte qu'&agrave; une variance intra
+          groupes donn&eacute;e corresponde un maximum de la variance inter
+          groupes. On peut repr&eacute;senter ainsi la dispersion des cas et
+          moyennes des trois groupes sur l'axe y de la fonction discriminante.</P>
+        <P><A NAME="_x0000_i1033"></A><IMG SRC="slides_fichiers/fig9.gif" NAME="images19" ALIGN=BOTTOM WIDTH=342 HEIGHT=55 BORDER=0></P>
+        <P>Figure 9 - Dispersion de trois groupes sur l'axe de la fonction
+          discriminante.</P>
+        <H6 CLASS="western">La fonction discriminante expression g&eacute;n&eacute;rale</H6>
+        <P>La fonction discriminante ayant pour expression g&eacute;n&eacute;rale <B>y</B> = <B>Xk</B>, les projections sur y des centro&iuml;des,
+          c'est-&agrave;-dire des moyennes des groupes, seront <B>Mk</B> et la
+          variance de ces moyennes ou variance inter sera <B>k'M'Mk</B>/(g - 1)
+          = <B>k'Bk</B>. De la m&ecirc;me fa&ccedil;on, la variance intra
+          groupes sera <B>k'Vk</B>.</P>
+        <P>On d&eacute;sire consid&eacute;rer simultan&eacute;ment une
+          dispersion maximum des moyennes pour une dispersion donn&eacute;e des
+          cas au sein des groupes. On choisit d'arr&ecirc;ter la condition
+          d'une variance intra unit&eacute;, c'est-&agrave;-dire <B>k'Vk </B>=
+          1, qui s'ajoute au multiplicateur ind&eacute;termin&eacute; de
+          Lagrange pour former l'&eacute;quation</P>
+        <P>F = <B>k'Bk</B> - (<B>k'Vk</B> - 1)</P>
+        <H6 CLASS="western">Crit&egrave;res de maximisation</H6>
+        <P>On calcule alors les valeurs du vecteur k qui maximisent F:</P>
+        <P>= 2<B>Bk</B> - 2 <B>Vk</B> = 0</P>
+        <P>= <B>Bk</B> - <B>Vk</B> = 0</P>
+        <P LANG="de-DE">= (<B>B</B> - <B>V</B>)<B>k</B> = 0</P>
+        <P>On sait que celle &eacute;quation comporte une solution diff&eacute;rente
+          de z&eacute;ro pour |<B>B</B> - <B>V</B>| = 0.</P>
+        <P>Ces &eacute;quations, solutions du probl&egrave;me de la fonction
+          discriminante pr&eacute;sentent donc une grande ressemblance avec
+          celles du probl&egrave;me de l'analyse&nbsp; factorielle. On leur
+          donne la forme habituelle en pr&eacute; multipliant par l'inverse de <B>V</B>:</P>
+        <P LANG="en-GB">(<B>V</B><SUP>-1</SUP><B>B</B> - <B>I</B>)<B>k</B> =
+          0</P>
+        <P>et</P>
+        <P>|<B>V</B><SUP>-1</SUP><B>B</B> - <B>I</B>| = 0</P>
+        <P>C'est le probl&egrave;me de la recherche des vecteurs latents <B>k</B> d'une matrice carr&eacute;e non sym&eacute;trique <B>V</B><SUP>-1</SUP><B>B</B>.
+          Il y a int&eacute;r&ecirc;t &agrave; faire en sorte de revenir a une
+          matrice sym&eacute;trique. On a vu (th&eacute;or&egrave;me 7 ...)
+          qu'une matrice non sym&eacute;trique <B>M</B> peut &ecirc;tre &eacute;crite
+          comme la somme d'une matrice sym&eacute;trique <B>S</B> et d'une
+          matrice non sym&eacute;trique <B>A </B>: <B>M</B> = <B>S</B> + <B>A</B>.
+          Par multiplications et additions appropri&eacute;es de lignes, on
+          rend diagonale la matrice sym&eacute;trique et on remplace <B>V</B><SUP>-1</SUP><B>B </B>par <B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2</SUP> qui a la propri&eacute;t&eacute; d'&ecirc;tre sym&eacute;trique et
+          d'avoir les m&ecirc;mes racines et vecteurs latents que <B>V</B><SUP>-1</SUP><B>B</B>.</P>
+        <P>L'expression de la solution de la fonction discriminante devient
+          donc:</P>
+        <P LANG="en-GB">(<B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2 </SUP>- <B>I</B>)<B>k</B> = 0</P>
+        <P LANG="en-GB">| <B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2 </SUP>- <B>I</B> | = 0</P>
+        <P>La r&eacute;solution de l'&eacute;quation</P>
+        <P LANG="en-GB">| <B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2 </SUP>- <B>I</B> | = 0</P>
+        <P>comporte un nombre de solutions &eacute;gal au minimum suivant:
+          soit le nombre de groupes moins un, soit le nombre de variables.
+          Chacune de ces valeurs est introduite dans l'&eacute;quation</P>
+        <P>(<B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2 </SUP>- <SUB>i</SUB><B>I</B>)<B>k</B><SUB>i</SUB> = 0</P>
+        <P>entra&icirc;nant un nombre correspondant de solutions <B>k</B><SUB>i</SUB>.
+          On a vu ant&eacute;rieurement que les vecteurs <B>k</B><SUB>i</SUB> sont orthogonaux, c'est-&agrave;-dire ind&eacute;pendants:&nbsp; la
+          matrice <B>K</B> des vecteurs <B>k</B><SUB>i</SUB> r&eacute;pond donc
+          &agrave; la relation <B>K'K </B>&nbsp;= <B>I</B>&nbsp;&nbsp; lorsque
+          norm&eacute;e aux racines latentes.</P>
+        <P>Le calcul se fait &agrave; partir de la valeur des matrices <B>B</B> et <B>V</B> des covariances inter et intra. Si on proc&egrave;de &agrave;
+          partir des matrices de dispersion, la solution serait la m&ecirc;me
+          sauf pour les racines latentes qui s'en trouveraient multipli&eacute;es
+          par le rapport </P>
+        <P>(g - 1 ) / ( n<SUB>i</SUB> - g).</P>
+        <P>Plusieurs auteurs pr&eacute;sentent la fonction discriminante
+          comme &eacute;tant d&eacute;finie par le vecteur k tel que le rapport
+          de la variance inter &agrave; la variance intra soit maximum:</P>
+        <P>C'est une approche &eacute;quivalente &agrave; celle d&eacute;crite
+          plus haut o&ugrave; <B>k'Vk</B> &eacute;tant fix&eacute; &agrave; 1,
+          on recherche les valeurs de k qui maximisent le num&eacute;rateur.</P>
+      </section>
+      <section id="rotaxesdiscr">
+        <h2 CLASS="western">Rotation des axes des fonctions discriminantes</H2>
+        <H6 CLASS="western">Interpr&eacute;tation</H6>
+        <P>Une fonction discriminante est d&eacute;finie par un vecteur
+          colonnes de coefficients appliqu&eacute;s, par une combinaison
+          lin&eacute;aire, aux variables &eacute;tudi&eacute;es; ces
+          coefficients sont dits bruts ou standard (beta weights) selon qu'ils
+          s'appliquent &agrave; des variables brutes ou standard. Le but de
+          telles combinaisons lin&eacute;aires est de s&eacute;parer au maximum
+          les groupes les uns des autres; en plus d'&ecirc;tre ind&eacute;pendantes
+          les unes des autres, les fonctions discriminantes ont un pouvoir de
+          discrimination qui d&eacute;cro&icirc;t d'une fonction &agrave;
+          l'autre. Le nombre de fonctions discriminantes est le plus petit des
+          deux possibilit&eacute;s suivantes: nombre de variables ou nombre de
+          groupes moins un.</P>
+        <H6 CLASS="western">M&eacute;thodes de rotation</H6>
+        <P>On a vu qu'&agrave; beaucoup de points de vue, les fonctions
+          discriminantes pr&eacute;sentent une grande analogie avec les
+          facteurs mis en &eacute;vidence par l'une ou l'autre technique de
+          l'analyse factorielle. En particulier, on peut souhaiter identifier
+          par un nom chacune de celles-ci, en se basant sur les contributions
+          des variables, telles qu'exprim&eacute;es de fa&ccedil;on comparable
+          par les coefficients standard. Comme en analyse factorielle, une
+          telle identification n'est pas toujours facile, &agrave; moins de
+          proc&eacute;der &agrave; une rotation des axes des fonctions tout en
+          maintenant constantes les positions relatives des cas et des moyennes
+          ou centro&iuml;des. Une rotation VARIMAX est propos&eacute;e en
+          option dans le programme SPSS; on obtient ainsi des coefficients qui
+          sont le plus possible voisins de 1 pour les uns, et de z&eacute;ro
+          pour les autres. L'avantage qu'on en tire est celui d'une facilit&eacute;
+          plus grande d'interpr&eacute;tation, mais cependant on y perd la
+          connaissance de l'ordre des fonctions quant &agrave; leur pouvoir de
+          discrimination. C'est pourquoi il est sugg&eacute;r&eacute; de
+          n'utiliser qu'avec prudence la rotation des axes des fonctions
+          discriminantes (voir Klecka, dans SPSS, p. 444-445).</P>
+        <H6 CLASS="western">M&eacute;thodes de s&eacute;lection des variables</H6>
+        <P>Plusieurs m&eacute;thodes peuvent &ecirc;tre utilis&eacute;es dans
+          le choix des variables &agrave; inclure dans l'&eacute;dification des
+          fonctions discriminantes. Celle dont il a &eacute;t&eacute; question
+          jusqu'&agrave; maintenant, et qui consiste &agrave; consid&eacute;rer
+          toutes les variables &agrave; la fois, est dite m&eacute;thode
+          directe.</P>
+        <P>On peut aussi faire appel &agrave; une approche hi&eacute;rarchique
+          (stepwise) o&ugrave; les variables sont introduites une &agrave; une
+          selon leur capacit&eacute; d&eacute;croissante &agrave; mettre en
+          &eacute;vidence la diff&eacute;rence entre les groupes. Au cours des
+          s&eacute;lections successives, il est possible que des variables d&eacute;j&agrave;
+          entr&eacute;es perdent leur pouvoir de discrimination: la raison en
+          est une redondance d'information, c'est-&agrave;-dire que le pouvoir
+          de discrimination de cette variable est d&eacute;sormais inclus dans
+          quelque combinaison de nouvelles variables retenues.</P>
+        <P>Donc &agrave; chaque &eacute;tape de l'analyse, on proc&egrave;de
+          &agrave; l'&eacute;limination des variables devenues inutiles. Dans
+          le programme SPSS ce test de variable appara&icirc;t sous le titre
+          F-TO-REMOVE.</P>
+        <P>Divers crit&egrave;res, mettant l'accent sur l'un ou l'autre
+          aspect de la dispersion des groupes, sont utilis&eacute;s pour la
+          s&eacute;lection de variables: </P>
+        <P>a) le test de Wilks vise &agrave; minimiser un rapport o&ugrave;
+          entrent en consid&eacute;ration la dispersion des centro&iuml;des et
+          la coh&eacute;sion des cas au sein des groupes: il est semblable &agrave;
+          un test multivari&eacute; F sur les diff&eacute;rences entre les
+          centro&iuml;des;</P>
+        <P>b) plusieurs tests, reli&eacute;s &agrave; la notation de distance
+          de Mahalanobis, visent &agrave; maximiser l'&eacute;cart entre les
+          deux groupes les plus rapproch&eacute;s (les m&eacute;thodes MAHAL,
+          MAXMINF, MINRESID du programme SPSS sont des variantes de cette
+          approche); </P>
+        <P>c) la m&eacute;thode de Rao consiste &agrave; choisir la variable
+          qui contribue le plus &agrave; une distance g&eacute;n&eacute;ralis&eacute;e,
+          &eacute;valu&eacute;e sur les variables pr&eacute;c&eacute;dentes.</P>
+        <P>Pour tous ces crit&egrave;res, une variable est s&eacute;lectionn&eacute;e
+          lorsque son rapport F partiel d&eacute;passe une valeur critique,
+          c'est-&agrave;-dire lorsque sa contribution &agrave; la dispersion
+          additionnelle des centro&iuml;des est statistiquement significative:
+          dans le programme SPSS ce F est dit F-TO-ENTER</P>
+        <H6 CLASS="western">Test de signification</H6>
+        <P>On peut poursuivre, jusqu'&agrave; exhaustion, l'extraction des
+          fonctions discriminantes. Mais comme dans le cas des composantes
+          principales, l'int&eacute;r&ecirc;t des fonctions additionnelles va
+          d&eacute;croissant. Dans beaucoup d'applications on ne d&eacute;passe
+          pas deux ou trois fonctions afin de tirer parti de la facilit&eacute;
+          et de l'int&eacute;r&ecirc;t d'une illustration de la position des
+          groupes de sujets dans un espace &agrave; trois dimensions et moins. </P>
+        <P>L'effet de discrimination de la fonction i par rapport &agrave;
+          toutes les fonctions est exprim&eacute; par la proportion (Hope, p.
+          117-120; Cooley et Lohnes, p.248-250)</P>
+        <P ALIGN=CENTER><IMG SRC="slides_fichiers/image021.gif" NAME="images20" ALIGN=BOTTOM WIDTH=41 HEIGHT=90 BORDER=0> </P>
+        <P>Ce rapport exprime la proportion de la variance expliqu&eacute;e
+          par chaque fonction discriminante. Cependant cette proportion ne
+          conduit pas &agrave; une d&eacute;cision statistique au sens habituel
+          du terme. On recourt souvent &agrave; un autre indicateur.</P>
+        <P>On montre que: <IMG SRC="slides_fichiers/image023.gif" NAME="images21" ALIGN=BOTTOM WIDTH=111 HEIGHT=93 BORDER=0> </P>
+        <P>,o&ugrave; p= nombre de fonctions discriminantes, </P>
+        <P>peut &ecirc;tre utilis&eacute; pour exprimer la capacit&eacute; de
+          discrimination d'un ensemble</P>
+        <P>de variables (ce param&egrave;tre est similaire &agrave;&nbsp; <IMG SRC="slides_fichiers/image025.gif" NAME="images22" ALIGN=BOTTOM WIDTH=63 HEIGHT=43 BORDER=0> de l'article 11.3.0. de Laforge). De m&ecirc;me pour les fonctions
+          au-del&agrave; de la k-i&egrave;me fonction:</P>
+        <P ALIGN=CENTER><IMG SRC="slides_fichiers/image027.gif" NAME="images23" ALIGN=BOTTOM WIDTH=114 HEIGHT=93 BORDER=0> </P>
+        <P>Ce lambda ( <IMG SRC="slides_fichiers/image029.gif" NAME="images24" ALIGN=BOTTOM WIDTH=15 HEIGHT=22 BORDER=0> ) est donc une mesure de l'inverse de la puissance discriminative
+          expliqu&eacute;e par les fonctions discriminantes &agrave; venir. La
+          signification de la discrimination des fonctions restantes k &agrave;
+          p, &agrave; la suite de l'acceptation des k premi&egrave;res, peut se
+          calculer au moyen de l'approximation de Bartlett:</P>
+        <P ALIGN=CENTER><IMG SRC="slides_fichiers/image031.gif" NAME="images25" ALIGN=BOTTOM WIDTH=201 HEIGHT=43 BORDER=0> </P>
+        <P>&nbsp;avec&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          d.l. = (v-k) (g-k-1)</P>
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          o&ugrave;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          v: nombre de variables</P>
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          g: nombre de groupes</P>
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          et&nbsp;&nbsp;&nbsp;&nbsp; <IMG SRC="slides_fichiers/image032.gif" NAME="images26" ALIGN=BOTTOM WIDTH=114 HEIGHT=93 BORDER=0> </P>
+        <P>Si pour ces fonctions discriminantes (k + 1) &agrave; p, on
+          obtient une valeur de x2 qui ne d&eacute;passe pas le seuil critique,
+          on consid&egrave;re que les k premi&egrave;res fonctions calcul&eacute;es
+          suffisent seules &agrave; expliquer de fa&ccedil;on significative les
+          &eacute;carts entre les groupes.</P>
+        <P>Une autre m&eacute;thode permettant de juger de la valeur de
+          discrimination de chaque fonction est celle de la corr&eacute;lation
+          canonique qui mesure l'&eacute;troitesse de la relation entre une
+          fonction discriminante et l'appartenance &agrave; l'un ou l'autre
+          groupe. Le carr&eacute; de cette corr&eacute;lation canonique exprime
+          la proportion de la variance de la fonction discriminante expliqu&eacute;e
+          par une fonction d'appartenance aux divers groupes. Les programmes
+          universels d'analyse discriminante font appel, en plus d'autres
+          m&eacute;thodes, au calcul d'une telle corr&eacute;lation canonique.</P>
+      </section>
+      <section id="remarques">
+        <h2 CLASS="western">Remarques et r&eacute;sum&eacute;</H2>
+        <H6 CLASS="western">Discussion</H6>
+        <P>L'analyse discriminante peut &ecirc;tre vue comme un cas sp&eacute;cial
+          d'analyse factorielle. Mais le but diff&egrave;re: il s'agit de faire
+          ressortir au maximum les diff&eacute;rences entre des groupes mesur&eacute;s
+          dans un espace multidimensionnel, en projetant chaque cas dans
+          l'espace unidimensionnel d'un petit nombre de fonctions lin&eacute;aires
+          orthogonales.</P>
+        <P>Cette op&eacute;ration fait suite habituellement &agrave; celle de
+          l'analyse de variance multivari&eacute;e o&ugrave;, en pr&eacute;sence
+          d'une situation o&ugrave; plusieurs groupes sont mesur&eacute;s sur
+          plusieurs variables, on s'int&eacute;resse d'abord &agrave;
+          d&eacute;terminer s'il y a diff&eacute;rence significative entre les
+          groupes. Dans le cas de r&eacute;sultats positifs, il devient
+          int&eacute;ressant de d&eacute;terminer, parmi les variables, celles
+          qui sont responsables dans un ordre d&eacute;croissant d'importance
+          des diff&eacute;rences entre les groupes: c'est le but de l'analyse
+          discriminante. Une exploitation plus pouss&eacute;e des r&eacute;sultats
+          conduit &agrave; leur utilisation dans le but de classifier (en se
+          donnant comme objectif une probabilit&eacute; minimum d'erreurs) des
+          nouveaux sujets dans les divers groupes: l'&eacute;tude de cette
+          technique fait l'objet du chapitre suivant.</P>
+        <P>Le r&ocirc;le de l'analyse discriminante peut &ecirc;tre envisag&eacute;
+          de deux fa&ccedil;ons quant &agrave; l'attribution des qualificatifs
+          d'ind&eacute;pendance et de d&eacute;pendance, aux variables mesur&eacute;es
+          sur les populations vis&eacute;es et aux fonctions discriminantes. En
+          sciences d'exploration, en g&eacute;n&eacute;ral, les populations
+          sont consid&eacute;r&eacute;es comme variables ind&eacute;pendantes
+          (predictor) et les fonctions discriminantes comme variables
+          d&eacute;pendantes (crit&egrave;res). En sciences exp&eacute;rimentales,
+          ces r&ocirc;les se trouvent renvers&eacute;s.</P>
+        <P>L'analyse discriminante consiste donc &agrave; projeter dans un
+          sous-espace approprie des &eacute;chantillons de mesures
+          multidimensionnelles. L'interpr&eacute;tation de cette op&eacute;ration
+          peut &ecirc;tre faite en termes (voir Cooley et Lohnes, p. 243) soit
+          du nombre et de l'importance relative des fonctions discriminantes
+          retenues, soit de la localisation dans l'espace discriminant des
+          populations &eacute;tudi&eacute;es.</P>
+        <HR WIDTH=299 ALIGN=LEFT SIZE=2>
+        <DIV ID="ftn1" DIR="LTR">
+          <P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[1] </FONT><A HREF="#_ftnref1"><SPAN LANG="en-GB">Gilbert
+            A. Churchill, &quot;Marketing Research, Methodological Foundations&quot;,
+            5e Ed., Dryden Press, 1991. </SPAN></A> </P>
+        </DIV>
+        <DIV ID="ftn2" DIR="LTR">
+          <P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[2] </FONT><A HREF="#_ftnref2">ibidem </A> </P>
+        </DIV>
+        <DIV ID="ftn3" DIR="LTR">
+          <P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[3] </FONT><A HREF="#_ftnref3">Hubert
+            Laforge &quot;Analyse multivari&eacute;e pour les sciences sociales
+            et biologiques avec applications des logiciels BMP, BMDP, SPSS,
+            SAS&quot;, Ed. Etudes Vivantes, Montr&eacute;al, 1981. </A> </P>
+        </DIV>
+        <DIV ID="ftn4" DIR="LTR">
+          <P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[4] </FONT><A HREF="#_ftnref4">&nbsp;
+            les coefficients (poids) sont donn&eacute;s par le vecteur propre
+            qui r&eacute;sulte de la r&eacute;solution de l'&eacute;quation: </A> </P>
+          <P LANG="en-GB">(<B>W</B><SUP>-1</SUP><B>B</B> - <B>I</B>)<B>v</B> =
+            0,</P>
+          <P>o&ugrave; <B>W</B> est la matrice des variances-covariances
+            intra-groupes (<B>within</B> group) et <B>B </B>est la matrice des
+            sommes des carr&eacute;es et produits crois&eacute;s inter-groupes
+            (<B>between</B> group) </P>
+        </DIV>
+        <DIV ID="ftn5" DIR="LTR">
+          <P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[5] </FONT><A HREF="#_ftnref5">Vedrine
+            J.-P. &quot;Le traitement des donn&eacute;es en marketing&quot;, Ed.
+            Organisation, Paris, 1991. </A> </P>
+        </DIV>
+        <DIV ID="ftn6" DIR="LTR">
+          <P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[6] </FONT> </P>
+        </DIV>
+        <DIV ID="ftn7" DIR="LTR">
+          <P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[7] </FONT> </P>
+        </DIV>
+        <DIV ID="ftn8" DIR="LTR">
+          <P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[8] </FONT><A HREF="#_ftnref8">Churchill, 91 </A> </P>
+        </DIV>
+        <DIV ID="ftn9" DIR="LTR">
+        <P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[9] </FONT><A HREF="#_ftnref9">Hubert
+          Laforge &quot;Analyse multivari&eacute;e pour les sciences sociales
+          et biologiques avec applications des logiciels BMP, BMDP, SPSS,
+          SAS&quot;, Ed. Etudes Vivantes, Montr&eacute;al, 1981. </A> </P>
+      </section>
+    </div>
+    <!-- end right --> 
+  </div>
+  <!-- end row --> 
+</div>
+<!-- end continer --> 
+<script src="../opencpu/jquery-1.7.2.min.js"></script> 
+<script src="../opencpu/bootstrap/js/bootstrap.js"></script> 
+<script src="../opencpu/common.js"></script> 
+<script src="../opencpu/docs.js"></script> 
+<script src="../opencpu/camip.js"></script> 
+<script src="slide-example.js"></script>
+</body>
+</html>

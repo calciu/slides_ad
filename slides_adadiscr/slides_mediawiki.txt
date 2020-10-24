@@ -1,0 +1,1195 @@
+'''L'analyse discriminante '''
+
+==== M. Calciu ====
+=== Cours d'analyse des données à l'Université Lille 1 - 2013/2014 ===
+===== Analyse discriminante =====
+== Introduction  ==
+===== Présentation =====
+L'analyse discriminante connue dans la pratique marketing sous le nom '''"scoring"''' essaye de déterminer la contribution des variables qui expliquent l'appartenance des individus à des groupes. Deux ou plusieurs groupes sont comparés, pour déterminer s'ils différent et pour comprendre la nature de ces différences. En marketing il est important d'identifier des caractéristiques qui déterminent l'appartenance à des groupes, qui permettraient de distinguer entre:
+
+- utilisateurs permanents et occasionnels d'un produit;
+
+- acheteurs d'une marque et les acheteurs de marques concurrentes;
+
+- clients loyaux et aloyaux
+
+- vendeurs bons, médiocres et mauvais [#_ftn1 [1] ]
+
+===== Exemple: =====
+Par exemple suite à un concours de vente on a réussi de séparer trois groupes de vendeurs. Pour identifier les éléments (les variables) qui permettent de distinguer entre un bon et un mauvais vendeur, on a appliqué un questionnaire aux participants a ce concours dans le quel on s'est intéressé d'une manière prioritaire à quatre caractéristiques : le nombre de contacts avec des nouveaux clients ; la èproportion de contacts avec rendez-vous d'avance; les coups de téléphone aux prospects et le nombre de nouveau comptes visités[#_ftn2  ][#_ftn2 [2] ]. 
+
+===== Tableau 1 Actions des vendeurs concernant les nouveaux clients =====
+
+{| style="border-spacing:0;"
+|| Individus
+|| Nombre de contacts nouveaux clients 
+|| Proportion de contacts avec rendez-vous d'avance
+|| Coups de téléphone aux prospects
+|| Nombre de nouveau comptes visités
+
+|-
+|| i
+|| X1
+|| X2
+|| X3
+|| X4
+
+|-
+| colspan="5" | Gagneurs du grand prix (G)
+
+|-
+|| 1 KZV
+|| 130
+|| 62
+|| 148
+|| 42
+
+|-
+|| 2 BOR
+|| 122
+|| 70
+|| 186
+|| 44
+
+|-
+|| 3 NUA
+|| 89
+|| 68
+|| 171
+|| 32
+
+|-
+|| 4 NOA
+|| 104
+|| 58
+|| 135
+|| 40
+
+|-
+|| 5 HJV
+|| 116
+|| 40
+|| 160
+|| 36
+
+|-
+|| 6 VRX
+|| 100
+|| 65
+|| 151
+|| 30
+
+|-
+|| 7 BFO
+|| 85
+|| 66
+|| 183
+|| 42
+
+|-
+|| 8 MIG
+|| 113
+|| 59
+|| 130
+|| 25
+
+|-
+|| 9 WLL
+|| 108
+|| 52
+|| 163
+|| 41
+
+|-
+|| 10 GJN
+|| 116
+|| 48
+|| 154
+|| 48
+
+|-
+|| 11OKX
+|| 99
+|| 57
+|| 188
+|| 32
+
+|-
+|| 12KAA
+|| 78
+|| 70
+|| 190
+|| 40
+
+|-
+|| 13 UHO
+|| 106
+|| 61
+|| 157
+|| 38
+
+|-
+|| 14 GCI
+|| 94
+|| 58
+|| 173
+|| 29
+
+|-
+|| 15 CSN
+|| 98
+|| 64
+|| 37
+|| 36
+
+|-
+| colspan="5" | Gagneurs du prix de consolation (C)
+
+|-
+|| 1 XDC
+|| 105
+|| 39
+|| 155
+|| 45
+
+|-
+|| 2 OAH
+|| 86
+|| 60
+|| 140
+|| 33
+
+|-
+|| 3 VKS
+|| 64
+|| 48
+|| 132
+|| 36
+
+|-
+|| 4 EXL
+|| 104
+|| 36
+|| 119
+|| 29
+
+|-
+|| 5 PQT
+|| 102
+|| 53
+|| 143
+|| 41
+
+|-
+|| 6 ITE
+|| 73
+|| 62
+|| 128
+|| 30
+
+|-
+|| 7 OXX
+|| 94
+|| 51
+|| 152
+|| 36
+
+|-
+|| 8 DON
+|| 59
+|| 64
+|| 130
+|| 28
+
+|-
+|| 9 CIG
+|| 84
+|| 31
+|| 102
+|| 32
+
+|-
+|| 10 GID
+|| 91
+|| 47
+|| 96
+|| 35
+
+|-
+|| 11 PLO
+|| 83
+|| 40
+|| 87
+|| 30
+
+|-
+|| 12 KOJ
+|| 95
+|| 42
+|| 114
+|| 28
+
+|-
+|| 13 DIN
+|| 68
+|| 52
+|| 123
+|| 26
+
+|-
+|| 14 RZI
+|| 101
+|| 51
+|| 98
+|| 24
+
+|-
+|| 15 UOE
+|| 89
+|| 39
+|| 117
+|| 33
+
+|-
+| colspan="5" | Vendeurs sans succès (S)
+
+|-
+|| 1 MJB
+|| 80
+|| 23
+|| 69
+|| 32
+
+|-
+|| 2 VKN
+|| 47
+|| 42
+|| 74
+|| 33
+
+|-
+|| 3 XOG
+|| 26
+|| 37
+|| 132
+|| 20
+
+|-
+|| 4 AUT
+|| 94
+|| 24
+|| 68
+|| 26
+
+|-
+|| 5 ZCU
+|| 57
+|| 32
+|| 94
+|| 23
+
+|-
+|| 6 AKY
+|| 38
+|| 41
+|| 83
+|| 28
+
+|-
+|| 7 HZL
+|| 29
+|| 52
+|| 96
+|| 22
+
+|-
+|| 8 NHN
+|| 48
+|| 24
+|| 73
+|| 26
+
+|-
+|| 9 KZW
+|| 57
+|| 36
+|| 82
+|| 28
+
+|-
+|| 10 ZUB
+|| 39
+|| 37
+|| 98
+|| 21
+
+|-
+|| 11 NFJ
+|| 51
+|| 38
+|| 117
+|| 24
+
+|-
+|| 12 TFJ
+|| 40
+|| 42
+|| 112
+|| 22
+
+|-
+|| 13RLM
+|| 64
+|| 21
+|| 67
+|| 29
+
+|-
+|| 14 XGF
+|| 35
+|| 32
+|| 78
+|| 25
+
+|-
+|| 15AMA
+|| 51
+|| 29
+|| 81
+|| 26
+
+|}
+== Modèle géométrique ==
+===== Cas à deux variables =====
+Pour simplifier, on prend deux groupes de sujets (vendeurs) mesurés sur deux variables X et Y. Une première variable indiquant le nombre de contacts avec des nouveaux clients sera notée Y et la deuxième variable, proportion des contacts par rendez-vous sera notée par X.
+
+Les réponses des individus à ces questions, sont représentées dans la figure 1. Les deux questions représentent les variables selon lesquelles on aimerait arriver à distinguer les deux groupes. 
+
+
+===== Figure 1 - Réponses de deux groupes de vendeurs ad deux questions =====
+En analysant le graphique on se rend compte que sur chacune des axes représentés par les deux variables il y a une région importante d'incertitude, dans la quelle pour les même valeurs des variables on trouve des individus appartenant aux deux groupes (bons et mauvais vendeurs).
+
+===== Objectif =====
+Le but de l'analyse discriminante serait de trouver un nouvel axe comme combinaison linéaire des variables qui permettrait de réduire cette zone d'incertitude. Un tel axe dans l'exemple donné est illustré dans la figure 2.
+
+
+===== Figure 2 ‚Äì Recherche de l'axe qui discrimine mieux les deux groupes =====
+===== Cas général =====
+Imaginons maintenant, d'une manière plus générale, que ces variables sont centrées pour l'ensemble des deux groupes.
+
+On illustre dans un espace à deux dimensions les coordonnées de chaque sujet sur les variables en question et on trace les lignes contours de 95 % (1,96 ) Ou 68 % (1 a). Les hypothèses de normalité des variables conjointes et d'homogénéité des variances et covariances sont maintenues[#_ftn3  ][#_ftn3 [3] ]. 
+
+La figure 3 en est un exemple.
+
+
+===== Figure 3 Lignes contours de deux échantillons de variables conjointes homogènes et normalement distribuées. =====
+Dans la démarche habituelle de l'analyse, on éprouvera d'abord le besoin de déterminer s'il faut considérer les moyennes ou centroïdes de chaque population comme distinctes: L'analyse de variance multiple est un instrument bien indiqué pour cette tâche. Il appara√Æt ensuite intéressant, connaissant les scores d'un éventuel sujet sur les deux variables, de déterminer, à l'intérieur d'un pourcentage d'erreur, l'appartenance de ce sujet à l'une ou l'autre de ces populations.
+
+===== Zones d'incertitude et attribution d'appartenance =====
+Si l'on se base, pour une telle attribution d'appartenance, sur la connaissance du seul score X, on voit que l'incertitude de la décision va de a à b et touche les sujets situés dans la région hachurée de la figure 4.
+
+
+Figure 4 Région d'incertitude basée sur la variable X
+
+
+Figure 5 Région d'incertitude basée sur la variable Y
+
+===== La région sure =====
+Si cette décision est prise en tenant compte des deux variables, on constate que la région sure correspond alors à la surface hachurée
+
+
+Figure 6 Région d'incertitude basée sur deux variables
+
+===== Région minimum d'incertitude  =====
+Cette seconde façon de procéder, quoique meilleure que la première, peut comporter encore de grosses imprécisions (sauf cas particuliers) car la véritable région d'incertitude est celle de l'intersection des deux ellipses
+
+
+Figure 7 Région minimum d'incertitude
+
+===== Recherche des axes discriminants =====
+On propose de considérer une nouvelle variable qui soit une combinaison linéaire des précédentes; géométriquement, cette nouvelle variable est représentée par un axe sur lequel on projette les divers points des groupes de sujets. Aux fins d'illustration, on limite le nombre de variables de départ ainsi que le nombre de groupes à deux; dans la pratique, le modèle mathématique dont il sera question à l'article suivant ne comporte pas de telles limites.
+
+L'axe est appelé axe de la fonction discriminante. Les points projetés sur cet axe se distribuent normalement pour chacun des groupes; les valeurs de cette fonction comprises entre les lignes pointillés correspondent à la région d'incertitude. On désire que l'axe occupe une position telle que la projection des points donne lieu au minimum de superposition des divers groupes de sujets.
+
+La figure 8 illustre la situation particulière de la recherche de la fonction de deux variables qui discrimine au maximum deux groupes de cas.
+
+===== Maximiser le pouvoir discriminant =====
+La qualité de la discrimination est liée à la superposition des deux distributions de projections sur l'axe. On peut mesurer la qualité de la dispersion à la grandeur du rapport de la variance entre les moyennes à la variance à l'intérieur d'un groupe variance inter-groupe / variance intra-groupe.
+
+Ce rapport est analogue au F de l'analyse de variance. On suppose que la variance des scores à l'intérieur de chaque groupe répond au critère d'homogénéité de telle sorte que cette variance intra est la moyenne des variances intra des groupes considérés.
+
+Un rapport maximum est lié non seulement à la grandeur de son numérateur mais aussi à l'étroitesse du dénominateur: la variance inter atteindra son maximum pour l'axe parallèle au segment joignant les centroïdes tandis que la variance intra sera minimum pour un axe perpendiculaire à l'axe principal des ellipses; c'est en une position intermédiaire que se situe le rapport maximum des variances inter et intra.
+
+
+Figure 8. Modèle géométrique de la fonction discriminante.
+
+===== Resultats =====
+L'analyse discriminante a pour but de déterminer cet axe optimum de la fonction discriminante, c'est-à-dire de calculer les éléments d'un vecteur k qui définissent une combinaison linéaire des variables X et Y. Ces exigences géométriques peuvent être avantageusement traitées à la manière de l'extraction des composantes principales, car des fonctions discriminantes orthogonales successives s'apparentent à ces composantes. On comprend alors que le nombre possible de ces fonctions soit limité par le nombre de variables et aussi par le nombre de groupes: ce qui est dans le sens d'une interprétation plus aisée de la discrimination. Ceci est d'ailleurs facilité par le fait que des fonctions discriminantes additionnelles sont responsables d'une proportion de moins en moins élevée du pouvoir discriminateur total; il est souvent souhaitable de limiter à deux ou à trois ces fonctions discriminantes afin d'en rendre possible l'illustration géométrique et donc l'interprétation (voir Cooley et Lohnes, 1971, p. 244-246).
+
+== Les coefficients de la fonction discriminante ==
+===== Utilisation des coefficients =====
+Une manière de déterminer quelles sont les variables qui discriminent entre les deux types de gagnants aux concours de ventes est de construire un index, basé sur les valeurs des caractéristiques mesurées, qui sépare les deux groupes, formant une combinaison linéaire de ces dernières du genre: 
+
+<center><math>Y={\nu }_{1}{X}_{1}+{\nu }_{2}{X}_{2}+{\nu }_{3}{X}_{3}+{\nu }_{4}{X}_{4}</math></center>
+
+ou <math>{\nu }_{1},{\nu }_{2},{\nu }_{3},{\nu }_{4}</math> sont des coefficients arbitraires. En analyse discriminante les coefficients sont dérivés de telle manière que la variation des scores de Y entre les (deux) groupes soit si large que possible et la variation des scores de Y à l'intérieur des groupes (within group ou intra-groupe) soie si petite que possible. Autrement dit on calcule les coefficients qui maximisent le rapportvariance inter-groupe / variance intra-groupe.
+
+Ce ci fait les groupes aussi distincts que possible du point de vue des nouveaux scores de l'index.
+
+Pour l'exemple analysé les coefficients discriminants sont <math>{\nu }_{1}=\mathrm{0,059},{\nu }_{2}=\mathrm{0,063},{\nu }_{3}=\mathrm{0,034},{\nu }_{4}-\mathrm{0,032}</math> et la combinaison linéaire qui différencie de manière maximale entre les groupes est[#_ftn4  ][#_ftn4 [4] ]
+
+<math>Y=\mathrm{0,059}{X}_{1}+\mathrm{0,063}{X}_{2}+\mathrm{0,034}{X}_{3}-\mathrm{0,032}{X}_{4}</math>,
+
+===== Calcul des scores sur les axes discriminants =====
+Ayant les coefficients discriminants on peut calculer le score de chaque vendeur, si ce score est plus proche de la moyenne des scores du groupe des gagnants du grand prix, l'individu sera affecté à ce groupe si non il était affecté à l'autre groupe.
+
+On peut observer que l'approche de l'analyse discriminante est proche de celui de la '''''régression'''''. Dans les chacun des cas on essaye d'expliquer (prévoir) une variable dépendante par une combinaison linéaire de variables indépendantes. En régression la variable expliquée est continue. En analyse discriminante la variable dépendante est l'appartenance à un groupe. On peut transformer le problème d'analyse discriminante pour de groupes en problème de régression en utilisant une variable muette (dummy) comme variable dépendante. Les coefficients de régression résultants seront proportionnels à ceux obtenus par l'analyse discriminante.
+
+Scores calculés des gagnants du grand prix et du prix de consolation utilisant la fonction discriminante 
+
+<math>Y=\mathrm{0,059}{X}_{1}+\mathrm{0,063}{X}_{2}+\mathrm{0,034}{X}_{3}-\mathrm{0,032}{X}_{4}</math>,
+
+===== Tableau 2 - Calcul de scores discriminants =====
+
+{| style="border-spacing:0;"
+|| 
+|| X1
+|| X2
+|| X3
+|| X4
+|| Y
+
+|-
+| colspan="6" | Gagneurs du grand prix (G)
+
+|-
+|| 1 KZV
+|| 130
+|| 62
+|| 148
+|| 42
+|| 15,1
+
+|-
+|| 2 BOR
+|| 122
+|| 70
+|| 186
+|| 44
+|| 16,4
+
+|-
+|| 3 NUA
+|| 89
+|| 68
+|| 171
+|| 32
+|| 14,2
+
+|-
+|| 4 NOA
+|| 104
+|| 58
+|| 135
+|| 40
+|| 13,0
+
+|-
+|| 5 HJV
+|| 116
+|| 40
+|| 160
+|| 36
+|| 13,5
+
+|-
+|| 6 VRX
+|| 100
+|| 65
+|| 151
+|| 30
+|| 14,1
+
+|-
+|| 7 BFO
+|| 85
+|| 66
+|| 183
+|| 42
+|| 14,0
+
+|-
+|| 8 MIG
+|| 113
+|| 59
+|| 130
+|| 25
+|| 13,9
+
+|-
+|| 9 WLL
+|| 108
+|| 52
+|| 163
+|| 41
+|| 13,8
+
+|-
+|| 10 GJN
+|| 116
+|| 48
+|| 154
+|| 48
+|| 13,5
+
+|-
+|| 11OKX
+|| 99
+|| 57
+|| 188
+|| 32
+|| 14,7
+
+|-
+|| 12KAA
+|| 78
+|| 70
+|| 190
+|| 40
+|| 14,1
+
+|-
+|| 13 UHO
+|| 106
+|| 61
+|| 157
+|| 38
+|| 14,1
+
+|-
+|| 14 GCI
+|| 94
+|| 58
+|| 173
+|| 29
+|| 14,1
+
+|-
+|| 15 CSN
+|| 98
+|| 64
+|| 37
+|| 36
+|| 9,8
+
+|-
+|| 
+|| 
+|| 
+|| 
+|| 
+|| 
+
+|-
+|| Moyenne
+|| 103,9
+|| 59,9
+|| 155,1
+|| 37,0
+|| 13,9
+
+|-
+| colspan="6" | Gagneurs du prix de consolation (C)
+
+|-
+|| 1 XDC
+|| 105
+|| 39
+|| 155
+|| 45
+|| 12,4
+
+|-
+|| 2 OAH
+|| 86
+|| 60
+|| 140
+|| 33
+|| 12,5
+
+|-
+|| 3 VKS
+|| 64
+|| 48
+|| 132
+|| 36
+|| 10,1
+
+|-
+|| 4 EXL
+|| 104
+|| 36
+|| 119
+|| 29
+|| 11,4
+
+|-
+|| 5 PQT
+|| 102
+|| 53
+|| 143
+|| 41
+|| 12,8
+
+|-
+|| 6 ITE
+|| 73
+|| 62
+|| 128
+|| 30
+|| 11,5
+
+|-
+|| 7 OXX
+|| 94
+|| 51
+|| 152
+|| 36
+|| 12,7
+
+|-
+|| 8 DON
+|| 59
+|| 64
+|| 130
+|| 28
+|| 11,0
+
+|-
+|| 9 CIG
+|| 84
+|| 31
+|| 102
+|| 32
+|| 9,3
+
+|-
+|| 10 GID
+|| 91
+|| 47
+|| 96
+|| 35
+|| 10,4
+
+|-
+|| 11 PLO
+|| 83
+|| 40
+|| 87
+|| 30
+|| 9,3
+
+|-
+|| 12 KOJ
+|| 95
+|| 42
+|| 114
+|| 28
+|| 11,1
+
+|-
+|| 13 DIN
+|| 68
+|| 52
+|| 123
+|| 26
+|| 10,6
+
+|-
+|| 14 RZI
+|| 101
+|| 51
+|| 98
+|| 24
+|| 11,6
+
+|-
+|| 15 UOE
+|| 89
+|| 39
+|| 117
+|| 33
+|| 10,5
+
+|-
+|| 
+|| 
+|| 
+|| 
+|| 
+|| 
+
+|-
+|| Moyenne
+|| 86,5
+|| 47,7
+|| 122,4
+|| 32,4
+|| 11,1
+
+|}
+== Interprétation de la fonction discriminante ==
+===== Tester la différentiation obtenue =====
+Dans une approche rigoureuse avant d'interpréter la fonction discriminante, on doit tester si au niveau des scores discriminants on obtient une différentiation significative entre les groupes. Cela se fait en appliquant un test en F aux valeurs de la statistique <math>{D}^{2}</math> de Mahalanobis (qui mesure la distance de chaque case à la moyenne du groupe, tout en permettant des axes corrélés et des unités de mesure différentes).
+
+===== Les coefficients discriminants =====
+La fonction discriminante originale contient des poids (coefficients) à appliquer aux valeurs brutes des variables. Ces poids sont influencés par l'échelle de mesure des variables. Pour éviter des effets d'échelle de mesure arbitraire ''quand on compare les contributions de chaque variable on utilise des coefficients standardisés'', obtenus par multiplication des coefficients bruts de chaque variable par l'écart type pour l'ensemble des groupes (pooled standard deviation) de. 
+
+== Classification des individus utilisant la fonction discriminante ==
+===== Calcul de cutting score =====
+Pour classifier les individus dans un des groupes on doit fixer un score (cutting score) qui joue le rôle de frontière entre les groupes. Normalement c'est la moyenne des scores des deux groupes. Si les groupes sont de dimensions égales le '''cutting score''' (YCS) est égale à la moyenne des moyennes des scores des groupes.
+
+<center>[[Image:image008.gif]] </center>
+
+<center><math>{Y}_{\mathit{CS}}=\left(\stackrel{\bar }{{Y}_{G}}+\stackrel{\bar }{{Y}_{C}}\right)/2</math><nowiki>=(14,2 + 11,2)/2 = 12,7</nowiki></center>
+
+Si les groupes ne sont pas égaux on utilisera une moyenne pondérée du genre: 
+
+<center><math>{Y}_{\mathit{CS}}=\frac{{n}_{2}\stackrel{\bar }{{Y}_{1}}+{n}_{1}\stackrel{\bar }{{Y}_{2}}}{{n}_{1}+{n}_{2}}</math></center>
+
+o√π <math>\stackrel{\bar }{{Y}_{1}}</math>et <math>\stackrel{\bar }{{Y}_{2}}</math> sont les scores discriminants moyens et n<sub>1</sub> et n<sub>2</sub> sont les dimensions des groupes (on observe que la moyenne de chaque groupe est pondérée avec la dimension de l'autre.
+
+===== Attribution aux groupes =====
+Dans le cas du concours des vendeurs, une règle de décision simple serait de classifier un vendeur dans le groupe des gagnants du grand prix si son score est plus proche de la moyenne des scores du groupe des gagnants du grand prix, que de la moyenne des scores du groupe des gagnants du prix de consolation, si non il sera affecté au groupe des gagnants du prix de consolation.
+
+===== Tableau 3 - L'appartenance de groupe prédite utilisant la règle de classification simple =====
+
+{| style="border-spacing:0;"
+|| 
+|| 
+| colspan="2" | <center>Différences parrapport à la moyenne du</center>
+|| <center>Appartenance de </center>
+
+|-
+|| 
+|| <center>Score dis- criminant</center>
+|| <center>Premier groupe</center>
+|| <center>Deuxieme groupe</center>
+|| <center>groupe predite</center>
+
+|-
+|| 
+|| <center><math>{Y}_{i}</math></center>
+|| <center><math>{Y}_{i}-{Y}_{g}</math></center>
+|| <center><math>{Y}_{i}-{Y}_{c}</math></center>
+|| 
+
+|-
+| colspan="5" | <center>Gagneurs du grand prix (G)</center>
+
+|-
+|| <center>1</center>
+|| <center>15,1</center>
+|| <center>1,0</center>
+|| <center>4,0</center>
+|| <center>G</center>
+
+|-
+|| <center>2</center>
+|| <center>16,4</center>
+|| <center>2,3</center>
+|| <center>5,3</center>
+|| <center>G</center>
+
+|-
+|| <center>3</center>
+|| <center>14,2</center>
+|| <center>0,1</center>
+|| <center>3,1</center>
+|| <center>G</center>
+
+|-
+|| <center>4</center>
+|| <center>13,0</center>
+|| <center>-1,1</center>
+|| <center>1,8</center>
+|| <center>G</center>
+
+|-
+|| <center>5</center>
+|| <center>13,5</center>
+|| <center>-0,6</center>
+|| <center>2,4</center>
+|| <center>G</center>
+
+|-
+|| <center>6</center>
+|| <center>14,1</center>
+|| <center>0,0</center>
+|| <center>2,9</center>
+|| <center>G</center>
+
+|-
+|| <center>7</center>
+|| <center>14,0</center>
+|| <center>-0,1</center>
+|| <center>2,8</center>
+|| <center>G</center>
+
+|-
+|| <center>8</center>
+|| <center>13,9</center>
+|| <center>-0,2</center>
+|| <center>2,7</center>
+|| <center>G</center>
+
+|-
+|| <center>9</center>
+|| <center>13,8</center>
+|| <center>-0,3</center>
+|| <center>2,6</center>
+|| <center>G</center>
+
+|-
+|| <center>10</center>
+|| <center>13,5</center>
+|| <center>-0,7</center>
+|| <center>2,3</center>
+|| <center>G</center>
+
+|-
+|| <center>11</center>
+|| <center>14,7</center>
+|| <center>0,6</center>
+|| <center>3,6</center>
+|| <center>G</center>
+
+|-
+|| <center>12</center>
+|| <center>14,1</center>
+|| <center>0,0</center>
+|| <center>3,0</center>
+|| <center>G</center>
+
+|-
+|| <center>13</center>
+|| <center>14,1</center>
+|| <center>0,0</center>
+|| <center>3,0</center>
+|| <center>G</center>
+
+|-
+|| <center>14</center>
+|| <center>14,1</center>
+|| <center>-0,1</center>
+|| <center>2,9</center>
+|| <center>G</center>
+
+|-
+|| <center>15</center>
+|| <center>13,2</center>
+|| <center>-0,9</center>
+|| <center>2,1</center>
+|| <center>G</center>
+
+|-
+| colspan="5" | <center>Gagneurs du prix de consolation (C)</center>
+
+|-
+|| <center>1</center>
+|| <center>12,4</center>
+|| <center>-1,7</center>
+|| <center>1,2</center>
+|| <center>C</center>
+
+|-
+|| <center>2</center>
+|| <center>12,5</center>
+|| <center>-1,6</center>
+|| <center>1,3</center>
+|| <center>C</center>
+
+|-
+|| <center>3</center>
+|| <center>10,1</center>
+|| <center>-4,0</center>
+|| <center>-1,1</center>
+|| <center>C</center>
+
+|-
+|| <center>4</center>
+|| <center>11,4</center>
+|| <center>-2,7</center>
+|| <center>0,3</center>
+|| <center>C</center>
+
+|-
+|| <center>5</center>
+|| <center>12,8</center>
+|| <center>-1,3</center>
+|| <center>1,7</center>
+|| <center>G</center>
+
+|-
+|| <center>6</center>
+|| <center>11,5</center>
+|| <center>-2,6</center>
+|| <center>0,4</center>
+|| <center>C</center>
+
+|-
+|| <center>7</center>
+|| <center>12,7</center>
+|| <center>-1,4</center>
+|| <center>1,5</center>
+|| <center>G</center>
+
+|-
+|| <center>8</center>
+|| <center>11,0</center>
+|| <center>-3,1</center>
+|| <center>-0,2</center>
+|| <center>C</center>
+
+|-
+|| <center>9</center>
+|| <center>9,3</center>
+|| <center>-4,8</center>
+|| <center>-1,9</center>
+|| <center>C</center>
+
+|-
+|| <center>10</center>
+|| <center>10,4</center>
+|| <center>-3,7</center>
+|| <center>-0,8</center>
+|| <center>C</center>
+
+|-
+|| <center>11</center>
+|| <center>9,3</center>
+|| <center>-4,8</center>
+|| <center>-1,8</center>
+|| <center>C</center>
+
+|-
+|| <center>12</center>
+|| <center>11,1</center>
+|| <center>-3,0</center>
+|| <center>0,0</center>
+|| <center>C</center>
+
+|-
+|| <center>13</center>
+|| <center>10,6</center>
+|| <center>-3,5</center>
+|| <center>-0,6</center>
+|| <center>C</center>
+
+|-
+|| <center>14</center>
+|| <center>11,6</center>
+|| <center>-2,5</center>
+|| <center>0,5</center>
+|| <center>C</center>
+
+|-
+|| <center>15</center>
+|| <center>10,5</center>
+|| <center>-3,6</center>
+|| <center>-0,6</center>
+|| <center>C</center>
+
+|}
+===== La qualité de la classification =====
+La conformité de cette classification prédictive avec la réalité est illustrée par le tableau suivant, appelé matrice des confusions
+
+===== Tableau 4 - Matrice des confusions  =====
+
+{| style="border-spacing:0;"
+|| <center>Appartenance </center>
+| colspan="2" | <center>Appartenance réelle</center>
+
+|-
+|| <center>prédite</center>
+|| <center>G</center>
+|| <center>C</center>
+
+|-
+|| <center>G</center>
+|| <center>15</center>
+|| <center>2</center>
+
+|-
+|| <center>C</center>
+|| <center>0</center>
+|| <center>13</center>
+
+|}
+En générale cette matrice est un tableau de contingence g x g ( o√π g est le nombre de groupes), en ligne figurent les appartenances réelles et en colonnes les affectations par le modèle. On peut y repérer le nombre d'affectations correctes et erronées[#_ftn5  ][#_ftn5 [5] ]. Le '''hit rate '''est le pourcentage d'affectations correctes par rapport au nombre total d'individus. Pour que le modèle présente un intérêt, il faut que le hit score soit suffisamment élevé. Dans le cas de deux groupes à effectifs égaux [#_ftn6 [6] ], une procédure de répartition purement aléatoire entra√Ænerait 50 % d'affectations correctes. La différence entre le hit score et 50 % mesure ainsi la qualité du modèle. Le caractère significatif de cette différence est repéré à l'aide de l'expression:
+
+<center><math>Z=\sqrt{\left(p‚Äë\mathrm{0,5}\right)/\left(\mathrm{0,5}\mathrm{0,5}/n\right)}</math></center>
+
+o√π n est le nombre d'individus. Si Z est supérieur à 1,64, le modèle a significativement mieux réussi à classer les individus qu'un processus aléatoire, à un seuil de 95 % [#_ftn7 [7] ].
+
+===== Critères du maximum chance et proportional chance =====
+Quand les groupes sont de dimensions différentes le hit rate ne peut plus être comparé au critère du 50% dans ce cas on peut utiliser deux critères: le critère de la probabilité maximum (maximum chance) et le critère de la probabilité proportionnelle (proportional chance). Le critère '''maximum chance '''considère que tout individu choisit aléatoirement doit être classé comme appartenant au plus grand groupe. Le critère '''proportional chance''' est donné par la somme des carrés des proportions de chaque groupe par rapport au nombre totale d'individus (dans le cas de deux groupes <math>{C}_{\mathit{pro}}={p}^{2}+{\left(1-p\right)}^{2}</math>).
+
+Si le groupe G (grand prix) avait 20 membres et le groupe C (prix de consolations) avait 80 membres[#_ftn8  ][#_ftn8 [8] ]le critère maximum chance serait 80 et le critère proportional chance <math>{\mathrm{0,20}}^{2}+{\mathrm{0,80}}^{2}=\mathrm{0,68}</math>. Un hit rate de 85% montrera une bonne amélioration par rapport à la pure chance mais il sera moins fort par rapport au critère maximum chance.
+
+== Développement mathématique du modèle[#_ftn9  ][#_ftn9 [9] ] ==
+===== Matrice de covariances intra-groupes =====
+Soit une matrice '''X''' de scores centrés sur v variables. Celle-ci est partitionnée en g sous-matrices <math>{D}_{i}</math> de <math>{n}_{i}</math> cas.
+
+√Ä chaque partition correspond un centroïde de <math>{m}_{i}=\left({m}_{\mathit{i1}},\mathrm{...}{m}_{\mathit{iv}}\right)</math>, une matrice de dispersion (sommes des carrés des écarts et des produits des écarts aux moyennes) <math>{W}_{i}</math>ainsi qu'une matrice de covariances <math>{V}_{i}={W}_{i}/\left({n}_{i}-1\right)</math>.
+
+Les matrices de covariances de chaque groupe étant homogènes, il y a intérêt à considérer la matrice de dispersion au sein des groupes <math>W={W}_{1}+\cdotp \cdotp \cdotp +{W}_{g}</math> à laquelle correspond la matrice moyenne de covariances intra groupes <math>V=W/\left(-g\right)</math>.
+
+L'ensemble des centroïdes mj constitue la matrice 
+
+<center>'''M''' = <math>\begin{array}{ccc}{m}_{11}& 	\mathrm{...}& 	{m}_{\mathrm{1v}}\\ 
+{m}_{\mathit{g1}}& 	\mathrm{...}& 	{m}_{\mathit{gv}}\end{array}</math></center>
+
+Soit <math>\sum _{}^{g}{m}_{i}/g</math><nowiki>= 0. </nowiki>
+
+===== Matrice de covariances inter-groupes =====
+La matrice correspondante des covariances est dite d'intergroupes et s'obtient ainsi:
+
+'''B''' = '''M'M'''/(g - 1)
+
+La fonction discriminante '''y''' recherchée est celle qu'on obtient au moyen d'une combinaison linéaire '''k''' de la matrice '''X''' de telle sorte qu'à une variance intra groupes donnée corresponde un maximum de la variance inter groupes. On peut représenter ainsi la dispersion des cas et moyennes des trois groupes sur l'axe y de la fonction discriminante.
+
+
+Figure 9 - Dispersion de trois groupes sur l'axe de la fonction discriminante.
+
+===== La fonction discriminante expression générale =====
+La fonction discriminante ayant pour expression générale '''y''' = '''Xk''', les projections sur y des centroïdes, c'est-à-dire des moyennes des groupes, seront '''Mk''' et la variance de ces moyennes ou variance inter sera '''k'M'Mk'''/(g - 1) = '''k'Bk'''. De la même façon, la variance intra groupes sera '''k'Vk'''.
+
+On désire considérer simultanément une dispersion maximum des moyennes pour une dispersion donnée des cas au sein des groupes. On choisit d'arrêter la condition d'une variance intra unité, c'est-à-dire '''k'Vk '''<nowiki>= 1, qui s'ajoute au multiplicateur indéterminé de Lagrange pour former l'équation</nowiki>
+
+<center>F = '''k'Bk''' - ('''k'Vk''' - 1)</center>
+
+===== Critères de maximisation =====
+On calcule alors les valeurs du vecteur k qui maximisent F:
+
+<center><math>\frac{\partial F}{\partial k\text{'}}</math><nowiki>= 2</nowiki>'''Bk''' - 2 '''Vk''' = 0</center>
+
+<center><nowiki>= </nowiki>'''Bk''' - '''Vk''' = 0</center>
+
+<center><nowiki>= (</nowiki>'''B''' - '''V''')'''k''' = 0</center>
+
+On sait que celle équation comporte une solution différente de zéro pour <math>\left(B-\lambda V\right)</math> = 0.
+
+Ces équations, solutions du problème de la fonction discriminante présentent donc une grande ressemblance avec celles du problème de l'analyse factorielle. On leur donne la forme habituelle en pré multipliant par l'inverse de '''V''':
+
+<center><math>\left({V}^{-1}B-\lambda I\right)k</math> = 0</center>
+
+et
+
+<center><math>\left({V}^{-1}B-\lambda I\right)</math><nowiki>= 0</nowiki></center>
+
+C'est le problème de la recherche des vecteurs latents '''k''' d'une matrice carrée non symétrique <math>{V}^{-1}B</math>. Il y a intérêt à faire en sorte de revenir a une matrice symétrique. On a vu (théorème 7 ...) qu'une matrice non symétrique '''M''' peut être écrite comme la somme d'une matrice symétrique '''S''' et d'une matrice non symétrique '''A ''': '''M''' = '''S''' + '''A'''. Par multiplications et additions appropriées de lignes, on rend diagonale la matrice symétrique '''V''' et on remplace <math>{V}^{-1}B</math>''' '''par <math>{D}_{V}^{-1/2}B{D}_{V}^{-1/2}</math> qui a la propriété d'être symétrique et d'avoir les mêmes racines et vecteurs latents que '''V'''-1'''B'''.
+
+L'expression de la solution de la fonction discriminante devient donc:
+
+<center><math>\left({D}_{V}^{-1/2}B{D}_{V}^{-1/2}-\lambda I\right)k</math><nowiki>= 0</nowiki></center>
+
+<center><math>\left({D}_{V}^{-1/2}B{D}_{V}^{-1/2}-\lambda I\right)k</math><nowiki>= 0</nowiki></center>
+
+La résolution de l'équation
+
+<center><math>\left({D}_{V}^{-1/2}B{D}_{V}^{-1/2}-{\lambda }_{i}I\right)k</math><nowiki>= 0</nowiki></center>
+
+comporte un nombre de solutions égal au minimum suivant: soit le nombre de groupes moins un, soit le nombre de variables. Chacune de ces valeurs <math>{\lambda }_{i}</math>est introduite dans l'équation
+
+<center><math>\left({D}_{V}^{-1/2}B{D}_{V}^{-1/2}-{\lambda }_{i}I\right){k}_{i}</math><nowiki>= 0</nowiki></center>
+
+entra√Ænant un nombre correspondant de solutions '''k'''i. On a vu antérieurement que les vecteurs '''k'''i sont orthogonaux, c'est-à-dire indépendants: la matrice '''K''' des vecteurs '''k'''i répond donc à la relation '''K'K '''<nowiki>= </nowiki>'''I''' lorsque normée aux racines latentes.
+
+Le calcul se fait à partir de la valeur des matrices '''B''' et '''V''' des covariances inter et intra. Si on procède à partir des matrices de dispersion, la solution serait la même sauf pour les racines latentes qui s'en trouveraient multipliées par le rapport 
+
+<math>\left(g-1\right)/\left(\sum {n}_{i}-g\right)</math>.
+
+Plusieurs auteurs présentent la fonction discriminante comme étant définie par le vecteur '''k''' tel que le rapport de la variance inter à la variance intra soit maximum:
+
+<center><math>\frac{k\text{'}Bk}{k\text{'}Vk}</math>| max</center>
+
+C'est une approche équivalente à celle décrite plus haut o√π '''k'Vk''' étant fixé à 1, on recherche les valeurs de k qui maximisent le numérateur.
+
+== Rotation des axes des fonctions discriminantes ==
+===== Interprétation =====
+Une fonction discriminante est définie par un vecteur colonnes de coefficients appliqués, par une combinaison linéaire, aux variables étudiées; ces coefficients sont dits bruts ou standard (beta weights) selon qu'ils s'appliquent à des variables brutes ou standard. Le but de telles combinaisons linéaires est de séparer au maximum les groupes les uns des autres; en plus d'être indépendantes les unes des autres, les fonctions discriminantes ont un pouvoir de discrimination qui décro√Æt d'une fonction à l'autre. Le nombre de fonctions discriminantes est le plus petit des deux possibilités suivantes: nombre de variables ou nombre de groupes moins un.
+
+===== Méthodes de rotation =====
+On a vu qu'à beaucoup de points de vue, les fonctions discriminantes présentent une grande analogie avec les facteurs mis en évidence par l'une ou l'autre technique de l'analyse factorielle. En particulier, on peut souhaiter identifier par un nom chacune de celles-ci, en se basant sur les contributions des variables, telles qu'exprimées de façon comparable par les coefficients standard. Comme en analyse factorielle, une telle identification n'est pas toujours facile, à moins de procéder à une rotation des axes des fonctions tout en maintenant constantes les positions relatives des cas et des moyennes ou centroïdes. Une rotation VARIMAX est proposée en option dans le programme SPSS; on obtient ainsi des coefficients qui sont le plus possible voisins de 1 pour les uns, et de zéro pour les autres. L'avantage qu'on en tire est celui d'une facilité plus grande d'interprétation, mais cependant on y perd la connaissance de l'ordre des fonctions quant à leur pouvoir de discrimination. C'est pourquoi il est suggéré de n'utiliser qu'avec prudence la rotation des axes des fonctions discriminantes (voir Klecka, dans SPSS, p. 444-445).
+
+===== Méthodes de sélection des variables =====
+Plusieurs méthodes peuvent être utilisées dans le choix des variables à inclure dans l'édification des fonctions discriminantes. Celle dont il a été question jusqu'à maintenant, et qui consiste à considérer toutes les variables à la fois, est dite méthode directe.
+
+On peut aussi faire appel à une approche hiérarchique (stepwise) o√π les variables sont introduites une à une selon leur capacité décroissante à mettre en évidence la différence entre les groupes. Au cours des sélections successives, il est possible que des variables déjà entrées perdent leur pouvoir de discrimination: la raison en est une redondance d'information, c'est-à-dire que le pouvoir de discrimination de cette variable est désormais inclus dans quelque combinaison de nouvelles variables retenues.
+
+Donc à chaque étape de l'analyse, on procède à l'élimination des variables devenues inutiles. Dans le programme SPSS ce test de variable appara√Æt sous le titre F-TO-REMOVE.
+
+Divers critères, mettant l'accent sur l'un ou l'autre aspect de la dispersion des groupes, sont utilisés pour la sélection de variables: 
+
+a) le test de Wilks vise à minimiser un rapport o√π entrent en considération la dispersion des centroïdes et la cohésion des cas au sein des groupes: il est semblable à un test multivarié F sur les différences entre les centroïdes;
+
+b) plusieurs tests, reliés à la notation de distance de Mahalanobis, visent à maximiser l'écart entre les deux groupes les plus rapprochés (les méthodes MAHAL, MAXMINF, MINRESID du programme SPSS sont des variantes de cette approche); 
+
+c) la méthode de Rao consiste à choisir la variable qui contribue le plus à une distance généralisée, évaluée sur les variables précédentes.
+
+Pour tous ces critères, une variable est sélectionnée lorsque son rapport F partiel dépasse une valeur critique, c'est-à-dire lorsque sa contribution à la dispersion additionnelle des centroïdes est statistiquement significative: dans le programme SPSS ce F est dit F-TO-ENTER
+
+===== Test de signification =====
+On peut poursuivre, jusqu'à exhaustion, l'extraction des fonctions discriminantes. Mais comme dans le cas des composantes principales, l'intérêt des fonctions additionnelles va décroissant. Dans beaucoup d'applications on ne dépasse pas deux ou trois fonctions afin de tirer parti de la facilité et de l'intérêt d'une illustration de la position des groupes de sujets dans un espace à trois dimensions et moins. 
+
+L'effet de discrimination de la fonction i par rapport à toutes les fonctions est exprimé par la proportion (Hope, p. 117-120; Cooley et Lohnes, p.248-250)
+
+<center><math>\frac{{\lambda }_{i}}{\sum _{1}^{\rho }{\lambda }_{k}}</math></center>
+
+Ce rapport exprime la proportion de la variance expliquée par chaque fonction discriminante. Cependant cette proportion ne conduit pas à une décision statistique au sens habituel du terme. On recourt souvent à un autre indicateur.
+
+On montre que: 
+
+<center><math>\Lambda =\prod _{1}^{\rho }\frac{1}{1+{\lambda }_{i}}</math></center>
+
+,o√π œÅ<nowiki>= nombre de fonctions discriminantes, </nowiki>
+
+peut être utilisé pour exprimer la capacité de discrimination d'un ensemble
+
+de variables (ce paramètre est similaire à<math>\Lambda =\frac{\left(W\right)}{\left(T\right)}</math>de l'article 11.3.0. de Laforge). De même pour les fonctions au-delà de la k-ième fonction:
+
+<center><math>\Lambda \text{'}=\prod _{i=k+1}^{\rho }\frac{1}{1+{\lambda }_{i}}</math></center>
+
+Ce lambda (Œõ') est donc une mesure de l'inverse de la puissance discriminative expliquée par les fonctions discriminantes à venir. La signification de la discrimination des fonctions restantes k à p, à la suite de l'acceptation des k premières, peut se calculer au moyen de l'approximation de Bartlett:
+
+<center>[[Image:image031.gif]] <math>{\chi }^{2}=-\left(N-\frac{1}{2}\left(v+g\right)-1\right)/n\Lambda \text{'}</math></center>
+
+<div align="right">avec d.l. = (v-k) (g-k-1)</div>
+
+<div align="right">o√π v: nombre de variables</div>
+
+<div align="right">g: nombre de groupes</div>
+
+<div align="right">et <math>\Lambda \text{'}=\prod _{i=k+1}^{\rho }\frac{1}{1+{\lambda }_{i}}</math> </div>
+
+Si pour ces fonctions discriminantes (k + 1) à p, on obtient une valeur de <math>{\chi }^{2}</math> qui ne dépasse pas le seuil critique, on considère que les k premières fonctions calculées suffisent seules à expliquer de façon significative les écarts entre les groupes.
+
+Une autre méthode permettant de juger de la valeur de discrimination de chaque fonction est celle de la corrélation canonique qui mesure l'étroitesse de la relation entre une fonction discriminante et l'appartenance à l'un ou l'autre groupe. Le carré de cette corrélation canonique exprime la proportion de la variance de la fonction discriminante expliquée par une fonction d'appartenance aux divers groupes. Les programmes universels d'analyse discriminante font appel, en plus d'autres méthodes, au calcul d'une telle corrélation canonique.
+
+== Remarques et résumé ==
+===== Discussion =====
+L'analyse discriminante peut être vue comme un cas spécial d'analyse factorielle. Mais le but diffère: il s'agit de faire ressortir au maximum les différences entre des groupes mesurés dans un espace multidimensionnel, en projetant chaque cas dans l'espace unidimensionnel d'un petit nombre de fonctions linéaires orthogonales.
+
+Cette opération fait suite habituellement à celle de l'analyse de variance multivariée o√π, en présence d'une situation o√π plusieurs groupes sont mesurés sur plusieurs variables, on s'intéresse d'abord à déterminer s'il y a différence significative entre les groupes. Dans le cas de résultats positifs, il devient intéressant de déterminer, parmi les variables, celles qui sont responsables dans un ordre décroissant d'importance des différences entre les groupes: c'est le but de l'analyse discriminante. Une exploitation plus poussée des résultats conduit à leur utilisation dans le but de classifier (en se donnant comme objectif une probabilité minimum d'erreurs) des nouveaux sujets dans les divers groupes: l'étude de cette technique fait l'objet du chapitre suivant.
+
+Le rôle de l'analyse discriminante peut être envisagé de deux façons quant à l'attribution des qualificatifs d'indépendance et de dépendance, aux variables mesurées sur les populations visées et aux fonctions discriminantes. En sciences d'exploration, en général, les populations sont considérées comme variables indépendantes (predictor) et les fonctions discriminantes comme variables dépendantes (critères). En sciences expérimentales, ces rôles se trouvent renversés.
+
+L'analyse discriminante consiste donc à projeter dans un sous-espace approprie des échantillons de mesures multidimensionnelles. L'interprétation de cette opération peut être faite en termes (voir Cooley et Lohnes, p. 243) soit du nombre et de l'importance relative des fonctions discriminantes retenues, soit de la localisation dans l'espace discriminant des populations étudiées.
+
+
+<nowiki>[1] </nowiki>[#_ftnref1 Gilbert A. Churchill, "Marketing Research, Methodological Foundations", 5e Ed., Dryden Press, 1991. ]<nowiki>[2] </nowiki>[#_ftnref2 ibidem ]<nowiki>[3] </nowiki>[#_ftnref3 Hubert Laforge "Analyse multivariée pour les sciences sociales et biologiques avec applications des logiciels BMP, BMDP, SPSS, SAS", Ed. Etudes Vivantes, Montréal, 1981. ]<nowiki>[4] </nowiki>[#_ftnref4 les coefficients (poids) sont donnés par le vecteur propre qui résulte de la résolution de l'équation: ]
+
+('''W'''-1'''B''' - '''I''')'''v''' = 0,
+
+o√π '''W''' est la matrice des variances-covariances intra-groupes ('''within''' group) et '''B '''est la matrice des sommes des carrées et produits croisés inter-groupes ('''between''' group) <nowiki>[5] </nowiki>[#_ftnref5 Vedrine J.-P. "Le traitement des données en marketing", Ed. Organisation, Paris, 1991. ]<nowiki>[6] </nowiki><nowiki>[7] </nowiki><nowiki>[8] </nowiki>[#_ftnref8 Churchill, 91 ]<nowiki>[9] </nowiki>[#_ftnref9 Hubert Laforge "Analyse multivariée pour les sciences sociales et biologiques avec applications des logiciels BMP, BMDP, SPSS, SAS", Ed. Etudes Vivantes, Montréal, 1981. ]

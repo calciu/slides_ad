@@ -1,0 +1,831 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Recherche Marketing et Analyse des donn&eacute;es</title>
+<link href="../opencpu/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+<style>
+body {
+	padding-top: 60px;
+}
+</style>
+<link href="../opencpu/common.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap-hacks.css" rel="stylesheet"/>
+<link href="../opencpu/docs.css" rel="stylesheet"/>
+<script src="tabulate.js"></script>
+</head>
+
+<body bgcolor=white lang=FR>
+<!-- Some hidden elements that will be cloned when needed -->
+
+<div class="hidden">
+  <div class="httpfile"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls">
+            <input class="input-file realinputvalue" multiple type="file">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="httpparameter"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls"> 
+            <!-- <textarea class="input-xlarge realinputvalue" rows="2"></textarea>-->
+            <input type="text" class="input-xlarge realinputvalue" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of hidden stuff -->
+    	<!-- Top Navigation bar (the black one) -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="#"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="./slides2.htm">Home</a></li>
+						<li><a href="../slides_adintro/slides2.htm">Intro</a></li>
+						<li><a href="../slides_adunivarie/slides2.htm">Unviarie</a></li>
+						<li><a href="../slides_adbivarie/slides2.htm">Bivarie</a></li>
+						<li><a href="../slides_adacp/slides2.htm">ACP</a></li>
+						<li><a href="../slides_adtypo/slides2.htm">Cluster</a></li>
+						<li><a href="../slides_adadiscr/slides2.htm">Discrim</a></li>				</ul>
+					<ul class="nav pull-right">
+						<li><a href="about.html">About</a></li>
+						<li><a href="support.html">Support</a></li>
+						<li><a href="/auth/login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <!-- subnav, mostly invisible -->
+	<div id="subnav" class="subnav subnav-fixed">
+		<ul class="nav nav-pills">
+			<li><a href="#intro">intro</a></li>
+			<li><a href="#srcinfo">srcinfo</a></li>
+			<li><a href="#infoprim">infoprim</a></li>
+			<li><a href="#natinfo">natinfo</a></li>
+		<li><a href="#doctab">doctab</a></li>
+			<li><a href="#aprelim">aprelim</a></li>
+		</ul>
+	</div>
+
+
+    	<div class="container">
+        
+        		<div class="row">
+			<div class="span6">
+				<div class="page-header">
+					<h3>
+						Testing Tool <small>learn while playing...</small>
+					</h3>
+				</div>
+				<p><small>This side shows a little ajax tool that you can use to poke
+					around with the API. Simply select a method, endpoint and add some
+					parameters.</small></p>
+
+				<p><small>Your browser has multiple mechanisms to perform a HTTP
+					request. In most cases you want to do the request using Ajax, which
+					supports all methods. However, Ajax cannot be used for binary
+					streams (e.g. uploading files or displaying images). For those
+					cases you can use the form request method.</small></p>
+
+			</div>
+
+			<div class="span6">
+				<div class="page-header">
+					<h3>Text and Examples</h3>
+				</div>
+				<p><small>This side shows and overview and descriptions of the API.
+					However OpenCPU is best understood while by playing around with the
+					API.</small></p>
+					<button data-example="example">Example button</button>
+				<p class="narrowblock"><small>
+					Whenever you see a red button like the one here, this indicates an
+					example demo. Clicking an example button will automatically fill
+					out the Testing tool and perform the request. Keep your eye on the
+					testing tool while running an example!
+				</small></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="toolkit" class="span6">
+				<form id="paramform" class="well" target="outputframe">
+					<fieldset>
+						<div class="row">
+								<div class="span0">
+								<div class="control-group">
+								  <label class="control-label" for="textvalue">Example</label>
+									<div class="controls">
+									  <textarea class="input-xxlarge realinputvalue" id="textvalue" value="Example text" rows="2">Example text</textarea>
+									</div>
+								</div>
+                             
+                             </div>   
+						<div id="tohide">
+                             
+							<div class="span1">
+								<div class="control-group">
+									<label class="control-label" for="httpmethod">Method</label>
+									<div class="controls">
+										<select class="input-small" id="httpmethod">
+											<option>GET</option>
+											<option>POST</option>
+											<option>PUT</option>
+											<option>DELETE</option>
+											<option>OPTIONS</option>
+											<option>HEAD</option>
+										</select>
+									</div>
+								</div>
+							</div>    
+							<div class="span4">
+								<div class="control-group">
+									<label class="control-label" for="urlvalue">Endpoint</label>
+									<div class="controls">
+										<input type="text" class="invisible" id="urlvalue"
+											value="/R/pub">
+									</div>
+								</div>
+							</div>
+						</div>
+                        </div>       <!-- end tohide -->
+
+
+						<div id="allparameters">
+							<div class="row show-grid">
+								<div class="span2">
+									<div class="control-group">
+										<label class="control-label">Parameter Name</label>
+									</div>
+								</div>
+								<div class="span3">
+									<div class="control-group">
+										<label class="control-label">Parameter Value</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div align="left">
+							<button id="addprambutton" class="btn btn-primary">
+								<i class="icon-plus icon-white"></i> Add parameter
+							</button>
+							<button id="addfilebutton" class="btn btn-primary">
+								<i class="icon-file icon-white"></i> Add file
+							</button>
+						</div>
+
+						<br />
+
+						<div align="right">
+							<button id="submitblank" class="btn btn-success"
+								data-targetframe="_blank">
+								<i class="icon-share icon-white"></i> Popup
+							</button>
+							<button id="submitform" class="btn btn-success">
+								<i class="icon-share icon-white"></i> iFrame
+							</button>
+							<img src="spinner.gif" id="formspinner" />
+							<button id="submitajax" class="btn btn-success btn-large">
+								<i class="icon-download-alt icon-white"></i> Ajax request
+							</button>
+							<img src="spinner.gif" id="ajaxspinner" />
+						</div>
+					</fieldset>
+				</form>
+
+				<div id="errordiv"></div>
+
+				<div id="ajaxoutput">
+					<pre id="statuspre">0</pre>
+					<pre class="pre-scrollable prettyprint linenums" id="outputpre"></pre>
+					<pre class="pre-scrollable prettyprint linenums" id="headerpre"></pre>
+				</div>
+
+				<iframe name="outputframe" id="outputframe" class="input-xxlarge"></iframe>
+			</div>
+
+<div id="rightcolumndiv" class="span6">   
+<!--
+		<div id="fullscreenwarning" class="alert alert-warning">
+					<a class="close" data-dismiss="alert">×</a> <strong>Viewer
+						tip!</strong> When viewing this page on a low resolution it might be useful
+					to enable full screen (F11) or to zoom out a bit (ctrl -) in order
+					to display the full testing tool.
+				</div>
+
+-->
+
+<h1><a name=000></a>Recherche Marketing: Collecte et Analyse des donn&eacute;es </h1>
+<h4>Michel Calciu</h4>
+<h3>Cours à l'Universit&eacute; de Lille -  2019/2020</h3>
+<section id="intro"><h2>Introduction</h2>
+<h6>Le concept du marketing</h6>
+<p>Dans l'&eacute;poque actuelle où le savoir produire ne suffit plus pour assurer la
+  place d'une entreprise ou d'un produit sur le march&eacute; à cause d'un environnement
+  très concurrentiel, l'approche marketing semble offrir la cl&eacute; du succès.</p>
+<p><i>L'id&eacute;e centrale du marketing est la concentration sur le <span
+class=GramE>consommateur(</span> ou le client) et l'adaptation à ses attentes</i>.
+  Le marketing c'est un <i>&eacute;tat d'esprit</i>, c'est un <i>art</i>, mais c'est
+  aussi une <i>science</i>. Traditionnellement on fait la distinction entre deux
+  phases du marketing, la <i>phase analytique</i> ou la recherche marketing
+  (Marketing Research) et la <i>phase op&eacute;rationnelle</i> qui regroupe le
+  marketing op&eacute;rationnel et strat&eacute;gique.</p>
+<h6>Le rôle de la recherche marketing</h6>
+<p>La <i>recherche marketing</i> d&eacute;veloppe un ensemble de techniques pour
+  l'&eacute;tude du consommateur, de la clientèle et du march&eacute;. Elle d&eacute;tecte et
+  enregistre les besoins et motivations des clients, qu'elle d&eacute;duit souvent à
+  partir des attitudes exprim&eacute;es ou des comportements observ&eacute;s. Elle dispose de
+  tout un arsenal coh&eacute;rent de m&eacute;thodes pour arriver à &eacute;valuer les march&eacute;s et
+  leurs attentes, pour identifier la perception (positionnement) des produits et
+  des services par rapport <span class=GramE>aux</span> attentes et aux concurrents,
+  pour segmenter la clientèle afin d'isoler et cibler les groupes que
+  l'entreprise avec ses moyens et ses comp&eacute;tences peut le mieux servir.</p>
+<p align=center style='text-align:center'><img width=290 height=284
+id="_x0000_i1025" src="slides_fichiers/Image417.gif" align=middle>&nbsp;</p>
+<p><a name="">Figure 1. Le marketing et le consommateur.</a></p>
+<p>Le marketing op&eacute;rationnel et le marketing strat&eacute;gique utilisent les
+  informations fournies par la recherche marketing pour d&eacute;velopper et appliquer
+  une politique de produit, de prix, de communication et de distribution adapt&eacute;e
+  aux attentes de la clientèle cibl&eacute;e.</p>
+<h6>Objectifs du cours</h6>
+<p>L'objectif de ce cours est de pr&eacute;senter les <i>techniques de recueil,
+  traitement et analyse des donn&eacute;es</i> int&eacute;gr&eacute;es au <i>cadre conceptuel de la
+  recherche marketing</i>. Ces techniques sont illustr&eacute;es par de nombreux <i>exemples
+  et &eacute;tudes de cas</i>. La solution de la plupart des traitements des donn&eacute;es
+  qu'elles impliquent est pr&eacute;sent&eacute;e sur <i>tableur</i> (Excel), qui est
+  l'instrument microinformatique le plus <span class=GramE>utilis&eacute;</span> dans
+  les entreprises. Un <i>logiciel d'analyse des donn&eacute;es</i> multidimensionnelles
+  &eacute;crit par l'auteur est mis à disposition. Il intègre sur le tableur les
+  m&eacute;thodes d'analyse multivari&eacute;e les plus importantes pour la pratique de la
+  recherche marketing.</p>
+<h6><a name=010></a>La typologie des &eacute;tudes de march&eacute; </h6>
+<p>Toute recherche commence par une phase <b>exploratoire</b>. Les entretiens
+  individuels et/ou de groupe sont des moyens de d&eacute;couverte de la probl&eacute;matique
+  du march&eacute; (ou domaine) &eacute;tudi&eacute;. Avec la probl&eacute;matique &eacute;clair&eacute;e on passe à la phase <b>descriptive</b>, à l'aide de techniques <i>d'observation</i> et de <i>communication</i>.
+  Les techniques d'observation permettent d'enregistrer le comportement d'une
+  manière inobtrusive. Mais dans la plupart des cas l'information est obtenue par
+  enquête sur &eacute;chantillon à l'aide d'un questionnaire. Dans cette cat&eacute;gorie on
+  trouve les enquêtes ponctuelles, les enquêtes omnibus les panels. Par fois l'<i>exp&eacute;rimentation</i> à travers l'&eacute;tude <b>causale</b> est aussi exig&eacute;e. Les tests de concept, les
+  copy tests, tests de produit, les march&eacute;s test servent à accroître la qualit&eacute;
+  de la d&eacute;cision manag&eacute;riale.</p>
+</section>	
+<section id="infoprim"><h2><a name=020></a>Recherche des informations primaires</h2>
+<h6><span style='font-weight:normal'>Utiliser la connaissance du comportement
+  du consommateur comme guide</span></h6>
+<p>Les modèles conceptuels du <i>comportement du consommateur</i> que ce soit
+  le consommateur individuel ou le consommateur industriel sont un guide
+  essentiel pour sp&eacute;cifier les informations n&eacute;cessaires.</p>
+<p>D'une manière simplifi&eacute;e on suppose que le consommateur est model&eacute; par des
+  facteurs d'environnement (de son environnement), que par rapport à un produit
+  ou service il est soumis à un ensemble de stimuli qui viennent de sources
+  incontrôlables par l'entreprise (l'environnement) mais aussi à des stimuli
+  g&eacute;n&eacute;r&eacute;s par l'entreprise ou bien par le produit lui-même.</p>
+<h6>Facteurs</h6>
+<p>Parmi les <b>facteurs d'environnement</b> qui d&eacute;terminent le comportement du
+  consommateur on trouve les caract&eacute;ristiques socio-demographiques (âge, sexe,
+  occupation, &eacute;tat civil, niveau d'&eacute;ducation, classe ou cat&eacute;gorie sociale, cycle
+  de vie familial) mais aussi les caract&eacute;ristiques psycho-sociales (personnalit&eacute;,
+  style de vie). Tous ces &eacute;l&eacute;ments sont importants pour la segmentation du
+  march&eacute;.</p>
+<h6>R&eacute;ponses aux stimuli</h6>
+<p>La <b>r&eacute;action aux stimuli</b> g&eacute;n&eacute;r&eacute;s par le march&eacute; est progressive, les
+  individus ne deviennent pas brusquement des acheteurs d'une marque
+  (produit/service), ils &eacute;voluent en apprenant et traversent plusieurs phases. Il
+  s'agit d'une &eacute;tape cognitive (information, apprentissage, connaissance), d'une
+  &eacute;tape affective (ou se forment les attitudes et les pr&eacute;f&eacute;rences et ou les
+  motivations ont un rôle à jouer) et &eacute;tape conative <span class=GramE>( d'action</span>,
+  achat). L'ordre de ces &eacute;tapes diffère en fonction des situations d'achat
+  (premier achat, achat r&eacute;p&eacute;t&eacute;, produit impliquant ou non-impliquant etc.). Pour
+  l'entreprise il est important de savoir dans quelle phase se trouve le client
+  par rapport au produit offert, afin de pr&eacute;parer et doser les stimuli à
+  administrer et trouver un mix-marketing adapt&eacute; pour faire avancer les sujets
+  vis&eacute;s vers l'&eacute;tat d'acheteur ou d'acheteur fidèle. C'est pour cela que le
+  recueil direct d'informations auprès de la clientèle devra permettre de d&eacute;celer
+  progressivement par rapport au produit, le degr&eacute; de connaissance, les
+  attitudes, les intentions d'achat, les motivations, les habitudes et
+  comportements d'achat.</p>
+</section><section id="mcollecte"><h2><a name=025></a>Moyens de collecte d’informations primaires </h2>
+<h6>Observation, enquête et exp&eacute;rimentation</h6>
+<p>Les donn&eacute;es primaires sont obtenues par observation ou par communication
+  directe. La communication suppose souvent la r&eacute;daction d'un questionnaire et
+  c'est le seul moyen pour obtenir des informations sur les attitudes,
+  connaissances, motivations et intentions. L'observation est plus adapt&eacute;e pour
+  procurer des donn&eacute;es comportementales.</p>
+<h6><a name=030></a>Le questionnaire</h6>
+<p>Le questionnaire est l'instrument le plus fr&eacute;quemment utilis&eacute; pour le
+  recueil direct des informations. Après une r&eacute;daction attentive qui essaye de
+  couvrir <span class=GramE>tout les informations</span> à obtenir, suivi par des
+  phases de pr&eacute;test et correction, le questionnaire est administr&eacute; (par voie
+  postale, t&eacute;l&eacute;phone ou t&eacute;l&eacute;matique) à un &eacute;chantillon repr&eacute;sentatif de la
+  population cibl&eacute;e. Les questionnaires remplis sont collect&eacute;s et d&eacute;pouill&eacute;s.
+  Toutes les r&eacute;ponses sont codifi&eacute;es et enregistr&eacute;es dans des tableaux de donn&eacute;es
+  (appel&eacute;s parfois bordereaux de d&eacute;pouillement) où chaque ligne repr&eacute;sente un
+  questionnaire, comme dans la Figure 2.</p>
+<h6> (a) exemple de questionnaire :</h6>
+<table id="smallqt" style="background-color:#ccffff"><td>
+<form name="smallq" id="smallq">
+  <p><span style='font-size:10.0pt'>Questionnaire&nbsp; No.&nbsp;
+    <INPUT TYPE="TEXT" NAME="obs" VALUE="1">
+    (1<span class=GramE>)</span><br>
+    Courte pr&eacute;sentation des objectifs de l'&eacute;tude....<br>
+    &nbsp;<a name=begin></a>1)&nbsp;&nbsp; Laquelle des marques suivantes
+    pr&eacute;f&eacute;rez-vous? (2) </span></p>
+  <table border=0 cellpadding=0>
+    <tr>
+      <td><p>Marque A&nbsp;</p></td>
+      <td><p>
+          <INPUT TYPE="radio" CHECKED NAME="marq_pref" VALUE="1">
+          1&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td><p>Marque B&nbsp;</p></td>
+      <td><p>
+          <INPUT TYPE="radio" NAME="marq_pref" VALUE="2">
+          &nbsp; 2</p></td>
+    </tr>
+    <tr>
+      <td><p>Marque C</p></td>
+      <td><p>
+          <INPUT TYPE="radio" NAME="marq_pref" VALUE="3">
+          &nbsp; 3</p></td>
+    </tr>
+    <tr>
+      <td><p>Autres&nbsp;</p></td>
+      <td><p>
+          <INPUT TYPE="radio" NAME="marq_pref" VALUE="4">
+          &nbsp; 4</p></td>
+    </tr>
+  </table>
+  <p><span style='font-size:10.0pt'>&nbsp; <a name=info></a>2)&nbsp;
+    Qui vous a signal&eacute; cette marque (OUI=1&nbsp;&nbsp; NON=0) </span></p>
+  <table border=0 cellpadding=0>
+    <tr>
+      <td><p>la Pub</p></td>
+      <td><p>
+          <INPUT TYPE="checkbox" NAME="info_pub" VALUE="1">
+          &nbsp;&nbsp;&nbsp;
+          (3)</p></td>
+    </tr>
+    <tr>
+      <td><p>la presse sp&eacute;cialis&eacute;e</p></td>
+      <td><p>
+          <INPUT TYPE="checkbox" NAME="info_presse" VALUE="1">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          (4)</p></td>
+    </tr>
+    <tr>
+      <td><p>des amis</p></td>
+      <td><p>
+          <INPUT TYPE="checkbox" NAME="info_amis" VALUE="1">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          (5)</p></td>
+    </tr>
+    <tr>
+      <td><p>autres sources</p></td>
+      <td><p>
+          <INPUT TYPE="checkbox" NAME="info_autres" VALUE="1">
+          &nbsp;&nbsp;
+          (6)</p></td>
+    </tr>
+  </table>
+  <p><span style='font-size:10.0pt'>&nbsp;<a name=eval></a>3)&nbsp;&nbsp;
+    Indiquez votre degr&eacute; d'accord sur la possession des attributs <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    suivants par les marques A<span class=GramE>,B</span> et C:&nbsp; (1 = pas du
+    tout d'accord, <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 =
+    pas d'accord, 3 = d'accord 4 = tout à fait d'accord) <br>
+    &nbsp; </span></p>
+  <table border=0 cellpadding=0 cols=4>
+    <tr>
+      <td>&nbsp;</td>
+      <td><p align=center style='text-align:center'>&nbsp;Marque
+          A&nbsp; </p>
+        <p align=center style='text-align:center'>&nbsp;&nbsp;
+          1&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; 4 </p></td>
+      <td><p align=center style='text-align:center'>&nbsp;Marque
+          B&nbsp; </p>
+        <p align=center style='text-align:center'>&nbsp;1&nbsp;&nbsp;
+          2&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; 4 </p></td>
+      <td><p align=center style='text-align:center'>&nbsp;Marque
+          C&nbsp; </p>
+        <p align=center style='text-align:center'>&nbsp;1&nbsp;&nbsp;&nbsp;
+          2&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; 4 </p></td>
+    </tr>
+    <tr>
+      <td><p>Pas cher<br/>
+          Bonne qualit&eacute;&nbsp;<br/>
+          Innovant<br/>
+          Commode </p></td>
+      <td><p>
+          <INPUT TYPE="radio" CHECKED NAME="A_pas_cher" VALUE="1">
+          <INPUT TYPE="radio" NAME="A_pas_cher" VALUE="2">
+          <INPUT TYPE="radio" NAME="A_pas_cher" VALUE="3">
+          <INPUT TYPE="radio" NAME="A_pas_cher" VALUE="4">
+          <span
+  class=GramE>( 7</span>)&nbsp;&nbsp; <br>
+          <INPUT TYPE="radio" CHECKED NAME="A_qualite" VALUE="1">
+          <INPUT TYPE="radio" NAME="A_qualite" VALUE="2">
+          <INPUT TYPE="radio" NAME="A_qualite" VALUE="3">
+          <INPUT TYPE="radio" NAME="A_qualite" VALUE="4">
+          (
+          8)&nbsp;&nbsp; <br>
+          <INPUT TYPE="radio" CHECKED NAME="A_innovant" VALUE="1">
+          <INPUT TYPE="radio" NAME="A_innovant" VALUE="2">
+          <INPUT TYPE="radio" NAME="A_innovant" VALUE="3">
+          <INPUT TYPE="radio" NAME="A_innovant" VALUE="4">
+          (
+          9)&nbsp;&nbsp; <br>
+          <INPUT TYPE="radio" CHECKED NAME="A_confort" VALUE="1">
+          <INPUT TYPE="radio" NAME="A_confort" VALUE="2">
+          <INPUT TYPE="radio" NAME="A_confort" VALUE="3">
+          <INPUT TYPE="radio" NAME="A_confort" VALUE="4">
+          (10)</p></td>
+      <td><p>
+          <INPUT TYPE="radio" CHECKED NAME="B_pas_cher" VALUE="1">
+          <INPUT TYPE="radio" NAME="B_pas_cher" VALUE="2">
+          <INPUT TYPE="radio" NAME="B_pas_cher" VALUE="3">
+          <INPUT TYPE="radio" NAME="B_pas_cher" VALUE="4">
+          (11)&nbsp;&nbsp; <br>
+          <INPUT TYPE="radio" CHECKED NAME="B_qualite" VALUE="1">
+          <INPUT TYPE="radio" NAME="B_qualite" VALUE="2">
+          <INPUT TYPE="radio" NAME="B_qualite" VALUE="3">
+          <INPUT TYPE="radio" NAME="B_qualite" VALUE="4">
+          (12)&nbsp;&nbsp; <br>
+          <INPUT TYPE="radio" CHECKED NAME="B_innovant" VALUE="1">
+          <INPUT TYPE="radio" NAME="B_innovant" VALUE="2">
+          <INPUT TYPE="radio" NAME="B_innovant" VALUE="3">
+          <INPUT TYPE="radio" NAME="B_innovant" VALUE="4">
+          (13)&nbsp;&nbsp; <br>
+          <INPUT TYPE="radio" CHECKED NAME="B_confort" VALUE="1">
+          <INPUT TYPE="radio" NAME="B_confort" VALUE="2">
+          <INPUT TYPE="radio" NAME="B_confort" VALUE="3">
+          <INPUT TYPE="radio" NAME="B_confort" VALUE="4">
+          (14)</p></td>
+      <td><p>
+          <INPUT TYPE="radio" CHECKED NAME="C_pas_cher" VALUE="1">
+          <INPUT TYPE="radio" NAME="C_pas_cher" VALUE="2">
+          <INPUT TYPE="radio" NAME="C_pas_cher" VALUE="3">
+          <INPUT TYPE="radio" NAME="C_pas_cher" VALUE="4">
+          (15)&nbsp;&nbsp; <br>
+          <INPUT TYPE="radio" CHECKED NAME="C_qualite" VALUE="1">
+          <INPUT TYPE="radio" NAME="C_qualite" VALUE="2">
+          <INPUT TYPE="radio" NAME="C_qualite" VALUE="3">
+          <INPUT TYPE="radio" NAME="C_qualite" VALUE="4">
+          (16)&nbsp;&nbsp; <br>
+          <INPUT TYPE="radio" CHECKED NAME="C_innovant" VALUE="1">
+          <INPUT TYPE="radio" NAME="C_innovant" VALUE="2">
+          <INPUT TYPE="radio" NAME="C_innovant" VALUE="3">
+          <INPUT TYPE="radio" NAME="C_innovant" VALUE="4">
+          (17)&nbsp;&nbsp; <br>
+          <INPUT TYPE="radio" CHECKED NAME="C_confort" VALUE="1">
+          <INPUT TYPE="radio" NAME="C_confort" VALUE="2">
+          <INPUT TYPE="radio" NAME="C_confort" VALUE="3">
+          <INPUT TYPE="radio" NAME="C_confort" VALUE="4">
+          (18)</p></td>
+    </tr>
+  </table>
+  <table border=0 cellpadding=0>
+    <tr>
+      <td><p>4) Estez vous ?&nbsp; (19)</p></td>
+      <td><p>5) Quel est votre age <span class=GramE>?(</span>20)</p></td>
+    </tr>
+    <tr>
+      <td><p>Femme&nbsp;
+          <INPUT TYPE="radio" CHECKED NAME="sex" VALUE="1">
+          1&nbsp;&nbsp; <br>
+          Homme&nbsp;
+          <INPUT TYPE="radio" NAME="sex" VALUE="2">
+          2</p></td>
+      <td><p align=right style='text-align:right'>
+          <INPUT TYPE="TEXT" SIZE="3" NAME="age">
+        </p></td>
+    </tr>
+  </table>
+  <p><span style='font-size:10.0pt;display:none;'>
+    <INPUT TYPE="hidden" NAME="codedresp">
+    </span></p>
+</form>
+</td></table>
+<!--
+<input name=tab size=8 type=button value="Codification des reponses" onClick="code(document.forms[0]),&#13;&#10;alert(document.forms[0].codedresp.value)">
+-->
+<h6><i><span style='font-weight:normal'>(b) exemple de tableau de d&eacute;pouillement
+  d'enquête</span></i></h6>
+<p>(ICI lien vers ou integrer question.html) </p>
+<form name="qtable" id="qtable">
+  <table border=1 cellpadding=0 width="75%">
+    <tr>
+      <td width="60%"><p>
+          <TEXTAREA ROWS="10"  NAME="inputarea"></TEXTAREA>
+        </p></td>
+      <td><div align="left">
+          <input name=Button type=button value="Depuillement de l'enquête" onClick="tabulate(1,2)">
+         <br/> <INPUT TYPE="reset" VALUE="Annuler" NAME="Reset">
+        </div></td>
+    </tr>
+  </table>
+</form>
+<p>Figure 2. Le questionnaire:
+  pr&eacute;codage, codage et enregistrement des reponses</p>
+<p>Le questionnaire pr&eacute;sent&eacute; en Figure 2 est un exemple r&eacute;duit
+  et simplifi&eacute;. Un vrai questionnaire (le cas CAMIP) est donn&eacute; en annexe ainsi
+  qu'une collection des types de questions qui tient compte d'un modèle
+  hi&eacute;rarchique du comportement du consommateur.</p>
+<h6><a name=032></a><u>La codification des questions</u></h6>
+<div align=center>
+  <table border=1 cellspacing=1 cellpadding=0>
+    <tr>
+      <td width="34%" valign=top><p align=center style='text-align:center'>Type de question </p></td>
+      <td width="66%" valign=top><p align=center style='text-align:center'>Nombres de colonnes (variables) par
+          question </p></td>
+    </tr>
+    <tr>
+      <td width="34%" valign=top><p>Questions <b>nominales</b>: </p></td>
+      <td width="66%" valign=top>&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="34%" valign=top><p>Q. au choix multiple exclusif </p></td>
+      <td width="66%" valign=top><p align=center style='text-align:center'>une </p></td>
+    </tr>
+    <tr>
+      <td width="34%" valign=top><p>Q. au choix multiple non exclusif </p></td>
+      <td width="66%" valign=top><p align=center style='text-align:center'>autant de colonnes que le nombre de
+          modalit&eacute;s (cod&eacute;es 0 ou 1) </p></td>
+    </tr>
+    <tr>
+      <td width="34%" valign=top><p>Q. ouvertes (autres ...) </p></td>
+      <td width="66%" valign=top><p align=center style='text-align:center'>une et on augmente le nombre de
+          modalit&eacute;s en fonction des r&eacute;ponses </p></td>
+    </tr>
+    <tr>
+      <td width="34%" valign=top><p>Questions. <b>ordinales</b></p></td>
+      <td width="66%" valign=top><p align=center style='text-align:center'>plusieures modalit&eacute;s (tant de
+          colonnes que propositions possibles) </p></td>
+    </tr>
+    <tr>
+      <td width="34%" valign=top><p>Questions. <b>quantitatives</b></p></td>
+      <td width="66%" valign=top><p align=center style='text-align:center'>une; si &eacute;chelle d'attitude une
+          colonne pour chaque item </p></td>
+    </tr>
+  </table>
+</div>
+<p align=center style='text-align:center'><b><i>Tableau 1.1 - Règles
+  d'enregistrement des r&eacute;ponses aux questionnaires dans les tableaux de donn&eacute;es
+  d'enquête</i></b></p>
+<h6>Les questionnairs en ligne</h6>
+<p>Il est possible d'enregistrer les r&eacute;ponses au questionnaire directement sur
+  l'ordinateur. Les questionnaires automatis&eacute;s sur ordinateur ont l'avantage
+  d'&eacute;liminer en grande partie les fautes de frappe, ils codent et enregistrent
+  les donn&eacute;es automatiquement dans des tableaux. Un exemple de questionnaire
+  automatis&eacute; sur tableur est donn&eacute; en annexe. Sur le Web de l'Internet le
+  m&eacute;canisme des formulaires (Forms) facilite la saisie des r&eacute;ponses à l'aide
+  d'objets d'interface adapt&eacute;s (zones de texte, zone d'entr&eacute;e, cases d'options,
+  cases à cocher, listes à s&eacute;lection unique ou multiple etc.). Les informations
+  saisies sont capt&eacute;es sur le serveur de celui qui mène l'enquête et enregistr&eacute;es
+  dans une base de donn&eacute;es ou autrement trait&eacute;es par des programmes adapt&eacute;s, qui
+  profitent d'un autre standard qui s'est impos&eacute; sur Internet le CGI (Common
+  Gateway Interface). En profitant des deux standards les Forms et les CGI il est
+  relativement facile de mener des enquêtes interactives en temps r&eacute;el et à
+  distance. Des informations suppl&eacute;mentaires concernant la pr&eacute;paration des
+  enquêtes sur Internet se trouvent dans l'annexe.</p>
+</section><section id="natinfo"><h2><a name=035></a>Nature des informations </h2>
+<h6><span style='font-family:Symbol;"Times New Roman"'>·</span>  <a name="_Toc467238253">Types d'informations</a></h6>
+<p><b>Informations quantitatives</b> è r&eacute;sultent de l'observation des
+  comportements des intervenants sur le march&eacute;, elles sont relativement
+  objectives et contrôlables et r&eacute;pondent aux questions &quot;&nbsp;combien
+  ?&nbsp;&quot; et &quot;&nbsp;comment ?&nbsp;&quot; (<span class=GramE>ex</span>.
+  notori&eacute;t&eacute; des produits, possession des produits, quantit&eacute;s achet&eacute;es, fr&eacute;quences
+  d'achat, lieux d'achat, modes d'information sur les produits etc.)</p>
+<p><b>Informations qualitatives</b> è s'int&eacute;ressent aux facteurs qui
+  d&eacute;terminent les comportements et sont de nature subjective. Leur recueil et
+  interpr&eacute;tation sont en g&eacute;n&eacute;ral plus difficiles (ex. les motivations,
+  perceptions, les opinions et attitudes, les pr&eacute;f&eacute;rences etc.)</p>
+<h6><a name=040></a><span style='font-weight:normal'>La mesure</span></h6>
+<p>En marketing le questionnaire sert aussi comme instrument de mesure.</p>
+<p>La <b>mesure</b> est d&eacute;finie: comme &eacute;tant form&eacute;e de &quot;&nbsp;règles pour
+  attribuer des nombres à des objets, de telle sorte qu'elles repr&eacute;sentent des
+  quantit&eacute;s d'attributs&nbsp;&quot; (1. <span class=GramE>on</span> mesure des
+  attributs des objets, non pas les objets eux-mêmes; 2. <span class=GramE>la</span> manière dans laquelle les nombres sont attribu&eacute;s n'est pas sp&eacute;cifi&eacute;e, les
+  nombres jouent un rôle de symbole, ce ne sont pas les propri&eacute;t&eacute;s intrinsèques
+  des nombres, qui sont prises en compte mais les propri&eacute;t&eacute;s des attributs qu'ils
+  repr&eacute;sentent). Une autre d&eacute;finition considère la mesure &quot;comme le moyen
+  d'obtenir des symboles repr&eacute;sentant les propri&eacute;t&eacute;s des personnes, d'objets,
+  d'&eacute;v&eacute;nements ou d'&eacute;tats, de telle sorte que ces symboles aient les mêmes
+  relations entre eux que les choses repr&eacute;sent&eacute;es&quot;.</p>
+<h6>Les echelles de mesure</h6>
+<p>Les <b>&eacute;chelles nominales</b>: ont comme seule propri&eacute;t&eacute;<i> l'identit&eacute;</i>,
+  la plus simple des propri&eacute;t&eacute;s d'une &eacute;chelle de nombres. L'identit&eacute; exprime
+  l'appartenance des objets &eacute;tudi&eacute;s à une cat&eacute;gorie. Elles sont les plus pauvres
+  en informations.</p>
+<p>Les <b>&eacute;chelles ordinales </b>ont une seconde propri&eacute;t&eacute; des &eacute;chelles de
+  nombres, <span class=GramE>l'<i>ordre ,</i></span> qui est ajout&eacute; à la première<i>. </i>Elles permettent de classer les objets selon un ordre donn&eacute;.</p>
+<p>Elles apparaissent dans les mesures de pr&eacute;f&eacute;rences sous la forme d'&eacute;chelles
+  de classement, comparaison par paires, tierc&eacute; des pr&eacute;f&eacute;rences etc<span
+class=GramE>..</span></p>
+<p>Les <b>&eacute;chelles d'intervalle</b> ajoutent une troisième propri&eacute;t&eacute; des
+  &eacute;chelles de nombres, le fait que <i>l'intervalle</i> entre les nombres <span
+class=GramE>a</span> un sens, ce qui signifie que les <i>diff&eacute;rences</i> peuvent être compar&eacute;es. (<span class=GramE>exemple</span>: les &eacute;chelles de
+  temp&eacute;rature Celsius et Farenheit)</p>
+<p>Les <b>&eacute;chelles de ratio</b> se diff&eacute;rentient par rapport aux &eacute;chelles
+  d'intervalle par le fait qu'elles possèdent un <i>z&eacute;ro absolu</i>.</p>
+</section><section id="doctab"><h2><a name=045></a><span style='font-weight:normal'>Le tableau de donn&eacute;es:
+  documentation, v&eacute;rification, transformation des donn&eacute;es.</span></h2>
+<h6>Organisation d’un tableau de d&eacute;pouillement d’enquête</h6>
+<p>Dans la Figure 3. <span class=GramE>est</span> pr&eacute;sent&eacute;e une organisation
+  possible sur tableur des donn&eacute;es collect&eacute;es par enquête.</p>
+<p align=center style='text-align:center'><img width=250 height=194
+id="_x0000_i1026" src="slides_fichiers/Image418.gif"></p>
+<p><a name=fg3>Figure 3. Organisation des donn&eacute;es sur une
+  feuille de calcul (sur tableur)</a></p>
+<h6>Variables et observations</h6>
+<p>Chaque colonne du tableau repr&eacute;sente une variable (voir par exemple le
+  tableau de la Figure 2.<span class=GramE>) .</span> Pour faciliter la s&eacute;lection
+  des variables pour les &eacute;ventuels traitements, elles doivent avoir des noms.</p>
+<p align=center style='text-align:center'><img width=162 height=138
+id="_x0000_i1027" src="slides_fichiers/Image419.gif"></p>
+<p><a name=fg4>Figure 4. La place et le nom d'une variable dans
+  le tableau de donn&eacute;es (tableur)</a> </p>
+<div id="row">
+<div class="span2">
+<button data-example="missingvalCamip">Valeurs manquantes Camip</button>
+</div>
+<div class="span2">
+<button data-example="diffmeanmissingCamip">Moyennes et Valeurs manquantes Camip</button>
+</div>
+<div class="span2">
+<button data-example="meanCamip">Moyene Camip</button>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+</section>
+<section id="aprelim"><h2><a name=050>Analyses pr&eacute;liminaires des donn&eacute;es: tableaux de fr&eacute;quence et
+  statistiques descriptives</a></h2>
+<h6>Les traitements usuels</h6>
+<p>Les premiers traitements appliqu&eacute;s aux donn&eacute;es cherchent à r&eacute;sumer et à
+  mettre en &eacute;vidence les &eacute;ventuelles erreurs et/ou donn&eacute;es aberrantes qui ont
+  &eacute;chapp&eacute; à la correction au moment de la saisie. Il s'agit des statistiques
+  descriptives et de tableaux de fr&eacute;quence (simples et crois&eacute;s). Une grande
+  partie des &eacute;tudes marketing (90%) ne vont pas plus loin dans les analyses pour
+  d&eacute;crire le march&eacute;.</p>
+<h6><a name=055></a><u>Tableaux de fr&eacute;quence</u></h6>
+<p>Les tableaux de fr&eacute;quence montrent le nombre des cas enregistr&eacute; dans
+  diff&eacute;rents intervalles ou cat&eacute;gories. Les tableaux de fr&eacute;quences simples (tris
+  à plat) comptent les fr&eacute;quences pour <span class=GramE>une seul</span> variable. Ils sont souvent represent&eacute; sous forme d'<b>histogrammes</b>.</p>
+<p align=center style='text-align:center'><img width=258 height=138
+id="_x0000_i1028" src="slides_fichiers/Image420.gif"></p>
+<p><a name=fg5>Figure 5. Le tableau de fr&eacute;quence simple (ou
+  tris à plat). </a></p>
+
+<div id="row">
+<div class="span2">
+<button data-example="tableCamip">Tableau Fréquence Camip</button>
+</div>
+<div class="span2">
+<button data-example="tableCamip2">Tableau Fréquence Camip 2</button>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p><br/></p>
+<p> Sur tableur il y a la fonction <span class=GramE>FREQUENCE(</span> nom variable, matrice d'intervalles) qui le calcule.</p>
+<p><span class=GramE>voilà</span> comment on calcule sur un tableur la
+  frequence et la frequence cumul&eacute; des reponses à la première question de la
+  mini-enquête pr&eacute;sent&eacute; en Figure 3.</p>
+<div align=center>
+  <table border=0 cellspacing=0 cellpadding=0>
+    <tr nowrap>
+      <td valign=top bgcolor="aqua">&nbsp;</td>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'><span lang=DE>D </span></p></td>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'><span lang=DE>E </span></p></td>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'><span lang=DE>F </span></p></td>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'><span lang=DE>G </span></p></td>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'><span lang=DE>H </span></p></td>
+    </tr>
+    <tr nowrap>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'><span lang=DE>1 </span></p></td>
+      <td valign=top>&nbsp;</td>
+      <td valign=top><p align=center style='text-align:center'><span lang=DE>Interv. </span></p></td>
+      <td valign=top><p align=center style='text-align:center'><span lang=EN-GB>Freq. </span></p></td>
+      <td valign=top><p align=center style='text-align:center'><span lang=EN-GB>Freq.Cum </span></p></td>
+      <td valign=top><p align=center style='text-align:center'>&lt;--Formule </p></td>
+    </tr>
+    <tr nowrap>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'>2 </p></td>
+      <td valign=top><p align=center style='text-align:center'>Marque A </p></td>
+      <td valign=top><p align=center style='text-align:center'>1 </p></td>
+      <td valign=top><p align=center style='text-align:center'>3 </p></td>
+      <td valign=top><p align=center style='text-align:center'>3 </p></td>
+      <td valign=top><p align=center style='text-align:center'>=F3 </p></td>
+    </tr>
+    <tr nowrap>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'>3 </p></td>
+      <td valign=top><p align=center style='text-align:center'>Marque B </p></td>
+      <td valign=top><p align=center style='text-align:center'>2 </p></td>
+      <td valign=top><p align=center style='text-align:center'>4 </p></td>
+      <td valign=top><p align=center style='text-align:center'>7 </p></td>
+      <td valign=top><p align=center style='text-align:center'>=G3+F4 </p></td>
+    </tr>
+    <tr nowrap>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'>4 </p></td>
+      <td valign=top><p align=center style='text-align:center'>Marque C </p></td>
+      <td valign=top><p align=center style='text-align:center'>3 </p></td>
+      <td valign=top><p align=center style='text-align:center'>7 </p></td>
+      <td valign=top><p align=center style='text-align:center'>14 </p></td>
+      <td valign=top><p align=center style='text-align:center'>.. </p></td>
+    </tr>
+    <tr nowrap>
+      <td valign=top bgcolor="aqua"><p align=center style='text-align:center'>5 </p></td>
+      <td valign=top><p align=center style='text-align:center'>Marque D </p></td>
+      <td valign=top><p align=center style='text-align:center'>4 </p></td>
+      <td valign=top><p align=center style='text-align:center'>2 </p></td>
+      <td valign=top><p align=center style='text-align:center'>16 </p></td>
+      <td valign=top><p align=center style='text-align:center'>.. </p></td>
+    </tr>
+  </table>
+</div>
+<p><a name=tab&eacute;>Tableau 1.2 - Calcul de la distribution et r&eacute;partition
+  de fr&eacute;quence sur tableur</a></p>
+<h6>Anatomie d’un distribution de fr&eacute;quence</h6>
+<p>A partir de la distribution de fr&eacute;quence et la r&eacute;partition des fr&eacute;quences
+  (ou la fr&eacute;quence cumul&eacute;e) on calcule un grand nombre de statistiques
+  descriptives. La Figure 6. <span class=GramE>montre</span> graphiquement
+  comment des statistiques comme la moyenne, la m&eacute;diane, les quartiles sont
+  d&eacute;duites a partir d'une distribution de fr&eacute;quence. Elle montre aussi quel est
+  l'int&eacute;rêt d'utiliser la fr&eacute;quence cumul&eacute;e pour identifier certaines de ces
+  mesures. Pour mieux reconnaître l'allure de la distribution de fr&eacute;quence
+  empirique on trace sur l'histogramme le <b>polygone de fr&eacute;quence</b> en
+  r&eacute;unissant les points qui se trouvent au milieux sur le cot&eacute; haut des barres.</p>
+<p align=center style='text-align:center'><img width=270 height=209
+id="_x0000_i1029" src="slides_fichiers/Image421.gif">&nbsp;(a)</p>
+<p align=center style='text-align:center'><img width=274 height=214
+id="_x0000_i1030" src="slides_fichiers/Image422.gif">&nbsp;(b)</p>
+<p><a name=fg6>Figure 6. Anatomie d'une distribution de
+  fr&eacute;quence (a) et d'une r&eacute;partition de fr&eacute;quence (b</a><span class=GramE>) .</span> Le
+  lien entre un histogramme et un box plot</p>
+
+<div id="row">
+<div class="span2">
+<button data-example="tableCBC">Tableau Freq. CBC</button>
+</div>
+<div class="span2">
+<button data-example="plotTableCBC">Plot Freq. CBC</button>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+
+<h6>Les tableaux crois&eacute;s</h6>
+<p>Les tableaux crois&eacute;s (tris crois&eacute;s) comptent la fr&eacute;quence des cas ayant de
+  caract&eacute;ristiques (intervalles) communes sur deux ou plusieurs variables. Ils
+  r&eacute;sument l'information contenue dans les variables juxtapos&eacute;s et permettent
+  d'analyser l'association et les liens entre les variables. Les tableaux crois&eacute;s
+  de deux variables seront trait&eacute;s au chapitre sur les analyses <span
+class=GramE>bivari&eacute;s</span> et les tableaux crois&eacute;s multiples apparaîtront dans
+  les chapitres qui portent sur l'analyse de donn&eacute;es multidimensionnelle.</p>
+  </section>
+  </div>
+<!-- end right -->
+</div><!-- end row -->
+</div> <!-- end continer -->
+<script src="../opencpu/jquery-1.7.2.min.js"></script> 
+<script src="../opencpu/bootstrap/js/bootstrap.js"></script> 
+<script src="../opencpu/common.js"></script> 
+<script src="../opencpu/docs.js"></script> 
+<script src="../opencpu/camip.js"></script> 
+<script src="slide-example.js"></script>
+</body>
+</html>

@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+<TITLE>Collecte des donn??es, analyse univari??e et bivari??e</TITLE>
+<link href="../opencpu/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+<style>
+body {padding-top: 60px;}
+</style>
+<link href="../opencpu/common.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap-hacks.css" rel="stylesheet"/>
+<link href="../opencpu/docs.css" rel="stylesheet"/>
+</HEAD>
+<body data-spy="scroll" data-target="#subnav" data-offset="50">
+<!-- Some hidden elements that will be cloned when needed -->
+<div class="hidden">
+  <div class="httpfile"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls">
+            <input class="input-file realinputvalue" multiple type="file">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="httpparameter"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls"> 
+            <!-- <textarea class="input-xlarge realinputvalue" rows="2"></textarea>-->
+            <input type="text" class="input-xlarge realinputvalue" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of hidden stuff -->
+	
+    	<!-- Top Navigation bar (the black one) -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="#"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="./slides2.htm">Home</a></li>
+						<li><a href="../slides_adintro/slides2.htm">Intro</a></li>
+						<li><a href="../slides_adunivarie/slides2.htm">Unviarie</a></li>
+						<li><a href="../slides_adbivarie/slides2.htm">Bivarie</a></li>
+						<li><a href="../slides_adacp/slides2.htm">ACP</a></li>
+						<li><a href="../slides_adtypo/slides2.htm">Cluster</a></li>
+						<li><a href="../slides_adadiscr/slides2.htm">Discrim</a></li>					</ul>
+					<ul class="nav pull-right">
+						<li><a href="about.html">About</a></li>
+						<li><a href="support.html">Support</a></li>
+						<li><a href="/auth/login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <!-- subnav, mostly invisible -->
+	<div id="subnav" class="subnav subnav-fixed">
+		<ul class="nav nav-pills">
+			<li><a href="#statdescr">statdescr</a></li>
+			<li><a href="#mesdisp">mesdisp</a></li>
+			<li><a href="#dqualy">d-qualy</a></li>
+			<li><a href="#dordy">/d-ordy</a></li>
+			<li><a href="#intconf">iconfquant</a></li>
+			<li><a href="#iconfqualy">iconfqual</a></li>
+			<li><a href="#testhyp">testh-quanty</a></li>
+			<li><a href="#testhypqualy">testh-qualy</a></li>
+			<li><a href="#chi2">test de conformite</a></li>
+
+		</ul>
+	</div>
+
+
+    	<div class="container">
+        
+        		<div class="row">
+			<div class="span6">
+				<div class="page-header">
+					<h3>
+						Testing Tool <small>learn while playing...</small>
+					</h3>
+				</div>
+				<p><small>This side shows a little ajax tool that you can use to poke
+					around with the API. Simply select a method, endpoint and add some
+					parameters.
+
+				Your browser has multiple mechanisms to perform a HTTP
+					request. In most cases you want to do the request using Ajax, which
+					supports all methods. However, Ajax cannot be used for binary
+					streams (e.g. uploading files or displaying images). For those
+					cases you can use the form request method.
+
+			</small></p></div>
+
+			<div class="span6">
+				<div class="page-header">
+					<h3>Text and Examples</h3>
+				</div>
+				<p><small>This side shows and overview and descriptions of the API.
+					However OpenCPU is best understood while by playing around with the
+					API.</small></p>
+					<button data-example="example">Example button</button>
+					<p class="narrowblock"><small>Whenever you see a red button like the one here, this indicates an
+					example demo. Clicking an example button will automatically fill
+					out the Testing tool and perform the request. Keep your eye on the
+					testing tool while running an example!
+				
+			</small></p></div>
+		</div>
+
+		<div class="row">
+			<div id="toolkit" class="span6">
+				<form id="paramform" class="well" target="outputframe">
+					<fieldset>
+						<div class="row">
+								<div class="span0">
+								<div class="control-group">
+								  <label class="control-label" for="textvalue">Example</label>
+									<div class="controls">
+									  <textarea class="input-xxlarge realinputvalue" id="textvalue" value="Example text" rows="2">Example text</textarea>
+									</div>
+								</div>
+                             
+                             </div>   
+						<div id="tohide">
+                             
+							<div class="span1">
+								<div class="control-group">
+									<label class="control-label" for="httpmethod">Method</label>
+									<div class="controls">
+										<select class="input-small" id="httpmethod">
+											<option>GET</option>
+											<option>POST</option>
+											<option>PUT</option>
+											<option>DELETE</option>
+											<option>OPTIONS</option>
+											<option>HEAD</option>
+										</select>
+									</div>
+								</div>
+							</div>    
+							<div class="span4">
+								<div class="control-group">
+									<label class="control-label" for="urlvalue">Endpoint</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" id="urlvalue"
+											value="/R/pub">
+									</div>
+								</div>
+							</div>
+						</div>
+                        </div>       <!-- end tohide -->
+
+
+						<div id="allparameters">
+							<div class="row show-grid">
+								<div class="span2">
+									<div class="control-group">
+										<label class="control-label">Parameter Name</label>
+									</div>
+								</div>
+								<div class="span3">
+									<div class="control-group">
+										<label class="control-label">Parameter Value</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div align="left">
+							<button id="addprambutton" class="btn btn-primary">
+								<i class="icon-plus icon-white"></i> Add parameter
+							</button>
+							<button id="addfilebutton" class="btn btn-primary">
+								<i class="icon-file icon-white"></i> Add file
+							</button>
+						</div>
+
+						<br />
+
+						<div align="right">
+							<button id="submitblank" class="btn btn-success"
+								data-targetframe="_blank">
+								<i class="icon-share icon-white"></i> Popup
+							</button>
+							<button id="submitform" class="btn btn-success">
+								<i class="icon-share icon-white"></i> iFrame
+							</button>
+							<img src="spinner.gif" id="formspinner" />
+							<button id="submitajax" class="btn btn-success btn-large">
+								<i class="icon-download-alt icon-white"></i> Ajax request
+							</button>
+							<img src="spinner.gif" id="ajaxspinner" />
+						</div>
+					</fieldset>
+				</form>
+
+				<div id="errordiv"></div>
+
+				<div id="ajaxoutput">
+					<pre id="statuspre">0</pre>
+					<pre class="pre-scrollable prettyprint linenums" id="outputpre"></pre>
+					<pre class="pre-scrollable prettyprint linenums" id="headerpre"></pre>
+				</div>
+
+				<iframe name="outputframe" id="outputframe" class="input-xxlarge"></iframe>
+			</div>
+
+<div id="rightcolumndiv" class="span6">
+<!--   
+		<div id="fullscreenwarning" class="alert alert-warning">
+					<a class="close" data-dismiss="alert">??</a> <strong>Viewer
+						tip!</strong> When viewing this page on a low resolution it might be useful
+					to enable full screen (F11) or to zoom out a bit (ctrl -) in order
+					to display the full testing tool.
+				</div>
+-->
+
+<H1>Analyses univari??es</H1>
+<H4><A NAME="0001"></A>Michel Calciu  </H4>
+<H3>Cours ?? l'Universit?? de Lille - &nbsp;2018/2019</H3>
+<section id="statdescr">
+<h2><A NAME="0051"></A><A NAME="0101"></A>Statistiques
+  descriptives, Donn??es quantitatives , Mesures de
+  position (de tendance centrale)</H2>
+<H6><A NAME="0151"></A>??&nbsp; Moyenne
+  (arithm??tique) </H6>
+La moyenne d'une s??rie statistique de n observations est le
+  quotient de leur somme par leur nombre. 
+<img src="images/slides_htm_m68d49361.gif" NAME="Objet1" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=102 HEIGHT=55> Unde k reprezinta coloana iar i linia sau observatia (1) <br/>
+<div class="row">
+<div class="span2">
+<button data-example="diffmeanmissingCamip">Moyennes et Valeurs manquantes Camip</button>
+</div>
+<div class="span2">
+<button data-example="meanCamip">Moyene Camip</button>
+</div>
+</div>
+<H6><A NAME="020"></A>??&nbsp; M??diane </H6>
+La valeur d'une s??rie statistique pour laquelle le nombre
+  d'observations inf??rieures ou sup??rieures ?? cette valeur sont
+  ??gal. La d??termination de la m??diane n??cessite le classement de
+  la s??rie par ordre de grandeur (croissante ou d??croissante). S'il y
+  a n = 2p + 1 observations celui de rang p+1 sera la m??diane. Si par
+  contre n = 2p observations toute valeur comprise entre celle de rang
+  p et celle de rang p+1 peut convenir comme m??diane. Mesures
+  appari??es <B>quantile</B>, <B>quartiles</B>(quantile d'ordre 4, Q1,
+  Q2 et Q3) et <B>d??ciles</B>, <B>centile</B>. 
+<H6>&nbsp; Mode</H6>
+Le mode est la valeur la plus souvent rencontr??e
+  d'une s??rie statistique 
+</section>
+<section id="mesdisp"><h2>Mesures de dispersion</H2>
+<H6>Definition</H6>
+Les indicateurs de dispersion ont pour objet de
+  mesurer la plus ou moins grande concentration des valeurs autour de
+  leur tendance centrale. 
+<H6><A NAME="030"></A>??&nbsp; <SPAN STYLE="font-weight: normal">Etendue
+  (Range)</SPAN> </H6>
+La diff??rence entre la valeur maximum et minimum d'une s??rie.
+  Est l'intervalle qui s??pare les deux valeurs extr??mes 
+<H6><A NAME="035"></A>??&nbsp; <SPAN STYLE="font-weight: normal">Ecart
+  moyen</SPAN> </H6>
+est la moyenne des valeurs absolues des ??carts par rapport ?? la
+  moyenne; 
+<H6><A NAME="040"></A>??&nbsp; <SPAN STYLE="font-weight: normal">Dispersion
+  ou variation totale</SPAN> </H6>
+Est la somme des carr??s des ??carts par rapport ?? la moyenne : 
+<img src="images/slides_htm_6605f292.gif" NAME="Objet2" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=190 HEIGHT=29><SUP> </SUP>(2) 
+<H6><A NAME="0451"></A>??&nbsp; <SPAN STYLE="font-weight: normal">Variance</SPAN> </H6>
+Est la moyenne des carr??s des ??carts par rapport ?? la moyenne : 
+<img src="images/slides_htm_5ce34c2d.gif" NAME="Objet3" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=55 HEIGHT=26> = <SUP> <img src="images/slides_htm_m67f86420.gif" NAME="Objet4" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=29></SUP> = <img src="images/slides_htm_c8ec72.gif" NAME="Objet5" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=122 HEIGHT=55>= <img src="images/slides_htm_m746d6ccf.gif" NAME="Objet6" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=68 HEIGHT=52> (3) 
+Si la moyenne a ??t?? obtenue sur <I>??chantillon</I>, un degr??
+  de libert?? a ??t?? consomm?? pour le calcul de cette moyenne et la
+  variance devient 
+<img src="images/slides_htm_m60458e3f.gif" NAME="Objet7" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=55 HEIGHT=26> <SPAN LANG="nl-NL">= </SPAN><SUP><SPAN LANG="nl-NL"> <img src="images/slides_htm_m59afc777.gif" NAME="Objet8" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=26 HEIGHT=29></SPAN></SUP><SPAN LANG="nl-NL"> = <img src="images/slides_htm_m3d019c36.gif" NAME="Objet9" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=122 HEIGHT=55>= <img src="images/slides_htm_m7511a5b6.gif" NAME="Objet10" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=68 HEIGHT=52> (4) </SPAN> 
+<H6><A NAME="050"></A>??&nbsp; <SPAN STYLE="font-weight: normal">Ecart
+  type</SPAN></H6>
+Est la racine carr??e de la variance : dans le
+  cas d'un calcul sur ??chantillon : 
+<img src="images/slides_htm_md9cb642.gif" NAME="Objet11" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=43 HEIGHT=26> <SPAN LANG="nl-NL">= <img src="images/slides_htm_m304da25d.gif" NAME="Objet12" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=25 HEIGHT=26> = <img src="images/slides_htm_m378c5575.gif" NAME="Objet13" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=149 HEIGHT=60></SPAN><SUP><SPAN LANG="nl-NL"> (5)</SPAN></SUP> 
+<br/>
+<div class="row">
+<div class="span2">
+<button data-example="meanvarsdCamip">Moyenne, Variance, Ecart-type:Camip</button>
+</div>
+</div>
+
+
+</section>
+<section id="dqualy"><h2>Donn??es qualitatives</H2>
+<H6>Definition</H6>
+Des donn??es qualitatives apparaissent chaque
+  fois que la personne interrog??e a le choix entre plusieurs modalit??s
+  qui lui sont propos??es explicitement ou implicitement (dans le cas
+  d'une question ouverte avec post-codification). 
+<H6><A NAME="060"></A>??&nbsp; <SPAN STYLE="font-weight: normal">La
+  fr??quence et la proportion</SPAN> </H6>
+Pour chaque individu, la r??ponse correspond ?? un code ou
+  ??ventuellement ?? plusieurs si le choix est multiple (voir
+  questionnaire CAMIP). Sur l'ensemble de la population enqu??t??, on
+  d??nombrera alors le nombre de fois qu'un code j donn?? est apparu
+  pour la variable k ??tudi??e : ceci indique la fr??quence absolue <B>N</B><SUB><B>jk</B></SUB> de la modalit??. Si cette fr??quence absolue est rapport??e aux N
+  personnes consid??r??es, on obtient la fr??quence relative de la
+  modalit?? 
+p<SUB>jk</SUB> = N<SUB>jk</SUB>/N (6) 
+<H6><A NAME="065"></A>??&nbsp; <SPAN STYLE="font-weight: normal">Variance
+  et ??cart type d'une proportion</SPAN> </H6>
+Pour une modalit?? donn??e, la fr??quence
+  relative joue un r??le similaire ?? celui de la moyenne pour les
+  variables quantitatives. Des Indicateurs de dispersion sont ??galement
+  disponibles. Dans la mesure ou un individu a choisi ou non une
+  modalit?? donn??e, on a affaire ?? un processus binomial. Il est donc
+  possible d'associer une variance et un ??cart type ?? chaque modalit??
+  d'une variable qualitative : 
+VAR(jk) = (p<SUB>jk</SUB>) (1 - p<SUB>jk</SUB>)/N (7) 
+ET(jk) = [(p<SUB>jk</SUB>) (1 - p<SUB>jk</SUB>)/N]<SUP>1/2 </SUP>(8) 
+On constate que ces indicateurs sont d'autant plus faibles que p<SUB>jk</SUB> est proche de 1 ou de 0. Dans les deux cas, cela signifie que les
+  r??ponses sont tr??s concentr??es, soit sur la modalit?? j, soit sur
+  l'ensemble des autres modalit??s. 
+<p>&nbsp;</p>
+<div class="row">
+
+<div class="span2">
+    <button data-example="tableCamip2">Proportions Camip</button> 
+
+</div>
+</div></section><section id="dordy"><h2><A NAME="070"></A>Donn??es ordinales</H2>
+<H6>Nature</H6>
+Les donn??es ordinales sont plus difficiles ??
+  pr??senter que les autres cat??gories de donn??es. Comme on l'a vu,
+  il s'agit de donn??es concernant des rangs de pr??f??rence ou de
+  similarit??. 
+On notera que la notion de rang moyen n'a pas de signification, le
+  passage d'un rang au suivant ne correspondant g??n??ralement pas a
+  une variation d'intensit?? de pr??f??rence constante. 
+<H6>Quelques mesures</H6>
+Si l'on prend le cas des pr??f??rences, pour chaque individu, on
+  disposera d'un classement des m items propos??s. Sur l'ensemble de la
+  population interrog??e, il sera ainsi possible de comptabiliser : 
+<A NAME="075"></A>??&nbsp; <B>fonction</B> <B>de r??partition des rangs</B> 
+- le nombre de fois qu'un item donn?? a ??t?? class?? en 1<SUP>re</SUP> position, en 2<SUP>e</SUP>.., en m<SUP>e</SUP> ; 
+<A NAME="080"></A>??&nbsp; <B>matrice de pr??f??rences.</B> - le nombre de fois qu'un item donn??
+  a ??t?? class?? avant un autre item; 
+<p>&nbsp;</p>
+<div class="row">
+<div class="span2">
+    <button data-example="freprangs">F.repartition de rangs</button> 
+</div>
+<div class="span2">
+    <button data-example="matrpref">Matrice des pr??ferences</button> 
+
+</div>
+</div>
+
+</section>
+
+
+
+<section id="intconf"><h2><A NAME="085"></A><A NAME="090"></A>Les intervalles de confiance:
+  donn??es quantitatives</H2>
+<H6>Population, ??chantillons et distribution d'??chantillonnage</H6>
+Dans la plupart des cas, une enqu??te ne portera
+  que sur un ??chantillon extrait de la population ??tudi??e. On aura
+  alors ?? d??duire des r??sultats obtenus sur ??chantillon les
+  valeurs, c'est-??-dire celles qui seraient disponibles si l'ensemble
+  de la population ??tait connue. 
+<A NAME="_x0000_i1029"></A><img src="slides_fichiers/Image425.gif" NAME="images5" ALIGN=BOTTOM WIDTH=313 HEIGHT=383 BORDER=0>
+<B>Figure 1 -
+  Population, ??chantillons et distribution d'??chantillonnage</B> 
+<H6><A NAME="095"></A><U>Th??or??me Central Limit</U></H6>
+<A NAME="_x0000_i1030"></A>Quand on tire des
+  ??chantillons de dimension <B>n</B> d'une population ?? moyenne <B>??</B> et variance <B>s</B><SUP><B>2 </B></SUP>pour
+  des <B>n</B> grands la <B>moyenne des ??chantillons</B> sera
+  distribu??e approximativement normalement avec une moyenne ??gale ?? <B>??</B> et une variance&nbsp;<img src="slides_fichiers/Image426.gif" NAME="images6" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0><SUP>2</SUP>??gale
+  ?? <B>s</B><SUP><B>2</B></SUP><B>/</B>n 
+Comme <B>s</B> est inconnu on l'estime
+  ?? partir de s: 
+<A NAME="_x0000_i1031"></A><A NAME="_x0000_i1032"></A><A NAME="_x0000_i1033"></A> <img src="slides_fichiers/Image426.gif" NAME="images7" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0>??<img src="slides_fichiers/Image427.gif" NAME="images8" ALIGN=BOTTOM WIDTH=20 HEIGHT=24 BORDER=0> =&nbsp;<img src="slides_fichiers/Image428.gif" NAME="images9" ALIGN=BOTTOM WIDTH=93 HEIGHT=66 BORDER=0> (9) 
+<H6>Ajustements pour ??chantillons exhaustifs</H6>
+Pour des ??chantillons exhaustifs quand n/N &lt; 1/7 
+<A NAME="_x0000_i1034"></A><img src="slides_fichiers/Image429.gif" NAME="images10" ALIGN=BOTTOM WIDTH=99 HEIGHT=40 BORDER=0>(10) 
+<H6>Distribution normale d'une variable centr??e et r??duite</H6>
+Distribution normale d'une variable centr??e et r??duite Z (m=0 et
+  ET = 1) <BR>
+&nbsp; 
+<TABLE WIDTH=284 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+  <TR VALIGN=TOP>
+    <TD WIDTH=7%>-3,5&nbsp;</TD>
+    <TD WIDTH=7%>-3&nbsp;</TD>
+    <TD WIDTH=7%>-2,5&nbsp;</TD>
+    <TD WIDTH=7%>-2&nbsp;</TD>
+    <TD WIDTH=7%>-1,5&nbsp;</TD>
+    <TD WIDTH=7%>-1&nbsp;</TD>
+    <TD WIDTH=7%>-0,5&nbsp;</TD>
+    <TD WIDTH=7%>0&nbsp;</TD>
+    <TD WIDTH=7%>0,5&nbsp;</TD>
+    <TD WIDTH=7%>1&nbsp;</TD>
+    <TD WIDTH=7%>1,5&nbsp;</TD>
+    <TD WIDTH=7%>2&nbsp;</TD>
+    <TD WIDTH=7%>2,5&nbsp;</TD>
+    <TD WIDTH=7%>3&nbsp;</TD>
+    <TD WIDTH=7%>3,5&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=7%>0,00&nbsp;</TD>
+    <TD WIDTH=7%>0,00&nbsp;</TD>
+    <TD WIDTH=7%>0,02&nbsp;</TD>
+    <TD WIDTH=7%>0,05&nbsp;</TD>
+    <TD WIDTH=7%>0,13&nbsp;</TD>
+    <TD WIDTH=7%>0,24&nbsp;</TD>
+    <TD WIDTH=7%>0,35&nbsp;</TD>
+    <TD WIDTH=7%>0,40&nbsp;</TD>
+    <TD WIDTH=7%>0,35&nbsp;</TD>
+    <TD WIDTH=7%>0,24&nbsp;</TD>
+    <TD WIDTH=7%>0,13&nbsp;</TD>
+    <TD WIDTH=7%>0,05&nbsp;</TD>
+    <TD WIDTH=7%>0,02&nbsp;</TD>
+    <TD WIDTH=7%>0,00&nbsp;</TD>
+    <TD WIDTH=7%>0,00&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=7%>0,00&nbsp;</TD>
+    <TD WIDTH=7%>0,00&nbsp;</TD>
+    <TD WIDTH=7%>0,01&nbsp;</TD>
+    <TD WIDTH=7%>0,02&nbsp;</TD>
+    <TD WIDTH=7%>0,07&nbsp;</TD>
+    <TD WIDTH=7%>0,16&nbsp;</TD>
+    <TD WIDTH=7%>0,31&nbsp;</TD>
+    <TD WIDTH=7%>0,50&nbsp;</TD>
+    <TD WIDTH=7%>0,69&nbsp;</TD>
+    <TD WIDTH=7%>0,83&nbsp;</TD>
+    <TD WIDTH=7%>0,93&nbsp;</TD>
+    <TD WIDTH=7%>0,97&nbsp;</TD>
+    <TD WIDTH=7%>0,99&nbsp;</TD>
+    <TD WIDTH=7%>1,00&nbsp;</TD>
+    <TD WIDTH=7%>1,00&nbsp;</TD>
+  </TR>
+</TABLE>
+<A NAME="_x0000_i1035"></A>
+
+<table>
+  <tr>
+   <td><img src="slides_fichiers/Image430.gif" NAME="images11" ALIGN=BOTTOM WIDTH=300 HEIGHT=145 BORDER=0/></td>
+   <td><img src="images/slides3_html_1b4ffc34afbebbef.png" ALIGN=BOTTOM WIDTH=300 HEIGHT=145 BORDER=0/></td>
+ </tr><tr>
+   <td>(a) cumul?? </td>
+  <td>(b) densit??</td>
+</tr></table>
+<B>Figure 2 - La 
+  distribution normale d'une variable centr??e et r??duite</B>
+<p></p>
+<H6>Distribution normale d'une variable</H6>
+<p>Toute loi normale est compl??tement caract??ris??e par ces deux premiers moments centr??s : l???esp??rance et la variance.</p>
+   <img src="images/slides3_html_1364e0a2.gif" ALIGN=BOTTOM WIDTH=300 HEIGHT=145 BORDER=0/>
+<br/><b>Figure 3 - La distribution normale d'une variable</b>
+<p>Si X est une variable al??atoire r??elle qui suit une loi normale d???esp??rance <i>??</i> et de variance <i>????<sup>2</sup></i>, <i>X ~ N(??, ??<sup>2</sup>)</i>, alors <i>Z = (X ??? ??)/??  ~ N(0, 1)<i></p>
+<p> Si Z est une variable al??atoire r??elle qui suit une loi normale centr??e r??duite, <i>Z ~ N(0, 1)<i>, alors X = ?? + ??Z  ~ N(??, ??<sup>2</sup>)</p>
+<div class="row">
+<div class="span2">
+    <button data-example="pnorm">Loi Normale</button> 
+</div>
+<div class="span2">
+    <button data-example="qnorm">Loi Normale Inverse</button> 
+</div>
+<div class="span2">
+    <button data-example="plotPnorm">Plot Loi Normale</button> 
+
+</div>
+</div>
+<div class="row">
+<div class="span2">
+    <button data-example="pnorm2">Loi Normale 2</button> 
+</div>
+<div class="span2">
+    <button data-example="plotPnorm2">Plot Loi Normale 2</button> 
+
+</div>
+</div>
+
+
+<p></p> 
+<H6><A NAME="100"></A>??&nbsp; <U>a)
+  D??termination de l'intervalle de confiance</U> </H6>
+La population totale est de taille <B>N</B>; la valeur vraie de la
+  moyenne de la variable analys??e est <B>??</B>, et son ??cart type <B>s</B><I>. </I>Ces deux valeurs <B>??</B> et <B>s</B> sont inconnues, mais sur l'??chantillon de taille <B>n</B>, une
+  moyenne et un ??cart-type <B>s</B> ont ??t?? rep??r??s (cf. graphique
+  1). Il s'agit de d??duire <B>??</B> et <B>s</B> de ces valeurs et <B>s</B>. 
+<A NAME="_x0000_i1036"></A><img src="slides_fichiers/Image431.gif" NAME="images12" ALIGN=BOTTOM WIDTH=250 HEIGHT=170 BORDER=0>
+<B>Figure 4:
+  Caract??ristiques de la population totale et de l'??chantillon</B> 
+Cette d??duction suit des r??gles simples issues de la th??orie
+  des sondages, dans la mesure o?? les hypoth??ses suivantes sont
+  respect??es : 
+- les ??l??ments de l'??chantillon ont ??t?? s??lectionn??s de
+  mani??re al??atoire; 
+- l'??chantillon est non exhaustif (n/N &lt; 1/7) 
+- l'??chantillon comprend au moins 30 individus. 
+<A NAME="_x0000_i1037"></A>Dans ces conditions, on montre que les
+  moyennes d'??chantillon suivent une loi normale de moyenne <B>??</B> et d'??cart type&nbsp;<img src="slides_fichiers/Image426.gif" NAME="images13" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0>,
+  avec : 
+<A NAME="_x0000_i1038"></A><img src="slides_fichiers/Image426.gif" NAME="images14" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0>= <B>s /</B><SPAN STYLE="font-weight: normal">(</SPAN>n<SUP>1/2</SUP>) 
+Comme <B>s</B> est inconnu, il est
+  estim?? ?? partir de <B>s</B> : 
+<A NAME="_x0000_i1039"></A><A NAME="_x0000_i1040"></A><A NAME="_x0000_i1041"></A> <img src="slides_fichiers/Image426.gif" NAME="images15" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0><B>??<img src="slides_fichiers/Image427.gif" NAME="images16" ALIGN=BOTTOM WIDTH=20 HEIGHT=24 BORDER=0></B> = [S(X -<img src="slides_fichiers/Image433.gif" NAME="images17" ALIGN=BOTTOM WIDTH=18 HEIGHT=20 BORDER=0>)<SUP>2</SUP>/(n
+  - 1)]<SUP>l/2</SUP> 
+Si l'on d??sire travailler avec un seuil de confiance 1-a,
+  un intervalle de confiance pour la moyenne <B>??</B> est obtenu ??
+  l'aide de l'expression: 
+<A NAME="_x0000_i1042"></A><A NAME="_x0000_i1043"></A> <B>??</B> =&nbsp;<img src="slides_fichiers/Image433.gif" NAME="images18" ALIGN=BOTTOM WIDTH=18 HEIGHT=20 BORDER=0>?? z<SUB>a</SUB><SUB>/2</SUB><img src="slides_fichiers/Image426.gif" NAME="images19" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0> (11) 
+o?? z<SUB>a</SUB><SUB>/2</SUB> est la
+  valeur lue dans la table de la loi normale r??duite pour une
+  probabilit?? (1 - a/2). Il y a ainsi une
+  probabilit?? (1 - a) que la valeur
+  recherch??e se situe dans cette fourchette. 
+<div class="row">
+<div class="span2">
+    <button data-example="iconf">Interv Conf</button> 
+</div>
+<div class="span2">
+    <button data-example="plotIconf">Plot Interv Conf</button> 
+</div>
+<!--
+<div class="span2">    
+       <button data-example="iconfsavef">Save as function</button> 
+ </div>
+<div class="span2"><button data-example="iconfusef">Use the  function</button>
+</div>
+-->
+</div>
+
+<!--
+<div btn-toolbar>
+    <div class="btn-group" btn-group-vertical>
+    <button class="btn" data-example="iconf">Compute</button>
+    <button class="btn" data-example="iconfsavef">Generer</button>
+    <button class="btn" data-example="iconfusef">Utiliser</button>
+    </div>
+    </div>
+-->
+    
+    
+    <H6>Exemple</H6>
+Exemple
+L'association des ??tudiants d'une universit?? envisage d'ouvrir
+  un cin??-club; afin d'en ??valuer la fr??quentation, elle a r??alis??
+  une enqu??te par sondage sur un ??chantillon de 400 individus. <BR>
+  Une
+  moyenne de fr??quentation de 10 s??ances par an et par individu a ??t??
+  obtenue avec un ??cart type s = 20. Au seuil de confiance (1 - a) =
+  95 % l'intervalle de confiance est: <BR>
+  ?? = 10 ?? (1,96) (20/(400)<SUP>1/2</SUP>) = 10 ?? 1,96 <BR>
+  Il a 95 chances sur 100 de se situer dans la fourchette
+  [11,96: 8,04]. Si l'universit?? comprend 5000 ??tudiants, une
+  fr??quentation globale de 50 000 places peut ??tre attendue en
+  moyenne; la fr??quentation globale a 95 % de chances de se situer
+  dans l'intervalle [59800: 40200]. 
+<H6><A NAME="105"></A><A NAME="110"></A><U>Cas particulier: </U>Echantillon exhaustif</H6>
+1- Dans le cas d'un <I>??chantillon exhaustif</I>,
+  c'est-??-dire avec n &gt; N/7, l'??cart type <B>s</B>,
+  des moyennes d'??chantillons doit ??tre corrig?? par le facteur
+  d'exhaustivit?? [(N - n)/(N - 1)]1/2. L'intervalle de confiance
+  devient alors : 
+<A NAME="_x0000_i1044"></A><A NAME="_x0000_i1045"></A> <B>??</B> =&nbsp;<img src="slides_fichiers/Image433.gif" NAME="images20" ALIGN=BOTTOM WIDTH=18 HEIGHT=20 BORDER=0>?? z<SUB>a</SUB><SUB>/2</SUB><img src="slides_fichiers/Image426.gif" NAME="images21" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0>[(N
+  - n)/(N - 1)]<SUP>l/2 </SUP>(12) 
+On remarque que si n est faible par rapport ?? N, (N - n)/(N - 1)
+  est proche de 1. Au contraire, si n est grand par rapport ?? N, (N -
+  n)/(N - 1) est proche de 0; ?? la limite, pour n = N, ?? = . 
+<div class="row">
+<div class="span2">
+ <button data-example="iconfexh">Interv Conf Exh</button>
+</div>
+</div>
+
+<H6 LANG="de-DE">Exemple</H6>
+Dans l'exemple pr??c??dent, supposons que l'universit?? consid??r??e
+  ne comporte que 2 000 ??tudiants au total. L'??chantillon de 400
+  personnes pr??lev?? par l'association des ??tudiants doit donc ??tre
+  qualifi?? d'exhaustif, et il faut utiliser le facteur de correction,
+  ??gal ici ?? [(2 000 - 400)/(2 000 - 1 )] = 0,80. <BR>
+  Au seuil de
+  confiance (1 - a) = 95 %, l'intervalle de
+  confiance devient: <BR>
+  ?? = 10 ?? (1,96)
+  (20/) (0,80)<SUP>1/2</SUP>= 10 ?? 1,74 ??
+  a 95 chances sur 100 de se situer dans la fourchette [11,74: 8,26]. 
+<H6><A NAME="115"></A><U>Cas particulier: </U>Petit ??chantillon</H6>
+2 - Dans le cas d'un <I>petit ??chantillon</I>,
+  avec n &lt; 30, et lorsque <B>s</B> est
+  estim??, les moyennes d'??chantillons ne sont plus r??partis autour
+  de la moyenne vraie selon une loi normale, mais selon une <I><B>loi
+  de Student</B></I> ?? n - 1 degr??s de libert??. Dans la formule
+  (1l), z<SUB>a</SUB><SUB>/2</SUB> est alors
+  remplac?? par t<SUB>a</SUB><SUB>/2</SUB>,
+  lu sur la table de Student pour n -1 degr??s de libert?? et un seuil
+  de confiance (1 - a). 
+<table>
+  <tr>
+   <td><img src="images/slides3_html_206be6f89912f0e3.png" NAME="images11" ALIGN=BOTTOM WIDTH=300 HEIGHT=145 BORDER=0/></td>
+   <td><img src="images/slides3_html_65efb396a6208f7d.png" ALIGN=BOTTOM WIDTH=300 HEIGHT=145 BORDER=0/></td>
+ </tr><tr>
+   <td>(a) degr??s de libert??</td>
+  <td>(b) Loi Student vs. Normale</td>
+</tr></table>
+<b>Figure 5 - Loi de Student</b>
+  <div class="row">
+<div class="span2">
+   <button data-example="iconfpetit">Interv Conf Petit</button>
+   </div>
+   </div>
+   
+<H6 LANG="de-DE">Exemple</H6>
+Au lieu d'utiliser un ??chantillon de 400 personnes, L'association
+  des ??tudiants s'est limit??e ?? 21 interviews. La moyenne
+  d'??chantillon (15) suit une loi de Student ?? 20 degr??s de libert??.
+  Dans la mesure o?? l'??cart type rep??r?? sur l'??chantillon s'??l??ve
+  ?? 20, au seuil de confiance de 95 %, t = 2,086 et l'intervalle de
+  confiance devient alors: <BR>
+  ??= 15 ?? (2,086) (20/(400-1)<SUP>1/2</SUP>) = 15 ?? 9,10 ?? 95 chances sur 100 de se situer dans la fourchette [5,89:
+  24,10].
+<div class="row">
+<div class="span2">
+  <button data-example="iconfCamip">Interv Conf Camip</button>
+</div>
+</div>
+
+</section><section id="iconfqualy"><h2><A NAME="120"></A>Les intervalles de confiance: donn??es
+  qualitatives</H2>
+<H6>Particularites</H6>
+Dans le cas de variables qualitatives, la
+  probl??matique de la pr??vision des valeurs r??elles se pose dans les
+  m??mes termes que pour les variables quantitatives, mais maintenant,
+  il s'agit de fr??quences d'apparition de modalit??s et non plus de
+  moyennes. 
+La population totale est de taille N; la valeur vraie de la
+  fr??quence de la modalit?? analys??e est p.
+  Sur l'??chantillon de taille n, une proportion p a ??t?? trouv??e. 
+<H6>Analogies</H6>
+On montre que les proportions lues sur les ??chantillons suivent
+  une loi normale de moyenne p et d'??cart
+  type s<SUB>p</SUB> = [p(l - p)/n]<SUP>l/2</SUP>. 
+Au seuil de risque a, l'intervalle de
+  confiance est obtenu par l'expression : 
+p = p ?? z<SUB>a</SUB><SUB>/2</SUB>.[p(1 - p)/n]<SUP>l/2</SUP> (15) 
+G??n??ralement, on prendra, pour calculer l'??cart type des
+  proportions, p = 50 %, qui correspond au cas le plus d??favorable et
+  non la proportion observ??e.. 
+<div class="row">
+<div class="span2">
+   <button data-example="iconfppess">IConf Prop Pess</button>
+   </div>
+<div class="span2">
+      <button data-example="iconfpopti">IConf Prop Opti</button>
+     </div>
+     <div class="row">
+<div class="span2">
+   <button data-example="iconfpdiff">IConf Prop Diff</button>
+</div>
+<div class="span2">
+   <button data-example="plotIconfp">Plot</button>
+</div>
+</div>
+<H6 LANG="de-DE">Exemple</H6>
+Dans le cadre d'une ??tude de notori??t??, 25 % des personnes
+  interrog??es ont d??clar?? conna??tre la marque M. Un ??chantillon
+  al??atoire non exhaustif de 1000 individus a ??t?? utilis??. L'??cart
+  type des proportions est alors: <BR>
+  [0,5(0,5)/1000]<SUP>l/2</SUP> =
+  0,0158. <BR>
+  Il y a 95 chances sur 100 que le v??ritable taux de
+  notori??t?? se situe dans la fourchette: <BR>
+  p = 0,25 ?? 1,96.(0,0158)<BR>
+  Il doit ??tre
+  ainsi compris entre 0,25 - 0,03 = 0,22 et 0,25 + 0,03 = 0,28,
+  c'est-??-dire entre 22 % et 28 %.
+  <div class="row">
+<div class="span2"> 
+<button data-example="iconfppessCamip">IConf Prop Pess Camip</button>
+</div>
+<div class="span2">
+    <button data-example="iconfpoptiCamip">IConf Prop Opti Camip</button>
+ </div>
+ </div>
+ 
+</section><section id="testhyp"><h2><A NAME="125"></A><A NAME="130"></A>Les tests d'hypoth??se:
+  Donn??es quantitatives</H2>
+<H6><A NAME="135"></A><U>a) Position du probl??me</U></H6>
+(La valeur de la moyenne trouv??e sur
+  ??chantillon aura souvent ?? ??tre mise en relation avec une valeur a <I>priori </I><B>??</B><SUB><B>o.</B></SUB>) On peut faire des
+  hypoth??ses concernant la relation entre la moyenne de la population
+  et une telle valeur apriori. Une id??e simple est ?? la base du teste
+  d'hypoth??ses: une Hypoth??se peut ??tre rejet??e mais elle ne peut
+  jamais ??tre accept??e, par ce que des preuve ult??rieures peuvent
+  montrer le contraire. (exemple: l'homme qui ?? un comportement
+  d'homme pauvre est-il vraiment pauvre...) 
+<H6><A NAME="140"></A>Hypoth??se nulle Ho</H6>
+On appellera <B>Hypoth??se nulle H</B><SUB><B>o</B></SUB> l'hypoth??se selon laquelle la situation vraie est diff??rente ou
+  plus d??favorable que celle qui est mat??rialis??e par cette valeur a
+  priori. L'hypoth??se nulle doit ??tre choisie de telle mani??re que
+  son rejet permet &quot;d'accepter&quot; la conclusion d??sir??e.
+  L'<B>hypoth??se alternative</B> est <B>H</B><SUB><B>a</B></SUB>. Par
+  le biais d'un test d'hypoth??se il s'agira d'??valuer dans quelle
+  mesure Ho peut ??tre rejet??e. 
+<H6><A NAME="145"></A>Test unilat??ral et bilat??ral</H6>
+On parlera de <B>test unilat??ral</B> quand il
+  s'agira de v??rifier que la moyenne vraie est plus forte (test dit &quot;
+  ?? droite &quot;), ou plus faible (test dit &quot; ?? gauche &quot;)
+  que ??<SUB>o</SUB>. On aura affaire ?? un <B>test bilat??ral</B> quand il s'agira de d??montrer que la moyenne vraie est diff??rente
+  de ??<SUB>o</SUB>. 
+<H6 LANG="de-DE">Exemple</H6>
+Les intentions d'achat X d'un produit nouveau d??coulant d'une
+  enqu??te par sondage aupr??s des utilisateurs potentiels doivent ??tre
+  compar??es avec le seuil de rentabilit?? de ce produit ??<SUB>o</SUB>,
+  et il faut v??rifier l'hypoth??se selon laquelle ce seuil de
+  rentabilit?? sera bien d??pass??. L'hypoth??se H<SUB>o</SUB> <I><B>s'??nonce
+  ici de la fa??on suivante: </B></I>&quot; la situation du march?? est
+  telle que le seuil de rentabilit?? ne sera pas atteint <I>&quot; </I><I><B>et</B></I> H<SUB>1</SUB><I>,:</I> <I>&quot; </I>le seuil de rentabilit?? sera
+  d??pass?? &quot;. Le test d'hypoth??se n??cessaire est alors un test
+  unilat??ral <I><B>?? droite.</B></I> <BR>
+  Si <i>X&#175</i> &gt; ??<SUB>o</SUB>, ce
+  peut ??tre d?? au fait que la vraie moyenne est r??ellement
+  sup??rieure ?? ??<SUB>o</SUB>. Ce peut ??tre ??galement d?? au fait
+  que la vraie moyenne est inf??rieure ?? ??<SUB>o</SUB> mais que le
+  hasard a fait porter le sondage sur un ??chantillon particuli??rement
+  favorable. Il est ??vident que plus (<i>X&#175</i>  - ??<SUB>o</SUB>) est grand,
+  moins le risque de se trouver dans cette deuxi??me situation est
+  fort.
+<H6><A NAME="150"></A><A NAME="155"></A>b) R??alisation d'un test
+  unilat??ral ?? droite - 1) H<SUB>o</SUB> : ?? &lt; ??<SUB>o</SUB></H6>
+Dans le probl??me pos??, H<SUB>o</SUB> est
+  associ??e ?? la situation ?? &lt; ??<SUB>o</SUB>. Une premi??re fa??on
+  de proc??der consiste ?? d??terminer la probabilit?? - d??nomm??e <B>probabilit?? critique p.c.</B> - Avec laquelle H<SUB>o</SUB> est
+  conforme aux r??sultats lus sur ??chantillon. 
+Le graphique 2 r??sume les termes du probl??me : Si la moyenne
+  vraie ??tait ??, la probabilit?? d'obtenir sur ??chantillon une
+  valeur sup??rieure ou ??gale ?? serait donn??e par la surface lue
+  sous la courbe au-del?? de la valeur . 
+<A NAME="_x0000_i1046"></A>.<img src="slides_fichiers/Image435.gif" NAME="images22" ALIGN=BOTTOM WIDTH=297 HEIGHT=127 BORDER=0> 
+<B>Figure 6:
+  Test unilat??ral ?? droite</B> 
+Dans la mesure o?? le sondage est al??atoire, non exhaustif et
+  porte sur un effectif sup??rieur ?? 30, cette probabilit?? est
+  calcul??e ?? partir d'une table de la loi normale r??duite : 
+<A NAME="_x0000_i1047"></A><A NAME="_x0000_i1048"></A> Z = (<img src="slides_fichiers/Image433.gif" NAME="images23" ALIGN=BOTTOM WIDTH=18 HEIGHT=20 BORDER=0>-
+  ??<SUB>o</SUB>)/&nbsp;<img src="slides_fichiers/Image426.gif" NAME="images24" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0> et p.c. = P (Z<sup><small>*</small></sup> &gt; Z) (13) 
+Le fait de rejeter l'hypoth??se nulle est associ??e ?? un risque
+  ??gal ?? p.c. Plus cette probabilit?? critique est faible et moins il
+  y a de risque ?? rejeter Ho. 
+<H6><A NAME="160"></A>2) valeur seuil X<SUP>*</SUP></H6>
+X*, telle que tout r??sultat de sondage X
+  sup??rieur ?? X* permette de rejeter l'hypoth??se nulle avec moins de
+  chances de se tromper. 
+La valeur seuil X* est obtenue ?? l'aide de l'expression suivante,
+  issue de la formule [11] : 
+<A NAME="_x0000_i1049"></A>X* = ??o + Za<img src="slides_fichiers/Image426.gif" NAME="images25" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0> (14) 
+La r??gle est alors la suivante: 
+??? Si &lt; X*: acceptation de Ho 
+??? Si ?? X*: rejet de Ho 
+<H6><A NAME="165"></A>3) tests unilat??raux ?? gauche</H6>
+Les tests unilat??raux ?? gauche s'effectuent de
+  la m??me fa??on; la probabilit?? critique est la surface sous la
+  courbe au-dessous de la valeur X trouv??e sur ??chantillon. La
+  valeur-seuil X* est calcul??e ?? partir de la relation 
+<A NAME="_x0000_i1050"></A>X* = ??o - Za<img src="slides_fichiers/Image426.gif" NAME="images26" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0> (15) 
+Les tests bilat??raux n??cessiteront l'??valuation de deux
+  valeurs-seuil: une X* ?? droite de ??o et une X** ?? gauche, par
+  utilisation simultan??e des formules (14) et (15). 
+  <div class="row">
+<div class="span2">
+   <button data-example="testhyp">Tests Hypo</button>
+   </div>
+<div class="span2">
+   <button data-example="plotTesthyp">Plot Tests Hypo</button>
+   </div>
+<div class="span2">
+   <button data-example="plotTesthyp2">Plot Tests Hypo 2</button>
+   </div>
+     </div>
+<H6 LANG="de-DE">Exemple</H6>
+Le seuil de rentabilit?? d'un produit industriel nouveau s'??l??ve
+  ?? 50 en moyenne par entreprise appartenant au march?? potentiel Sur
+  un ??chantillon de 100 entreprises, une intention d'achat moyenne de
+  62 a ??t?? rep??r??e, avec un ??cart-type de 60. <BR>
+  Z<SUB>62</SUB> =
+  (62 - 50) / (60/ 1100) = 2 <BR>
+  p.c. = P(Z &gt; Zx) = p(Z &gt; 2) =
+  0,023 <BR>
+  Avec un seuil de risque a = 5 %, I'hypoth??se nulle est
+  rejet??e. En fait Ho peut ??tre rejet??e d??s que l'on trouve, sur
+  ??chantillon une valeur au moins ??gale ??: <BR>
+  = 50 + (1,64) . (60/
+  100<SUP>1/2</SUP>) = 59,84 
+<H6><A NAME="170"></A><U>c) Les risques associ??s au test d'hypoth??se</U></H6>
+La proc??dure qui vient d'??tre expos??e ne
+  s'int??resse qu'?? une seule cat??gorie de risque, celui de rejeter
+  Ho alors qu'elle est vraie. C'est le risque a ,risque de premi??re esp??ce ou encore de risque de type 1. Il sera
+  souvent n??cessaire de prendre ??galement en consid??ration le risque
+  d'accepter ?? tort Ho : c'est le risque b,
+  risque de seconde esp??ce ou encore de type II. 
+Le tableau 3 reproduit les r??sultats possibles d'un test
+  d'hypoth??se 
+
+<TABLE WIDTH=100% align="center">
+	<COL WIDTH=196>
+	<COL WIDTH=171>
+	<COL WIDTH=166>
+	<TR VALIGN=TOP>
+		<TD WIDTH=138>
+			<P><BR>
+			</P>
+		</TD>
+		<TD COLSPAN=2>
+			<P>D&Eacute;CISION</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=138>
+			<P>SITUATION REELLE</P>
+		</TD>
+		<TD WIDTH=107>
+			<P>Ho n'est pas rejet&eacute;e</P>
+		</TD>
+		<TD WIDTH=138>
+			<P>Ho est rejet&eacute;e</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=138>
+			<P>Ho est vraie</P>
+		</TD>
+		<TD WIDTH=107>
+			<P STYLE="margin-bottom: 0cm">D&eacute;cision correcte 
+			</P>
+			<P STYLE="margin-bottom: 0cm">Seuil de confiance: 
+			</P>
+			<P>Proba = 1 - a 
+			</P>
+		</TD>
+		<TD WIDTH=138>
+			<P STYLE="margin-bottom: 0cm">D&eacute;cision incorrecte 
+			</P>
+			<P STYLE="margin-bottom: 0cm">Erreur de type I 
+			</P>
+			<P>Proba = a 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=138>
+			<P>Ho n'est pas vraie</P>
+		</TD>
+		<TD WIDTH=107>
+			<P STYLE="margin-bottom: 0cm">D&eacute;cision incorrecte 
+			</P>
+			<P STYLE="margin-bottom: 0cm">Erreur de type II 
+			</P>
+			<P>Proba =b 
+			</P>
+		</TD>
+		<TD WIDTH=138>
+			<P STYLE="margin-bottom: 0cm">D&eacute;cision correcte 
+			</P>
+			<P STYLE="margin-bottom: 0cm">Puissance du test: 
+			</P>
+			<P>Proba = 1 - b 
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<I><B>Tableau 1.3.: R??sultats d'un test hypoth??se</B></I> 
+Il est bien ??vident que, pour une taille d'??chantillon donn??e,
+  le risque a et le risque b ??voluent de fa??on oppos??e. R??duire le risque a demande de choisir
+  une valeur-seuil X* plus forte, mais ceci s'accompagne d'une
+  augmentation du risque b, puisqu'il y aura
+  plus de chances d'accepter ?? tort l'hypoth??se nulle . 
+<H6 LANG="de-DE">Exemple</H6>
+Avec les donn??es de l'exemple pr??c??dent, on a vu que le risque a ??tait limit?? ?? 5 % si l'on
+  choisissait une valeur-seuil de 59,84. <BR>
+  Supposons que la v??ritable
+  valeur des ventes moyennes par entreprise soit 62. Avec une vraie
+  moyenne de 62 et un ??cart type des moyennes d'??chantillon de 6
+  (60/100<SUP>1/2</SUP> = 6), il y a une probabilit?? de 35,94 % de
+  s??lectionner un ??chantillon dont la moyenne observ??e sera
+  inf??rieure ou ??gale ?? 59,84. En effet: <BR>
+  Z = (59,84 - 62)/6 = -
+  0,36 et P(Z ?? 0,36) = 0,3594 <BR>
+  Il y a
+  donc ici une probabilit?? de 35,94 % d'accepter ?? tort l'hypoth??se
+  nulle. C'est la valeur du risque b. <BR>
+  Si
+  l'entreprise veut se pr??munir plus fortement contre le rejet ?? tort
+  de Ho avec un risque a de 2,5 % seulement, elle sera amen??e ??
+  choisir une valeur seuil plus forte, ??gale ??: <BR>
+  X* = 50 + 1,96(6)
+  = 61,76 <BR>
+  La s??lection d'une telle valeur-seuil augmente le risque b. Dans l'hypoth??se o?? la moyenne vraie
+  est 62: <BR>
+  Z = (61,76 - 62)/6 = - 0,04 et P(Z ?? -0,04) = 0,484 <BR>
+  Le risque b est ici de
+  48,4 %. 
+</section><section id="testhypqualy"><h2><A NAME="175"></A>Les tests d'hypoth??se: Donn??es qualitatives</H2>
+<H6>Analogies</H6>
+En ce qui concerne les test d'hypoth??se, les m??mes proc??dures
+  que pour les variables quantitatives sont employ??es. C'est la
+  formule (15) qui servira d??sormais dans le calcul des probabilit??s
+  critiques et des valeurs-seuil. 
+<H6 LANG="de-DE">Exemple</H6>
+Le taux de notori??t?? de la marque M dont il ??tait question dans
+  l'exemple pr??c??dent a ??t?? mesur?? ?? la suite d'une campagne
+  publicitaire. Le taux de notori??t?? pr??c??demment connu s'??levait
+  ?? 21%. Peut-on en conclure que la publicit?? a fait augmenter de
+  fa??on significative la connaissance de la marque ? <BR>
+  L'hypoth??se
+  nulle correspond ici au cas o?? la publicit?? n'a eu aucun effet sur
+  la notori??t?? de la marque et donc que la proportion vraie est
+  toujours au niveau ancien de 21%. Le rejet ??ventuel de l'hypoth??se
+  nulle demande de calculer la probabilit?? critique p.c., d??finie ici
+  comme la probabilit?? d'obtenir une proportion observ??e sur
+  ??chantillon au moins ??gale ?? 25 % dans une population o?? la
+  proportion vraie est 21%. <BR>
+  La proportion observ??e p correspond,
+  en valeur centr??e r??duite <BR>
+  Zp = (0,25 - 0,21)/0,0158 = 2,53
+  probabilit?? critique est donc: P(Z &gt; Zp) = 0,57 % 
+  <div class="row">
+<div class="span2">
+   <button data-example="testhyppess">Tests Hypo Prop Pess</button>
+   </div>
+<div class="span2">
+   <button data-example="testhyppopti">Tests Hypo Prop Opti</button>
+   </div>
+   </div>
+ </section><section id="chi2">
+    <H2><A NAME="180"></A>Les tests de conformit??
+     avec une distribution th??orique</H2>
+
+   <H6><A NAME="180"></A>Test du chi2</H6>
+Les r??sultats du d??pouillement d'une question
+  qualitative se pr??sentent comme une distribution de fr??quences
+  d'apparition des diff??rentes modalit??s de la variable concern??e. 
+Cette distribution peut ??tre compar??e ?? une distribution a
+  priori, dite distribution th??orique. Comme dans les tests
+  d'hypoth??ses vus plus haut, deux hypoth??ses sont alors test??es: 
+- Ho la distribution observ??e n'est pas significativement
+  diff??rente de la distribution th??orique. 
+- Hl: la distribution observ??e est significativement diff??rente
+  de la distribution th??orique.
+<h6 class="western">La loi du khi-deux</h6>
+<p style="margin-bottom: 0cm">Soient <i>Z</i><sub><i>1</i></sub><i>,...
+,Z</i><sub><i>n</i></sub>, <i>n</i> variables al??atoires r??elles
+ind??pendantes et identiquement distribu??es, <i>Z</i><sub><i>i</i></sub>
+~ <i>N(0; 1)</i>, mutuellement ind??pendantes deux ?? deux. Alors la
+loi de la variable al??atoire d??finie par : 
+<img src="slides3_html_6a27906a2ef621d5.gif" name="Objet58" width="97" hspace="10" height="57">
+
+est dite loi du khi-deux ?? n degr??s de libert??, 
+<img src="slides3_html_34ef9aa40f739e67.gif" name="Objet59" width="100" hspace="10" height="28">
+</p>
+<p style="margin-bottom: 0cm" align="center"><img src="images/slides3_html_c3c92bdcabbdc3f3.png" name="images3" width="537" height="420" border="0" align="bottom">
+</p>
+<p style="margin-bottom: 0cm" align="center">Figure 7 - Loi du
+Khi-deux</p>
+ <div class="row">
+<div class="span2">
+    <button data-example="pchisq">Loi Khi-deux</button> 
+</div>
+<div class="span2">
+    <button data-example="qchisq">Loi Khi-deux Inverse</button> 
+</div>
+<div class="span2">
+    <button data-example="plotPchisq">Plot Loi Khi-deux</button> 
+
+</div>
+</div>
+
+ <div class="row">
+<div class="span2">
+    <button data-example="pchisq2">Loi Khi-deux 2</button> 
+</div>
+<div class="span2">
+    <button data-example="plotPchisq2">Plot Loi Khi-deux 2</button> 
+
+</div>
+</div>
+
+<H6><A NAME="185"></A><U>a) Application du test du Khi-Deux</U></H6>
+La loi du Khi-Deux (c<SUP>2</SUP>)
+  donne la r??partition des ??carts entre les fr??quences absolues
+  th??oriques et les fr??quences absolues observ??es, sous hypoth??se
+  nulle. 
+On mesure le c<SUP>2</SUP> par : 
+c<SUP>2 </SUP>= S [Nj - qj]<SUP>2</SUP> /qj
+  (16) 
+o?? <B>Nj</B> = fr??quence absolue observ??e pour la modalit?? j; <B>q</B><B>j</B> = fr??quence absolue
+  th??orique pour la modalit?? j. 
+Cette valeur calcul??e du c<SUP>2</SUP> est compar??e avec la valeur lue sur la table du c<SUP>2</SUP>,
+  pour <B>m - 1</B> degr??s de libert?? lorsque la variable qualitative
+  comporte m modalit??s , et pour un seuil de confiance donn?? 1 - a.
+  Si la valeur calcul??e du c<SUP>2</SUP> est sup??rieure ?? la valeur de la table, Ho peut ??tre rejet??e avec
+  un risque inf??rieur ?? a. 
+<H6>Exemple</H6>
+Le tableau 1.4. reproduit une application du test du c<SUP>2</SUP> pour le traitement des r??sultats d'une ??tude sur les clients d'une
+  ligne a??rienne. Il s'agit ici de v??rifier si l'??chantillon
+  interrog?? respecte bien les proportions connues des passagers eu
+  ??gard ?? leur qualit?? d'abonn?? ou non. Le c<SUP>2</SUP> calcul?? apparaissant plus faible que le c<SUP>2</SUP> lu sur la table (5,99 pour 2 degr??s de libert?? au seuil de 5 %),
+  les diff??rences constat??es ne sont pas significatives. 
+<I><B>Tableau 1.4.: Application du test du Khi-Deux</B></I> 
+<TABLE WIDTH=307 BORDER=1 CELLPADDING=0 CELLSPACING=2>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Modalit??&nbsp;</TD>
+    <TD WIDTH=15%> Effectif observ?? Nj&nbsp;</TD>
+    <TD WIDTH=17%> Effectif th??orique Qj</TD>
+    <TD WIDTH=15%> <SPAN LANG="nl-NL">N</SPAN><SUB><SPAN LANG="nl-NL">j</SPAN></SUB><SPAN LANG="nl-NL">-</SPAN>Q<SUB><SPAN LANG="nl-NL">j</SPAN></SUB><SPAN LANG="nl-NL">;</SPAN></TD>
+    <TD WIDTH=15%> <SPAN LANG="nl-NL">(N</SPAN><SUB><SPAN LANG="nl-NL">j</SPAN></SUB><SPAN LANG="nl-NL">-</SPAN>Q<SUB><SPAN LANG="nl-NL">j</SPAN></SUB><SPAN LANG="nl-NL">)</SPAN><SUP><SPAN LANG="nl-NL">2</SPAN></SUP></TD>
+    <TD WIDTH=22%> (N<SUB>j</SUB>-Q<SUB>j</SUB>)<SUP>2</SUP> /Q</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Abonn?? ann??e&nbsp;</TD>
+    <TD WIDTH=15%> 80&nbsp;</TD>
+    <TD WIDTH=17%> 90&nbsp;</TD>
+    <TD WIDTH=15%> -10&nbsp;</TD>
+    <TD WIDTH=15%> 100&nbsp;</TD>
+    <TD WIDTH=22%> 1,11&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Abonn?? mois&nbsp;</TD>
+    <TD WIDTH=15%> 50&nbsp;</TD>
+    <TD WIDTH=17%> 45&nbsp;</TD>
+    <TD WIDTH=15%> 5&nbsp;</TD>
+    <TD WIDTH=15%> 25&nbsp;</TD>
+    <TD WIDTH=22%> 0 56&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Autre&nbsp;</TD>
+    <TD WIDTH=15%> 100&nbsp;</TD>
+    <TD WIDTH=17%> 95&nbsp;</TD>
+    <TD WIDTH=15%> 5&nbsp;</TD>
+    <TD WIDTH=15%> 25&nbsp;</TD>
+    <TD WIDTH=22%> 0 26&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Total&nbsp;</TD>
+    <TD WIDTH=15%> 230&nbsp;</TD>
+    <TD WIDTH=17%> 230&nbsp;</TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=22%> c<SUP>2</SUP>=
+        1,93</TD>
+  </TR>
+</TABLE>
+
+
+Nombre de degr??s de libert??: 2 Valeur du Khi-Deux au seuil de 5
+  %: 5,99 
+<div class="row">
+<div class="span2">
+  <button data-example="chi2univCamip">Chi2 univ. Camip</button>
+</div>
+</div>
+<H6><A NAME="190"></A><U>b) Application du test de Kolmogorov-Smirnov</U></H6>
+La qualit?? de l'ajustement d'une fonction de
+  r??partition observ??e ?? une fonction de r??partition a priori peut
+  ??galement ??tre ??valu??e ?? l'aide du test de Kolmogorov-Smirnov. 
+On aura recours ?? un test chaque fois que les modalit??s de la
+  variable qualitative consid??r??e sont ordonnables, mais aussi
+  lorsque les effectifs des diff??rentes classes sont trop faibles pour
+  autoriser l'utilisation du test du c<SUP>2</SUP> . 
+Le test demande de calculer des fr??quence relatives observ??es
+  cumul??es F<SUB>o</SUB>(j) et des fr??quences relatives cumul??es
+  th??oriques F<SUB>q</SUB>(j) : F<SUB>o</SUB>(j)
+  et F<SUB>q</SUB>(j) repr??sentent
+  respectivement les pourcentages des effectifs observ??s et th??oriques
+  enregistr??s jusqu'?? la modalit?? j. Pour chaque modalit?? la valeur
+  |F<SUB>o</SUB>(j) - F<SUB>q</SUB>(j)| est
+  calcul??e. Un indicateur D est alors ??tabli, tel que : 
+D = Maxj |F<SUB>o</SUB>(j) - Fq(j)|
+  (17) Cette valeur est compar??e ?? celle lue sur une table du D de
+  Kolmogorov-Smirnov pour un seuil de confiance donn??. A un seuil de
+  risque de 5%, et pour des effectifs totaux sup??rieurs ?? 35, D est
+  approximativement ??gal ?? 1,36/ 
+<H6>Exemple</H6>
+Le tableau 1.5. donne une application de ce test ?? l'??tude sur
+  les clients d'une ligne a??rienne. Le D calcul?? est plus faible que
+  le D de la table au seuil de 5% : les diff??rences ne sont pas
+  significatives, comme on l'avait d??j?? constat?? avec le test du c<SUP>2</SUP>. 
+<I><B>Tableau 1.5.: Application du test de
+  Kolmogorov-Smirnov</B></I> 
+<TABLE WIDTH=307 BORDER=1 CELLPADDING=0 CELLSPACING=2>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Modalit??&nbsp;</TD>
+    <TD WIDTH=17%> Fr??quence&nbsp;</TD>
+    <TD WIDTH=15%> Cumul??&nbsp;</TD>
+    <TD WIDTH=17%> Fr??quence&nbsp;</TD>
+    <TD WIDTH=15%> Cumul??&nbsp;</TD>
+    <TD WIDTH=20%> |Fo(J)-Fq(J)|</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=17%> relative&nbsp;</TD>
+    <TD WIDTH=15%> Fo(j)&nbsp;</TD>
+    <TD WIDTH=17%> Relative&nbsp;</TD>
+    <TD WIDTH=15%> Fq(j)</TD>
+    <TD WIDTH=20%>&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=17%> observ??e&nbsp;</TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=17%> Th??orique&nbsp;</TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=20%>&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Abonn?? ann??e&nbsp;</TD>
+    <TD WIDTH=17%> 34,78 %&nbsp;</TD>
+    <TD WIDTH=15%> 34,78 %&nbsp;</TD>
+    <TD WIDTH=17%> 39,13 %&nbsp;</TD>
+    <TD WIDTH=15%> 39,13 %&nbsp;</TD>
+    <TD WIDTH=20%> 4,35 %&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Abonn?? mois&nbsp;</TD>
+    <TD WIDTH=17%> 21,74 %&nbsp;</TD>
+    <TD WIDTH=15%> 56,52 %&nbsp;</TD>
+    <TD WIDTH=17%> 19,57 %&nbsp;</TD>
+    <TD WIDTH=15%> 58,70 %&nbsp;</TD>
+    <TD WIDTH=20%> 2,17 %&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Autre&nbsp;</TD>
+    <TD WIDTH=17%> 43,48 %&nbsp;</TD>
+    <TD WIDTH=15%> 100,00 %&nbsp;</TD>
+    <TD WIDTH=17%> 41,30 %&nbsp;</TD>
+    <TD WIDTH=15%> 100,00 %&nbsp;</TD>
+    <TD WIDTH=20%> 0,00 %&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%> Total&nbsp;</TD>
+    <TD WIDTH=17%> 100,00 %&nbsp;</TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=17%> 100,00 %&nbsp;</TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=20%>&nbsp;</TD>
+  </TR>
+</TABLE>
+Valeur calcul??e de D = 0,0435 Valeur de D au seuil de 5 %: 0,089
+</section>
+
+</div>
+<!-- end right -->
+</div><!-- end row -->
+</div> <!-- end continer -->
+
+<script src="../opencpu/jquery-1.7.2.min.js"></script> 
+<script src="../opencpu/bootstrap/js/bootstrap.js"></script> 
+<script src="../opencpu/common.js"></script> 
+<script src="../opencpu/docs.js"></script> 
+<script src="../opencpu/camip.js"></script> 
+<script src="slide-example.js"></script>

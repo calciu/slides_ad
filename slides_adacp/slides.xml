@@ -1,0 +1,1279 @@
+<?xml version="1.0"?>
+<?cocoon-process type="xslt"?>
+<?xml-stylesheet href="navigation.xsl" type="text/xsl"?>
+<!DOCTYPE slides[<!ENTITY hellip "&#x2026;">
+<!ENTITY agrave "&#xE0;">
+<!ENTITY aacute "&#xE1;">
+<!ENTITY acirc "&#xE2;">
+<!ENTITY atilde "&#xE3;">
+<!ENTITY auml "&#xE4;">
+<!ENTITY aring "&#xE5;">
+<!ENTITY aelig "&#xE6;">
+<!ENTITY ccedil "&#xE7;">
+<!ENTITY egrave "&#xE8;">
+<!ENTITY eacute "&#xE9;">
+<!ENTITY ecirc "&#xEA;">
+<!ENTITY euml "&#xEB;">
+<!ENTITY igrave "&#xEC;">
+<!ENTITY iacute "&#xED;">
+<!ENTITY icirc "&#xEE;">
+<!ENTITY iuml "&#xEF;">
+<!ENTITY eth "&#xF0;">
+<!ENTITY ntilde "&#xF1;">
+<!ENTITY ograve "&#xF2;">
+<!ENTITY oacute "&#xF3;">
+<!ENTITY ocirc "&#xF4;">
+<!ENTITY otilde "&#xF5;">
+<!ENTITY ouml "&#xF6;">
+<!ENTITY divide "&#xF7;">
+<!ENTITY oslash "&#xF8;">
+<!ENTITY ugrave "&#xF9;">
+<!ENTITY uacute "&#xFA;">
+<!ENTITY ucirc "&#xFB;">
+<!ENTITY uuml "&#xFC;">
+<!ENTITY yacute "&#xFD;">
+<!ENTITY thorn "&#xFE;">
+<!ENTITY yuml "&#xFF;">
+<!ENTITY oelig "&#x153;">
+<!ENTITY euro "&#x20AC;">
+<!ENTITY deg "&#xB0;">
+<!ENTITY nbsp "&#xA0;">
+<!ENTITY ndash "&#x2013;">
+<!ENTITY mdash "&#x2014;">
+<!ENTITY ldquo "&#x201C;">
+<!ENTITY rdquo "&#x201D;">
+<!ENTITY lsquo "&#x2018;">
+<!ENTITY rsquo "&#x2019;">]>
+<slides style="apachecon">
+<title>Analyse factorielle en composantes principales</title>
+<authors>
+<person>
+<name>M. Calciu</name>
+<email></email>
+</person>
+</authors>
+<event>
+<name>Cours d'analyse des donn&eacute;es &agrave; l'Universit&eacute; Lille 1</name>
+<date></date>
+<time></time>
+<location></location>
+</event>
+<section>
+<title>Introduction</title>
+<slide>
+<title>R&eacute;duction et positionnement</title>
+<p>L'analyse en composantes principales a pour objet la description synth&eacute;tique de tableaux de donn&eacute;es dans lesquels des individus sont d&eacute;crits par des variables quantitatives multiples. Cette description doit permettre :</p>
+<p>&nbsp;- une r&eacute;duction de l'information; les variables descriptives sont regroup&eacute;es au sein de facteurs synth&eacute;tiques, les composantes principales, qui correspondent &agrave; des dimensions sous-jacentes du probl&egrave;me;</p>
+
+<p>&nbsp;‑ le positionnement des individus par rapport &agrave; ces composantes principales, ce qui peut mettre en &eacute;vidence des typologies d'individus ainsi que les variables qui ont amen&eacute; &agrave; la cr&eacute;ation de ces types<fork uri="#_ftn1">
+<sup><span>[1]</span></sup>
+</fork>.</p>
+<p>L'&eacute;tude d'un &eacute;chantillon ou d'une population ne peut pr&eacute;tendre habituellement &ecirc;tre compl&egrave;te que si un nombre &eacute;lev&eacute; de variables, appel&eacute;es crit&egrave;res, tests, ou mesures sont &eacute;valu&eacute;es pour chacun des cas. L'ensemble de ces mesures couvre de fa&ccedil;on compl&egrave;te, du moins on l'esp&egrave;re, une partie structur&eacute;e et connaissable du domaine d'investigation. A premi&egrave;re vue, chacune de ces variables pourrait sembler d'&eacute;gale importance; consid&eacute;rant cependant que plusieurs d'entre elles sont en corr&eacute;lation, donc redondantes, il est possible de d&eacute;couvrir l'existence d'un plus petit nombre de variables dans un ordre d&eacute;croissant d'importance, ind&eacute;pendantes (du moins habituellement) les unes des autres et telles que les premi&egrave;res expliquent la plus grande partie de la dispersion. C'est l'objectif que se proposent les divers mod&egrave;les de l'analyse factorielle et qu'ils atteignent, du moins dans leurs grandes lignes<fork uri="#_ftn2">
+
+<sup><span>[2]</span></sup>
+</fork>.</p>
+<p>
+<b>&nbsp;</b>
+</p>
+</slide>
+</section>
+<section>
+<title>Mod&egrave;le g&eacute;om&eacute;trique &agrave; deux variables</title>
+
+<slide>
+<title>Donn&eacute;es brute</title>
+<p>Voici une situation &agrave; deux variables permettant d'illustrer g&eacute;om&eacute;triquement le but poursuivi par la recherche des composantes principales. Supposons un ensemble de sujets mesur&eacute;s sur deux variables.&nbsp;</p>
+<p>Prenons le cas des differentes mod&egrave;les de voitures.</p>
+<p>&nbsp;</p>
+<table width="" align="">
+<tr>
+
+<td><b><span>Obs</span></b></td><td><b><span>Mod&egrave;le</span></b></td><td><b><span>Prix</span></b></td><td><b><span>Cylindr&eacute;e</span></b>&nbsp;</td>
+</tr>
+<tr>
+<td>AS2</td><td>Austin M&eacute;tro Special</td><td>39999</td><td>998&nbsp;</td>
+</tr>
+<tr>
+
+<td>CI4</td><td>Citro&euml;n AX 10 RE</td><td>44250</td><td>954&nbsp;</td>
+</tr>
+<tr>
+<td>DA2</td><td>Daihatsu Charade 1000 TS<span>&nbsp;&nbsp;&nbsp;</span></td><td>48750</td><td>993&nbsp;</td>
+</tr>
+<tr>
+<td>FI3</td><td>Fiat Panda 1000 Cl.</td><td>40333</td><td>999&nbsp;</td>
+
+</tr>
+<tr>
+<td>FI5</td><td>Fiat Uno 45 fire</td><td>44916</td><td>999&nbsp;</td>
+</tr>
+<tr>
+<td>FI8</td><td>Fiat Uno Turbo TE</td><td>83350</td><td>1301&nbsp;</td>
+</tr>
+<tr>
+<td>FID</td><td>Fiat Uno 70 SL</td><td>59483</td><td>1302&nbsp;</td>
+
+</tr>
+<tr>
+<td>FO1</td><td>Ford Fiesta Junior</td><td>43500</td><td>1117&nbsp;</td>
+</tr>
+<tr>
+<td>FO9</td><td>Ford Fiesta X R-2</td><td>72476</td><td>1597&nbsp;</td>
+</tr>
+<tr>
+<td>NI1</td><td>Nissan Micra 1.0 DX</td><td>41333</td><td>988&nbsp;</td>
+
+</tr>
+<tr>
+<td>OP1</td><td>Opel Corsa Swing Belux 1.0 S</td><td>43500</td><td>993&nbsp;</td>
+</tr>
+<tr>
+<td>PE1</td><td>Peugeot 205 XE 1.0</td><td>44200</td><td>954&nbsp;</td>
+</tr>
+<tr>
+<td>PE3</td><td>Peugeot 205 GL</td><td>52600</td><td>1124&nbsp;</td>
+
+</tr>
+<tr>
+<td>PE6</td><td>Peugeot 205 GT</td><td>63216</td><td>1360&nbsp;</td>
+</tr>
+<tr>
+<td>PE9</td><td>Peugeot 205 GTI</td><td>83916</td><td>1580&nbsp;</td>
+</tr>
+<tr>
+<td>RE1</td><td>Renault 4 TL</td><td>43270</td><td>956&nbsp;</td>
+
+</tr>
+<tr>
+<td>RE3</td><td>Renault 4 GTL</td><td>46020</td><td>1108&nbsp;</td>
+</tr>
+<tr>
+<td>RE4</td><td>Renault 5 SL</td><td>47187</td><td>1108&nbsp;</td>
+</tr>
+<tr>
+<td>RE7</td><td>Renault 5 GTS</td><td>57500</td><td>1397&nbsp;</td>
+
+</tr>
+<tr>
+<td>RE8</td><td>Renault 5 GT Turbo</td><td>84395</td><td>1397&nbsp;</td>
+</tr>
+<tr>
+<td>SE4</td><td>Seat Ibiza 1.5 GLX</td><td>64278</td><td>1461&nbsp;</td>
+</tr>
+<tr>
+<td>SE9</td><td>Seat Marbella 900 GL</td><td>36565</td><td>903&nbsp;</td>
+
+</tr>
+<tr>
+<td>SZ2</td><td>Suzuki Swift 1.0 GA</td><td>40383</td><td>993&nbsp;</td>
+</tr>
+<tr>
+<td>SZ3</td><td>Suzuki Swift 1.3 GL</td><td>48850</td><td>1324&nbsp;</td>
+</tr>
+<tr>
+<td>TO1</td><td>Toyota Starlett 1000 L</td><td>46666</td><td>999&nbsp;</td>
+
+</tr>
+<tr>
+<td>TO2</td><td>Toyota Starlett 1300 XL</td><td>56166</td><td>1295&nbsp;</td>
+</tr>
+<tr>
+<td>VW3</td><td>Volkswagen Polo Coup&eacute; GT</td><td>60150</td><td>1272&nbsp;</td>
+</tr>
+
+</table>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Figure</title>
+<p>Dans un espace &agrave; deux dimensions, chaque sujet est repr&eacute;sent&eacute; par un point dont les coordonn&eacute;es sont les scores (figure 1).</p>
+<p>&nbsp;</p>
+<p>
+<imgspan src="./slides_fichiers/image002.gif"></imgspan>
+
+</p>
+<p>&nbsp;</p>
+<p>Figure 1. Contour elliptique de deux variables conjointes normalement distribu&eacute;es.</p>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Donn&eacute;es centr&eacute;es</title>
+<p>Pour centrer les donn&eacute;es on soustrait de chaque &eacute;l&eacute;ment d'une colonne du tableau (chaque valeur d'une variable) la moyenne de la colonne (de la variable).</p>
+
+<p>&nbsp;</p>
+<table width="" align="">
+<tr>
+<td><b><span>Obs</span></b></td><td><b><span>Mod&egrave;le</span></b></td><td><b><span>Prix</span></b></td><td><b><span>Cylindr&eacute;e</span></b>&nbsp;</td>
+</tr>
+<tr>
+<td>AS2</td><td>Austin M&eacute;tro Special</td><td>-13232,56</td><td>-167,63&nbsp;</td>
+
+</tr>
+<tr>
+<td>CI4</td><td>Citro&euml;n AX 10 RE</td><td>-8981,56</td><td>-211,63&nbsp;</td>
+</tr>
+<tr>
+<td>DA2</td><td>Daihatsu Charade 1000 TS<span>&nbsp;&nbsp;&nbsp;</span></td><td>-4481,56</td><td>-172,63&nbsp;</td>
+</tr>
+<tr>
+
+<td>FI3</td><td>Fiat Panda 1000 Cl.</td><td>-12898,56</td><td>-166,63&nbsp;</td>
+</tr>
+<tr>
+<td>FI5</td><td>Fiat Uno 45 fire</td><td>-8315,56</td><td>-166,63&nbsp;</td>
+</tr>
+<tr>
+<td>FI8</td><td>Fiat Uno Turbo TE</td><td>30118,44</td><td>135,37&nbsp;</td>
+
+</tr>
+<tr>
+<td>FID</td><td>Fiat Uno 70 SL</td><td>6251,44</td><td>136,37&nbsp;</td>
+</tr>
+<tr>
+<td>FO1</td><td>Ford Fiesta Junior</td><td>-9731,56</td><td>-48,63&nbsp;</td>
+</tr>
+<tr>
+<td>FO9</td><td>Ford Fiesta X R-2</td><td>19244,44</td><td>431,37&nbsp;</td>
+
+</tr>
+<tr>
+<td>NI1</td><td>Nissan Micra 1.0 DX</td><td>-11898,56</td><td>-177,63&nbsp;</td>
+</tr>
+<tr>
+<td>OP1</td><td>Opel Corsa Swing Belux 1.0 S</td><td>-9731,56</td><td>-172,63&nbsp;</td>
+</tr>
+<tr>
+<td>PE1</td><td>Peugeot 205 XE 1.0</td><td>-9031,56</td><td>-211,63&nbsp;</td>
+
+</tr>
+<tr>
+<td>PE3</td><td>Peugeot 205 GL</td><td>-631,56</td><td>-41,63&nbsp;</td>
+</tr>
+<tr>
+<td>PE6</td><td>Peugeot 205 GT</td><td>9984,44</td><td>194,37&nbsp;</td>
+</tr>
+<tr>
+<td>PE9</td><td>Peugeot 205 GTI</td><td>30684,44</td><td>414,37&nbsp;</td>
+
+</tr>
+<tr>
+<td>RE1</td><td>Renault 4 TL</td><td>-9961,56</td><td>-209,63&nbsp;</td>
+</tr>
+<tr>
+<td>RE3</td><td>Renault 4 GTL</td><td>-7211,56</td><td>-57,63&nbsp;</td>
+</tr>
+<tr>
+<td>RE4</td><td>Renault 5 SL</td><td>-6044,56</td><td>-57,63&nbsp;</td>
+
+</tr>
+<tr>
+<td>RE7</td><td>Renault 5 GTS</td><td>4268,44</td><td>231,37&nbsp;</td>
+</tr>
+<tr>
+<td>RE8</td><td>Renault 5 GT Turbo</td><td>31163,44</td><td>231,37&nbsp;</td>
+</tr>
+<tr>
+<td>SE4</td><td>Seat Ibiza 1.5 GLX</td><td>11046,44</td><td>295,37&nbsp;</td>
+
+</tr>
+<tr>
+<td>SE9</td><td>Seat Marbella 900 GL</td><td>-16666,56</td><td>-262,63&nbsp;</td>
+</tr>
+<tr>
+<td>SZ2</td><td>Suzuki Swift 1.0 GA</td><td>-12848,56</td><td>-172,63&nbsp;</td>
+</tr>
+<tr>
+<td>SZ3</td><td>Suzuki Swift 1.3 GL</td><td>-4381,56</td><td>158,37&nbsp;</td>
+
+</tr>
+<tr>
+<td>TO1</td><td>Toyota Starlett 1000 L</td><td>-6565,56</td><td>-166,63&nbsp;</td>
+</tr>
+<tr>
+<td>TO2</td><td>Toyota Starlett 1300 XL</td><td>2934,44</td><td>129,37&nbsp;</td>
+</tr>
+<tr>
+<td>VW3</td><td>Volkswagen Polo Coup&eacute; GT</td><td>6918,44</td><td>106,37&nbsp;</td>
+
+</tr>
+</table>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Figure</title>
+<p>Le graphique pour les premi&egrave;res deux variables est illustr&eacute; en figure 2</p>
+<p>&nbsp;</p>
+<p>
+<imgspan src="./slides_fichiers/image004.gif"></imgspan>
+</p>
+<p>&nbsp;</p>
+
+</slide>
+<slide>
+<title>Donn&eacute;es centr&eacute;es et r&eacute;duites</title>
+<p>Souvent pour &eacute;viter les grandes diff&eacute;rences d'ordre de grandeur entre les variables on r&eacute;duit les donne en divisant chaque colonne du tableau (chaque valeur d'une variable) par l'&eacute;cart type de la colonne (de la variable).</p>
+<p>&nbsp;</p>
+<table width="" align="">
+<tr>
+<td>Obs</td><td>Mod&egrave;le</td><td>Prix</td><td>Cylindr&eacute;e&nbsp;</td>
+
+</tr>
+<tr>
+<td>AS2</td><td>Austin M&eacute;tro Special</td><td>-0,98</td><td>-0,84&nbsp;</td>
+</tr>
+<tr>
+<td>CI4</td><td>Citro&euml;n AX 10 RE</td><td>-0,66</td><td>-1,06&nbsp;</td>
+</tr>
+
+<tr>
+<td>DA2</td><td>Daihatsu Charade 1000 TS<span>&nbsp;&nbsp;&nbsp;</span></td><td>-0,33</td><td>-0,86&nbsp;</td>
+</tr>
+<tr>
+<td>FI3</td><td>Fiat Panda 1000 Cl.</td><td>-0,95</td><td>-0,83&nbsp;</td>
+</tr>
+<tr>
+<td>FI5</td><td>Fiat Uno 45 fire</td><td>-0,61</td><td>-0,83&nbsp;</td>
+
+</tr>
+<tr>
+<td>FI8</td><td>Fiat Uno Turbo TE</td><td>2,22</td><td>0,68&nbsp;</td>
+</tr>
+<tr>
+<td>FID</td><td>Fiat Uno 70 SL</td><td>0,46</td><td>0,68&nbsp;</td>
+</tr>
+<tr>
+<td>FO1</td><td>Ford Fiesta Junior</td><td>-0,72</td><td>-0,24&nbsp;</td>
+
+</tr>
+<tr>
+<td>FO9</td><td>Ford Fiesta X R-2</td><td>1,42</td><td>2,15&nbsp;</td>
+</tr>
+<tr>
+<td>NI1</td><td>Nissan Micra 1.0 DX</td><td>-0,88</td><td>-0,89&nbsp;</td>
+</tr>
+<tr>
+<td>OP1</td><td>Opel Corsa Swing Belux1.0 S</td><td>-0,72</td><td>-0,86&nbsp;</td>
+
+</tr>
+<tr>
+<td>PE1</td><td>Peugeot 205 XE 1.0</td><td>-0,67</td><td>-1,06&nbsp;</td>
+</tr>
+<tr>
+<td>PE3</td><td>Peugeot 205 GL</td><td>-0,05</td><td>-0,21&nbsp;</td>
+</tr>
+<tr>
+<td>PE6</td><td>Peugeot 205 GT</td><td>0,74</td><td>0,97&nbsp;</td>
+
+</tr>
+<tr>
+<td>PE9</td><td>Peugeot 205 GTI</td><td>2,26</td><td>2,07&nbsp;</td>
+</tr>
+<tr>
+<td>RE1</td><td>Renault 4 TL</td><td>-0,74</td><td>-1,05&nbsp;</td>
+</tr>
+<tr>
+<td>RE3</td><td>Renault 4 GTL</td><td>-0,53</td><td>-0,29&nbsp;</td>
+
+</tr>
+<tr>
+<td>RE4</td><td>Renault 5 SL</td><td>-0,45</td><td>-0,29&nbsp;</td>
+</tr>
+<tr>
+<td>RE7</td><td>Renault 5 GTS</td><td>0,31</td><td>1,15&nbsp;</td>
+</tr>
+<tr>
+<td>RE8</td><td>Renault 5 GT Turbo</td><td>2,30</td><td>1,15&nbsp;</td>
+
+</tr>
+<tr>
+<td>SE4</td><td>Seat Ibiza 1.5 GLX</td><td>0,82</td><td>1,47&nbsp;</td>
+</tr>
+<tr>
+<td>SE9</td><td>Seat Marbella 900 GL</td><td>-1,23</td><td>-1,31&nbsp;</td>
+</tr>
+<tr>
+<td>SZ2</td><td>Suzuki Swift 1.0 GA</td><td>-0,95</td><td>-0,86&nbsp;</td>
+
+</tr>
+<tr>
+<td>SZ3</td><td>Suzuki Swift 1.3 GL</td><td>-0,32</td><td>0,79&nbsp;</td>
+</tr>
+<tr>
+<td>TO1</td><td>Toyota Starlett 1000 L</td><td>-0,48</td><td>-0,83&nbsp;</td>
+</tr>
+<tr>
+<td>TO2</td><td>Toyota Starlett 1300 XL</td><td>0,22</td><td>0,65&nbsp;</td>
+
+</tr>
+<tr>
+<td>VW3</td><td>Volkswagen Polo Coup&eacute; GT</td><td>0,51</td><td>0,53&nbsp;</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Figure</title>
+<p>Le graphique pour les premi&egrave;res deux variables est illustr&eacute; en figure 3:</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>
+<imgspan src="./slides_fichiers/image006.gif"></imgspan>
+</p>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Forme g&eacute;n&eacute;rale du nuage de points</title>
+<p>La forme g&eacute;n&eacute;rale du nuage de points est celle d'une ellipse si les variables sont distribu&eacute;es normalement. Une ligne contour d'&eacute;gale densit&eacute; permet de mieux voir la distribution de ces points.</p>
+
+<p>&nbsp;</p>
+<p>
+<imgspan src="./slides_fichiers/image008.gif"></imgspan>
+</p>
+<p>&nbsp;</p>
+<p>Consid&eacute;rons les dispersions des deux variables X (Cylindr&eacute;e) et de Y (Prix) qui sont mesur&eacute;es habituellement par les variances, mais qu'on repr&eacute;sente ici comme les projections extr&ecirc;mes des lignes contours. Sur l'axe des X la dispersion va de a &agrave; b et sur l'axe des Y, elle va de c &agrave; d. On constate que les dispersions sur ces deux axes sont habituellement assez importantes pour qu'on doive tenir compte des deux variables pour expliquer ad&eacute;quatement la dispersion totale: une explication simplifi&eacute;e par r&eacute;duction du nombre de variables ne semble donc pas, &agrave; premi&egrave;re vue du moins, pouvoir &ecirc;tre envisag&eacute;e dans ces conditions. De plus, on observe une corr&eacute;lation entre les deux variables: il y a redondance, c'est-&agrave;-dire que l'une des variables contient une partie de l'information de l'autre.</p>
+
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Recherche d&rsquo;axes qui maximisent la variance</title>
+<p>Consid&eacute;rons maintenant les deux axes de l'ellipse comme nouveaux axes de r&eacute;f&eacute;rence du syst&egrave;me. Dans le cas de variables standard, ces nouveaux axes forment un angle de 45&deg; par rapport aux anciens. Cet angle est diff&eacute;rent dans le cas de variables non standard.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>
+<imgspan src="./slides_fichiers/image010.gif"></imgspan>
+</p>
+<p>&nbsp;</p>
+<p>Figure 2. Repr&eacute;sentation des sujets dans l'espace des axes de l'ellipse.</p>
+<p>&nbsp;</p>
+<p>En effectuant une modification des coordonn&eacute;es des points du nuage afin d'exprimer leurs positions par rapport aux nouveaux axes, on r&eacute;alise une transformation int&eacute;ressante. Ces nouveaux axes repr&eacute;sentent de nouvelles variables, appel&eacute;es composantes, fonctions des anciennes variables X et Y et dont la dispersion dans le nuage de points est maximum pour l'une, allant de e &agrave; f, et minimum pour l'autre, allant de g &agrave; h. Ainsi, la premi&egrave;re composante rend compte de la plus grande partie de la variance alors que la deuxi&egrave;me composante, en plus d'&ecirc;tre ind&eacute;pendante de la premi&egrave;re, joue un r&ocirc;le d'autant moins important que la corr&eacute;lation <b>r</b>xy est &eacute;lev&eacute;e; le r&ocirc;le de la deuxi&egrave;me composante peut m&ecirc;me dans certains cas devenir n&eacute;gligeable. L'ind&eacute;pendance des composantes ressort de l'orientation de l'ellipse relativement aux nouveaux axes de r&eacute;f&eacute;rence.</p>
+
+<p>Le but qu'on se donnait est atteint: une situation d&eacute;crite ant&eacute;rieurement par deux variables li&eacute;es l'est maintenant par deux composantes ind&eacute;pendantes dont la premi&egrave;re est plus importante qu'aucune des variables et dont la seconde, dans certains cas, peut &ecirc;tre n&eacute;glig&eacute;e.</p>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>L&rsquo;importance de variables et composantes</title>
+<p>L'<i>importance d'une variable ou d'une composante est donn&eacute;e par sa variance</i> ou sa somme des &eacute;carts &agrave; la moyenne. On comprendra mieux intuitivement cet &eacute;nonc&eacute; si on consid&egrave;re qu'&agrave; la limite, une variable dont tous les scores sont &eacute;gaux, c'est-&agrave;-dire dont la variance est nulle, est une variable qui n'ajoute aucun renseignement &agrave; une situation.</p>
+
+<p>La plus grande partie du chapitre portera sur l'analyse de variables standard.</p>
+<p>C'est le cas le plus universel et celui o&ugrave; toutes les variables sont au d&eacute;part consid&eacute;r&eacute;es comme d'&eacute;gale importance.</p>
+<p>Plusieurs auteurs proposent l'extraction des composantes de variables centr&eacute;es mais non r&eacute;duites. Cette approche a comme point de d&eacute;part la matrice des variances et covariances <b>V</b> plut&ocirc;t que celle des corr&eacute;lations <b>R</b>; ils vont m&ecirc;me jusqu'&agrave; sugg&eacute;rer comme point de d&eacute;part la matrice des sommes des carr&eacute;s des &eacute;carts aux moyennes et des sommes des produits crois&eacute;s. Cette m&eacute;thode &eacute;tablit ainsi une hi&eacute;rarchie des variables; cette hi&eacute;rarchie est bas&eacute;e sur l'&eacute;tendue des &eacute;chelles des variables. Or l'&eacute;tendue d'une &eacute;chelle est arbitraire. D'autre part, les techniques d'analyse factorielle ont pour but l'explication des corr&eacute;lations entre ces variables; et on sait que l'indice r de corr&eacute;lation est totalement ind&eacute;pendant de l'&eacute;tendue des &eacute;chelles des variables. C'est pourquoi une approche autre que celle reposant sur la matrice de corr&eacute;lations <b>R</b> qui impose de traiter toutes les variables sur un m&ecirc;me pied, appara&icirc;t &agrave; plusieurs points de vue gratuite et injustifi&eacute;e; le lecteur pourra s'en tenir &agrave; cette partie de l'expos&eacute;. On a cru bon cependant d'ajouter un article sur les cons&eacute;quences de l'usage de variables non standard, c'est-&agrave;-dire sur l'extraction des composantes &agrave; partir de la matrice V des variances et covariances, ce qui permettra d'&eacute;valuer les diff&eacute;rences et similitudes des m&eacute;thodes.</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</slide>
+</section>
+<section>
+<title>Mod&egrave;le g&eacute;om&eacute;trique &agrave; plus de deux variables</title>
+<slide>
+<title>Trois variables</title>
+<p>Les sujets d'un &eacute;chantillon mesur&eacute;s sur trois variables li&eacute;es peuvent &ecirc;tre repr&eacute;sent&eacute;s dans un espace &agrave; trois dimensions par un nuage de points de forme ellipso&iuml;dale; les lieux d'&eacute;gale densit&eacute; constituent des surfaces contours dont toute intersection avec un plan d&eacute;crit une ellipse; un ballon de football plus ou moins aplati donne une bonne id&eacute;e d'un tel contour. Les trois axes principaux sont perpendiculaires et repr&eacute;sentent les trois composantes ordonn&eacute;es. Ces trois composantes sont ind&eacute;pendantes; de plus la premi&egrave;re rend compte de la plus grande partie de la variance du syst&egrave;me tandis que la variance expliqu&eacute;e par les deux autres composantes est moindre. Dans certains cas, l'importance des deuxi&egrave;me et troisi&egrave;me composantes peut &ecirc;tre faible au point de rendre le syst&egrave;me presque totalement explicable par la seule premi&egrave;re composante, ou dans les situations moins simples, par les premi&egrave;re et deuxi&egrave;me composantes.</p>
+
+</slide>
+<slide>
+<title>Plusieurs variables</title>
+<p>On peut facilement imaginer la situation o&ugrave; un plus grand nombre de variables est &eacute;tudi&eacute;, ce qui entra&icirc;ne espace multidimensionnel, nuage de points hyper-ellipso&iuml;dal, hyperespace, hyperplan, etc.</p>
+<p>La m&eacute;thode des composantes principales est aussi dite des axes principaux, ce qui rend plus explicite le mod&egrave;le g&eacute;om&eacute;trique. Un axe principal dans une ellipse est un segment qui, passant par le centre de l'ellipse, atteint celle-ci perpendiculairement &agrave; une tangente. Pour espace &agrave; trois dimensions et plus, les mots ellipse et tangente sont remplac&eacute;s par ellipso&iuml;de et plan tangent.</p>
+
+<p>La recherche des composantes principales consiste &agrave; d&eacute;terminer ce qu'on pourrait consid&eacute;rer comme les <b>longueurs</b> (racines latentes symbolis&eacute;es j) et les <b>directions</b> (vecteur fj des vecteurs latents) des axes principaux.</p>
+<p>La premi&egrave;re composante correspond &agrave; la meilleure description possible de la position des points du nuage. Cette exigence peut s'exprimer math&eacute;matiquement en fixant que la somme des carr&eacute;s des &eacute;carts de chaque point &agrave; cet axe soit minimum, ou encore, en imposant que la variance de cette composante soit maximum. Chaque composante additionnelle r&eacute;pond au m&ecirc;me crit&egrave;re et exige en plus d'&ecirc;tre perpendiculaire &agrave; toutes les pr&eacute;c&eacute;dentes. L'orthogonalit&eacute; observ&eacute;e des composantes r&eacute;pond &agrave; l'exigence de leur ind&eacute;pendance.</p>
+
+<p>
+<b>&nbsp;</b>
+</p>
+</slide>
+</section>
+<section>
+<title>D&eacute;veloppement du mod&egrave;le alg&eacute;brique</title>
+<slide>
+<title>Introduction</title>
+<p>On a vu que le mod&egrave;le g&eacute;om&eacute;trique de la recherche d'une composante consiste &agrave; transformer les coordonn&eacute;es de points, ou ce qui est &eacute;quivalent, &agrave; effectuer une rotation orthogonale des axes, de telle sorte qu'on en arrive &agrave; une variance maximum du premier facteur. Le vecteur de transformation (ensemble des coefficients de saturations d'un facteur) agit sur la matrice des variables de fa&ccedil;on &agrave; cr&eacute;er une variable nouvelle appel&eacute;e composante. On consid&eacute;rera dans cet article le cas o&ugrave; une importance &eacute;gale est attach&eacute;e &agrave; chaque variable, en transformant la matrice M des scores bruts en la matrice X des scores standard.</p>
+
+</slide>
+<slide>
+<title>Position du probl&egrave;me</title>
+<p>Le vecteur des scores de la composante r&eacute;pond &agrave; l'expression <b>y</b> = <b>Xf</b> o&ugrave; <b>f</b> est le vecteur de transformation recherch&eacute;.</p>
+
+<p>&nbsp;</p>
+<p>La variance de la composante s'&eacute;crit:</p>
+<p>&nbsp;</p>
+<p>
+<b>y'y</b>/n = (<b>Xf</b>)'(<b>Xf</b>)/n =<b>f'X'Xf</b>/n = <b>f'Rf</b>
+</p>
+
+<p>&nbsp;</p>
+<p>Cette variance est maximum pour <b>f</b> r&eacute;pondant &agrave; la condition:</p>
+<p>&nbsp;</p>
+<p> = 0</p>
+<p>2<b>Rf</b> = 0</p>
+
+<p>
+<b>Rf</b> = 0</p>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Cas simplifi&eacute; &agrave; deux variables</title>
+<p>Examinons le cas simple, mais g&eacute;n&eacute;ralisable, d'une matrice X &agrave; deux variables; la condition du maximum de la variance sera:</p>
+
+<p>&nbsp;</p>
+<p>
+<b><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Rf</b> = &nbsp;&nbsp; </p>
+<p>&nbsp;</p>
+<p>c'est-&agrave;-dire:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a1+ ra2 = u</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ra1 + a2= 0</p>
+
+<p>d'o&ugrave;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (1 - r<sup>2</sup>) a1 = 0 et (1 - r<sup>2</sup>) a2 = 0</p>
+<p>&nbsp;</p>
+<p>On constate alors qu'une solution sans int&eacute;r&ecirc;t (a1 = a2 = 0) est la cons&eacute;quence de</p>
+<p>(1 - r<sup>2</sup>) =   0&nbsp; c'est-&agrave;-dire de r  1</p>
+
+<p>&nbsp;</p>
+<p>On constate aussi qu'une solution ind&eacute;termin&eacute;e est la cons&eacute;quence de la condition</p>
+<p>(1 - r<sup>2</sup>) =  = 0&nbsp; c'est-&agrave;-dire de r = 1</p>
+<p>C'est une condition rarement rencontr&eacute;e.</p>
+<p>&nbsp;</p>
+
+</slide>
+<slide>
+<title>Utilisation du terme de Lagrange</title>
+<p>&nbsp;</p>
+<p>Pour contourner cette difficult&eacute;, on ajoute &agrave; l'expression de la variance la condition <b>f'f</b>=<b>k</b> fixant ainsi les valeurs de <b>f</b> et du terme de Lagrange; ce qui donne la fonction:</p>
+
+<p>
+<b>V</b> = <b>f'Rf-</b>(<b>f'f</b> - <b>k</b>).</p>
+<p>&nbsp;</p>
+<p>La variance de la composante est maximum pour</p>
+<p>&nbsp;</p>
+<p> = 2<b>Rf</b> - 2<b>f</b> = 0</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>d'o&ugrave; l'&eacute;quation:</p>
+<p>&nbsp;</p>
+<p>(<b>R</b> - <b><span>I</span></b>)<b>f</b> = 0</p>
+
+<p>&nbsp;</p>
+<p>Revenons au cas particulier des deux variables; I'expression</p>
+<p>&nbsp;</p>
+<p>(<b>R</b> - <b><span>I</span></b>)<b>f</b> = 0</p>
+<p>&nbsp;</p>
+<p>peut s'&eacute;crire</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;  = 0</p>
+<p>&nbsp;</p>
+<p>d'o&ugrave; on tire</p>
+<p>&nbsp;</p>
+<p>[(1-)<sup>2</sup> - r<sup>2</sup>] a1 =0 et&nbsp; [(1-)<sup>2</sup> - r<sup>2</sup>] a2 = 0</p>
+
+<p>&nbsp;</p>
+<p>La seule solution acceptable est celle de l'ind&eacute;termination, c'est-&agrave;-dire de</p>
+<p>&nbsp;</p>
+<p>[(1-)<sup>2</sup> - r<sup>2</sup>]&nbsp; = |<b>R</b>- <b>I|</b> = 0</p>
+
+<p>&nbsp;</p>
+<p>Cette condition d&eacute;termine, d'une fa&ccedil;on g&eacute;n&eacute;rale, le nombre de racines latentes possible: ce nombre est &eacute;gal &agrave; l'ordre de <b>R</b>.</p>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Resultat</title>
+
+<p>A chaque valeur i correspond un vecteur <b>f</b>iobtenu par la solution de (<b>R</b> - i<b>I</b>)<b>f</b>i = 0.&nbsp; L'ensemble des <b>f</b>i constitue la matrice <b>F</b> de transformation. La lev&eacute;e de l'ind&eacute;termination se fera en fixant ou normant la valeur de <b>f</b>'j<b>f</b>j .</p>
+
+<p>L'ensemble de ces conditions peut s'&eacute;crire:</p>
+<p>&nbsp;</p>
+<p>
+<b>RF</b> = <b>F</b>
+</p>
+<p>&nbsp;</p>
+</slide>
+</section>
+<section>
+<title>Application au march&eacute; des voitures</title>
+
+<slide>
+<title>Presentation</title>
+<p>Le tableau complet sur les mod&egrave;les de voitures &agrave; sept variables<fork uri="#_ftn3">
+<sup><span>[3]</span></sup>
+</fork>, &ccedil;a veut dire que les mod&egrave;les analys&eacute;es sont jug&eacute;s selon sept crit&egrave;res. Pour reduire la complexit&eacute; d'une telle comparaison on va utiliser l'analyse en composantes principales pour trouver un nombre reduit (deux) de composantes principales (ind&eacute;pendantes) qui captent la plus grande partie de l'information et qui remplaceront les sept variables, qui souvent sont corr&eacute;l&eacute;es entre elles.</p>
+
+</slide>
+<slide>
+<title>Matrice de corr&eacute;lations</title>
+<p>On calcule la matrice de correlations (<b>R = X'X</b>/n) en multipliant la traspos&eacute;e du tableau des donn&eacute;es centr&eacute;es et reduites avec le tableau. La matrice <b>R</b> &nbsp;calcul&eacute;e est la suivante:</p>
+<p>&nbsp;</p>
+
+<table width="" align="">
+<tr>
+<td>1,00</td><td>0,85</td><td>-0,77</td><td>0,32</td><td>0,22</td><td>0,81</td><td>0,91&nbsp;</td>
+</tr>
+<tr>
+<td>0,85</td><td>1,00</td><td>-0,78</td><td>0,30</td><td>0,11</td><td>0,80</td><td>0,83&nbsp;</td>
+
+</tr>
+<tr>
+<td>-0,77</td><td>-0,78</td><td>1,00</td><td>-0,10</td><td>0,10</td><td>-0,68</td><td>-0,94&nbsp;</td>
+</tr>
+<tr>
+<td>0,32</td><td>0,30</td><td>-0,10</td><td>1,00</td><td>-0,06</td><td>0,21</td><td>0,16&nbsp;</td>
+
+</tr>
+<tr>
+<td>0,22</td><td>0,11</td><td>0,10</td><td>-0,06</td><td>1,00</td><td>0,29</td><td>0,02&nbsp;</td>
+</tr>
+<tr>
+<td>0,81</td><td>0,80</td><td>-0,68</td><td>0,21</td><td>0,29</td><td>1,00</td><td>0,78&nbsp;</td>
+
+</tr>
+<tr>
+<td>0,91</td><td>0,83</td><td>-0,94</td><td>0,16</td><td>0,02</td><td>0,78</td><td>1,00&nbsp;</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<p>Sur cette matrice (<b>R</b>) on calcule les valeures et les vecteurs propres selon un algorythme connu :</p>
+
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Extraction des valeurs et vecteurs propres</title>
+<table width="" align="">
+<tr>
+<td>4,355</td><td>1,123</td><td>0,97</td><td>0,232</td><td>0,172</td><td>0,134</td><td>0,014&nbsp;</td>
+</tr>
+<tr>
+
+<td>0,4560</td><td>0,0740</td><td>0,0690</td><td>-0,2330</td><td>-0,0070</td><td>0,716</td><td>-0,4630&nbsp;</td>
+</tr>
+<tr>
+<td>0,4440</td><td>-0,0170</td><td>0,0420</td><td>0,2670</td><td>0,8390</td><td>-0,133</td><td>0,0880&nbsp;</td>
+
+</tr>
+<tr>
+<td>-0,4240</td><td>0,2260</td><td>0,2780</td><td>0,3500</td><td>0,1560</td><td>0,607</td><td>0,4210&nbsp;</td>
+</tr>
+<tr>
+<td>0,1420</td><td>-0,2470</td><td>0,9270</td><td>-0,1260</td><td>-0,1180</td><td>-0,164</td><td>0,0500&nbsp;</td>
+
+</tr>
+<tr>
+<td>0,0690</td><td>0,9090</td><td>0,1520</td><td>-0,3050</td><td>0,0310</td><td>-0,223</td><td>0,0450&nbsp;</td>
+</tr>
+<tr>
+<td>0,4240</td><td>0,2120</td><td>0,0210</td><td>0,7420</td><td>-0,4660</td><td>-0,078</td><td>-0,0330&nbsp;</td>
+
+</tr>
+<tr>
+<td>0,4590</td><td>-0,1040</td><td>-0,1830</td><td>-0,3040</td><td>-0,1980</td><td>0,134</td><td>0,7720&nbsp;</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Utilisation des valeurs propres</title>
+
+<p>La premi&egrave;re ligne du tableau donne les valeures propres i. La somme de valeures propres i &nbsp;= 7 et correspond &agrave; la variance totale (informations totale) des sept variables centr&eacute;es reduites. Ca veut dire que en remplaceant les variables originales par les composantes principales on ne perd pas d'informations. En plus on constate que les premiers deux facteurs expriment 78,3% (5,5 / 7) de la variance (information totale).</p>
+<p>
+<figure src="./slides_fichiers/image012.gif"></figure>
+</p>
+<p>Ca veut dire qu'on peut sans trop de perte d'information utiliser seulement ces deux composantes comme axes pour representer le nuage de points et par rapport aux axes de variables utilis&eacute;es dans les graphiques precedents ces axes sont ortogonales (noncorr&eacute;l&eacute;es entre elles).</p>
+</slide>
+<slide>
+
+<title>Utilisation des vecteurs propres</title>
+<p>En dessous des valeurs propres sont rang&eacute;s en colonne les vecteurs propres qui sont les coefficients avec les quells sont pond&eacute;r&eacute;es les variables pour obtenir les facteurs. Pour voir l'orientation des variables par rapport aux composantes principales ils suffit de placer sur un grafique les coordonn&eacute;es repr&eacute;sent&eacute;s par les vecteurs propres:</p>
+<p>
+<imgspan src="./slides_fichiers/image014.gif"></imgspan>
+</p>
+<p>L'orientation des variables par rapport aux axes permet d'interpreter ces axes. Les variables qui sont plus proches du premi&egrave;re axe du cot&eacute; positif comme la vitesse, le prix , la cylindr&eacute;e et du cot&eacute; n&eacute;gatif le poids/puissance, permentent une iterpretations d'itermpreter l'axe comme &eacute;tant l'axe de performances (techiques..), l'autre axes auquels sont corr&eacute;l&eacute;s positivement le volume du coffre et n&eacute;gativement la logueur.</p>
+
+</slide>
+<slide>
+<title>Calcul de scores factoriels</title>
+<p>Les nouvelles coordonn&eacute;es des observations sur les axes sont calcul&eacute;es conform&eacute;ment &agrave; la d&eacute;finition des facteurs ( y = xf) en multipliant le tabeau de donn&eacute;es originales (centr&eacute;es reduite) par la matrice des vecteurs propres, Le nouveau tableau est:</p>
+<p>
+<b>Y = XF</b>
+
+</p>
+<p>Les coordonn&eacute;es des mod&egrave;les de voitures qui ce trouvent dans les colonne du tableau Y qui corespondent au premi&egrave;res deux axes sont ilustr&eacute; dans l'image suivante;</p>
+<p>&nbsp;</p>
+<p>
+<imgspan src="./slides_fichiers/image016.gif"></imgspan>
+</p>
+<p>Ainsi on obtient la carte de positionnement des sujets analys&eacute;s, qui permet d'identifier des groupes et d'essayer d'interpreter.</p>
+<p>&nbsp;</p>
+</slide>
+
+</section>
+<section>
+<title>Propri&egrave;tes des vecteurs latents</title>
+<slide>
+<title>Introduction</title>
+<p>On a vu en d&eacute;tail au chapitre ll que la r&eacute;solution de l'&eacute;quation <b>RF</b> = <b>F</b>qu'on &eacute;crit aussi (<b>R</b> - i<b>I</b>)<b>f</b>i = 0, entra&icirc;ne des valeurs ind&eacute;termin&eacute;es des &eacute;l&eacute;ments de <b>f</b>i. Cette ind&eacute;termination est lev&eacute;e en normant ces vecteurs. Les normes &agrave; l'unit&eacute; et &agrave; i sont particuli&egrave;rement utiles. Examinons-en les propri&eacute;t&eacute;s et les cons&eacute;quences sur la variance des composantes. On repr&eacute;sentera par <b>F</b>1 la matrice des vecteurs latents norm&eacute;s &agrave; l'unit&eacute; et par F celle des vecteurs latents norm&eacute;s &agrave; i.</p>
+
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>A) Normes des vecteurs latents</title>
+<p>&nbsp;</p>
+<p>1) Rappelons la propri&eacute;t&eacute; suivante des vecteurs latents norm&eacute;s &agrave; l'unit&eacute; (le th&eacute;or&egrave;me 2 de l'article 2.6.4, Laforge):</p>
+
+<p>
+<b>&nbsp;</b>
+</p>
+<p>
+<b>F</b>'1<b>F</b>1 = <b>I<span>&nbsp;</span></b> (1)</p>
+<p>&nbsp;</p>
+<p>Consid&eacute;rant les relations</p>
+<p>
+
+<b>RF</b>1 = <b>F</b>1</p>
+<p>et&nbsp; <b>F</b>'1<b>F</b>1 = <b>I</b>
+</p>
+<p>&nbsp;</p>
+<p>on voit que&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>RF</b>1 = <b>F</b>1<b>I</b>= <b>F</b>1(<b>F'</b>1<b>F</b>1)= (<b>F</b>1<b>F'</b>1) <b>F</b>1</p>
+
+<p>et donc que&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<b>F</b>'1<b>F</b>1 = <b>I<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></b> (2)</p>
+<p>&nbsp;</p>
+<p>Les relations (1) et (2) &eacute;tablissent que la somme des carr&eacute;s des &eacute;l&eacute;ments d'une m&ecirc;me colonne de F1 est &eacute;gale &agrave; l'unit&eacute;, de m&ecirc;me que celle des &eacute;l&eacute;ments d'une m&ecirc;me ligne. Pour la matrice</p>
+
+<p>&nbsp;</p>
+<p>
+<b>F</b>1 = &nbsp;</p>
+<p>&nbsp;</p>
+<p>on aura SC</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SC&nbsp; &nbsp;</p>
+<p>ainsi que a1b1 + a2b2 = 0 et a1a2 + b1b2 = 0</p>
+
+<p>&nbsp;</p>
+<p>2) Dans le cas d'une norme &agrave; i on sait que</p>
+<p>
+<b>&nbsp;</b>
+</p>
+<p>
+<b>F'</b><b>F</b> = </p>
+<p>&nbsp;</p>
+<p>Consid&eacute;rant les relations</p>
+
+<p>&nbsp;</p>
+<p>
+<b>RF</b> = <b>F</b>et <b>F'</b><b>F</b> =  <b></b>
+</p>
+<p>&nbsp;</p>
+<p>on voit que&nbsp; <b>RF</b> =&nbsp; <b>F</b>(<b>F'</b><b>F</b>) = (<b>F</b><b>F'</b>)<b>F</b>
+
+</p>
+<p>d'o&ugrave;&nbsp;&nbsp;&nbsp;&nbsp; <b>F'</b><b>F</b> = <b>R</b>
+</p>
+<p>Dans le cas d'une matrice de saturations</p>
+<p>&nbsp;<b>F</b> = </p>
+<p>ces relations signifient&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>c1<sup>2</sup> + d1<sup>2</sup> = 1</p>
+<p>c2<sup>2</sup> + d2<sup>2</sup> = 1</p>
+
+<p>&nbsp;</p>
+<p>c1c2 + d1d2 = r12</p>
+<p>&nbsp;</p>
+<p>c1<sup>2</sup> + c2<sup>2</sup> = 1</p>
+<p>d1<sup>2</sup> + d2<sup>2</sup> = 2</p>
+
+<p>c1d1 + c2d2 = 0</p>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>B) Variance des composantes</title>
+<p>&nbsp;</p>
+<p>1 ) L'application de la matrice de transformation <b>F</b>1 &agrave; celle des variables standard <b>X</b> donne la matrice des composantes <b>Y</b>1:</p>
+
+<p>&nbsp;</p>
+<p>
+<b>Y</b>1 = <b>XF</b>1</p>
+<p>&nbsp;</p>
+<p>Les variances de telles composantes sont &eacute;gales aux racines latentes j. Rappelons que les variances des composantes sont</p>
+<p>&nbsp;</p>
+<p>
+<b>Y'</b>1<b>Y</b>1/n = <b>F'</b>1<b>RF</b>1 = <b>F</b>1<b>F</b>1 = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (3)</p>
+
+<p>&nbsp;</p>
+<p>2) L'application de la matrice de transformation <b>F</b> &agrave; celle des variables standard <b>X</b> donne la matrice des composantes <b>Y</b>:</p>
+<p>&nbsp;</p>
+<p>
+<b>Y</b> = <b>XF</b>
+
+</p>
+<p>&nbsp;</p>
+<p>A la suite du th&eacute;or&egrave;me 4 de l'article 2.6.4, on montre que les variances de ces facteurs sont &eacute;gales aux carr&eacute;s des racines latentes. On a ici, d'apr&egrave;s les relations pr&eacute;c&eacute;dentes, I'expression des variances des composantes:</p>
+<p>&nbsp;</p>
+<p>
+<b>Y'</b><b>Y</b>/n = <b>F'</b><b>RF</b>= <b>F'</b><b>F</b>= <sup>2</sup>
+
+</p>
+<p>&nbsp;</p>
+<p>Pour rendre les variances &eacute;gales &agrave; ce qu'elles sont dans le cas de la transformation unitaire <b>F</b>1 il est n&eacute;cessaire de les diviser par . On &eacute;crit donc</p>
+<p>&nbsp;</p>
+<p>
+<b>Y'</b>1<b>Y</b>1/n = (<b>F'</b><b>RF</b>) <sup>-1</sup> = (<sup>-1/2</sup><b>F'</b>)<b>R</b>(<b>F</b><sup>-1/2</sup>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (4)</p>
+
+<p>&nbsp;</p>
+<p>Rapprochant les expressions (3) et (4), on observe donc la relation int&eacute;ressante suivante entre <b>F</b>1 et <b>F</b>:</p>
+<p>&nbsp;</p>
+<p>
+<b>F</b>1 = <b>F</b><sup>-1/2</sup>
+</p>
+<p>&nbsp;</p>
+
+<p>On retient donc les relations symboliques <b>Y</b> = <b>Y</b>1 = <b>Y</b> <sup>-1</sup>
+</p>
+<p>&nbsp;</p>
+<p>On a pu constater, que <b>F</b> affiche dans l'imm&eacute;diat plus d'informations int&eacute;ressantes que <b>F</b>1 en particulier en ce qui a trait aux variances des composantes et aux corr&eacute;lations entre les variables. C'est pourquoi on pr&eacute;f&egrave;re souvent interpr&eacute;ter la nature des composantes &agrave; partir de&nbsp; <b>F</b> plut&ocirc;t que de <b>F</b>1. Cependant, &agrave; l'occasion du calcul de scores factoriels qui respectent la somme initiale des variances, il est n&eacute;cessaire d'utiliser la matrice de transformation unitaire <b>F</b>1 = <b>F</b><sup>-1/2</sup>.</p>
+
+<p>3) Les v variables de <b>X</b> sont standard alors que les composantes ont des variances &eacute;gales aux racines latentes 1, 2, . . .- - On sait de plus que V = A, + A2 + -</p>
+<p>v = 1 + 2 + ..</p>
+<p>On pourra trouver utile dans certains cas de rendre standard ces composantes. Il suffit pour cela de diviser les &eacute;l&eacute;ments de chaque composante par l'&eacute;cart type correspondant i<sup>1/2</sup>. D'o&ugrave; les composantes standard seront</p>
+
+<p>&nbsp;</p>
+<p>
+<b>Y</b>S = <b>Y</b><sup>-1/2</sup> = <b>XF</b>1<sup>-1/2</sup>&nbsp; = <b>X</b>(<b>F</b><sup>-1/2</sup>)<sup>-1/2</sup> = <b>X</b>(<b>F</b><sup>-1</sup>.</p>
+
+<p>&nbsp;</p>
+<p>C'est souvent cette derni&egrave;re expression qu'on utilise dans les banques de programmes&nbsp; pour &eacute;tablir la matrice des composantes standard ou des scores factoriels standard. Cette op&eacute;ration offre l'avantage de rendre comparables les divers scores d'un sujet et facilite l'identification des composantes.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>&nbsp;Donn&eacute;es sur le march&eacute; des petites voitures[4]</title>
+
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td><b><span>Mod&egrave;le</span></b></td><td><b><span>Prix</span></b></td><td><b><span>Cylindr&eacute;e</span></b></td><td><b><span>Poids/Puissance</span></b></td><td><b><span>Longueure</span></b></td><td><b><span>Volume du coffre</span></b></td><td><b><span>Consommation</span></b></td><td><b><span>Vit&egrave;sse</span></b>&nbsp;</td>
+</tr>
+<tr>
+<td>AS2</td><td>Austin M&eacute;tro Special</td><td>39999</td><td>998</td><td>23,2</td><td>3403</td><td>955</td><td>6,2</td><td>140&nbsp;</td>
+
+</tr>
+<tr>
+<td>CI4</td><td>Citro&euml;n AX 10 RE</td><td>44250</td><td>954</td><td>19,4</td><td>3500</td><td>1170</td><td>5,6</td><td>145&nbsp;</td>
+</tr>
+<tr>
+<td>DA2</td><td>Daihatsu Charade 1000 TS<span>&nbsp;&nbsp;&nbsp;</span></td><td>48750</td><td>993</td><td>20,8</td><td>3610</td><td>1151</td><td>6,7</td><td>145&nbsp;</td>
+
+</tr>
+<tr>
+<td>FI3</td><td>Fiat Panda 1000 Cl.</td><td>40333</td><td>999</td><td>21,8</td><td>3644</td><td>1088</td><td>6,3</td><td>140&nbsp;</td>
+</tr>
+<tr>
+<td>FI5</td><td>Fiat Uno 45 fire</td><td>44916</td><td>999</td><td>21,5</td><td>3645</td><td>968</td><td>6,2</td><td>145&nbsp;</td>
+
+</tr>
+<tr>
+<td>FI8</td><td>Fiat Uno Turbo TE</td><td>83350</td><td>1301</td><td>11</td><td>3644</td><td>968</td><td>8,9</td><td>200&nbsp;</td>
+</tr>
+<tr>
+<td>FID</td><td>Fiat Uno 70 SL</td><td>59483</td><td>1302</td><td>16</td><td>3645</td><td>968</td><td>7,7</td><td>165&nbsp;</td>
+
+</tr>
+<tr>
+<td>FO1</td><td>Ford Fiesta Junior</td><td>43500</td><td>1117</td><td>22,7</td><td>3645</td><td>900</td><td>7</td><td>137&nbsp;</td>
+</tr>
+<tr>
+<td>FO9</td><td>Ford Fiesta X R-2</td><td>72476</td><td>1597</td><td>12</td><td>3645</td><td>973</td><td>9,3</td><td>180&nbsp;</td>
+
+</tr>
+<tr>
+<td>NI1</td><td>Nissan Micra 1.0 DX</td><td>41333</td><td>988</td><td>17</td><td>3640</td><td>375</td><td>6,4</td><td>140&nbsp;</td>
+</tr>
+<tr>
+<td>OP1</td><td>Opel Corsa Swing Belux 1.0 S</td><td>43500</td><td>993</td><td>22,4</td><td>3622</td><td>845</td><td>7,2</td><td>143&nbsp;</td>
+
+</tr>
+<tr>
+<td>PE1</td><td>Peugeot 205 XE 1.0</td><td>44200</td><td>954</td><td>23,8</td><td>3705</td><td>1200</td><td>6,8</td><td>134&nbsp;</td>
+</tr>
+<tr>
+<td>PE3</td><td>Peugeot 205 GL</td><td>52600</td><td>1124</td><td>21,4</td><td>3705</td><td>1200</td><td>5,8</td><td>142&nbsp;</td>
+
+</tr>
+<tr>
+<td>PE6</td><td>Peugeot 205 GT</td><td>63216</td><td>1360</td><td>13,9</td><td>3705</td><td>1200</td><td>9,2</td><td>170&nbsp;</td>
+</tr>
+<tr>
+<td>PE9</td><td>Peugeot 205 GTI</td><td>83916</td><td>1580</td><td>11,2</td><td>3705</td><td>1200</td><td>8,7</td><td>190&nbsp;</td>
+
+</tr>
+<tr>
+<td>RE1</td><td>Renault 4 TL</td><td>43270</td><td>956</td><td>33,1</td><td>3670</td><td>950</td><td>6,3</td><td>115&nbsp;</td>
+</tr>
+<tr>
+<td>RE3</td><td>Renault 4 GTL</td><td>46020</td><td>1108</td><td>28,4</td><td>3670</td><td>950</td><td>6,3</td><td>120&nbsp;</td>
+
+</tr>
+<tr>
+<td>RE4</td><td>Renault 5 SL</td><td>47187</td><td>1108</td><td>20,6</td><td>3591</td><td>915</td><td>5,8</td><td>143&nbsp;</td>
+</tr>
+<tr>
+<td>RE7</td><td>Renault 5 GTS</td><td>57500</td><td>1397</td><td>13,8</td><td>3591</td><td>915</td><td>7,9</td><td>167&nbsp;</td>
+
+</tr>
+<tr>
+<td>RE8</td><td>Renault 5 GT Turbo</td><td>84395</td><td>1397</td><td>10,2</td><td>3591</td><td>915</td><td>8,7</td><td>200&nbsp;</td>
+</tr>
+<tr>
+<td>SE4</td><td>Seat Ibiza 1.5 GLX</td><td>64278</td><td>1461</td><td>14,7</td><td>3637</td><td>1200</td><td>8,8</td><td>175&nbsp;</td>
+
+</tr>
+<tr>
+<td>SE9</td><td>Seat Marbella 900 GL</td><td>36565</td><td>903</td><td>23,4</td><td>3475</td><td>1088</td><td>7,3</td><td>131&nbsp;</td>
+</tr>
+<tr>
+<td>SZ2</td><td>Suzuki Swift 1.0 GA</td><td>40383</td><td>993</td><td>18,4</td><td>3585</td><td>400</td><td>6,4</td><td>145&nbsp;</td>
+
+</tr>
+<tr>
+<td>SZ3</td><td>Suzuki Swift 1.3 GL</td><td>48850</td><td>1324</td><td>14</td><td>3585</td><td>400</td><td>6,5</td><td>163&nbsp;</td>
+</tr>
+<tr>
+<td>TO1</td><td>Toyota Starlett 1000 L</td><td>46666</td><td>999</td><td>19,5</td><td>3700</td><td>202</td><td>6,1</td><td>150&nbsp;</td>
+
+</tr>
+<tr>
+<td>TO2</td><td>Toyota Starlett 1300 XL</td><td>56166</td><td>1295</td><td>15</td><td>3700</td><td>202</td><td>6,8</td><td>170&nbsp;</td>
+</tr>
+<tr>
+<td>VW3</td><td>Volkswagen Polo Coup&eacute; GT</td><td>60150</td><td>1272</td><td>14</td><td>3655</td><td>1040</td><td>8</td><td>170&nbsp;</td>
+
+</tr>
+</table>
+<p>
+<b><span>&nbsp;</span></b>
+</p>
+</slide>
+</section>
+<section>
+<title>Rotation des axes principaux</title>
+<slide>
+<title>Inroduction</title>
+<p>Il est rare qu'une analyse factorielle s'arr&ecirc;te &agrave; la d&eacute;termination des composantes principales ou des facteurs communs. En effet, ces op&eacute;rations donnent g&eacute;n&eacute;ralement lieu &agrave; une matrice des saturations o&ugrave; chaque variable est expliqu&eacute;e par plusieurs sinon toutes les composantes retenues. La d&eacute;finition des composantes est souvent difficile &agrave; cause du nombre plut&ocirc;t grand de saturations &eacute;lev&eacute;es, en particulier dans le cas des premi&egrave;res composantes: on appelle composantes g&eacute;n&eacute;rales celles d&eacute;finies par toutes les variables et composantes de groupe celles qui ne le sont que par quelques-unes.</p>
+
+<p>Soit un ensemble de quatre variables dont on a extrait les composantes. Les vecteurs de transformation, norm&eacute;s pour leurs racines latentes respectives, constituent la matrice F suivante:</p>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Matrice des saturations</title>
+<p>&nbsp;</p>
+<table width="" align="">
+<tr>
+<td>0,91</td><td>0,08</td><td>0,06</td><td>0,08</td><td>0,07</td><td>0,07</td><td>0,06&nbsp;</td>
+
+</tr>
+<tr>
+<td>0,89</td><td>-0,02</td><td>0,04</td><td>0,07</td><td>0,07</td><td>0,06</td><td>0,06&nbsp;</td>
+</tr>
+<tr>
+<td>-0,85</td><td>0,23</td><td>0,25</td><td>-0,07</td><td>-0,07</td><td>-0,06</td><td>-0,06&nbsp;</td>
+
+</tr>
+<tr>
+<td>0,28</td><td>-0,25</td><td>0,84</td><td>0,02</td><td>0,02</td><td>0,02</td><td>0,02&nbsp;</td>
+</tr>
+<tr>
+<td>0,14</td><td>0,93</td><td>0,13</td><td>0,01</td><td>0,01</td><td>0,01</td><td>0,01&nbsp;</td>
+
+</tr>
+<tr>
+<td>0,85</td><td>0,22</td><td>0,02</td><td>0,07</td><td>0,07</td><td>0,06</td><td>0,06&nbsp;</td>
+</tr>
+<tr>
+<td>0,92</td><td>-0,11</td><td>-0,16</td><td>0,08</td><td>0,07</td><td>0,07</td><td>0,06&nbsp;</td>
+
+</tr>
+</table>
+<p>&nbsp;</p>
+<table width="" align="">
+<tr>
+<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
+</tr>
+<tr>
+<td>4,36</td><td>1,12</td><td>0,97</td><td>0,36</td><td>0,34</td><td>0,31</td><td>0,29</td>
+
+</tr>
+</table>
+<p>&nbsp;</p>
+<p>Les sommes des carr&eacute;s des &eacute;l&eacute;ments des lignes sont approximativement &eacute;gales &agrave; 1: ce sont les variances de variables standard. Les sommes des carr&eacute;s des &eacute;l&eacute;ments des colonnes sont &eacute;gales aux racines latentes, variances des composantes.</p>
+<p>On ne retient, pour l'illustration en deux dimensions, que les deux premi&egrave;res composantes symbolis&eacute;es A et B: ce sont d'ailleurs les deux seules dont la variance est sup&eacute;rieure &agrave; l'unit&eacute;, c'est-&agrave;-dire &agrave; celle des variables. Les proportions de la variance totale expliqu&eacute;es par ces deux facteurs sont respectivement 4,36/7 = 0,62 et 1,12/7 = 0,16; la matrice F" des saturations est ainsi r&eacute;duite &agrave; la suivante:</p>
+
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Matrice F de saturations norm&eacute; aux valeurs propres</title>
+<p>&nbsp;</p>
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>Composante</td><td>Composante&nbsp;</td>
+</tr>
+<tr>
+<td>Variables</td><td>A</td><td>B&nbsp;</td>
+
+</tr>
+<tr>
+<td>Prix</td><td>0,91</td><td>0,08&nbsp;</td>
+</tr>
+<tr>
+<td>Cylindr&eacute;e</td><td>0,89</td><td>-0,02&nbsp;</td>
+</tr>
+<tr>
+<td>Poids/Puissance</td><td>-0,85</td><td>0,23&nbsp;</td>
+
+</tr>
+<tr>
+<td>Longueure</td><td>0,28</td><td>-0,25&nbsp;</td>
+</tr>
+<tr>
+<td>Volume du coffre</td><td>0,14</td><td>0,93&nbsp;</td>
+</tr>
+<tr>
+<td>Consommation</td><td>0,85</td><td>0,22&nbsp;</td>
+
+</tr>
+<tr>
+<td>Vit&egrave;sse</td><td>0,92</td><td>-0,11&nbsp;</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Interpretation graphique</title>
+<p>Dans la figure 1 on illustre les positions relatives des composantes et des variables. Les composantes &eacute;tant ind&eacute;pendantes, on les repr&eacute;sente par des axes orthogonaux A et B, tandis que les variables sont dispos&eacute;es comme des vecteurs dont les projections sur les axes A et B sont les saturations. chaque vecteur a pour longueur la racine carr&eacute;e d'une somme de carr&eacute;s de ligne de la matrice des saturations.</p>
+
+<p>
+<figure src="./slides_fichiers/image018.gif"></figure>
+</p>
+<p>&nbsp;</p>
+<p>La nature de la composante A est d&eacute;finie par l'apport des sept variables &agrave; sa variance; ces <b>contributions</b> sont de 19,3% (0,91^2/4,36 = 0,193) pour la premi&egrave;re variable, 18,17% (0,89<sup>2</sup>/4,36 = 0,1817) pour la seconde variable, de 16,6% pour la troisi&egrave;me (-0,85<sup>2</sup>/4,36 = 0,1657), de 1,8% pour la quatri&egrave;me (0,28<sup>2</sup>/4,36 = 0,018), de 4,5% pour la cinqui&egrave;me (0,14<sup>2</sup>/4,36 = 0,0045) , de 16,6% pour la sixi&egrave;me (0,85<sup>2</sup>/4,36 = 0,1657) et de 19,4% pour la septi&egrave;me (0,92<sup>2</sup>/4,36 = 0,1941).</p>
+
+<p>Ces contributions, lorsqu'elles sont importantes, ne permettent d ignorer aucune des variables: on dit d'une telle composante qu'elle est g&eacute;n&eacute;rale La d&eacute;termination de sa nature serait cependant plus facile si les saturations fortes &eacute;taient moins nombreuses. On arrive &agrave; ce r&eacute;sultat en effectuant une rotation des axes de r&eacute;f&eacute;rence jusqu'en une position rendant maximum certaines saturations et minimum les autres.</p>
+</slide>
+<slide>
+<title>Une rotation orthogonale</title>
+<p>&nbsp;La figure 2 illustre une telle rotation orthogonale:</p>
+
+<p>&nbsp;</p>
+<p>
+<figure src="./slides_fichiers/image020.gif"></figure>
+</p>
+<p>&nbsp;</p>
+<p>Les nouvelles projections constituent la nouvelle matrice de saturations:</p>
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>Composante</td><td>Composante</td>
+</tr>
+<tr>
+<td>Variables</td><td>C</td><td>C</td>
+
+</tr>
+<tr>
+<td>Prix</td><td><b><span>0,89</span></b></td><td>0,19</td>
+</tr>
+<tr>
+<td>Cylindr&eacute;e</td><td><b><span>0,88</span></b></td><td>0,09</td>
+</tr>
+<tr>
+<td>Poids/Puissance</td><td><b><span>-0,87</span></b></td><td>0,13</td>
+
+</tr>
+<tr>
+<td>Longueure</td><td>0,31</td><td>-0,21</td>
+</tr>
+<tr>
+<td>Volume du coffre</td><td>0,02</td><td><b><span>0,94</span></b></td>
+</tr>
+<tr>
+<td>Consommation</td><td><b><span>0,81</span></b></td><td>0,32</td>
+
+</tr>
+<tr>
+<td>Vit&egrave;sse</td><td><b><span>0,92</span></b></td><td>0,00</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<p>Les deux composantes C et D ne sont pas les m&ecirc;mes que les pr&eacute;c&eacute;dentes A et B, car elles constituent de nouvelles combinaisons lin&eacute;aires de quatre variables. La composante C est d&eacute;finie surtout par les variables 1, 2, 3, 5 et 6, alors que D l'est par les variables 4 et &eacute;ventuellement 5. Les nouvelles composantes sont alors dites de groupe par opposition aux composantes g&eacute;n&eacute;rales d'avant rotation.</p>
+
+</slide>
+<slide>
+<title>Discussion</title>
+<p>On a donc vu que la configuration de la structure factorielle n'est pas unique: une matrice de saturations d&eacute;finissant une structure peut &ecirc;tre transform&eacute;e sans en trahir les propri&eacute;t&eacute;s math&eacute;matiques et les hypoth&egrave;ses fondamentales. Il existe donc plusieurs moyens math&eacute;matiquement &eacute;quivalents de d&eacute;finir les dimensions sous-jacentes &agrave; un m&ecirc;me ensemble de donn&eacute;es. Cependant ces solutions ne sont pas toutes &eacute;quivalentes quant &agrave; leur degr&eacute; de signification dans un domaine th&eacute;orique donn&eacute;; certaines respectent mieux la loi de la parcimonie scientifique, d'autres permettent une meilleure compr&eacute;hension du domaine &eacute;tudi&eacute;. Le chercheur a donc la responsabilit&eacute; finale du choix du type de rotation &agrave; effectuer.</p>
+
+<p>En termes g&eacute;om&eacute;triques, les r&eacute;sultats recherch&eacute;s dans une rotation peuvent se traduire ainsi: certaines des variables seront rapproch&eacute;es de l'un ou de l'autre axe nouveau et auront sur ceux-ci des projections &eacute;lev&eacute;es; en m&ecirc;me temps, elles feront avec les autres axes un angle voisin de 90&deg; s'y projetant faiblement; le plus petit nombre possible de variables restera &eacute;galement &eacute;loign&eacute; des axes (voir Kim, dans SPSS. D. 484).</p>
+<p>En d'autres termes, &eacute;tant donn&eacute; un nombre de facteurs expliquant une fraction fixe de la variance, il s'agit de simplifier les lignes (m&eacute;thode quartimax) ou les colonnes (m&eacute;thode varimax) en rendant voisines de z&eacute;ro le maximum de saturations.</p>
+
+</slide>
+<slide>
+<title>Rotations varimax et quartimax</title>
+<p>Il existe plusieurs proc&eacute;d&eacute;s et crit&egrave;res math&eacute;matiques pour effectuer ces rotations. La m&eacute;thode quartimax, propos&eacute;e vers 1950 par plusieurs auteurs, consiste &agrave; maximiser la variance des carr&eacute;s; comme cette m&eacute;thode exige la maximisation de la somme des saturations &agrave; la quatri&egrave;me puissance, on l'appelle quartimax. Une autre m&eacute;thode propos&eacute;e par Kaiser en 1958 repose sur la maximisation de la somme des variances des carr&eacute;s des saturations dans chaque colonne il s'ensuit une augmentation de certaines saturations et la diminution des autres. Cette m&eacute;thode dite varimax est la plus largement employ&eacute;e. Une troisi&egrave;me m&eacute;thode, dite &eacute;quimax, vise &agrave; la simplification simultan&eacute;e des lignes et des colonnes de la matrice des saturations.</p>
+
+<p>La rotation orthogonale de type varimax est obtenue au moyen de fonctions trigonom&eacute;triques en traitant deux composantes &agrave; la fois:</p>
+<p>&nbsp;</p>
+<p>  = </p>
+<p>La matrice de transformation est bien orthogonale car:</p>
+<p>cos<sup>2</sup> + sin<sup>2</sup> = 1 et sin  cos &nbsp; -&nbsp; sin  cos  = 0 </p>
+
+<p>Le traitement par ordinateur se pr&ecirc;te &agrave; des rotations successives d'angle jusqu'&agrave; la satisfaction des crit&egrave;res suivants:</p>
+<p>&nbsp;</p>
+<p>a) rotation varimax: n(a<sub>ij</sub>/h<sub>i</sub>)<sup>4</sup> - <sup><span>2</span></sup>
+
+</p>
+<p>&nbsp;</p>
+<p>b) rotation quartimax:  aij<sup>4</sup>&nbsp; maximum.</p>
+<p>&nbsp;</p>
+<p>Comme on a pu le constater dans les figures pr&eacute;c&eacute;dentes, une rotation orthogonale des axes ne permet pas toujours de faire passer ceux-ci aux centres des agglom&eacute;rations de variables. On pourrait y arriver cependant en effectuant plut&ocirc;t une rotation dite oblique: on s'assure alors au maximum de l'augmentation ou de la diminution de certaines saturations: ce qui facilite l'interpr&eacute;tation des r&eacute;sultats. Cependant il est bien &eacute;vident qu'on perd alors l'ind&eacute;pendance des facteurs. De plus, la d&eacute;marche math&eacute;matique d'une telle m&eacute;thode est plus complexe que celle d'une rotation orthogonale et certaines propri&eacute;t&eacute;s de la matrice des saturations sont perdues, dont celle de la somme des carr&eacute;s des saturations de ligne qui n'est plus &eacute;gale aux communaut&eacute;s. Apr&egrave;s avoir connu une certaine faveur, les rotations obliques semblent laisser place chez les utilisateurs aux rotations orthogonales qui, plus simples &agrave; plusieurs points de vue, donnent des r&eacute;sultats satisfaisants. Nunnally (p. 321-333) offre une bonne discussion sur ces questions.</p>
+
+<p>&nbsp;</p>
+</slide>
+</section>
+<section>
+<title>Exemple de rotation des axes principaux</title>
+<slide>
+<title>Exemple de Thurstone</title>
+<p>Le but de la rotation des axes est de faciliter l'identification de la nature des facteurs. Cependant la t&acirc;che n'est souvent pas facile et requiert une bonne connaissance de la nature des variables soumises &agrave; l'analyse factorielle</p>
+<p>On propose ici un exemple d'analyse emprunt&eacute; &agrave; la g&eacute;om&eacute;trie &eacute;l&eacute;mentaire. Les r&eacute;sultats &eacute;tant connus, comme le sugg&egrave;re Thurstone, on peut alors porter son attention sur la strat&eacute;gie qui permet l'identification des facteurs.</p>
+
+<p>L'objet de l'&eacute;tude est le parall&eacute;l&eacute;pip&egrave;de rectangle dont on veut d&eacute;couvrir les facteurs, c'est-&agrave;-dire les &eacute;l&eacute;ments g&eacute;om&eacute;triques essentiels &agrave; sa description. On a choisi de cr&eacute;er 100 bo&icirc;tes dont les 3 dimensions, longueur (L), hauteur (H) et profondeur (P), devraient se d&eacute;gager comme facteurs; ces dimensions sont g&eacute;n&eacute;r&eacute;es de fa&ccedil;on al&eacute;atoire. Pour ces 100 cas, on cr&eacute;e 1&ucirc; variables y compris celles des dimensions, que l'on soumet &agrave; l'analyse factorielle par la m&eacute;thode de Hotelling. La matrice de saturations, dont on ne retient que les trois premi&egrave;res colonnes, est la suivante pour les autres d&eacute;tails au sujet de</p>
+
+<p>cette application):</p>
+<p>&nbsp;</p>
+<p>Matrice de saturations (avant rotation)</p>
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>&nbsp;</td><td>Facteur 1</td><td>Facteur 2</td><td>Facteur 3</td>
+</tr>
+<tr>
+<td>Xl</td><td>longueur (L)</td><td>0,81</td><td>-0,16</td><td>-0,53</td>
+
+</tr>
+<tr>
+<td>X2</td><td>hauteur (H)</td><td>0,61</td><td><span>&nbsp;</span>-0,59</td><td>0,48</td>
+</tr>
+<tr>
+<td>X3</td><td>profondeur (P)</td><td>0,51</td><td>0,76</td><td><span>&nbsp;</span>0,36&nbsp;</td>
+</tr>
+
+<tr>
+<td>X4</td><td>2(L+ P)</td><td>0,91</td><td>0,36</td><td><span>&nbsp;</span>-0,15&nbsp;</td>
+</tr>
+<tr>
+<td>X5</td><td>LH</td><td>0,84</td><td>-0,46</td><td>- 0, 1 2</td>
+</tr>
+<tr>
+
+<td>X6</td><td>HP</td><td>0,73</td><td>0,02</td><td><span>&nbsp;</span>0,66</td>
+</tr>
+<tr>
+<td>X7</td><td>LP</td><td>0,86</td><td>0,31</td><td>-0,26</td>
+</tr>
+<tr>
+<td>X8</td><td></td><td>0,88</td><td>0,40</td><td><span>&nbsp;</span>-0,09</td>
+
+</tr>
+<tr>
+<td>X9</td><td>LHP</td><td>0,92</td><td><span>&nbsp;</span>-0,09</td><td><span>&nbsp;</span>0,09</td>
+</tr>
+<tr>
+<td>Xl0</td><td>2(L+H)</td><td>0,87</td><td>-0,44</td><td><span>&nbsp;</span>-0,06</td>
+</tr>
+
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>On constate rapidement que le nombre &eacute;lev&eacute; de saturations importantes rend difficile l'identification des facteurs. Il peut m&ecirc;me para&icirc;tre &eacute;tonnant que ces facteurs ne soient pas plus clairement mis en &eacute;vidence par les trois premi&egrave;res variables: cela provient du fait que c'est en tenant compte des 10 variables que l'identification doit se faire.</p>
+<p>Cette matrice de saturations est alors soumise &agrave; une rotation orthogonale de type varimax, dont voici les r&eacute;sultats:</p>
+
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Matrice de saturations&nbsp; apr&egrave;s rotation varimax</title>
+<p>Matrice de saturations (rotation varimax)</p>
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>&nbsp;</td><td>Facteur 1</td><td>Facteur 2</td><td>Facteur 3</td>
+</tr>
+
+<tr>
+<td>Xl</td><td>longueur (L)</td><td><b><span>0,97</span></b></td><td>0,10</td><td>0,15-</td>
+</tr>
+<tr>
+<td>X2</td><td>hauteur (H)</td><td>0,19</td><td>-0,01</td><td><b><span>0,96</span></b></td>
+</tr>
+<tr>
+
+<td>X3</td><td>profondeur (P)</td><td>0,01</td><td><b><span>0,99</span></b></td><td>0,06&nbsp;</td>
+</tr>
+<tr>
+<td>X4</td><td>2(L+ P)</td><td>0,68</td><td>0,70</td><td>0,15&nbsp;</td>
+</tr>
+<tr>
+<td>X5</td><td>LH</td><td>0,75</td><td>0,01</td><td>0,61</td>
+
+</tr>
+<tr>
+<td>X6</td><td>HP</td><td>0,05</td><td>0,60</td><td>0,78</td>
+</tr>
+<tr>
+<td>X7</td><td>LP</td><td>0,74</td><td>0,60</td><td>0,08</td>
+</tr>
+
+<tr>
+<td>X8</td><td></td><td>0,62</td><td>0,73</td><td>0,15</td>
+</tr>
+<tr>
+<td>X9</td><td>LHP</td><td>0,60</td><td>0,41</td><td>0,58</td>
+</tr>
+<tr>
+<td>Xl0</td><td>2(L+H)</td><td>0.73</td><td>0 05</td><td>0.65</td>
+
+</tr>
+</table>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>Discussion</title>
+<p>L'examen des trois premi&egrave;res lignes montre bien que les variables L, H et P sont les facteurs: chaque variable explique bien un et un seul facteur. Il est rare qu'en recherche on arrive &agrave; identifier &agrave; l'avance les facteurs; on se retrouve plut&ocirc;t en pr&eacute;sence d'une s&eacute;rie de variables plus ou moins li&eacute;es, comme le sont par exemple les variables composites 4 &agrave; 10 de notre tableau. L'identification de chaque facteur, &agrave; partir des saturations, est encore possible &agrave; la condition de bien conna&icirc;tre la composition des variables. En toutes circonstances, c'est de la connaissance approfondie des variables que d&eacute;pend le succ&egrave;s de l'op&eacute;ration d'analyse factorielle; on ne saurait trop insister sur cette partie proprement cr&eacute;atrice de l'analyse o&ugrave; les ressources de connaissance et de r&eacute;flexion du chercheur sont essentielles: le mod&egrave;le math&eacute;matique et l'ordinateur ont fourni leur aide et ne sont plus d'aucun recours pour cette &eacute;tape tr&egrave;s sp&eacute;cifique au domaine &eacute;tudi&eacute;.</p>
+
+<p>Le premier facteur est celui qui r&eacute;pond &agrave; l'ensemble des conditions suivantes: il est pr&eacute;sent dans les variables 4, 5, 7, 8, 9 et 10 mais absent de la variable 6; c'est &eacute;videmment la longueur L. On identifie de fa&ccedil;on semblable les deux autres facteurs. Le facteur 2 est pr&eacute;sent dans les variables 4, 6, 7, 8, 9 mais absent des variables 5 et 10. L'examen de la composition, c'est-&agrave;-dire de la formule de ces variables, permet d'identifier comme &eacute;tant P ce second facteur. De fa&ccedil;on semblable, on identifie comme hauteur H le troisi&egrave;me facteur.</p>
+<p>&nbsp;</p>
+</slide>
+</section>
+<section>
+
+<title>Remarques g&eacute;n&eacute;rales sur l'analyse factorielle</title>
+<slide>
+<title>Conclusions</title>
+<p>Il y a un certain nombre de pr&eacute;cautions &agrave; prendre &agrave; l'occasion de l'emploi de l'analyse factorielle. En voici quelques-unes.</p>
+<p>Quoiqu'en principe les scores factoriels soient ind&eacute;pendants, il n'en est pas toujours ainsi en pratique, sp&eacute;cialement si les communaut&eacute;s ou &eacute;l&eacute;ments de la diagonale de la matrice des corr&eacute;lations sont diff&eacute;rents de l'unit&eacute;. Une autre raison de cette ind&eacute;pendance imparfaite est qu'un score factoriel est obtenu par la combinaison lin&eacute;aire d'un nombre de variables inf&eacute;rieur &agrave; celui du probl&egrave;me original.</p>
+
+<p>L'analyse factorielle a pour but d'&eacute;tudier les corr&eacute;lations "naturelles" entre plusieurs variables. Si ces corr&eacute;lations &eacute;taient artificiellement obtenues, il ne faudrait pas s'&eacute;tonner de voir appara&icirc;tre une configuration artificielle de facteurs: ce serait le cas, par exemple, si une variable additionnelle &eacute;tait une combinaison lin&eacute;aire d'autres variables, ou encore si les m&ecirc;mes items apparaissaient dans l'&eacute;laboration de plus d'une variable; on rencontre une telle situation dans la construction des diverses &eacute;chelles du MMPI (voir Shure et Miles, p. 14-18).</p>
+<p>Il peut arriver que deux variables, dont les saturations sont &eacute;lev&eacute;es pour un facteur donn&eacute;, soient effectivement sans corr&eacute;lation entre elles. On peut observer une telle situation dans la matrice des saturations avant rotation dans l'article 8.4.2. Il est prudent, au moment de la d&eacute;finition des facteurs, de veiller &agrave; ne retenir que les variables qui ont entre elles des corr&eacute;lations significatives.</p>
+
+<p>Il est important de tenir compte de l'homog&eacute;n&eacute;it&eacute; des sujets. La structure factorielle peut &ecirc;tre consid&eacute;rablement affect&eacute;e par l'&acirc;ge, le sexe, le niveau socio-&eacute;conomique, l'&eacute;ducation des sujets. Si l'homog&eacute;n&eacute;it&eacute; ne peut pas &ecirc;tre facilement r&eacute;alis&eacute;e, certains auteurs pr&eacute;conisent l'insertion de l'une ou l'autre de ces influences comme variables additionnelles, &agrave; la condition de les annuler ensuite par l'emploi de la m&eacute;thode d'analyse factorielle dite de la racine carr&eacute;e (voir Nunnally, p. 370-371).</p>
+
+<p>On ne retient en g&eacute;n&eacute;ral que les composantes principales les plus importantes, c'est-&agrave;-dire expliquant la plus grande partie de la variance. Il peut arriver cependant que cette plus grande partie de la variance d'un sous-groupe soit attribuable aux composantes n&eacute;glig&eacute;es: la discrimination entre ces sujets serait apparente surtout sur ces composantes Cette remarque sugg&egrave;re l'importance que peut rev&ecirc;tir la recherche des composantes principales pour divers sous-groupes de l'&eacute;chantillon original.</p>
+<p>Les composantes principales, &eacute;tant ind&eacute;pendantes les unes des autres, sont plus faciles &agrave; interpr&eacute;ter que les variables elles-m&ecirc;mes. Ce qui ne signifie nullement que cette interpr&eacute;tation est ais&eacute;e. Habituellement on gagne beaucoup &agrave; joindre &agrave; cette analyse celles de la r&eacute;gression multiple et de la variance &agrave; variables multiples. Il ne faut point perdre de vue qu'une technique d'analyse factorielle n'est que l'application d'un mod&egrave;le math&eacute;matique sur un ensemble de donn&eacute;es num&eacute;riques, dans le but de guider l'exploration pr&eacute;liminaire d'un domaine complexe.</p>
+
+<p>On peut dans un rapport de recherche se contenter de ne pr&eacute;senter que les matrices des corr&eacute;lations et des saturations. Une colonne de la matrice des saturations d&eacute;finit une composante. On ne doit pas cependant interpr&eacute;ter les composantes comme uniquement celles d'un certain nombre de tests; elles sont aussi les composantes de scores sur ces tests Lorsqu'on a d&eacute;fini une composante par l'examen d'une des colonnes de saturations, on peut proc&eacute;der &agrave; sa v&eacute;rification sur les scores factoriels de certains sujets Un sujet poss&eacute;dant la caract&eacute;ristique de cette composante doit alors pr&eacute;senter un score factoriel proportionnel On peut proc&eacute;der de fa&ccedil;on plus syst&eacute;matique en regroupant les sujets, puis en les comparant au moyen de l'analyse de la variance</p>
+
+<p>Si les m&ecirc;mes facteurs ou composantes ont &eacute;t&eacute; obtenus sur plusieurs &eacute;chantillons, on peut leur accorder une meilleure confiance L'analyse factorielle est habituellement pr&eacute;c&eacute;d&eacute;e d'hypoth&egrave;ses, et c'est dans ce cas surtout que les facteurs sont utilis&eacute;s comme concepts th&eacute;oriques; sinon les composantes qui ne sont qu'une structure math&eacute;matiquement justifi&eacute;e, risquent d'&ecirc;tre difficilement explicables.</p>
+<p>Le changement des signes d'un vecteur latent (si le signe d'un &eacute;l&eacute;ment est chang&eacute;, il faut les changer tous) ne modifie pas les propri&eacute;t&eacute;s alg&eacute;briques de la matrice des saturations. Cependant l'interpr&eacute;tation doit &ecirc;tre modifi&eacute;e; il faut consid&eacute;rer le facteur correspondant comme invers&eacute; dans son orientation: par exemple introversion plut&ocirc;t qu'extroversion, difficult&eacute; plut&ocirc;t que facilit&eacute;, etc.</p>
+
+<p>L'absence chez certains sujets d'un ou de plusieurs scores constitue, comme dans toute &eacute;tude inf&eacute;rentielle, un probl&egrave;me s&eacute;rieux. Tous les r&eacute;sultats sont en effet n&eacute;cessaires au calcul des corr&eacute;lations. S'il n'y a pas lieu de croire &agrave; des absences intentionnelles, on peut se permettre d'ignorer les sujets qui en sont affect&eacute;s.</p>
+<p>Le nombre de sujets sur lequel on effectue une analyse factorielle est de toute premi&egrave;re importance. Une &eacute;tude sur k variables donne lieu &agrave; (k<sup>2</sup> - k)/2 corr&eacute;lations des variables prise deux &agrave; deux: ce qui constitue la matrice de corr&eacute;lations. La probabilit&eacute; d'apparition d'une corr&eacute;lation significative, pour la population dont la corr&eacute;lation est nulle, grandit avec le nombre de corr&eacute;lations calcul&eacute;es et la petitesse de l'&eacute;chantillon. Dans le cas d'un petit &eacute;chantillon, la matrice de corr&eacute;lations pourrait facilement, par hasard, &ecirc;tre truff&eacute;e de corr&eacute;lations tr&egrave;s erron&eacute;es: ce qui aurait pour effet de r&eacute;v&eacute;ler une structure factorielle fausse. Nunnally recommande en pratique de ne point travailler sur un &eacute;chantillon qui soit plus petit que dix fois le nombre de variables.</p>
+
+<p>L'utilisation de grosses batteries de variables, par exemple les questionnaires interminables, comporte de nombreux dangers. Ob&eacute;issant au d&eacute;sir de tout savoir le chercheur est tent&eacute; de multiplier les variables, sans connaissance raisonnable de leur nature, ce qui conduit &agrave; des structures inexplicables. On a vu dans l'article pr&eacute;c&eacute;dent combien l'interpr&eacute;tation est d&eacute;pendante de la connaissance interne de chaque variable.</p>
+<p>Il ne faut pas utiliser l'analyse factorielle en n'importe quelle circonstance. C'est un instrument qui aide &agrave; mettre en &eacute;vidence des structures: il est donc essentiel que les variables retenues appartiennent &agrave; un syst&egrave;me. L'int&eacute;r&ecirc;t serait faible de soumettre &agrave; cette technique un amas de variables. Les facilit&eacute;s qu'offre aujourd'hui l'ordinateur sont loin de diminuer un tel risque. Des ph&eacute;nom&egrave;nes aussi vari&eacute;s que les pouss&eacute;es inflationnistes, les chasses aux sorci&egrave;res, les succ&egrave;s des mouvements &eacute;vang&eacute;listes, soumis &agrave; l'analyse factorielle feraient-ils appara&icirc;tre comme explication commune les oppositions id&eacute;ologiques des grands blocs politiques?</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</slide>
+</section> 
+</slides>

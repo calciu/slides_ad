@@ -1,0 +1,1627 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<title>Recherche Marketing et Analyse des données</title>
+<link href="../opencpu/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+<style>
+body {
+	padding-top: 60px;
+}
+</style>
+<link href="../opencpu/common.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap-hacks.css" rel="stylesheet"/>
+<link href="../opencpu/docs.css" rel="stylesheet"/>
+</head>
+
+<body bgcolor=white lang=FR>
+<!-- Some hidden elements that will be cloned when needed -->
+
+<div class="hidden">
+  <div class="httpfile"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls">
+            <input class="input-file realinputvalue" multiple type="file">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="httpparameter"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls"> 
+            <!-- <textarea class="input-xlarge realinputvalue" rows="2"></textarea>-->
+            <input type="text" class="input-xlarge realinputvalue" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of hidden stuff -->
+    	<!-- Top Navigation bar (the black one) -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="#"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="./slides2.htm">Home</a></li>
+						<li><a href="../slides_adintro/slides2.htm">Intro</a></li>
+						<li><a href="../slides_adunivarie/slides2.htm">Unviarie</a></li>
+						<li><a href="../slides_adbivarie/slides2.htm">Bivarie</a></li>
+						<li><a href="../slides_adacp/slides2.htm">ACP</a></li>
+						<li><a href="../slides_adtypo/slides2.htm">Cluster</a></li>
+						<li><a href="../slides_adadiscr/slides2.htm">Discrim</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="about.html">About</a></li>
+						<li><a href="support.html">Support</a></li>
+						<li><a href="/auth/login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <!-- subnav, mostly invisible -->
+	<div id="subnav" class="subnav subnav-fixed">
+		<ul class="nav nav-pills">
+			<li><a href="#intro">Intro</a></li>
+			<li><a href="#crosstabs">Crosstabs</a></li>
+			<li><a href="#varquant">V-quant</a></li>
+			<li><a href="#varnominal">V-qualy</a></li>
+			<li><a href="#varordinal">V-Ordinales</a></li>
+		</ul>
+	</div>
+
+
+    	<div class="container">
+        
+        		<div class="row">
+			<div class="span6">
+				<div class="page-header">
+					<h3>
+						Testing Tool <small>learn while playing...</small>
+					</h3>
+				</div>
+				<p><small>This side shows a little ajax tool that you can use to poke
+					around with the API. Simply select a method, endpoint and add some
+					parameters.</small></p>
+
+				<p><small>Your browser has multiple mechanisms to perform a HTTP
+					request. In most cases you want to do the request using Ajax, which
+					supports all methods. However, Ajax cannot be used for binary
+					streams (e.g. uploading files or displaying images). For those
+					cases you can use the form request method.</small></p>
+
+			</div>
+
+			<div class="span6">
+				<div class="page-header">
+					<h3>Text and Examples</h3>
+				</div>
+				<p><small>This side shows and overview and descriptions of the API.
+					However OpenCPU is best understood while by playing around with the
+					API.</small></p>
+<button data-example="example">Example button</button>
+				<p class="narrowblock">
+					<small>Whenever you see a red button like the one here, this indicates an
+					example demo. Clicking an example button will automatically fill
+					out the Testing tool and perform the request. Keep your eye on the
+					testing tool while running an example!
+				<small></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="toolkit" class="span6">
+				<form id="paramform" class="well" target="outputframe">
+					<fieldset>
+						<div class="row">
+								<div class="span0">
+								<div class="control-group">
+								  <label class="control-label" for="textvalue">Example</label>
+									<div class="controls">
+									  <textarea class="input-xxlarge realinputvalue" id="textvalue" value="Example text" rows="2">Example text</textarea>
+									</div>
+								</div>
+                             
+                             </div>   
+						<div id="tohide">
+                             
+							<div class="span1">
+								<div class="control-group">
+									<label class="control-label" for="httpmethod">Method</label>
+									<div class="controls">
+										<select class="input-small" id="httpmethod">
+											<option>GET</option>
+											<option>POST</option>
+											<option>PUT</option>
+											<option>DELETE</option>
+											<option>OPTIONS</option>
+											<option>HEAD</option>
+										</select>
+									</div>
+								</div>
+							</div>    
+							<div class="span4">
+								<div class="control-group">
+									<label class="control-label" for="urlvalue">Endpoint</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" id="urlvalue"
+											value="/R/pub">
+									</div>
+								</div>
+							</div>
+						</div>
+                        </div>       <!-- end tohide -->
+
+
+						<div id="allparameters">
+							<div class="row show-grid">
+								<div class="span2">
+									<div class="control-group">
+										<label class="control-label">Parameter Name</label>
+									</div>
+								</div>
+								<div class="span3">
+									<div class="control-group">
+										<label class="control-label">Parameter Value</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div align="left">
+							<button id="addprambutton" class="btn btn-primary">
+								<i class="icon-plus icon-white"></i> Add parameter
+							</button>
+							<button id="addfilebutton" class="btn btn-primary">
+								<i class="icon-file icon-white"></i> Add file
+							</button>
+						</div>
+
+						<br />
+
+						<div align="right">
+							<button id="submitblank" class="btn btn-success"
+								data-targetframe="_blank">
+								<i class="icon-share icon-white"></i> Popup
+							</button>
+							<button id="submitform" class="btn btn-success">
+								<i class="icon-share icon-white"></i> iFrame
+							</button>
+							<img src="spinner.gif" id="formspinner" />
+							<button id="submitajax" class="btn btn-success btn-large">
+								<i class="icon-download-alt icon-white"></i> Ajax request
+							</button>
+							<img src="spinner.gif" id="ajaxspinner" />
+						</div>
+					</fieldset>
+				</form>
+
+				<div id="errordiv"></div>
+
+				<div id="ajaxoutput">
+					<pre id="statuspre">0</pre>
+					<pre class="pre-scrollable prettyprint linenums" id="outputpre"></pre>
+					<pre class="pre-scrollable prettyprint linenums" id="headerpre"></pre>
+				</div>
+
+				<iframe name="outputframe" id="outputframe" class="input-xxlarge"></iframe>
+			</div>
+<div id="rightcolumndiv" class="span6"> 
+<!--  
+		<div id="fullscreenwarning" class="alert alert-warning">
+					<a class="close" data-dismiss="alert">×</a> <strong>Viewer
+						tip!</strong> When viewing this page on a low resolution it might be useful
+					to enable full screen (F11) or to zoom out a bit (ctrl -) in order
+					to display the full testing tool.
+				</div>
+-->
+
+<H1>Analyses bi-vari&eacute;es</H1>
+<H4 CLASS="western"><FONT FACE="Arial">Michel Calciu</FONT></H4>
+<H3 CLASS="western">Cours &agrave; l'Universit&eacute; de Lille -
+2019/2020</H3>
+<section id="intro"><h2 CLASS="western"><A NAME="005"></A><FONT FACE="Symbol">&middot;</FONT>
+Introduction</H2>
+<H6 CLASS="western"><FONT SIZE=2>Objet</FONT></H6>
+<P CLASS="msonormal">Les traitements bi-vari&eacute;s ont pour objet
+de mettre en &eacute;vidence les relations &eacute;ventuelles qui
+existent entre deux variables analys&eacute;es simultan&eacute;ment.</P>
+<P CLASS="msonormal">Dans la plupart des cas l'analyste cherchera &agrave;
+expliquer une des deux variables - dite variable &agrave; expliquer
+(Y) - &agrave; l'aide de l'autre variable - dite variable explicative
+(X). Expliquer une variable &agrave; l'aide d'une autre revient &agrave;
+rep&eacute;rer dans quelle mesure les diff&eacute;rentes valeurs que
+peut prendre la variable explicative ont une cons&eacute;quence sur
+les valeurs prises par la variable &agrave; expliquer.</P>
+<H6 CLASS="western"><FONT SIZE=2><I>Exemple:</I></FONT></H6>
+<P>Exemple:</P>
+<P><FONT SIZE=2><I>Le fait de changer de conditionnement a-t-il un
+effet sur le niveau des ventes d'un produit donn&eacute; ? Le
+conditionnement joue ici le r&ocirc;le de variable explicative et le
+niveau des ventes de variable &agrave; expliquer<BR>Le fait de
+poss&eacute;der un four &agrave; micro-ondes d&eacute;pend-il de
+l'&acirc;ge ou de la taille. La possession du produit est la variable
+&agrave; expliquer; l'&acirc;ge ou la taille de la famille sont des
+variables explicatives.</I></FONT></P>
+<P CLASS="msonormal">Comme dans le cas des traitements uni-vari&eacute;s,
+le mode d'analyse utilisable va d&eacute;pendre de la nature des
+variables &eacute;tudi&eacute;es: quantitatives, ordinales ou
+nominales. Ces analyses seront &agrave; nouveau pr&eacute;sent&eacute;es
+ici dans le cadre des &eacute;tudes marketing par questionnaires: il
+s'agira donc du traitement des tri-crois&eacute;s.</P>
+</section><section id="crosstabs"><h2 CLASS="western"><A NAME="010"></A><FONT FACE="Symbol">&middot;</FONT>
+Traitement des tris croises et nature des donn&eacute;s</H2>
+<H6 CLASS="western"><A NAME="015"></A><FONT FACE="Symbol">&middot;</FONT>
+<U>Pr&eacute;sentation des tris crois&eacute;s</U></H6>
+<P CLASS="msonormal">Dans la mesure o&ugrave; une question peut
+relever fondamentalement de trois niveaux de mesure diff&eacute;rents,
+on comptera neuf types de croisements possibles entre les questions 
+<IMG SRC="slides_htm_m15edfe52.gif" NAME="Object1" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=27>
+et 
+<IMG SRC="slides_htm_374287c.gif" NAME="Object2" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=33 HEIGHT=27>
+Les plus fr&eacute;quentes sont pr&eacute;sent&eacute;s ci-dessous.</P>
+<P CLASS="msonormal">2 - <B>
+<IMG SRC="slides_htm_19efc1d8.gif" NAME="Object3" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=27></B>
+<B>quantitatif x </B><B>
+<IMG SRC="slides_htm_m36f7a8ae.gif" NAME="Object4" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=34 HEIGHT=27></B><B>
+quantitatif: </B>&eacute;tude des relations entre deux s&eacute;ries
+de n chiffres s'il y a n questionnaires. Ces deux s&eacute;ries de
+chiffres n'apparaissent g&eacute;n&eacute;ralement pas explicitement.
+Leurs relations sont mat&eacute;rialis&eacute;es par diff&eacute;rents
+indicateurs.</P>
+<P CLASS="msonormal">Exemple:</P>
+<P CLASS="msonormal">Dans le questionnaire CAMIP, &eacute;tude des
+relations entre le proportion des achats par catalogue (question 1 )
+et le revenu de la personne (question 11). L'appartenance &agrave;
+une cat&eacute;gorie de revenu plus &eacute;lev&eacute;
+entra&icirc;ne-t-elle une plus grande proportion des achats par
+catalogue ?</P>
+<P CLASS="msonormal">2 - <B>
+<IMG SRC="slides_htm_19efc1d8.gif" NAME="Object5" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=27></B>
+<B>nominal x </B><B>
+<IMG SRC="slides_htm_m36f7a8ae.gif" NAME="Object6" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=34 HEIGHT=27></B><B>
+nominal </B>: croisement le plus fr&eacute;quent qui se traduit par
+la cr&eacute;ation d'un <B>tableau de contingence</B> o&ugrave;, en
+ligne, figurant les modalit&eacute;s de la variable &agrave;
+expliquer et en colonne, celles de la variable explicative. Lorsque
+le tableau de contingence est traduit en pourcentages de colonne,
+pour chaque modalit&eacute; de la variable explicative appara&icirc;tra
+une distribution de fr&eacute;quences des modalit&eacute;s de la
+variable &agrave; expliquer.</P>
+<P CLASS="msonormal"><I>Exemple:</I></P>
+<P CLASS="msonormal"><I>Croisement entre la question 22 sur la
+pr&eacute;f&eacute;rence pour un type de magasin ou une modalit&eacute;
+d'achat et la question 26: le fait de pr&eacute;f&eacute;rer
+d'acheter par catalogue ou par une autre modalit&eacute;,
+d&eacute;pende-t-elle de la situation civile du r&eacute;pondant?</I></P>
+<P CLASS="msonormal">3 - <B>
+<IMG SRC="slides_htm_19efc1d8.gif" NAME="Object8" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=27></B>
+<B>ordinal x </B><B>
+<IMG SRC="slides_htm_m36f7a8ae.gif" NAME="Object7" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=34 HEIGHT=27></B><B>
+ordinal </B>: mise en correspondance de deux classements au niveau de
+chaque individu interrog&eacute; ou sur l'ensemble de l'&eacute;chantillon
+si une proc&eacute;dure d'agr&eacute;gation des rangs a &eacute;t&eacute;
+utilis&eacute;.</P>
+<P CLASS="msonormal"><I>Exemple:</I></P>
+<P CLASS="msonormal"><I>Croisement entre l'ordre de pr&eacute;f&eacute;rence
+pour les diff&eacute;rentes cat&eacute;gories d'&eacute;quipement de
+bureau (micro-ordinateurs, imprimantes, scanners..) exprim&eacute;
+par chaque r&eacute;pondant et un classement a </I>priori
+<I>correspondant &agrave; l'importance accord&eacute; &agrave; chaque
+cat&eacute;gorie d'&eacute;quipement dans le catalogue (exprim&eacute;
+par exemple en nombre de pages).</I></P>
+<P CLASS="msonormal">4 - 
+<IMG SRC="slides_htm_19efc1d8.gif" NAME="Object9" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=27>
+<B>quantitatif x </B><B>
+<IMG SRC="slides_htm_m36f7a8ae.gif" NAME="Object11" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=34 HEIGHT=27></B><B>
+nominal </B>: correspond &agrave; un tri-&agrave;-plat de la variable
+quantitative pour chacune des modalit&eacute;s de la variable
+nominale qui joue le r&ocirc;le de variable explicative.</P>
+<P CLASS="msonormal">Exemple:</P>
+<P CLASS="msonormal"><I>Croisement entre une question ouverte
+concernant le nombre d'objets achet&eacute;s par catalogue et la
+question 26. La situation civile influence-t-elle le nombre d'objets
+achet&eacute;s par catalogue?</I></P>
+<P CLASS="msonormal">5 - 
+<IMG SRC="slides_htm_19efc1d8.gif" NAME="Object10" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=27><B>
+ordinal x </B><B>
+<IMG SRC="slides_htm_m36f7a8ae.gif" NAME="Object12" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=34 HEIGHT=27></B><B>
+nominal </B>: rep&eacute;rage des rangs donn&eacute;s &agrave; la
+question Qi pour diff&eacute;rentes classes d'une variable Qj
+nominale explicative.</P>
+<P>Exemple:</P>
+<P>Croisement entre un classement de pr&eacute;f&eacute;rence et la
+question 26. Le fait de relever d'un statut familial donn&eacute;
+entra&icirc;ne-t-il des pr&eacute;f&eacute;rences pour une cat&eacute;gorie
+de produit bureautiques ?</P>
+<H6 CLASS="western"><A NAME="020"></A><FONT FACE="Symbol">&middot;</FONT>
+<U>Analyse des tris crois&eacute;s</U></H6>
+<P CLASS="msonormal">Le tableau 1. donne les principaux tests
+utilisables dans l'analyse des tris crois&eacute;s. Seuls les tests
+correspondant aux croisements les plus fr&eacute;quents y sont
+indiqu&eacute;s.</P>
+<P CLASS="msonormal" ALIGN=CENTER><I><B>Tableau 1: Tests des tris
+crois&eacute;s selon la nature des variables</B></I></P>
+<CENTER>
+	<TABLE WIDTH=518 BORDER=1 CELLPADDING=2 CELLSPACING=4>
+		<COL WIDTH=134>
+		<COL WIDTH=147>
+		<COL WIDTH=87>
+		<COL WIDTH=112>
+		<TR VALIGN=TOP>
+			<TD WIDTH=134>
+				<P><IMG SRC="slides_htm_m361ee82f.gif" NAME="Object13" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=27><FONT SIZE=2>\
+								<IMG SRC="slides_htm_374287c.gif" NAME="Object14" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=33 HEIGHT=27>
+				</FONT>
+				</P>
+			</TD>
+			<TD WIDTH=147>
+				<P><FONT SIZE=2>NOMINAL </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=87>
+				<P><FONT SIZE=2>ORDINAL </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=112>
+				<P><FONT SIZE=2>QUANTITATIF </FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=134>
+				<P><FONT SIZE=2>NOMINAL </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=147>
+				<P STYLE="margin-bottom: 0cm"><FONT SIZE=2>Test du Khi-Deux</FONT></P>
+				<P STYLE="margin-bottom: 0cm"><FONT SIZE=2>Test de
+				Kolmogorov-Smirnov</FONT></P>
+				<P><FONT SIZE=2>Test de comparaison de fr&eacute;quences </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=87>
+				<P STYLE="margin-bottom: 0cm"><FONT SIZE=2>Test de Kruskal
+				-Wallis</FONT></P>
+				<P STYLE="margin-bottom: 0cm"><FONT SIZE=2>Test de Wilcoxon du
+				rang et du signe</FONT></P>
+				<P><FONT SIZE=2>Test de Wilcoxon de la somme des rangs</FONT></P>
+			</TD>
+			<TD WIDTH=112>
+				<P STYLE="margin-bottom: 0cm"><FONT SIZE=2>Test F (ANOVA)</FONT></P>
+				<P><FONT SIZE=2>Test de comparaison de moyennes </FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=134>
+				<P><FONT SIZE=2>ORDINAL </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=147>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=87>
+				<P STYLE="margin-bottom: 0cm"><FONT SIZE=2>Corr&eacute;lation des
+				rangs de Spearman</FONT></P>
+				<P><FONT SIZE=2>Test de Kendall </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=112>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=134>
+				<P><FONT SIZE=2>QUANTITATIF </FONT>
+				</P>
+			</TD>
+			<TD WIDTH=147>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=87>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=112>
+				<P STYLE="margin-bottom: 0cm"><FONT SIZE=2>Coefficient de
+				corr&eacute;lation de Pearson</FONT></P>
+				<P STYLE="margin-bottom: 0cm"><FONT SIZE=2>Test de</FONT></P>
+				<P><FONT SIZE=2>comparaison de moyennes </FONT>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P CLASS="msonormal">En colonne figurant les variables &agrave;
+expliquer et en ligne les variables explicatives.</P>
+</section><section id="varquant"><h2 CLASS="western"><A NAME="025"></A><FONT FACE="Symbol">&middot;</FONT>
+Traitement des variables quantitatives</H2>
+<H6 CLASS="western"><FONT SIZE=2>Discussion</FONT></H6>
+<P CLASS="msonormal">Le croisement de deux variables quantitatives
+peut &ecirc;tre effectu&eacute; dans des circonstances tr&egrave;s
+vari&eacute;es :</P>
+<UL>
+	<LI><P CLASS="msonormal">comparaison des r&eacute;sultats obtenus
+	pour une variable sur deux ou plusieurs populations ind&eacute;pendantes;</P>
+	<LI><P CLASS="msonormal">comparaison des r&eacute;sultats obtenus
+	pour une variable sur deux &eacute;chantillons appari&eacute;s;</P>
+	<LI><P CLASS="msonormal">comparaison des r&eacute;sultats obtenus
+	pour deux variables quantitatives diff&eacute;rentes pour la m&ecirc;me
+	population.</P>
+</UL>
+<H6 CLASS="western"><A NAME="030"></A><A NAME="035"></A><FONT FACE="Symbol">&middot;</FONT>
+Une variable et deux populations ind&eacute;pendantes a) Le test de
+comparaison de moyennes</H6>
+<P CLASS="msonormal">En ce qui concerne le cas o&ugrave; une seule
+variable est &eacute;tudi&eacute;e, le <B>test de comparaison de
+moyennes </B>est la statistique classique lorsque deux populations
+sont concern&eacute;es.</P>
+<P CLASS="msonormal">L'analyste dispose des donn&eacute;es suivantes
+:</P>
+<UL>
+	<LI><P CLASS="msonormal">deux populations A et B respectivement
+	d'effectifs N<SUB>a</SUB> et N<SUB>b</SUB>;</P>
+	<LI><P CLASS="msonormal">la moyenne de la variable &eacute;tudi&eacute;e
+	est a dans la population A et b dans la population B.</P>
+	<LI><P CLASS="msonormal">la variance de la variable analys&eacute;e
+	est s<SUB>a</SUB><SUP>2</SUP> pour A et s<SUB>b</SUB><SUP>2</SUP>
+	pour B.</P>
+</UL>
+<P CLASS="msonormal"><A NAME="_x0000_i1025"></A><A NAME="_x0000_i1026"></A><A NAME="_x0000_i1027"></A><A NAME="_x0000_i1028"></A>
+Dans la mesure o&ugrave; l'on estime que 
+<IMG SRC="slides_fichiers/Image423.gif" NAME="images1" ALIGN=BOTTOM WIDTH=21 HEIGHT=23 BORDER=0><SUB>a</SUB>
+et 
+<IMG SRC="slides_fichiers/Image423.gif" NAME="images2" ALIGN=BOTTOM WIDTH=21 HEIGHT=23 BORDER=0><SUB>b</SUB>
+suivent une loi normale, respectivement de moyenne &micro;<SUB>a</SUB>
+et &micro;<SUB>b</SUB> et de variance s<SUB>a</SUB><SUP>2</SUP> et
+s<SUB>b</SUB><SUP>2</SUP>, on montre que la diff&eacute;rence D = 
+<IMG SRC="slides_fichiers/Image423.gif" NAME="images3" ALIGN=BOTTOM WIDTH=21 HEIGHT=23 BORDER=0><SUB>a</SUB>
+- 
+<IMG SRC="slides_fichiers/Image423.gif" NAME="images4" ALIGN=BOTTOM WIDTH=21 HEIGHT=23 BORDER=0><SUB>b</SUB></P>
+<P CLASS="msonormal">suit &eacute;galement une loi normale de moyenne
+&micro;<SUB>a</SUB> - &micro;<SUB>b</SUB> et de variance:</P>
+<P CLASS="msonormal"> <FONT FACE="Symbol">	s</FONT><SUB><SPAN LANG="nl-NL">D</SPAN></SUB><SUP><SPAN LANG="nl-NL">2</SPAN></SUP>
+<SPAN LANG="nl-NL">= [</SPAN><FONT FACE="Symbol">s</FONT><SUB><SPAN LANG="nl-NL">a</SPAN></SUB><SUP><SPAN LANG="nl-NL">2</SPAN></SUP>
+<SPAN LANG="nl-NL">/Na + </SPAN><FONT FACE="Symbol">s</FONT><SUB><SPAN LANG="nl-NL">b</SPAN></SUB><SUP><SPAN LANG="nl-NL">2</SPAN></SUP>
+<SPAN LANG="nl-NL">/Nb] </SPAN><FONT FACE="Symbol">&raquo;</FONT>
+<SPAN LANG="nl-NL">[s</SPAN><SUB><SPAN LANG="nl-NL">a</SPAN></SUB><SUP><SPAN LANG="nl-NL">2</SPAN></SUP><SPAN LANG="nl-NL">
+/Na + s</SPAN><SUB><SPAN LANG="nl-NL">b</SPAN></SUB><SUP><SPAN LANG="nl-NL">2</SPAN></SUP><SPAN LANG="nl-NL">
+/Nb] 	</SPAN></P>
+<P CLASS="msonormal">L'intervalle de confiance de la diff&eacute;rence
+de moyenne au risque a est donn&eacute; par :</P>
+<P CLASS="msonormal"><A NAME="_x0000_i1029"></A><A NAME="_x0000_i1030"></A>
+ &micro;<SUB>a</SUB>-&micro;<SUB>b </SUB>= 
+<IMG SRC="slides_fichiers/Image423.gif" NAME="images5" ALIGN=BOTTOM WIDTH=21 HEIGHT=23 BORDER=0><SUB>a</SUB>-<IMG SRC="slides_fichiers/Image423.gif" NAME="images6" ALIGN=BOTTOM WIDTH=21 HEIGHT=23 BORDER=0><SUB>b</SUB>
+<FONT FACE="Symbol">&plusmn;</FONT> z<SUB><FONT FACE="Symbol">a</FONT></SUB><SUB>/2</SUB>[s<SUB>a</SUB><SUP>2</SUP>/Na+s<SUB>b</SUB><SUP>2</SUP>/Nb]<SUP>1/2</SUP>
+(18) 
+</P>
+<P CLASS="msonormal">L'hypoth&egrave;se nulle Ho correspond au cas o&ugrave;
+la diff&eacute;rence D = &micro;a - &micro;b de moyennes est nulle.
+Sous Ho, la variable r&eacute;duite devient :</P>
+<P CLASS="msonormal"> Z (a-b)/[s<SUB>a</SUB><SUP>2</SUP>/Na+s<SUB>b</SUB><SUP>2</SUP>/Nb]<SUP>1/2
+</SUP>(19)</P>
+<P CLASS="msonormal">La valeur z ainsi calcul&eacute;e doit &ecirc;tre
+compar&eacute;e avec la valeur lue dans la table normale r&eacute;duite
+pour le seuil de confiance d&eacute;sir&eacute; et compte tenu du
+caract&egrave;re unilat&eacute;ral ou bilat&eacute;ral du test. Pour
+un test bilat&eacute;ral par exemple, Ho sera rejet&eacute; au seuil
+de risque de 5 % si <B>|z| &gt; 1,96.</B></P>
+<P CLASS="msonormal"><BR><BR>
+</P>
+
+<div class="row">
+  <div class="span2">
+      <button data-example="compmeanCamip">
+      <p>Comparaison de moyennes      </p>
+      </button>
+      </div>
+  <div class="span2">
+      <button data-example="plotCompMean">
+      <p>Plot Comparaison de moyennes</p>
+      </button>
+      </div>
+</div>
+
+<H6 CLASS="western"><FONT SIZE=2><I>Exemple:</I></FONT></H6>
+<P CLASS="msonormal"><I>Supposons que dans le cadre de l'&eacute;tude
+CAMIP, on a ajout&eacute; une question sur la nombre de disquettes
+d'ordinateur achet&eacute;es par an qu'on croise avec la question
+27(le fait d'&ecirc;tre homme ou femme) a fait appara&icirc;tre les
+r&eacute;sultats suivants:</I></P>
+<P CLASS="msonormal"> <I>les hommes (A): Na = 155; nombre moyen de
+disquettes = 10, avec Sa</I><SUP><I>2</I></SUP><I> = 64;</I></P>
+<P CLASS="msonormal"> <I>les femmes (B): Nb = 75; Xb = 3, Sb = 25.</I></P>
+<P CLASS="msonormal"><I>La variance des diff&eacute;rences de
+moyennes est donn&eacute;e par:</I></P>
+<P CLASS="msonormal"><I>64/155 + 25/75 = 0,74.</I></P>
+<P CLASS="msonormal"><I>L'&eacute;cart type de D est alors = 0,86.
+L'hypoth&egrave;se nulle pour laquelle il n'existe pas de diff&eacute;rence
+dans les quantit&eacute;s de disquettes achet&eacute;es par les homme
+et par les femmes peut &ecirc;tre rejet&eacute;e, puisque z = (10 -
+3)/0,86 est sup&eacute;rieur &agrave; 1 96</I></P>
+<P CLASS="msonormal"><BR><BR>
+</P>
+<H6 CLASS="western"><A NAME="040"></A><A NAME="045"></A><FONT FACE="Symbol">&middot;</FONT>
+b) Autres tests <U>1) test de Student</U></H6>
+<P CLASS="msonormal">- Pour des petits &eacute;chantillons (Na et Nb
+&lt; 30), on utilisera le test <B>de Student. </B>Dans la mesure o&ugrave;
+la variance des Xa et des Xb est estim&eacute;e la variance de la
+distribution des diff&eacute;rences de moyennes est approch&eacute;e
+par l'expression :</P>
+<P CLASS="msonormal"><FONT FACE="Symbol">s</FONT> <SUB><SPAN LANG="nl-NL">D</SPAN></SUB><SUP><SPAN LANG="nl-NL">2</SPAN></SUP>
+<SPAN LANG="nl-NL">= [(N</SPAN><SUB><SPAN LANG="nl-NL">a</SPAN></SUB><SPAN LANG="nl-NL">-1)s</SPAN><SUB><SPAN LANG="nl-NL">a</SPAN></SUB><SUP><SPAN LANG="nl-NL">2</SPAN></SUP><SPAN LANG="nl-NL">
++ (N</SPAN><SUB><SPAN LANG="nl-NL">b</SPAN></SUB><SPAN LANG="nl-NL">-1)
+s</SPAN><SUB><SPAN LANG="nl-NL">b</SPAN></SUB><SUP><SPAN LANG="nl-NL">2</SPAN></SUP><SPAN LANG="nl-NL">]</SPAN>
+<SPAN LANG="nl-NL">/(N</SPAN><SUB><SPAN LANG="nl-NL">a</SPAN></SUB><SPAN LANG="nl-NL">
++ N</SPAN><SUB><SPAN LANG="nl-NL">b</SPAN></SUB><SPAN LANG="nl-NL"> -
+2)(1/N</SPAN><SUB><SPAN LANG="nl-NL">a</SPAN></SUB><SPAN LANG="nl-NL">
++ 1/N</SPAN><SUB><SPAN LANG="nl-NL">b</SPAN></SUB><SPAN LANG="nl-NL">)
+(20)</SPAN></P>
+<P CLASS="msonormal">La diff&eacute;rence D suit alors une loi de
+Student &agrave; (N<SUB>a</SUB> + N<SUB>b</SUB> - 2) degr&eacute;s de
+libert&eacute;.</P>
+<div class="row">
+  <div class="span2">
+      <button data-example="compmeanstudCamip">Comparaison de moyennes petits echantillons</button>
+      </div>
+</div>
+
+<H6 CLASS="western"><A NAME="050"></A><FONT FACE="Symbol">&middot;</FONT>
+<U>2) (test en F et Kruskal - Wallis)</U></H6>
+<P CLASS="msonormal">Quand plus de deux populations sont concern&eacute;s,
+on aura recours au <B>test </B>F. Si l'hypoth&egrave;se de normalit&eacute;
+&eacute;voqu&eacute;e plus haut n'est pas respect&eacute; on pourra
+employer le <B>test de Kruskal-Wallis.</B></P>
+<P CLASS="msonormal"><BR><BR>
+</P>
+<H6 CLASS="western"><A NAME="055"></A><FONT FACE="Symbol">&middot;</FONT>
+<U>Une variable et deux &eacute;chantillons appari&eacute;es</U></H6>
+<P CLASS="msonormal">Dans le cas d'&eacute;chantillons appari&eacute;s,
+&agrave; chaque individu d'un premier groupe est associ&eacute; un
+individu du second groupe (le groupe-t&eacute;moin) offrant les m&ecirc;mes
+caract&eacute;ristiques.</P>
+<P CLASS="msonormal">Pour chaque couple i de deux individus appari&eacute;s,
+une diff&eacute;rence 
+<IMG SRC="slides_htm_m23698347.gif" NAME="Object15" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=128 HEIGHT=27>est
+calcul&eacute;e. Sur l'ensemble n des couples &eacute;tudi&eacute;s,
+la diff&eacute;rence moyenne est donn&eacute;e par 
+<IMG SRC="slides_htm_m77fc8115.gif" NAME="Object16" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=100 HEIGHT=56>
+et la variance des diff&eacute;rences est alors 
+<IMG SRC="slides_htm_4c23461e.gif" NAME="Object17" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=160 HEIGHT=57></P>
+<P CLASS="msonormal"><A NAME="_x0000_i1033"></A>On montre que 
+<IMG SRC="slides_htm_5809d780.gif" NAME="Object18" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=28 HEIGHT=24>est
+distribu&eacute; selon une loi normale de moyenne 
+<IMG SRC="slides_htm_366604ab.gif" NAME="Object19" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=67 HEIGHT=18>
+et de variance</P>
+<P STYLE="margin-bottom: 0cm">  	<IMG SRC="slides_htm_m718705a9.gif" NAME="Object20" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=160 HEIGHT=59>	(21)</P>
+<P CLASS="msonormal"><BR><BR>
+</P>
+<H6 CLASS="western"><A NAME="060"></A><FONT FACE="Symbol">&middot;</FONT>
+<U>Deux variables et la m&ecirc;me population</U></H6>
+<P CLASS="msonormal">Les relations entre deux variables quantitatives
+sur la m&ecirc;me population sont g&eacute;n&eacute;ralement
+analys&eacute;es &agrave; l'aide du <B>coefficient de corr&eacute;lation
+</B>de Pearson qui sera &eacute;tudi&eacute; au cours du chapitre
+portant sur la r&eacute;gression lin&eacute;aire</P>
+<P CLASS="msonormal"><BR><BR>
+</P>
+</section><section id="varnominal"><h2 CLASS="western"><A NAME="065"></A><A NAME="070"></A><FONT FACE="Symbol">&middot;</FONT>
+Traitement des variables nominales - <U>Analyse des tableaux de
+contingence</U></H2>
+<H6 CLASS="western"><A NAME="075"></A><FONT FACE="Symbol">&middot;</FONT>
+a) Test du caract&egrave;re significatif de la relation entre les
+variables</H6>
+<P CLASS="msonormal">Dans le chapitre pr&eacute;c&eacute;dent on a vu
+une application du test du Khi-Deux pour l'&eacute;valuation de la
+qualit&eacute; de l'ajustement d'une distribution de fr&eacute;quences
+observ&eacute;es &agrave; une distribution th&eacute;orique.</P>
+<P CLASS="msonormal">De fa&ccedil;on plus g&eacute;n&eacute;rale, ce
+test est employ&eacute; pour analyser les tableaux de contingence et
+rep&eacute;rer le caract&egrave;re statistiquement significatif de
+l'association entre deux variables nominales.</P>
+<P CLASS="msonormal">La statistique du <SUP>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object22" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>
+est donn&eacute;e, en ce qui concerne les tableaux de contingence,
+par la formule suivante:</P>
+<P STYLE="margin-bottom: 0cm">  	<IMG SRC="slides_htm_m6a861c63.gif" NAME="Object21" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=234 HEIGHT=30>	(22)</P>
+<P CLASS="msonormal">o&ugrave; <B>N</B><SUB><B>ij</B></SUB> = nombre
+d'observations dans la case ij; <FONT FACE="Symbol"><B>Q</B></FONT><B>ij</B>
+= nombre th&eacute;orique associ&eacute; &agrave; la case ij = (Total
+de la ligne i)<SUP>.</SUP>(Total de la colonne j)/Nombre total
+d'observations.</P>
+<P CLASS="msonormal">Pour un tableau comportant <B>C</B> colonnes et
+<B>L</B> lignes, la valeur ainsi calcul&eacute;e est compar&eacute;e
+&agrave; la valeur critique <SUP><B>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object23" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></B></SUP>
+lue sur la table du Khi-Deux pour un seuil de confiance <FONT FACE="Symbol">
+<IMG SRC="slides_htm_2df88f02.gif" NAME="Object24" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=53 HEIGHT=24></FONT>,
+et pour un nombre de degr&eacute;s de libert&eacute; &eacute;gal &agrave;
+(C - 1)(L - 1) .</P>
+<P CLASS="msonormal">La table du Khi-Deux donne la distribution de
+probabilit&eacute; des valeurs de <SUP>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object25" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>
+obtenues dans un tableau lorsque l'hypoth&egrave;se nulle est vraie,
+c'est-&agrave;-dire dans le cas d'ind&eacute;pendance entre les deux
+variables &eacute;tudi&eacute;es. Par exemple, au seuil de 5 % et
+pour deux degr&eacute;s de libert&eacute;, le 
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object26" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27><SUP>
+</SUP>lu sur la table vaut 5,99 : ceci veut dire que sous Ho il n'y a
+que 5 % de tableaux &agrave; deux degr&eacute;s de libert&eacute;
+pour lesquels on pourrait calculer un x2 sup&eacute;rieur ou &eacute;gal
+&agrave; 5,99. Si le <SUP>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object27" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>
+calcul&eacute; est plus fort, il y a donc moins de cinq chances sur
+cent de se tromper en rejetant Ho.</P>
+<div class="row">
+    <div class="span2">
+      <button data-example="chi2Camip">Chi 2</button>
+      </div>
+</div>
+
+<H6 CLASS="western" STYLE="font-weight: normal"><FONT SIZE=2><I>Exemple</I></FONT></H6>
+<P>Exemple</P>
+<P>Le tableau 2 a donn&eacute; les r&eacute;sultats d'un &eacute;ventuel
+r&eacute;sultat du croisement des questions 3 (le fait d'avoir
+command&eacute;) et 27 (&ecirc;tre homme o&ugrave; femme). Le tableau
+2b fournit les valeurs th&eacute;oriques: par exemple, pour la case
+1, la valeur 53,91 = (80)(155)/230. Les diff&eacute;rences (<IMG SRC="slides_htm_50825fc9.gif" NAME="Object46" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=79 HEIGHT=27>)
+apparaissent sur le tableau 2c, et le <SUP>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object28" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>
+associ&eacute; &agrave; chaque case, sur le tableau 2d. Au total, le
+<FONT COLOR="#000000"><SUP>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object29" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP></FONT><FONT COLOR="#000000">
+calcul&eacute; s'&eacute;l&egrave;ve &agrave; 28,64: il d&eacute;passe
+le %2 critique (5,99). La qualit&eacute; d'abonn&eacute; est donc
+li&eacute;e significativement au motif du voyage</FONT><FONT COLOR="#000000"><B>.</B></FONT></P>
+<P CLASS="msonormal"><I><B>Tableau 2.: Application du Khi-Deux &agrave;
+un tableau de contingence</B></I></P>
+<P CLASS="msonormal">a) Croisement question Q3 et Q27: valeurs
+observ&eacute;es</P>
+<CENTER>
+	<TABLE WIDTH=360 BORDER=1 CELLPADDING=2 CELLSPACING=4>
+		<COL WIDTH=138>
+		<COL WIDTH=73>
+		<COL WIDTH=68>
+		<COL WIDTH=44>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>Homme 
+				</P>
+			</TD>
+			<TD WIDTH=68>
+				<P>Femme 
+				</P>
+			</TD>
+			<TD WIDTH=44>
+				<P>Total 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>Jamais 
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>70 
+				</P>
+			</TD>
+			<TD WIDTH=68>
+				<P>10 
+				</P>
+			</TD>
+			<TD WIDTH=44>
+				<P>80 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>l'ann&eacute;e derni&egrave;re 
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>35 
+				</P>
+			</TD>
+			<TD WIDTH=68>
+				<P>15 
+				</P>
+			</TD>
+			<TD WIDTH=44>
+				<P>50 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>cette ann&eacute;e 
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>50 
+				</P>
+			</TD>
+			<TD WIDTH=68>
+				<P>50 
+				</P>
+			</TD>
+			<TD WIDTH=44>
+				<P>100 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>Total 
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>155 
+				</P>
+			</TD>
+			<TD WIDTH=68>
+				<P>75 
+				</P>
+			</TD>
+			<TD WIDTH=44>
+				<P>230 
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P CLASS="msonormal">b) Valeurs th&eacute;oriques</P>
+<CENTER>
+	<TABLE WIDTH=322 BORDER=1 CELLPADDING=2 CELLSPACING=4>
+		<COL WIDTH=138>
+		<COL WIDTH=63>
+		<COL WIDTH=52>
+		<COL WIDTH=31>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>Jamais 
+				</P>
+			</TD>
+			<TD WIDTH=63>
+				<P>53,91 
+				</P>
+			</TD>
+			<TD WIDTH=52>
+				<P>26,09 
+				</P>
+			</TD>
+			<TD WIDTH=31>
+				<P>80 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>l'ann&eacute;e derni&egrave;re 
+				</P>
+			</TD>
+			<TD WIDTH=63>
+				<P>33,70 
+				</P>
+			</TD>
+			<TD WIDTH=52>
+				<P>16,30 
+				</P>
+			</TD>
+			<TD WIDTH=31>
+				<P>50 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>cette ann&eacute;e 
+				</P>
+			</TD>
+			<TD WIDTH=63>
+				<P>67,39 
+				</P>
+			</TD>
+			<TD WIDTH=52>
+				<P>32,61 
+				</P>
+			</TD>
+			<TD WIDTH=31>
+				<P>100 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>Total 
+				</P>
+			</TD>
+			<TD WIDTH=63>
+				<P>155,00 
+				</P>
+			</TD>
+			<TD WIDTH=52>
+				<P>75,00 
+				</P>
+			</TD>
+			<TD WIDTH=31>
+				<P>230 
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P CLASS="msonormal">c) Diff&eacute;rences entre valeurs observ&eacute;es
+et valeurs th&eacute;oriques</P>
+<CENTER>
+	<TABLE WIDTH=337 BORDER=1 CELLPADDING=2 CELLSPACING=4>
+		<COL WIDTH=138>
+		<COL WIDTH=65>
+		<COL WIDTH=59>
+		<COL WIDTH=37>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>Jamais 
+				</P>
+			</TD>
+			<TD WIDTH=65>
+				<P>16,09 
+				</P>
+			</TD>
+			<TD WIDTH=59>
+				<P>-16,09 
+				</P>
+			</TD>
+			<TD WIDTH=37>
+				<P>0,00 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>l'ann&eacute;e derni&egrave;re 
+				</P>
+			</TD>
+			<TD WIDTH=65>
+				<P>1,30 
+				</P>
+			</TD>
+			<TD WIDTH=59>
+				<P>-1,3 
+				</P>
+			</TD>
+			<TD WIDTH=37>
+				<P>0,00 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>cette ann&eacute;e 
+				</P>
+			</TD>
+			<TD WIDTH=65>
+				<P>-1 7,39 
+				</P>
+			</TD>
+			<TD WIDTH=59>
+				<P>1 7,39 
+				</P>
+			</TD>
+			<TD WIDTH=37>
+				<P>0,00 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>Total 
+				</P>
+			</TD>
+			<TD WIDTH=65>
+				<P>0,00 
+				</P>
+			</TD>
+			<TD WIDTH=59>
+				<P>0,00 
+				</P>
+			</TD>
+			<TD WIDTH=37>
+				<P>0 00 
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P CLASS="msonormal">d) Croisement questions Q3 et Q27: calcul du
+Khi-Deux</P>
+<CENTER>
+	<TABLE WIDTH=363 BORDER=1 CELLPADDING=2 CELLSPACING=4>
+		<COL WIDTH=138>
+		<COL WIDTH=73>
+		<COL WIDTH=68>
+		<COL WIDTH=47>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>Homme 
+				</P>
+			</TD>
+			<TD WIDTH=68>
+				<P>Femme 
+				</P>
+			</TD>
+			<TD WIDTH=47>
+				<P>Total 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>Jamais 
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>4,80 
+				</P>
+			</TD>
+			<TD WIDTH=68>
+				<P>9,92 
+				</P>
+			</TD>
+			<TD WIDTH=47>
+				<P>14,72 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>l'ann&eacute;e derni&egrave;re 
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>0,05 
+				</P>
+			</TD>
+			<TD WIDTH=68 SDVAL="0,1" SDNUM="1048;">
+				<P>0,1</P>
+			</TD>
+			<TD WIDTH=47 SDVAL="0,15" SDNUM="1048;">
+				<P>0,15</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>cette ann&eacute;e 
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>4,49 
+				</P>
+			</TD>
+			<TD WIDTH=68>
+				<P>9,28 
+				</P>
+			</TD>
+			<TD WIDTH=47>
+				<P>13,76 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=138>
+				<P>Total 
+				</P>
+			</TD>
+			<TD WIDTH=73>
+				<P>9,34 
+				</P>
+			</TD>
+			<TD WIDTH=68>
+				<P>19,30 
+				</P>
+			</TD>
+			<TD WIDTH=47>
+				<P>28,64 
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P STYLE="margin-bottom: 0cm">Khi-Deux calcul&eacute;: 28,64 nombre
+ddl: 2</P>
+<P STYLE="margin-bottom: 0cm">Khi-Deux critique: 5,99 risque: 5 %</P>
+<P CLASS="msonormal">Le test est fourni couramment par les logiciels;
+il souffre cependant de certaines limitations:</P>
+<P CLASS="msonormal">- l'effectif sur lequel porte le tableau doit
+&ecirc;tre suffisamment important on ne doit pas trouver plus de 20 %
+de cases avec un effectif inf&eacute;rieur &agrave; 5 ;</P>
+<P CLASS="msonormal">- le <SUP>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object30" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>
+est calcul&eacute; &agrave; partir des valeurs absolues; il est donc
+tr&egrave;s sensible &agrave; la taille des effectifs consid&eacute;r&eacute;s;</P>
+<P CLASS="msonormal">le <SUP>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object31" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>
+permet de rep&eacute;rer le caract&egrave;re significatif de la
+relation entre les deux variables, mais pas l'intensit&eacute; de
+cette relation.</P>
+<P CLASS="msonormal"><BR><BR>
+</P>
+<H6 CLASS="western"><A NAME="080"></A><FONT FACE="Symbol">&middot;</FONT>
+b) Test du degr&eacute; d'association entre les variables</H6>
+<P CLASS="msonormal">Plusieurs coefficients peuvent rep&eacute;rer le
+degr&eacute; d'association entre les deux variables &eacute;tudi&eacute;es.
+Pour les tableaux de contingence de taille 2 x 2, on peut d&eacute;duire
+du <SUP>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object32" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>,
+un <B>coefficient </B><B>d'association </B><FONT FACE="Symbol"><B>F</B></FONT>,
+tel que :</P>
+<P CLASS="msonormal"> <FONT FACE="Symbol">F</FONT> = [<SUP><IMG SRC="slides_htm_m319cf865.gif" NAME="Object34" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>/n]<SUP>l/2</SUP>
+(23)</P>
+<P CLASS="msonormal"><FONT FACE="Symbol"><B>F</B></FONT> pr&eacute;sente
+l'avantage d'&ecirc;tre ind&eacute;pendant de la taille de
+l'&eacute;chantillon, et de varier entre 0 et 1 .</P>
+<P STYLE="margin-bottom: 0cm">Pour les tableaux plus grands, c'est un
+coefficient de contingence C qui sera utilis&eacute;<B> </B>:</P>
+<P CLASS="msonormal"> C = [<SUP><IMG SRC="slides_htm_m319cf865.gif" NAME="Object35" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>/(<SUP><IMG SRC="slides_htm_m319cf865.gif" NAME="Object36" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>
++ n)]<SUP>l/2</SUP> (24)</P>
+<P CLASS="msonormal">Plus C est &eacute;lev&eacute; et plus forte est
+l'association entre les deux variables concern&eacute;es. Le minimum
+de ce coefficient est 0 (ind&eacute;pendance totale des variables
+avec <SUP>
+<IMG SRC="slides_htm_m319cf865.gif" NAME="Object33" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27></SUP>=
+0). Par contre, le maximum ne peut jamais s'&eacute;lever jusqu'&agrave;
+1. Dans le cas d'un tableau 2 x 2, on montre, par exemple, que le
+maximum est de = 0,707.</P>
+<P CLASS="msonormal"><BR><BR>
+</P>
+<H6 CLASS="western"><A NAME="085"></A><FONT FACE="Symbol">&middot;</FONT>
+<U>Test de comparaison de fr&eacute;quences</U></H6>
+<P CLASS="msonormal">Lorsque l'on consid&egrave;re deux modalit&eacute;s
+de la variable explicative, les effectifs associ&eacute;s &agrave;
+une modalit&eacute; donn&eacute;e de la variable &agrave; expliquer
+peuvent &ecirc;tre traduits en fr&eacute;quence relative. Il s'agit
+de v&eacute;rifier dans quelle mesure la diff&eacute;rence de
+fr&eacute;quences observ&eacute;es est significative.</P>
+<P CLASS="msonormal">Soient Pa la fr&eacute;quence relative associ&eacute;e
+&agrave; la modalit&eacute; A (effectif Na) de la variable
+explicative et Pb celle qui est associ&eacute;e &agrave; la modalit&eacute;
+B (effectif Nb)</P>
+<P CLASS="msonormal">La variance des diff&eacute;rences de
+proportions est donn&eacute;e par 
+<IMG SRC="slides_htm_m64f78b31.gif" NAME="Object37" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=327 HEIGHT=30>
+o&ugrave; <FONT FACE="Symbol">p</FONT><SUB>a</SUB> et<FONT FACE="Symbol">p</FONT><SUB>b</SUB>
+sont les proportions r&eacute;elles. Dans la mesure o&ugrave; les
+v&eacute;ritables fr&eacute;quences <FONT FACE="Symbol">p</FONT><SUB>a</SUB>
+et <FONT FACE="Symbol">p</FONT><SUB>b</SUB> ne sont pas connues, on
+utilisera comme estimateur de <SUP><B>
+<IMG SRC="slides_htm_m66414176.gif" NAME="Object45" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=30></B></SUP>
+l'expression 
+<IMG SRC="slides_htm_521e738c.gif" NAME="Object38" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=222 HEIGHT=27>
+o&ugrave; Pc est la fr&eacute;quence moyenne observ&eacute;e sur
+l'ensemble des deux groupes avec 
+<IMG SRC="slides_htm_684c4986.gif" NAME="Object39" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=278 HEIGHT=27>.</P>
+<P CLASS="msonormal">Les intervalles de confiance et le test des
+diff&eacute;rences de proportions s'obtiennent dans les m&ecirc;mes
+conditions qu'en ce qui concerne les moyennes.</P>
+<div class="row">
+    <div class="span2">
+      <button data-example="comppropCamip">Comparaison de Fréquences</button>
+      </div>
+  <div class="span2">
+      <button data-example="plotCompProp">
+      <p>Plot Comparaison de Fréquences</p>
+      </button>
+      </div></div>
+<H6 CLASS="western" STYLE="font-weight: normal"><FONT SIZE=2><I>Exemple:</I></FONT></H6>
+<P>Exemples:</P>
+<P>Avec le croisement des questions 3 et 27 du questionnaire CAMIP,
+il appara&icirc;t que sur 155 hommes, 70 n'ont jamais command&eacute;,
+soit 45,16 % et seulement 10 sur 75 femmes , soit 13,33 %<I><BR></I>La
+fr&eacute;quence moyenne pond&eacute;r&eacute;e est donc p =
+[155(0,4516) + 75(0,1333)]/230= 0,3478.<BR>La variance des
+diff&eacute;rences de proportions est alors <FONT FACE="Symbol">s</FONT><SUB>D</SUB><SUP>2</SUP>
+= [0,3478(1 - 0,3478)] [1/155 + 1/75] = 0,00449 et<BR><FONT FACE="Symbol">s</FONT><SUB>D</SUB>
+= 0,067<I><BR></I>Dans ces conditions l'intervalle de confiance des
+diff&eacute;rences de proportions au seuil de risque de 5 % est donn&eacute;
+par:<BR><FONT FACE="Symbol">p</FONT><SUB>a</SUB> - <FONT FACE="Symbol">p</FONT><SUB>b</SUB>
+= 0 4516 - 0,1333 <FONT FACE="Symbol">&plusmn;</FONT> 1 96 (0,067) =
+[0,4496 0,187]<BR>La valeur 0 ne figurant pas dans cet intervalle de
+confiance, la diff&eacute;rence de proportions appara&icirc;t
+significative.</P>
+<P CLASS="msonormal"><BR><BR>
+</P>
+</section><section id="varordinal"><h2 CLASS="western"><A NAME="090"></A><A NAME="095"></A><FONT FACE="Symbol">&middot;</FONT>
+Traitement des donnes ordinales<FONT FACE="Symbol">&middot;</FONT>&gt;
+Relations entre deux variables ordinales</H2>
+<H6 CLASS="western"><A NAME="100"></A><FONT FACE="Symbol"><FONT SIZE=2><SPAN STYLE="font-weight: normal">&middot;</SPAN></FONT></FONT>
+<FONT SIZE=2><SPAN STYLE="font-weight: normal">a) Test de corr&eacute;lation
+des rangs de Spearman </SPAN></FONT>
+</H6>
+<P CLASS="msonormal">Ce test permet de rep&eacute;rer le caract&egrave;re
+significatif de la relation qui existe entre deux classements. Il est
+&eacute;galement utilis&eacute; pour montrer la relation &eacute;ventuelle
+qui existe entre deux variables quantitatives.</P>
+<P CLASS="msonormal">Soit n le nombre d'items &agrave; classer; Xi
+est le rang de l'item i dans un premier classement et Yi son rang
+dans un second. 
+<IMG SRC="slides_htm_75c373f2.gif" NAME="Object40" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=122 HEIGHT=27>
+est la diff&eacute;rence de rangs observ&eacute;s entre les deux
+classements. Le coefficient de corr&eacute;lation des rangs de
+Spearman a pour expression :</P>
+<P STYLE="margin-bottom: 0cm">  	<IMG SRC="slides_htm_m6dac6363.gif" NAME="Object41" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=170 HEIGHT=61>	
+(25)</P>
+<P CLASS="msonormal">Plus R<SUB>s</SUB> est proche de 1 et plus les
+deux classements sont proches; &agrave; la limite, ils sont
+compl&egrave;tement identiques si R<SUB>s</SUB> = 1. Au contraire,
+plus R<SUB>s</SUB> est proche de 0 et plus les deux classements sont
+ind&eacute;pendants.</P>
+<P CLASS="msonormal">La signification statistique de Rs obtenue peut
+&ecirc;tre test&eacute;e &agrave; partir de la relation:</P>
+<P STYLE="margin-bottom: 0cm"> 	<SUP><IMG SRC="slides_htm_m3e2e08bf.gif" NAME="Object42" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=126 HEIGHT=61>	</SUP>
+ (26)</P>
+<P CLASS="msonormal">qui suit une loi de Student &agrave; n - <I>2
+</I>degr&eacute;s de libert&eacute; 
+</P>
+<H6 CLASS="western" STYLE="font-weight: normal"><FONT SIZE=2><I>Exemple:</I></FONT></H6>
+<P>Exemple:</P>
+<P>Croisement entre l'ordre de pr&eacute;f&eacute;rence pour les
+diff&eacute;rentes cat&eacute;gories d'&eacute;quipement de bureau
+(micro-ordinateurs, imprimantes, scanners..) exprim&eacute; par
+chaque r&eacute;pondant et un classement a priori correspondant &agrave;
+l'importance accord&eacute; &agrave; chaque cat&eacute;gorie
+d'&eacute;quipement dans le catalogue (exprim&eacute; par exemple en
+nombre de pages).Le tableau 2.3. montre un exemple de calcul du
+coefficient de Spearman avec le traitement d'une question concernant
+le classement d'int&eacute;r&ecirc;t d'achat pour les cat&eacute;gories
+de produits (A - micro-ordinateurs, B - imprimantes, C - scanners et
+D fax) par l'individu 124. On constate une corr&eacute;lation R. = 1
+- (6)(38)/(5)(25-1)= - 0,9 entre les choix de la direction et ceux de
+l'individu n&deg; 128. Cette corr&eacute;lation est significative
+puisque t = (-0,9)( )/ ( = - 3,576. Cette valeur est sup&eacute;rieure
+au t de Student pour 3 degr&eacute;s de libert&eacute; et un seuil de
+confiance de 95 % (3,182).<BR>L'application de cette proc&eacute;dure
+&agrave; l'ensemble de l'&eacute;chantillon permettrait de rep&eacute;rer
+quels sont les individus qui manifestent des pr&eacute;f&eacute;rences
+conformes &agrave; l'importance donn&eacute;e dans le catalogue &agrave;
+ces cat&eacute;gories .</P>
+<P CLASS="msonormal"><I><B>Tableau 3: Application du coefficient de
+Spearman</B></I></P>
+<CENTER>
+	<TABLE WIDTH=530 BORDER=1 CELLPADDING=2 CELLSPACING=4>
+		<COL WIDTH=110>
+		<COL WIDTH=103>
+		<COL WIDTH=103>
+		<COL WIDTH=34>
+		<COL WIDTH=135>
+		<TR VALIGN=TOP>
+			<TD WIDTH=110>
+				<P>Propositions 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>Classement <BR>individu n&deg; 124 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>Classement <BR>CAMIP 
+				</P>
+			</TD>
+			<TD WIDTH=34>
+				<P>|Dj| 
+				</P>
+			</TD>
+			<TD WIDTH=135>
+				<P>|Dj|2 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=110>
+				<P>A 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>2 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>5 
+				</P>
+			</TD>
+			<TD WIDTH=34>
+				<P>3 
+				</P>
+			</TD>
+			<TD WIDTH=135>
+				<P>9 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=110>
+				<P>B 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>1 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P><SPAN LANG="de-DE">4</SPAN> 
+				</P>
+			</TD>
+			<TD WIDTH=34>
+				<P>3 
+				</P>
+			</TD>
+			<TD WIDTH=135>
+				<P>9 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=110>
+				<P>C 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>3 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>3 
+				</P>
+			</TD>
+			<TD WIDTH=34>
+				<P>0 
+				</P>
+			</TD>
+			<TD WIDTH=135>
+				<P>0 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=110>
+				<P>D 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>5 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>1 
+				</P>
+			</TD>
+			<TD WIDTH=34>
+				<P>4 
+				</P>
+			</TD>
+			<TD WIDTH=135>
+				<P>16 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=110>
+				<P>E 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>4 
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P>2 
+				</P>
+			</TD>
+			<TD WIDTH=34>
+				<P>2 
+				</P>
+			</TD>
+			<TD WIDTH=135>
+				<P>4 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=110>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=103>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=34>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=135>
+				<P><IMG SRC="slides_htm_m248d9152.gif" NAME="Object43" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=77 HEIGHT=31>
+				=38 
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P CLASS="msonormal">R<SUB>s</SUB>= -0,9</P>
+<P CLASS="msonormal">t = -3,576</P>
+<div class="row">
+    <div class="span2">
+      <button data-example="cspearman">Coef de Spearman</button>
+      </div>
+</div>
+
+<H6 CLASS="western"><A NAME="105"></A><FONT SIZE=2><SPAN STYLE="font-weight: normal">b)
+Tau de Kendall </SPAN></FONT>
+</H6>
+<P CLASS="msonormal">Le tau de Kendall est un autre indicateur du
+caract&egrave;re &eacute;ventuellement significatif de la relation
+qui existe entre deux classements.</P>
+<P CLASS="msonormal">Les n items sont tout d'abord rang&eacute;s dans
+l'ordre conforme au premier classement. Puis pour tout couple d'items
+dont l'ordre dans le premier classement est concordant avec celui du
+second on attribue un score de + 1; dans le cas de discordance on
+attribue un score de - 1. S est la somme de ces scores sur l'ensemble
+des n(n - 1)/2 comparaisons possibles.</P>
+<P CLASS="msonormal">Le tau de Kendall est alors :</P>
+<P STYLE="margin-bottom: 0cm">	<IMG SRC="slides_htm_m32675526.gif" NAME="Object44" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=139 HEIGHT=28>	
+(27)</P>
+<P CLASS="msonormal">Le test de ce coefficient s'effectue &agrave;
+l'aide de tables. Pour n &gt; 10 une approximation par la loi normale
+est envisageable .</P>
+<H6 CLASS="western" STYLE="font-weight: normal"><FONT SIZE=2><I>Exemple:</I></FONT></H6>
+<P>Exemple:</P>
+<P>Le tableau 2.4. donne une application du <FONT FACE="Symbol">t</FONT>
+de Kendall pour l'analyse des r&eacute;sultats de la question
+pr&eacute;c&eacute;dente pour l'&eacute;tude CAMIP. On constate un t
+de - 0,8 entre les choix de la direction et ceux de l'individu n&deg;
+124. En effet sur un ensemble de 10 comparaisons possibles, une seule
+est concordante et neuf sont discordantes.</P>
+<P CLASS="msonormal"><I><B>Tableau 4: Application du tau de Kendall</B></I></P>
+<CENTER>
+	<TABLE WIDTH=342 BORDER=1 CELLPADDING=2 CELLSPACING=4>
+		<COL WIDTH=109>
+		<COL WIDTH=102>
+		<COL WIDTH=101>
+		<TR VALIGN=TOP>
+			<TD WIDTH=109>
+				<P>Propositions</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>Classement Individu n&deg; 128</P>
+			</TD>
+			<TD WIDTH=101>
+				<P STYLE="margin-bottom: 0cm">Classement Catalogue</P>
+				<P>CAMIP</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=109>
+				<P>B</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>1</P>
+			</TD>
+			<TD WIDTH=101>
+				<P>4</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=109>
+				<P>A</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>2</P>
+			</TD>
+			<TD WIDTH=101>
+				<P>5</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=109>
+				<P>C</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>3</P>
+			</TD>
+			<TD WIDTH=101>
+				<P>3</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=109>
+				<P>E</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>4</P>
+			</TD>
+			<TD WIDTH=101>
+				<P>2</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=109>
+				<P>D</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>5</P>
+			</TD>
+			<TD WIDTH=101>
+				<P>1</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P CLASS="msonormal"><BR><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=429 BORDER=1 CELLPADDING=2 CELLSPACING=4>
+		<COL WIDTH=75>
+		<COL WIDTH=106>
+		<COL WIDTH=109>
+		<COL WIDTH=102>
+		<TR VALIGN=TOP>
+			<TD WIDTH=75>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=106>
+				<P>Classements<BR>concordants</P>
+			</TD>
+			<TD WIDTH=109>
+				<P>Classements<BR>discordants</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>Score</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=75>
+				<P>Paires B 
+				</P>
+			</TD>
+			<TD WIDTH=106>
+				<P>BA</P>
+			</TD>
+			<TD WIDTH=109>
+				<P>BC, BE, BD</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>-2</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=75>
+				<P>Paires A</P>
+			</TD>
+			<TD WIDTH=106>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=109>
+				<P>AC, AD, AE</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>-3</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=75>
+				<P>Paires C 
+				</P>
+			</TD>
+			<TD WIDTH=106>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=109>
+				<P>CD, CE</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>-2</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=75>
+				<P>Paire E 
+				</P>
+			</TD>
+			<TD WIDTH=106>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=109>
+				<P>ED</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>-1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=75>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=106>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=109>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=102>
+				<P>Total S = - 8</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P CLASS="msonormal">Nb. combinaisons = n(n - 1)/2= 10 Tau de Kendall
+= - 0.8</P>
+
+<div class="row">
+    <div class="span2">
+      <button data-example="taukendall">Tau de Kendall</button>
+      </div>
+</div>
+
+</div>		  <!-- end right -->
+</div><!-- end row -->
+</div> <!-- end continer -->
+<script src="../opencpu/jquery-1.7.2.min.js"></script> 
+<script src="../opencpu/bootstrap/js/bootstrap.js"></script> 
+<script src="../opencpu/common.js"></script> 
+<script src="../opencpu/docs.js"></script> 
+<script src="../opencpu/camip.js"></script> 
+<script src="slide-example.js"></script>
+</body>
+</html>
+</BODY>
+</HTML>

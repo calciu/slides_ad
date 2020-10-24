@@ -1,0 +1,85 @@
+Quelle est la moyenne de la variable V2{#2.0806452:0.01}
+
+Quelle est la moyenne de la variable V3{#1.9112903:0.01}
+
+Quelle est la moyenne de la variable V4{#1.9919355:0.01}
+
+Quelle est la moyenne de la variable V5{#3.2580645:0.01}
+
+Quelle est la moyenne de la variable V6{#3.1854839:0.01}
+
+Quelle est la moyenne de la variable V7{#3.1532258:0.01}
+
+Quelle est la moyenne de la variable V8{#2.9435484:0.01}
+
+Quelle est la moyenne de la variable V9{#3.0645161:0.01}
+
+Quelle est la moyenne de la variable V10{#3.6209677:0.01}
+
+Quelle est la moyenne de la variable V11{#3.9919355:0.01}
+
+Quelle est la moyenne de la variable V12{#3.8467742:0.01}
+
+Quelle est la moyenne de la variable V13{#3.9596774:0.01}
+
+Quelle est la moyenne de la variable V14{#3.9758065:0.01}
+
+Quelle est la moyenne de la variable V15{#3.0000000:0.01}
+
+Quelle est la moyenne de la variable V16{#2.9677419:0.01}
+
+Quelle est la moyenne de la variable V17{#3.2661290:0.01}
+
+Quelle est la moyenne de la variable V18{#3.2580645:0.01}
+
+Quelle est la moyenne de la variable V19{#3.2741935:0.01}
+
+Quelle est la moyenne de la variable V20{#3.3790323:0.01}
+
+Quelle est la moyenne de la variable V21{#3.3870968:0.01}
+
+Quelle est la moyenne de la variable V22{#3.3951613:0.01}
+
+Quelle est la moyenne de la variable V23{#3.3306452:0.01}
+
+Quelle est la moyenne de la variable V24{#4.1935484:0.01}
+
+Quelle est la moyenne de la variable V25{#3.9435484:0.01}
+
+Quelle est la moyenne de la variable V26{#4.1935484:0.01}
+
+Quelle est la moyenne de la variable V27{#3.5483871:0.01}
+
+Quelle est la moyenne de la variable V28{#3.9919355:0.01}
+
+Quelle est la moyenne de la variable V29{#3.5806452:0.01}
+
+Quelle est la moyenne de la variable V30{#3.3790323:0.01}
+
+Quelle est la moyenne de la variable V31{#3.4274194:0.01}
+
+Quelle est la moyenne de la variable V32{#3.4354839:0.01}
+
+Quelle est la moyenne de la variable V33{#3.5725806:0.01}
+
+Quelle est la moyenne de la variable V34{#3.8225806:0.01}
+
+Quelle est la moyenne de la variable V35{#3.5322581:0.01}
+
+Quelle est la moyenne de la variable V36{#3.3548387:0.01}
+
+Quelle est la moyenne de la variable V37{#3.4919355:0.01}
+
+Quelle est la moyenne de la variable V38{#1.8145161:0.01}
+
+Quelle est la moyenne de la variable V39{#3.2661290:0.01}
+
+Quelle est la moyenne de la variable V40{#2.8064516:0.01}
+
+Quelle est la moyenne de la variable V41{#0.5564516:0.01}
+
+Quelle est la moyenne de la variable V42{#20.4193548:0.01}
+
+Quelle est la moyenne de la variable V43{#3.4838710:0.01}
+
+Quelle est la moyenne de la variable V44{#1.4758065:0.01}

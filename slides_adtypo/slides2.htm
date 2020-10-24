@@ -1,0 +1,1740 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<title>Recherche Marketing et Analyse des données</title>
+<link href="../opencpu/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+<style>
+body {
+	padding-top: 60px;
+}
+</style>
+<link href="../opencpu/common.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap-hacks.css" rel="stylesheet"/>
+<link href="../opencpu/docs.css" rel="stylesheet"/>
+</head>
+
+<body bgcolor=white lang=FR>
+<!-- Some hidden elements that will be cloned when needed -->
+
+<div class="hidden">
+  <div class="httpfile"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls">
+            <input class="input-file realinputvalue" multiple type="file">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="httpparameter"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls"> 
+            <!-- <textarea class="input-xlarge realinputvalue" rows="2"></textarea>-->
+            <input type="text" class="input-xlarge realinputvalue" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of hidden stuff -->
+    	<!-- Top Navigation bar (the black one) -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="#"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="./slides2.htm">Home</a></li>
+						<li><a href="../slides_adintro/slides2.htm">Intro</a></li>
+						<li><a href="../slides_adunivarie/slides2.htm">Unviarie</a></li>
+						<li><a href="../slides_adbivarie/slides2.htm">Bivarie</a></li>
+						<li><a href="../slides_adacp/slides2.htm">ACP</a></li>
+						<li><a href="../slides_adtypo/slides2.htm">Cluster</a></li>
+						<li><a href="../slides_adadiscr/slides2.htm">Discrim</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="about.html">About</a></li>
+						<li><a href="support.html">Support</a></li>
+						<li><a href="/auth/login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <!-- subnav, mostly invisible -->
+	<div id="subnav" class="subnav subnav-fixed">
+		<ul class="nav nav-pills">
+			<li><a href="#intro">Intro</a></li>
+			<li><a href="#proximites">Distances</a></li>
+			<li><a href="#agreggroupes">Agregation</a></li>
+			<li><a href="#creagroupes">Constitution</a></li>
+			<li><a href="#validgroupes">Validation</a></li>
+	</ul>
+	</div>
+
+
+    	<div class="container">
+        
+        		<div class="row">
+			<div class="span6">
+				<div class="page-header">
+					<h3>
+						Testing Tool <small>learn while playing...</small>
+					</h3>
+				</div>
+				<p><small>This side shows a little ajax tool that you can use to poke
+					around with the API. Simply select a method, endpoint and add some
+					parameters.</small></p>
+
+				<p><small>Your browser has multiple mechanisms to perform a HTTP
+					request. In most cases you want to do the request using Ajax, which
+					supports all methods. However, Ajax cannot be used for binary
+					streams (e.g. uploading files or displaying images). For those
+					cases you can use the form request method.</small></p>
+
+			</div>
+
+			<div class="span6">
+				<div class="page-header">
+					<h3>Text and Examples</h3>
+				</div>
+				<p><small>This side shows and overview and descriptions of the API.
+					However OpenCPU is best understood while by playing around with the
+					API.</small></p>
+					<button data-example="example">Example button</button>
+				<p class="narrowblock"><small>
+					Whenever you see a red button like the one here, this indicates an
+					example demo. Clicking an example button will automatically fill
+					out the Testing tool and perform the request. Keep your eye on the
+					testing tool while running an example!
+				</small></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="toolkit" class="span6">
+				<form id="paramform" class="well" target="outputframe">
+					<fieldset>
+						<div class="row">
+								<div class="span0">
+								<div class="control-group">
+								  <label class="control-label" for="textvalue">Example</label>
+									<div class="controls">
+									  <textarea class="input-xxlarge realinputvalue" id="textvalue" value="Example text" rows="2">Example text</textarea>
+									</div>
+								</div>
+                             
+                             </div>   
+						<div id="tohide">
+                             
+							<div class="span1">
+								<div class="control-group">
+									<label class="control-label" for="httpmethod">Method</label>
+									<div class="controls">
+										<select class="input-small" id="httpmethod">
+											<option>GET</option>
+											<option>POST</option>
+											<option>PUT</option>
+											<option>DELETE</option>
+											<option>OPTIONS</option>
+											<option>HEAD</option>
+										</select>
+									</div>
+								</div>
+							</div>    
+							<div class="span4">
+								<div class="control-group">
+									<label class="control-label" for="urlvalue">Endpoint</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" id="urlvalue"
+											value="/R/pub">
+									</div>
+								</div>
+							</div>
+</div>                       
+ </div>       <!-- end tohide -->
+
+
+						<div id="allparameters">
+							<div class="row show-grid">
+								<div class="span2">
+									<div class="control-group">
+										<label class="control-label">Parameter Name</label>
+									</div>
+								</div>
+								<div class="span3">
+									<div class="control-group">
+										<label class="control-label">Parameter Value</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div align="left">
+							<button id="addprambutton" class="btn btn-primary">
+								<i class="icon-plus icon-white"></i> Add parameter
+							</button>
+							<button id="addfilebutton" class="btn btn-primary">
+								<i class="icon-file icon-white"></i> Add file
+							</button>
+						</div>
+
+						<br />
+
+						<div align="right">
+							<button id="submitblank" class="btn btn-success"
+								data-targetframe="_blank">
+								<i class="icon-share icon-white"></i> Popup
+							</button>
+							<button id="submitform" class="btn btn-success">
+								<i class="icon-share icon-white"></i> iFrame
+							</button>
+							<img src="spinner.gif" id="formspinner" />
+							<button id="submitajax" class="btn btn-success btn-large">
+								<i class="icon-download-alt icon-white"></i> Ajax request
+							</button>
+							<img src="spinner.gif" id="ajaxspinner" />
+						</div>
+					</fieldset>
+				</form>
+
+				<div id="errordiv"></div>
+
+				<div id="ajaxoutput">
+					<pre id="statuspre">0</pre>
+					<pre class="pre-scrollable prettyprint linenums" id="outputpre"></pre>
+					<pre class="pre-scrollable prettyprint linenums" id="headerpre"></pre>
+				</div>
+
+				<iframe name="outputframe" id="outputframe" class="input-xxlarge"></iframe>
+			</div>
+<div id="rightcolumndiv" class="span6">
+<!-- 
+		<div id="fullscreenwarning" class="alert alert-warning">
+					<a class="close" data-dismiss="alert">×</a> <strong>Viewer
+						tip!</strong> When viewing this page on a low resolution it might be useful
+					to enable full screen (F11) or to zoom out a bit (ctrl -) in order
+					to display the full testing tool.
+				</div>
+-->
+
+<H1>La typologie</H1>
+<H4>Michel Calciu</H4>
+<H3>Cours &agrave; l'Universit&eacute; de Lille - 2019/2020</H3>
+<section id="intro"><h2>Introduction</H2>
+<H6>Segmentation et typologie</H6>
+<P><A NAME="_ftnref1"></A>En marketing il y a un grand int&eacute;r&ecirc;t
+de d&eacute;velopper des modalit&eacute;s utiles pour classifier des
+objets. Tr&egrave;s souvent les objets &agrave; classifier sont les
+clients<A HREF="#_ftn1"> [1] </A>. L'objectif est de grouper les
+clients potentiels dans des groupes homog&egrave;nes assez grands
+pour &ecirc;tre profitablement g&eacute;r&eacute;s. 
+</P>
+<P><A NAME="_ftnref2"></A>En marketing on distingue deux modalit&eacute;s
+de classification: la segmentation et la typologie<A HREF="#_ftn2">
+[2] </A>(Bon, J. et Gregory, P., 1986).</P>
+<P>La segmentation essaye de &quot;fractionner l'ensemble de la
+population en utilisant des crit&egrave;res choisis en fonction de
+leur pertinence pour le sujet donn&eacute;&quot;.</P>
+<P>La typologie essaye de rassembler les individus qui se ressemblent
+du point de vue des variables qui les caract&eacute;risent, elle
+cherche &agrave; regrouper les individus selon les ressemblances et
+proximit&eacute;s.</P>
+<P><A NAME="_ftnref3"></A><A NAME="_ftnref4"></A>La typologie<A HREF="#_ftn3">
+[3] </A>a pour objet la description d'un ensemble d'individus ou
+d'objets caract&eacute;ris&eacute;s par un ensemble d'attributs, &agrave;
+l'aide de leur regroupement en classes<A HREF="#_ftn4"> [4] </A>. Ces
+classes sont &eacute;tablies de telle sorte que les objets
+appartenant &agrave; la m&ecirc;me classe soient les plus semblables
+possibles et que les objets appartenant &agrave; deux classes
+diff&eacute;rentes soient les plus dissemblables possibles.</P>
+<P>La r&eacute;partition des individus entre les classes peut &ecirc;tre
+une finalit&eacute; de la technique, mais &eacute;galement le
+rep&eacute;rage des attributs qui permettent de mieux diff&eacute;rencier
+les groupes.</P>
+<H6>Exemples:</H6>
+<P>- L'&eacute;tude de diff&eacute;rentes marques d'un produit selon
+leurs caract&eacute;ristiques per&ccedil;ues par les consommateurs,
+de fa&ccedil;on &agrave; &eacute;tablir le positionnement respectif
+de ces diff&eacute;rentes marques. Les types seront constitu&eacute;s
+des marques qui b&eacute;n&eacute;ficient de perceptions similaires
+sur l'ensemble des caract&eacute;ristiques</P>
+<P>- L'&eacute;tude d'une population en termes d'activit&eacute;s,
+d'int&eacute;r&ecirc;ts et d'opinions. Les individus appartenant au
+m&ecirc;me type manifestent le m&ecirc;me genre d'activit&eacute;s,
+d'int&eacute;r&ecirc;ts ou d'opinions. Cette &eacute;tude permet
+d'aboutir &agrave; une typologie de styles de vie.</P>
+<H6>Comparaison</H6>
+<P>La typologie rappelle, par ses objectifs, d'autres techniques de
+traitement de donn&eacute;es, et plus particuli&egrave;rement la
+segmentation, l'analyse discriminante et l'analyse en composantes
+principales. Mais elle en diff&egrave;re par les m&eacute;thodes
+qu'elle utilise et par la pr&eacute;sentation de ses r&eacute;sultats.</P>
+<P>Par rapport aux deux premi&egrave;res techniques, la diff&eacute;rence
+essentielle provient de l'absence de toute variable &agrave;
+expliquer &agrave; partir de laquelle le regroupement sera op&eacute;r&eacute;.
+Par rapport &agrave; l'analyse en composantes principales, pour
+laquelle il n'est pas non plus n&eacute;cessaire de d&eacute;finir
+une variable &agrave; expliquer, la diff&eacute;rence provient de la
+fa&ccedil;on de d&eacute;limiter les groupes : elle n'est
+qu'implicite ici, alors que cette d&eacute;limitation est
+l'objet-m&ecirc;me de la typologie et en constitue le premier.</P>
+</section><section id="proximites"><h2>La d&eacute;finition des proximit&eacute;s</H2>
+<H6>a) Les donn&eacute;es</H6>
+<P>En typologie, chaque individu est caract&eacute;ris&eacute; par
+les valeurs prises sur un ensemble de variables. Ces variables
+peuvent &ecirc;tre de nature tr&egrave;s diff&eacute;rente.</P>
+<P>l - On distinguera, en premier lieu, les variables selon le r&ocirc;le
+qu'elles jouent dans la d&eacute;marche : on distinguera les
+variables actives et les variables passives de la typologie. Les
+variables actives servent &agrave; constituer les groupes alors que
+les variables passives vont servir, dans un deuxi&egrave;me temps, &agrave;
+expliquer ces groupes.</P>
+<P>2 - En second lieu, les variables diff&egrave;rent selon la nature
+de la mesure utilis&eacute;e. Les variables les plus fr&eacute;quemment
+utilis&eacute;es seront soit de nature quantitative soit de nature
+qualitative.</P>
+<P>Les donn&eacute;es quantitatives apparaissent les plus simples &agrave;
+traiter. Elles soul&egrave;vent cependant certaines difficult&eacute;s
+lorsque les unit&eacute;s de mesure utilis&eacute;es ne sont pas les
+m&ecirc;mes d'une variable &agrave; une autre. Dans une telle
+situation, il conviendra de standardiser les variables afin de ne pas
+privil&eacute;gier telle ou telle variable.</P>
+<P STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>En
+fonction de la nature des variables&nbsp;: quantitatif, qualitatif,
+binair on distingue plusieurs mesures de distances</FONT></FONT></P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<H6>Distance euclidienne</H6>
+<P>Dans un espace euclidien (orthogonal) en deux dimensions, comme
+celui de la figure 1, la distance dij entre deux objets i et j est
+calcul&eacute; selon le th&eacute;or&egrave;me de Pythagore 
+<IMG SRC="slides2_htm_m306cc865.gif" NAME="Object1" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=334 HEIGHT=32>:</P>
+<P ALIGN=CENTER><IMG SRC="slides_fichiers/disteuclid.gif" NAME="images1" ALIGN=BOTTOM WIDTH=282 HEIGHT=219 BORDER=0></P>
+<P ALIGN=CENTER STYLE="margin-top: 0.42cm; page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+1: Evaluation de la proximit&eacute; entre individus</B></FONT></FONT></P>
+<P>Les diff&eacute;rentes distances qui viennent d'&ecirc;tre
+&eacute;voqu&eacute;es reposent sur une conception sp&eacute;cifique
+de la proximit&eacute; : deux objets sont proches quand il y a peu
+d'&eacute;cart entre eux sur l'ensemble des dimensions concern&eacute;es.
+D'autres indicateurs de distance reposent sur la notion de structure
+: on consid&egrave;re alors que deux individus sont proches d&egrave;s
+que leurs structures d'attributs sont similaires.</P>
+<div class="row">
+<div class="span2">
+<button data-example="disteuclidAutos">Dist Voitures</button>
+</div>
+<div class="span2">
+<button data-example2="biplot2" args="scoresAutos">Plot</button>
+</div>
+</div>
+<div class="row">
+<div class="span2">
+<button data-example="disteuclidCamip">Dist Camip</button>
+</div>
+<div class="span2">
+<button data-example2="biplot2" args="scoresCamip">Plot</button>
+</div>
+</div>
+
+
+<H6>La distance du chi2</H6>
+<P>La distance du 
+<IMG SRC="slides2_htm_m319cf865.gif" NAME="Object2" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27>
+pour les tableaux de d&eacute;nombrement, ainsi que le coefficient de
+corr&eacute;lation entre les caract&eacute;ristiques des individus
+pour les autres donn&eacute;es quantitatives sont alors utilisables.</P>
+<P>Les donn&eacute;es du tableau 1. permettent d'illustrer ces
+diff&eacute;rentes conceptions de la proximit&eacute;. En termes de
+distance euclidienne, a et b paraissent plus proches que a et c d'une
+part et b et c d'autre part :</P>
+<P ALIGN=CENTER STYLE="margin-top: 0.42cm; page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Tableau
+1- Variable \ observations</B></FONT></FONT></P>
+<CENTER>
+	<TABLE WIDTH=215 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=54>
+		<COL WIDTH=54>
+		<COL WIDTH=54>
+		<COL WIDTH=54>
+		<TR VALIGN=TOP>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Var\I</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>a</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>b</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>c</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>X1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>10</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>8</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54 SDVAL="16" SDNUM="1048;">
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>16</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>X2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>9</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>5</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54 SDVAL="10" SDNUM="1048;">
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>10</FONT></FONT></P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P>Les distances euclidiennes sont&nbsp;: d<SUB>ab</SUB> = 20 d<SUB>ac</SUB>
+= 37 d<SUB>bc</SUB>= l09</P>
+<P>Si l'on emploie la distance du 
+<IMG SRC="slides2_htm_m319cf865.gif" NAME="Object3" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=30 HEIGHT=27>,
+les proximit&eacute;s sont diff&eacute;rentes puisque b et c sont
+jug&eacute;s identiques:</P>
+<P>d<SUB>ab</SUB> = 0,257 d<SUB>ac</SUB> = 0,318 d<SUB>bc</SUB> = 0</P>
+<H6>Indices de distance pour donn&eacute;es qualitative binaires</H6>
+<P>2 - Quand il s'agit de donn&eacute;es qualitatives la proximit&eacute;
+entre deux individus sera jug&eacute;e d'autant plus forte que ces
+deux individus pr&eacute;sentent des caract&eacute;ristiques
+communes. On distinguera ainsi :</P>
+<P>- les co&iuml;ncidences positives (P) : nombre de fois o&ugrave;,
+pour les deux individus, une caract&eacute;ristique donn&eacute;e
+sera pr&eacute;sente;</P>
+<P>- les co&iuml;ncidences n&eacute;gatives (N) : nombre de fois o&ugrave;,
+pour les deux individus une caract&eacute;ristique donn&eacute;e sera
+absente;</P>
+<P>- les non-co&iuml;ncidences (U): nombre de fois o&ugrave; la
+caract&eacute;ristique sera pr&eacute;sente pour un des deux
+individus et absente pour l'autre.</P>
+<P>A partir de ces co&iuml;ncidences ou non-co&iuml;ncidences
+plusieurs coefficients d'association peuvent &ecirc;tre d&eacute;finis.
+Par exemple:</P>
+<P>P/(P + N + U)</P>
+<P><A NAME="_ftnref6"></A>pourcentage de co&iuml;ncidences positives
+par rapport au nombre total de co&iuml;ncidences positives possibles<A HREF="#_ftn6">
+[6] </A>.</P>
+<div class="row">
+<div class="span2">
+<button data-example="quizbin">Quiz</button>
+</div><div class="span2">
+<button data-example="distbin">Dist Binaire</button>
+</div>
+</div>
+</section><section id="agreggroupes"><h2>Les indicateurs de proximit&eacute; entre groupes</H2>
+<H6>Probl&egrave;mes d&rsquo;agr&eacute;gation de groupes</H6>
+<P>Lorsqu'il s'agit d'&eacute;valuer la proximit&eacute; entre deux
+groupes d'individus, plusieurs proc&eacute;dures sont utilisables.</P>
+<P>Imaginons le cas de cinq objets analys&eacute;s sur deux variables
+pr&eacute;sent&eacute; dans le tableau 2.</P>
+<P ALIGN=CENTER STYLE="margin-top: 0.42cm; page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Tableau
+2 - Variables\Individus</B></FONT></FONT></P>
+<CENTER>
+	<TABLE WIDTH=322 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=54>
+		<COL WIDTH=54>
+		<COL WIDTH=54>
+		<COL WIDTH=54>
+		<COL WIDTH=54>
+		<COL WIDTH=54>
+		<TR VALIGN=TOP>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Xj\Ii</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>a</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>b</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>c</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>d</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>e</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>X1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>8</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>5</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>X2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>10</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>8</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>3</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=54>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>9</FONT></FONT></P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<H6>Le plus proche voisin</H6>
+<P>l - Dans la m&eacute;thode du plus proche voisin, la distance
+entre deux groupes I et II est assimil&eacute;e &agrave; la distance
+entre les deux &eacute;l&eacute;ments les plus proches, l'un
+appartenant au groupe I et l'autre au groupe II.</P>
+<P>Sur la figure 2, le groupe I contient les &eacute;l&eacute;ments a
+et c; le groupe II les &eacute;l&eacute;ments b et d. L'application
+de la m&eacute;thode du plus proche voisin am&egrave;ne &agrave;
+&eacute;valuer la distance entre I et II par la distance d<SUB>be</SUB>.</P>
+<P>d<SUB>[(b),(ea)]</SUB> = Min[d<SUB>be</SUB>, d<SUB>ba</SUB>] = d<SUB>be</SUB></P>
+<P>L'utilisation de cette m&eacute;thode entra&icirc;ne le risque de
+faire appara&icirc;tre des groupes tr&egrave;s h&eacute;t&eacute;rog&egrave;nes,
+puisqu'on ne se pr&eacute;occupe pas des &eacute;l&eacute;ments les
+plus extr&ecirc;mes des groupes. Dans l'exemple consid&eacute;r&eacute;,
+le groupe [b] appara&icirc;t plus proche du groupe [ea] que du groupe
+[dc], alors que a est tr&egrave;s &eacute;loign&eacute; de b.</P>
+<P ALIGN=CENTER><IMG SRC="slides_fichiers/proximgroupes.gif" NAME="images2" ALIGN=BOTTOM WIDTH=280 HEIGHT=223 BORDER=0></P>
+<P ALIGN=CENTER STYLE="margin-top: 0.42cm; page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+2: Evaluation de la proximit&eacute; entre groupes</B></FONT></FONT></P>
+<H6>Le voisin le plus &eacute;loigne</H6>
+<P>2 - Dans la m&eacute;thode du voisin le plus &eacute;loigne, la
+distance entre deux groupes I et II est assimil&eacute;e &agrave; la
+distance entre les deux &eacute;l&eacute;ments les plus &eacute;loign&eacute;s,
+l'un appartenant au groupe I et l'autre au groupe II. Sur la figure
+2., la distance entre I et II serait alors mesur&eacute;e par dba</P>
+<P>d<SUB>[(b),(ea)]</SUB> = Max[d<SUB>be</SUB>, d<SUB>ba</SUB>] = d<SUB>ba</SUB></P>
+<P>Dans l'exemple de la figure 2, le groupe I serait associ&eacute;
+au groupe II et non au groupe I.</P>
+<H6>Le cha&icirc;nage moyen</H6>
+<P>3 - La proc&eacute;dure du cha&icirc;nage moyen consiste &agrave;
+&eacute;valuer la distance &agrave; partir du barycentre des groupes.
+Cette m&eacute;thode para&icirc;t plus logique, mais elle demande
+beaucoup plus de calculs que les deux pr&eacute;c&eacute;dentes :
+chaque regroupement d'individus demande un nouveau calcul de
+distance, alors que les autres m&eacute;thodes utilisent seulement
+les distances interindividuels qui sont calcul&eacute;es une fois
+pour toutes.</P>
+</section><section id="creagroupes"><h2>La constitution des groupes</H2>
+<H6>Le tableau de distances</H6>
+<P>Les donn&eacute;es initiales sont constitu&eacute;es par un
+tableau individus-variables o&ugrave; chacun des n individus est
+caract&eacute;ris&eacute; sur un ensemble de dimensions. A partir de
+ce tableau initial, une matrice de proximit&eacute; (n.n) peut &ecirc;tre
+&eacute;tablie : chaque entr&eacute;e ij de la matrice donne la
+distance dij qui s&eacute;pare l'individu i et l'individu j.</P>
+<P>Une fois connues les n(n - 1)/2 proximit&eacute;s entre individus,
+la constitution de groupes peut &ecirc;tre envisag&eacute;e. Elle se
+r&eacute;alise selon deux grandes cat&eacute;gories de proc&eacute;dures
+qui recourent respectivement &agrave; des m&eacute;thodes
+hi&eacute;rarchiques ou non hi&eacute;rarchiques.</P>
+<H6>a) Les m&eacute;thodes hi&eacute;rarchiques</H6>
+<P>Dans cette premi&egrave;re cat&eacute;gorie de m&eacute;thodes, le
+nombre de groupes auquel on d&eacute;sire parvenir n'est pas fix&eacute;
+a priori; il sera d&eacute;termin&eacute; au vu des r&eacute;sultats.</P>
+<P>I - La m&eacute;thode hi&eacute;rarchique ascendante ou agr&eacute;gative
+utilise la proc&eacute;dure suivante :</P>
+<P>I) parmi l'ensemble des n individus on s&eacute;lectionne les deux
+plus proches par lecture des distances dans la matrice de proximit&eacute;
+: un premier regroupement est op&eacute;r&eacute; entre ces deux
+individus;</P>
+<P>2) une nouvelle matrice de distances est &eacute;tablie qui ne
+comprend que n - l lignes correspondant &agrave; n - 2 individus
+isol&eacute;s et I groupe comprenant 2 &eacute;l&eacute;ments. A
+nouveau les deux objets les plus proches sont rep&eacute;r&eacute;s
+et regroup&eacute;s. Ces deux objets sont soit deux individus isol&eacute;s
+ou un individu et un groupe;</P>
+<P>3) la phase 2 est renouvel&eacute;e jusqu'&agrave; ce que tous les
+individus soient regroup&eacute;s.</P>
+<P><A NAME="_ftnref7"></A>Cette m&eacute;thode est hi&eacute;rarchique
+puisque une succession de regroupements sont op&eacute;r&eacute;s, de
+celui qui met en jeu les proximit&eacute;s les plus fortes vers celui
+qui correspond aux proximit&eacute;s les plus faibles. Elle est dite
+ascendante puisque l'analyse remonte de l'individu isol&eacute; vers
+le groupe <A HREF="#_ftn7">[7] </A>.</P>
+<P>A premi&egrave;re vue, cette proc&eacute;dure appara&icirc;t assez
+contradictoire avec l'objectif fixe, puisque, en fin de parcours,
+tous les individus se retrouvent dans une seule classe. En fait,
+l'analyste, &agrave; partir de l'&eacute;tude des diff&eacute;rents
+niveaux de regroupements d&eacute;cidera du nombre de groupes qui lui
+para&icirc;t le plus judicieux &agrave; l'aide d'un niveau de
+distance-seuil au-del&agrave; de laquelle les regroupements seront
+jug&eacute;s trop h&eacute;t&eacute;rog&egrave;nes. Cette &eacute;tude
+est facilit&eacute;e par l'emploi d'une repr&eacute;sentation
+graphique du processus de regroupement, le dendrogramme.</P>
+<H6>Application de la m&eacute;thode</H6>
+<P>2 - Le tableau 3, fournit un exemple d'application de la proc&eacute;dure
+qui vient d'&ecirc;tre pr&eacute;sent&eacute;e. Les donn&eacute;es
+utilis&eacute;es ont d&eacute;j&egrave; &eacute;t&eacute; pr&eacute;sent&eacute;es
+au tableau 2, o&ugrave; cinq individus [a,b,c,d,e] sont rep&eacute;r&eacute;s
+sur deux variables X1, et X2 (voir aussi figure 2). A partir de ces
+donn&eacute;es la matrice de proximit&eacute;s (tableau 3.a) est
+construite. Ce sont ici des distances euclidiennes qui sont employ&eacute;es
+: par exemple la distance dab entre les individus a et b est obtenue
+par :</P>
+<P ALIGN=CENTER>	<IMG SRC="slides2_htm_2f4fd0e3.gif" NAME="Object4" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=259 HEIGHT=32></P>
+<P>La distance la plus faible est celle qui s&eacute;pare c et d: ils
+forment le premier groupe. Une nouvelle matrice de proximit&eacute;s
+(tableau 3b) est &eacute;tablie pour les individus isol&eacute;s a,
+b, e et pour le groupe [c,d]. La m&eacute;t^hode du plus proche
+voisin a &eacute;t&eacute; employ&eacute;e pour calculer la distance
+entre le groupe [c,d] et les individus isol&eacute;s.</P>
+<P>Pour la deuxi&egrave;me &eacute;tape de regroupement, la plus
+forte proximit&eacute; appara&icirc;t entre les individus a et e qui
+forment alors un groupe [a,e]. La nouvelle matrice (tableau 3c) qui
+d&eacute;coule de ce regroupement permet de voir que b doit &ecirc;tre
+rattach&eacute; &agrave; ce groupe, d'o&ugrave; la cr&eacute;ation
+d'un ensemble [a,e,b]. Le tableau 3d montre qu'une distance de 6
+s&eacute;pare le groupe [c,d] du groupe [a,e,b].</P>
+<H6>Proc&eacute;dure de constitution de groupes</H6>
+<P>a) Matrice des distances:</P>
+<CENTER>
+	<TABLE WIDTH=233 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=39>
+		<COL WIDTH=39>
+		<COL WIDTH=39>
+		<COL WIDTH=39>
+		<COL WIDTH=39>
+		<COL WIDTH=37>
+		<TR VALIGN=TOP>
+			<TD WIDTH=39>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>a</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>b</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>c</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>d</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=37>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>e</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>a</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=39>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=39>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=39>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=37>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>b</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6,32</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=39>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=39>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=37>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>c</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>7,28</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6,40</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=39>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=37>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>d</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>8,54</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6,71</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1,41</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=37>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>e</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2,24</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>4,12</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6,00</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=39>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>7,07</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=37 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P>b) 1re &eacute;tape: regroupement de (c + d); nouvelle matrice des
+distances:</P>
+<CENTER>
+	<TABLE WIDTH=217 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=43>
+		<COL WIDTH=43>
+		<COL WIDTH=43>
+		<COL WIDTH=43>
+		<COL WIDTH=43>
+		<TR VALIGN=TOP>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>a</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>b</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>(cd)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>e</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>a</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>b</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6,32</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>(cd)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>7,28</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6,40</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>e</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2,24</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>4,12</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P>c) 2e &eacute;tape: regroupement de (a + e); nouvelle matrice de
+distances:</P>
+<CENTER>
+	<TABLE WIDTH=174 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=43>
+		<COL WIDTH=43>
+		<COL WIDTH=43>
+		<COL WIDTH=43>
+		<TR VALIGN=TOP>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>ae</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>b</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>(cd)</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>(ae)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>b</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>4,12</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>(cd)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6,4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P>d) 3e &eacute;tape: regroupement de (a + b); nouvelle matrice de
+distances:</P>
+<CENTER>
+	<TABLE WIDTH=127 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=46>
+		<COL WIDTH=46>
+		<COL WIDTH=36>
+		<TR VALIGN=TOP>
+			<TD WIDTH=46>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=46>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>(aeb)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=36>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>(cd)</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=46>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>(aeb)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=46 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=36>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=46>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>(cd)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=46>
+				<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=36 BGCOLOR="#bfbfbf">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P>Les r&eacute;sultats sont visualis&eacute;s par le dendrogramme qui
+appara&icirc;t dans la figure 3. Un distance-seuil de 3 am&egrave;nerait
+ainsi &agrave; choisir une typologie en trois classes : [c,d], [a,e]
+et b. Une distance-seuil de 4,5 ne ferait appara&icirc;tre que deux
+classes : [c,d] et [a,e,b]; mais le groupe II serait alors moins
+homog&egrave;ne. Un arbitrage doit &ecirc;tre effectu&eacute; entre
+l'homog&eacute;n&eacute;it&eacute; des classes et leur nombre.</P>
+<p>&nbsp;</p>
+<p><font face="Courier New"><img src="slides_fichiers/dendogram.png" width="621" height="380"></font> </p>
+<div class="row">
+  <div class="span2">
+   <button data-example="hclustAutos">Clust Voitures</button>
+  </div>
+  <div class="span2">
+   <button data-example2="plotHclust" args="hclustAutos">Plot</button>
+  </div>
+</div>
+
+<div class="row">
+ <div class="span2">
+  <button data-example="hclustCamip">Clust Camip</button>
+ </div>
+ <div class="span2">
+  <button data-example2="plotHclust" args="hclustCamip">Plot</button>
+ </div>
+</div>
+<p>&nbsp;</p>
+
+<FONT FACE="Albany, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+3: Dendrogramme</B></FONT></FONT></P>
+<H6>b) Les m&eacute;thodes non hi&eacute;rarchiques</H6>
+<P>Les m&eacute;thodes hi&eacute;rarchiques deviennent tr&egrave;s
+lourdes &agrave; utiliser si le nombre d'objets &agrave; classer est
+important : pour n individus, il faut passer n - I &eacute;tapes de
+regroupement qui se traduisent par la construction de n - 1 matrices.</P>
+<P>Les m&eacute;thodes non hi&eacute;rarchiques ou encore nodales
+demandent souvent moins de calculs et sont donc capables de traiter
+de plus grands nombres d'individus. Dans cette seconde cat&eacute;gorie
+de m&eacute;thodes, le nombre k de groupes est fix&eacute; a priori.</P>
+<P>Plusieurs proc&eacute;dures sont concevables. La plus simple
+consiste &agrave; s&eacute;lectionner dans la population &eacute;tudi&eacute;e
+k individus-type autour desquels seront agglom&eacute;r&eacute;s, un
+par un, les autres n - k individus en fonction de leurs distances
+respectives par rapport aux individus de r&eacute;f&eacute;rence
+(m&eacute;thode dite des K-means).</P>
+<P>Les k individus-type sont choisis en fonction de certaines de
+leurs caract&eacute;ristiques ou plus simplement &agrave; l'issue
+d'un processus de s&eacute;lection al&eacute;atoire. Dans ce dernier
+cas, il sera n&eacute;cessaire de proc&eacute;der &agrave;</P>
+<P>plusieurs simulations avant d'aboutir &agrave; une configuration
+acceptable, c'est-&agrave;-dire qui permette de faire appara&icirc;tre
+des groupes suffisamment homog&egrave;nes et diff&eacute;rents.</P>
+<P>Ce sch&eacute;ma de base est susceptible de recevoir de nombreuses
+variantes. Par exemple, c'est la m&eacute;thode des nu&eacute;es
+dynamiques' &agrave; la fin d'une premi&egrave;re &eacute;tape
+d'agr&eacute;gation, les centro&iuml;des de classes sont calcul&eacute;s
+et servent de bases de r&eacute;f&eacute;rence pour une nouvelle
+&eacute;tape de calcul. Des individus jusqu'ici assign&eacute;s &agrave;
+une classe peuvent alors recevoir une nouvelle affectation.</P>
+<P>Un processus d'optimisation peut &eacute;galement aider &agrave;
+la formation des classes. Si k types sont d&eacute;sir&eacute;s,
+parmi toutes les affectations possibles des n individus, on peut
+rechercher celle qui minimise la distance moyenne intra-groupe ou
+tout autre indicateur d'h&eacute;t&eacute;rog&eacute;n&eacute;it&eacute;.
+Avec un nombre &eacute;lev&eacute; d'individus la masse de calculs
+n&eacute;cessaire serait &eacute;videmment consid&eacute;rable. On
+s'en remettra, plus raisonnablement &agrave; des proc&eacute;dures,
+dont l'objet n'est plus de d&eacute;terminer la solution optimale,
+mais une solution satisfaisante vis-&agrave;-vis de l'indicateur
+choisi</P>
+</section>
+<section id="validgroupes"><h2>Explication et validation des groupes</H2>
+<H6>a) Explication</H6>
+<P>Une fois les groupes form&eacute;s, il s'agit de les d&eacute;crire,
+c'est-&agrave;-dire rep&eacute;rer les variables qui ont jou&eacute;
+le plus grand r&ocirc;le dans leur formation et par la suite
+caract&eacute;riser les types.</P>
+<P>I - La description est tout d'abord r&eacute;alis&eacute;e &agrave;
+l'aide des variables actives. Pour chaque variable, une moyenne est
+calcul&eacute;e par groupe. Si les diff&eacute;rences de moyenne qui
+apparaissent entre les groupes sont faibles pour une variable donn&eacute;e,
+celle-ci aura peu contribu&eacute; &agrave; la formation des classes.
+Au contraire, des diff&eacute;rences significatives seront le signe
+d'un pouvoir discriminant important.</P>
+<P>Le caract&egrave;re discriminant d'une variable donn&eacute;e
+pourra &ecirc;tre appr&eacute;ci&eacute; &agrave; l'aide de
+proc&eacute;dures graphiques permettant de visualiser le profil des
+diff&eacute;rents groupes. On pourra &eacute;galement avoir recours &agrave;
+des tests statistiques, l'analyse de la variance par exemple, si l'on
+a affaire &agrave; des donn&eacute;es quantitatives.</P>
+<P>2 - L'utilisation de variables passives permet d'introduire dans
+la description des groupes d'autres variables que celles qui ont
+permis la constitution des groupes. Ce seront, par exemple des
+variables d'identification telles que l'&acirc;ge, la PCS, le sexe.
+Le fait de pouvoir associer un type de comportement avec ces
+variables d'identification peut &ecirc;tre de nature &agrave;
+orienter une strat&eacute;gie de segmentation.</P>
+<H6>b) Validation</H6>
+<P>Les groupes form&eacute;s sont-ils r&eacute;ellement diff&eacute;rents
+les uns des autres ? Plusieurs proc&eacute;dures de validation sont
+concevables :</P>
+<P>- recours au test d'analyse de la variance sur chaque variable
+active;</P>
+<P>- application d'une analyse discriminante o&ugrave; la variable &agrave;
+expliquer est le type de groupe auquel appartiennent les individus;</P>
+<P>- refaire une nouvelle typologie sur un ensemble
+d'individus-t&eacute;moin qui n'auront pas &eacute;t&eacute; utilis&eacute;s
+dans la premi&egrave;re analyse.</P>
+<H6>Application</H6>
+<P ALIGN=CENTER>Donn&eacute;es</P>
+<CENTER>
+	<TABLE WIDTH=268 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=87>
+		<COL WIDTH=87>
+		<COL WIDTH=94>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Ville</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Revenu</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Population</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>A</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1,14</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1,72</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>B</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-1,3</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-1,2</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>C</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1,62</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0,89</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>D</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1,64</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1,35</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>E</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0,55</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0,1</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>F</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,9</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-1,3</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>G</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0,89</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1,32</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>H</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,9</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,6</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>I</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,1</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>J</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0,08</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,6</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>K</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0,62</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>L</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-1,3</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,9</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>M</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-1,1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-1,4</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>N</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0,02</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>O</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=87>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0,21</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=94>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>-0,1</FONT></FONT></P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P>Nuage de points</P>
+<P ALIGN=CENTER><IMG SRC="slides_fichiers/villes.gif" NAME="images3" ALIGN=BOTTOM WIDTH=310 HEIGHT=212 BORDER=0></P>
+<P>Tableau de classification</P>
+<CENTER>
+	<TABLE WIDTH=349 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=45>
+		<COL WIDTH=43>
+		<COL WIDTH=43>
+		<COL WIDTH=82>
+		<COL WIDTH=48>
+		<COL WIDTH=43>
+		<COL WIDTH=43>
+		<TR>
+			<TD WIDTH=45 VALIGN=TOP>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD COLSPAN=2 WIDTH=87 VALIGN=TOP>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD COLSPAN=2 WIDTH=130 VALIGN=TOP>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Etape</FONT></FONT></P>
+			</TD>
+			<TD COLSPAN=2 WIDTH=87>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=45 VALIGN=TOP>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Suiv.</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD COLSPAN=2 WIDTH=87>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>13</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.033800</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.076500</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>3</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>3</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>12</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.097700</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>10</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>14</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>15</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.106900</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>5</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>5</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>9</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>14</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.130600</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>5</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>9</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.159700</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>5</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>7</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>7</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>5</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>10</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.210500</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>6</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>11</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>8</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>3</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.212000</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>12</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>9</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>7</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.222500</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>12</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>10</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>8</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.229300</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>3</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>13</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>11</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>5</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>11</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.368100</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>7</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>13</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>12</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>3</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.386900</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>9</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>8</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>14</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>13</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>5</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0.498500</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>10</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>11</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>14</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=45>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>14</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=82>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>1.604000</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=48>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>12</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>13</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=43>
+				<P ALIGN=CENTER><FONT FACE="Times New Roman, serif"><FONT SIZE=3>0</FONT></FONT></P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P>Dendrogramme (la m&eacute;thode du lien simple)</P>
+<P><img src="slides_fichiers/dendogram2.png" width="621" height="380"></P>
+<P>
+<A NAME="_ftn1"></A><A HREF="#_ftnref1">[1] </A>Gilbert A. Churchill,
+&quot;Marketing Research, Methodological Foundations&quot;, 5e Ed.,
+Dryden Press, 1991. 
+</P>
+<P><A NAME="_ftn2"></A><A HREF="#_ftnref2">[2] </A>Bon, Jean et
+Pierre Gregory, &quot;Techniques marketing&quot;, Vuibert, Paris,
+1986. 
+</P>
+<P><A NAME="_ftn3"></A><A HREF="#_ftnref3">[3] </A>Vedrine J.-P. &quot;Le
+traitement des donn&eacute;es en marketing&quot;, Ed. Organisation,
+Paris, 1991. 
+</P>
+<P><A NAME="_ftn4"></A><A HREF="#_ftnref4">[4] </A>On parle aussi de
+m&eacute;thode de classification ou de taxinomie num&eacute;rique. 
+</P>
+<P><A NAME="_ftn5"></A><A HREF="#_ftnref5">[5] </A>De fa&ccedil;on
+plus g&eacute;n&eacute;raie on peut utiliser la distance de
+Minkoswky: dij = [Erreur! Signet non d&eacute;fini.(Xik - Xjk)n]1/n 
+</P>
+<P><A NAME="_ftn6"></A><A HREF="#_ftnref6">[6] </A>Quand on affaire &agrave;
+des donn&eacute;es de nature diff&eacute;rente, certaines
+qualitatives et d'autres quantitatives, il est possible de construire
+des indices de proximit&eacute; mixtes. 
+</P>
+<P><A NAME="_ftn7"></A><A HREF="#_ftnref7">[7] </A>La m&eacute;thode
+hi&eacute;rarchique descendante utilise au contraire un processus de
+d&eacute;composition du groupe. Elle est moins fr&eacute;quemment
+utilis&eacute;e.</P>
+</section>
+</div>		  <!-- end right -->
+</div><!-- end row -->
+</div> <!-- end continer -->
+<script src="../opencpu/jquery-1.7.2.min.js"></script> 
+<script src="../opencpu/bootstrap/js/bootstrap.js"></script> 
+<script src="../opencpu/common.js"></script> 
+<script src="../opencpu/docs.js"></script> 
+<script src="../opencpu/camip.js"></script> 
+<script src="slide-example.js"></script>
+</body>
+</html>
+</BODY>
+</HTML>
+</BODY>
+</HTML>

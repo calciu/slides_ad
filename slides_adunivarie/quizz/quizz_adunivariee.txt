@@ -1,0 +1,17 @@
+Quelle est l'ecart type de la distribution d'échantillonage pour des échantillons de 2 personnes d'une population de 10 individus dont les revenus sont repartis de manière uniforme entre 100 et 3000 euros? {#623.98:0.01}
+//N=10 #taille de la population
+//n=2  #taille de l'echantillon
+//min=100 # revenu minimum
+//max=3000 # revenu maximum
+//x=seq(min,max,(max-min)/(N-1)) # population avec des revenus uniformément repartis
+//cx=combn(x,n) # distribution d'echantillonage (tous les echantillons de taille n)
+//mcx=rep(1,n)%*%cx/n # revenus moyens des echantillons dans la distribution d'echantillonage
+//sd(as.vector(mcx))
+
+Quelle est la moyenne de la distribution d'échantillonage pour des échantillons de 2 personnes d'une population de 10 individus dont les revenus sont repartis de manière uniforme entre 100 et 3000 euros? {#:00.1}
+//N=10 #taille de la population
+//n=2  #taille de l'echantillon
+//min=100 # revenu minimum
+//max=3000 # revenu maximum
+//(min+max)/2
+

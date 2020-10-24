@@ -1,0 +1,13 @@
+---
+title: "formulas_adunivarie"
+author: "M. Calciu"
+date: "25/01/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+

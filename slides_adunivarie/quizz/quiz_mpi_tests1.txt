@@ -1,0 +1,6 @@
+[1mErreur dans function (file, local = FALSE, echo = verbose, print.eval = echo,  : 
+  quizzmaker-adintro.R:4:1: '/' inattendu(e)
+3: qn=qn+1;time=substr(Sys.time(),1,19); 
+4: /
+   ^
+[0m

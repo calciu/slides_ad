@@ -1,0 +1,772 @@
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la variance totale (information totale) dans ce tableau de donnees.{#18.87805:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); sum(diag(mv))
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la variance de la premiere variable?.{#4.115664:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,1]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la variance de la deuxieme variable? {# 2.930329:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[2,2]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la variance de la troisieme variable? {#3.167944:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[3,3]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la variance de la quatrieme variable?  {#2.795229:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,4]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la variance de la cinquieme variable? {#2.615989:.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la covariance de la cinquieme variable avec la quatrieme? {#0.22261:.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,5]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la correlation de la premiere variable avec la deuxieme ? {#-0.7553058:.001}
+//mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,2]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la correlation de la premiere variable avec la troisieme ? {#0.2972535:0.001}
+//mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,3]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la correlation de la premiere variable avec la quatrieme ? {#-0.2377342:0.001}
+//mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,4]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %)  de la premiere variable a l'information totale?.{#21.80131:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,1]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %)  de la deuxieme variableel'information totale? {#15.52241:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[2,2]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %)  de la troisieme variableel'information totale? {#16.78109:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[3,3]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %)  de la quatrieme variableel'information totale? {#14.80676:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,4]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %) el'information totale de la cinquieme variable? {#13.85730:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la valeur propre (variance) qui correspond au premier axe factoriel? {#11.23949:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[1]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la valeur propre (variance) qui correspond au deuxieme axe factoriel? {#3.49846235:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[2]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la valeur propre (variance) qui correspond au troisieme axe factoriel? {#2.88523923:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[3]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la valeur propre (variance) qui correspond au quatrieme axe factoriel? {#0.96318450:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[4]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la valeur propre (variance) qui correspond au cinquieme axe factoriel? {#0.25835029:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[5]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la part de l'information totale (en %) captee par le premier axe factoriel?{#59.5373180:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[1]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la part de l'information totale (en %) captee par le deuxieme axe factoriel?{#18.5319004:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[2]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la part de l'information totale (en %) captee par le troisieme axe factoriel?{#15.2835619:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[3]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la part de l'information totale (en %) captee par le quatrieme axe factoriel?{#5.1021384:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[4]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la part de l'information totale (en %) captee par le cinquieme axe factoriel?{#1.3685218:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[5]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le cosinus de l'angle que forme la variable Cylindree avec le premier axe factoriel? {#0.5827045:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[1,1]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le cosinus de l'angle que forme la variable Poids avec le premier axe factoriel? {#-0.4459599:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[2,1]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le cosinus de l'angle que forme la variable Volume du coffre avec le premier axe factoriel? {#0.1740627:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[3,1]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le cosinus de l'angle que forme la variable Longueur avec le premier axe factoriel? {#-0.1287037:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[4,1]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le cosinus de l'angle que forme la variable Consommation avec le premier axe factoriel? {#0.3905971:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[5,1]
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le vecteur propre norme a la valeur propre de la premiere variable par rapport a l'axe 1 {#1.9535369:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[1,1]* sqrt(ev$values[1])
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le vecteur propre norme a la valeur propre de la deuxieme variable par rapport a l'axe 1 {#-1.4950960:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[2,1]* sqrt(ev$values[1])
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le vecteur propre norme a la valeur propre de la troisieme variable par rapport a l'axe 1 {#0.5835512:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[3,1]* sqrt(ev$values[1])
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %) de la premiere variable au premier axe factoriel?{#33.95445:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,1]^2*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %) de la deuxieme variable au premier axe factoriel?{#19.8880:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,1]^2*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %) de la troisieme variable au premier axe factoriel? {#3.029782:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,1]^2*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %) de la premiere variable au deuxieme axe factoriel?{#0.04652346:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,2]^2*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %) de la deuxieme variable au deuxieme axe factoriel?{#8.936626:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,2]^2*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quelle est la contribution (en %) de la troisieme variable au deuxieme axe factoriel? {#71.4408:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,2]^2*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la premiere variable. {#92.76593:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la premiere variable. {#92.76593:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la deuxieme variable. {#86.95121:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la troisieme variable. {#89.64367:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la quatrieme variable. {#23.23048:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la cinquieme variable. {#67.15658:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la premiere  observation sur le premier axe factoriel ? {#-2.6038113:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la deuxieme observation sur le premier axe factoriel ? {#-2.3826665:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la troisieme observation sur le premier axe factoriel ? {#-1.5961976:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la quatrieme observation sur le premier axe factoriel ? {#-0.3988358:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la cinquieme observation sur le premier axe factoriel ? {#-0.8011491:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la sixieme observation sur le premier axe factoriel ? {#-2.0061012:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la premiere  observation sur le deuxieme axe factoriel ? {#3.4158783:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la deuxieme observation sur le deuxieme axe factoriel ? {#2.8640825:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la troisieme observation sur le deuxieme axe factoriel ? {#-0.2270963:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la quatrieme observation sur le deuxieme axe factoriel ? {#-0.9847369:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la cinquieme observation sur le deuxieme axe factoriel ? {#-0.5619902:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 1.52,1.00,1.53,2.93,1.46,1.00,1.02,7.00,5.04,4.76, 3.84,2.63,3.39,3.68,3.59,4.03,7.00,1.13,1.22,1.00,1.00,2.93,5.79,5.81,5.35,7.00,6.30,5.65,6.90,6.01,5.53,6.82,6.33,5.20,4.87,7.00,5.50,7.00,1.00,6.04,2.13,1.00,2.31,3.63,4.00,3.25,2.31,7.00,3.25,5.13,3.50,4.00,3.50,3.20,3.80,2.90,1.00,7.00,6.50,6.50 dans un tableau avec 10 lignes et 6 colonnes. Il sagit des notes moyennes attribuees a 10 marques de voitures ("Austin", "Citroen", "Fiat", "Ford", "Opel", "Peugeot", "Renault", "Seat", "Toyota", "VW") selon 6 criteres ("Cylindree","Poids","Longueur","Volume","Consommation", "Vitesse").Quel est le score factoriel de la sixieme observation sur le deuxieme axe factoriel ? {#-1.4249405:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la variance totale (information totale) dans ce tableau de donnees.{#15.60229:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); sum(diag(mv))
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 criteres ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la variance de la premiere variable?.{#4.140164:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,1]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 criteres ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la variance de la deuxieme variable? {#2.807360:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[2,2]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 criteres ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la variance de la troisieme variable? {#2.684985:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[3,3]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 criteres ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la variance de la quatrieme variable?  {#3.009809:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,4]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 criteres ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la variance de la cinquieme variable? {#2.959976:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 criteres ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la covariance de la cinquieme variable avec la quatrieme? {#2.017582:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,5]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 criteres ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la correlation de la premiere variable avec la deuxieme ? {#-0.5588310:0.001}
+//mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,2]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la correlation de la premiere variable avec la troisieme ? {#0.2998193:0.001}
+//mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,3]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la correlation de la premiere variable avec la quatrieme ? {#0.8261700:0.001}
+//mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,4]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %)  de la premiere variable a l'information totale?.{#26.53561:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,1]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %)  de la deuxieme variableel'information totale? {#17.99325:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[2,2]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %)  de la troisieme variableel'information totale? {#17.20891:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[3,3]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %)  de la quatrieme variableel'information totale? {#19.29081:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,4]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %) el'information totale de la cinquieme variable? {#18.97142:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la valeur propre (variance) qui correspond au premier axe factoriel? {#9.8460763:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[1]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la valeur propre (variance) qui correspond au deuxieme axe factoriel? {#9.8460763:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[2]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la valeur propre (variance) qui correspond au troisieme axe factoriel? {#1.2953961:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[3]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la valeur propre (variance) qui correspond au quatrieme axe factoriel? {#0.2439877:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[4]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la valeur propre (variance) qui correspond au cinquieme axe factoriel? {#0.1061473:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[5]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la part de l'information totale (en %) captee par le premier axe factoriel?{#59.5373180:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[1]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la part de l'information totale (en %) captee par le deuxieme axe factoriel?{#18.5319004:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[2]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la part de l'information totale (en %) captee par le troisieme axe factoriel?{#15.2835619:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[3]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la part de l'information totale (en %) captee par le quatrieme axe factoriel?{#5.1021384:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[4]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la part de l'information totale (en %) captee par le cinquieme axe factoriel?{#1.3685218:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[5]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le cosinus de l'angle que forme la premiere variable avec le premier axe factoriel? {#0.6398272:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[1,1]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le cosinus de l'angle que forme la deuxieme variable avec le premier axe factoriel? {#-0.3404094:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[2,1]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le cosinus de l'angle que forme la troisieme variable avec le premier axe factoriel? {#0.2090004:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[3,1]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le cosinus de l'angle que forme la quatrieme variable avec le premier axe factoriel? {#0.4412445:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[4,1]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le cosinus de l'angle que forme la cinquieme variable avec le premier axe factoriel? {#0.4861736:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[5,1]
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le vecteur propre norme a la valeur propre de la premiere variable par rapport a l'axe 1 {#2.007679:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[1,1]* sqrt(ev$values[1])
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le vecteur propre norme a la valeur propre de la deuxieme variable par rapport a l'axe 1 {#-1.068152:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[2,1]* sqrt(ev$values[1])
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le vecteur propre norme a la valeur propre de la troisieme variable par rapport a l'axe 1 {#0.655811:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[3,1]* sqrt(ev$values[1])
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %) de la premiere variable au premier axe factoriel?{#40.937880:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,1]^2*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %) de la deuxieme variable au premier axe factoriel?{#11.587858:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,1]^2*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %) de la troisieme variable au premier axe factoriel? {#4.368116:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,1]^2*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %) de la premiere variable au deuxieme axe factoriel?{#1.076310:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,2]^2*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %) de la deuxieme variable au deuxieme axe factoriel?{#28.282003:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,2]^2*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quelle est la contribution (en %) de la troisieme variable au deuxieme axe factoriel? {#49.378104:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,2]^2*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la premiere variable. {#98.42650:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la deuxieme variable. {#82.05339:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la troisieme variable. {#91.61568:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la quatrieme variable. {#90.10112:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la cinquieme variable. {#81.30038:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la premiere  observation sur le premier axe factoriel ? {#0.03034319:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la deuxieme observation sur le premier axe factoriel ? {#3.66068303:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la troisieme observation sur le premier axe factoriel ? {#-3.73925468:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la quatrieme observation sur le premier axe factoriel ? {#-2.19576411:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la cinquieme observation sur le premier axe factoriel ? {#-1.98184758:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la sixieme observation sur le premier axe factoriel ? {#-1.67270538:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la premiere  observation sur le deuxieme axe factoriel ? {#-1.0540724:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la deuxieme observation sur le deuxieme axe factoriel ? {#-1.2681112:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la troisieme observation sur le deuxieme axe factoriel ? {#-1.0445690:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la quatrieme observation sur le deuxieme axe factoriel ? {#0.3288960:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la cinquieme observation sur le deuxieme axe factoriel ? {#1.0922252:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes: 3.98,6.85,1.59,2.62,2.60,2.41,6.96,1.89,6.66,4.90, 4.95,1.95,5.40,5.54,5.18,,2.40,1.66,6.80,5.63,4.09,6.10,5.68,4.92,3.80,3.30,7.00,5.50,1.00,4.38,3.37,3.39,5.12,2.48,2.71,4.45,1.00,7.00,3.39,5.78,5.69,3.96,4.16,1.00,3.19,2.04,2.52,5.38,1.56,7.00,3.57 dans un tableau avec 10 lignes et 5 colonnes. Il sagit des notes moyennes attribues e10 marques de voitures ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J") selon 5 critees ("Cylindree","Longueur","Volume", "Consommation","Vitesse"). Quel est le score factoriel de la sixieme observation sur le deuxieme axe factoriel ? {#-4.4563454:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la variance totale (information totale) dans ce tableau de donnees.{#15.48:0.01}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); sum(diag(mv))
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la variance de la premiere variable?.{#2.2900:0.01}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,1]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la variance de la deuxieme variable? {#3.6475:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[2,2]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la variance de la troisieme variable? {#2.7275:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[3,3]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la variance de la quatrieme variable?  {#2.9875:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,4]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la variance de la cinquieme variable? {#3.8275:.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la covariance de la cinquieme variable avec la quatrieme? {#1.7625:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,5]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la correlation de la premiere variable avec la deuxieme ? {#0.07121973:0.001}
+//mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,2]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la correlation de la premiere variable avec la troisieme ? {#-0.03590045:0.001}
+//mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,3]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la correlation de la premiere variable avec la quatrieme ? {#-0.09080127:0.001}
+//mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,4]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %)  de la premiere variable a l'information totale?.{#14.79328:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,1]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %)  de la deuxieme variable a l'information totale? {#23.56266:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[2,2]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %)  de la troisieme variableel'information totale? {#17.61951:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[3,3]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %)  de la quatrieme variableel'information totale? {#19.29910:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,4]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %) el'information totale de la cinquieme variable? {#24.72545:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la valeur propre (variance) qui correspond au premier axe factoriel? {#6.798538:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[1]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la valeur propre (variance) qui correspond au deuxieme axe factoriel? {#3.054916:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[2]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la valeur propre (variance) qui correspond au troisieme axe factoriel? {#2.346666:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[3]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la valeur propre (variance) qui correspond au quatrieme axe factoriel? {#1.991451:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[4]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la valeur propre (variance) qui correspond au cinquieme axe factoriel? {#1.288428:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[5]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la part de l'information totale (en %) captee par le premier axe factoriel?{#63.1065936:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[1]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la part de l'information totale (en %) captee par le deuxieme axe factoriel?{#26.3466810:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[2]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la part de l'information totale (en %) captee par le troisieme axe factoriel?{#8.3026001:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[3]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la part de l'information totale (en %) captee par le quatrieme axe factoriel?{#1.5637937:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[4]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la part de l'information totale (en %) captee par le cinquieme axe factoriel?{#0.6803315:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[5]/sum(ev$values)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le cosinus de l'angle que forme la premiere variable avec le premier axe factoriel? {#0.01859210:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[1,1]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le cosinus de l'angle que forme la deuxieme variable avec le premier axe factoriel? {#0.42418910:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[2,1]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le cosinus de l'angle que forme la troisieme variable avec le premier axe factoriel? {#-0.43382023:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[3,1]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le cosinus de l'angle que forme la quatrieme variable avec le premier axe factoriel? {#0.51969012:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[4,1]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le cosinus de l'angle que forme la cinquieme variable avec le premier axe factoriel? {#0.60119891:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[5,1]
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le vecteur propre norme a la valeur propre de la premiere variable par rapport a l'axe 1 {#0.04847704:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[1,1]* sqrt(ev$values[1])
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le vecteur propre norme a la valeur propre de la deuxieme variable par rapport a l'axe 1 {#1.10603093:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[2,1]* sqrt(ev$values[1])
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le vecteur propre norme a la valeur propre de la troisieme variable par rapport a l'axe 1 {#-1.13114314:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[3,1]* sqrt(ev$values[1])
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %) de la premiere variable au premier axe factoriel?{#0.0345666:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,1]^2*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %) de la deuxieme variable au premier axe factoriel?{#17.9936394:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,1]^2*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %) de la troisieme variable au premier axe factoriel? {#18.8199990:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,1]^2*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %) de la premiere variable au deuxieme axe factoriel?{#5.74566315:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,2]^2*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %) de la deuxieme variable au deuxieme axe factoriel?{#73.49974621:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,2]^2*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quelle est la contribution (en %) de la troisieme variable au deuxieme axe factoriel? {#0.02176396:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,2]^2*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la premiere variable. {#7.767476:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la deuxieme variable. {#95.096913:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la troisieme variable. {#46.934910:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la quatrieme variable. {#69.984292:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la cinquieme variable. {#74.095063:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la premiere  observation sur le premier axe factoriel ? {#0.04095163:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la deuxieme observation sur le premier axe factoriel ? {#2.63188025:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la troisieme observation sur le premier axe factoriel ? {#-4.29234849:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la quatrieme observation sur le premier axe factoriel ? {#2.59429509:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la cinquieme observation sur le premier axe factoriel ? {#-3.31024705:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la sixieme observation sur le premier axe factoriel ? {#1.48303719:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la premiere  observation sur le deuxieme axe factoriel ? {#-0.39463646:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la deuxieme observation sur le deuxieme axe factoriel ? {#-0.99537523:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la troisieme observation sur le deuxieme axe factoriel ? {#1.61955974:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la quatrieme observation sur le deuxieme axe factoriel ? {#3.12372963:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la cinquieme observation sur le deuxieme axe factoriel ? {#1.05516835:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez organiser les donnees suivantes 6,3,4,4,7,4,1,5,4,5,6,3,4,4,5,3,3,6,4,1,4,7,1,3,2,2,2,7, 4,7,3,5,6,6,6,5,7,6,5,3,1,3,4,3,7,2,7,1,3,6,4,3,3,2,3,3,4,2,4,2,3,5,2,7,2,6,2,5,3,3,3,1,4,6,3,3,6,5,1,5,3,5,1,6,4,5,1,7,1,3,4,3,2,5,7,5,4,1,1,5 dans un tableau de 20 lignes et 5 colonnes. Quel est le score factoriel de la sixieme observation sur le deuxieme axe factoriel ? {#3.35499075:0.001}
+//mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2]
+
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance totale (information totale) dans ce tableau de donnees.{#11.90966:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); sum(diag(mv))
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la premiere variable?.{#0.9542167:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la deuxieme variable? {#1.3139428:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[2,2]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la troisieme variable? {#1.3014004:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[3,3]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la quatrieme variable?  {#0.9747615:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,4]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la cinquieme variable? {#1.4297476:.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la covariance de la cinquieme variable avec la quatrieme? {#0.08556479:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,5]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la correlation de la premiere variable avec la deuxieme ? {#0.57717360:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,2]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la correlation de la premiere variable avec la troisieme ? {#0.71964986:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,3]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la correlation de la premiere variable avec la quatrieme ? {#-0.19472354:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(10/9));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,4]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %)  de la premiere variable a l'information totale?.{#8.012121:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[1,1]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %)  de la deuxieme variable a l'information totale? {#11.032576:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[2,2]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %)  de la troisieme variable a l'information totale? {#10.927264:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[3,3]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %)  de la quatrieme variable a l'information totale? {#8.184626:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[4,4]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la cinquieme variable? {#12.004936:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la sixieme variable? {#9.694530:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la septieme variable? {#13.885694:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la huitieme variable? {#12.415847:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la neuvieme variable? {#13.842407:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au premier axe factoriel? {#4.0272506:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au deuxieme axe factoriel? {#2.4539096:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[2]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au troisieme axe factoriel? {#2.1075860:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[3]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au quatrieme axe factoriel? {#0.8861835:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[4]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au cinquieme axe factoriel? {#0.6623902:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[5]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au sixieme axe factoriel? {#0.6011783:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[6]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au septieme axe factoriel? {#0.5399134:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[7]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au huitieme axe factoriel? {#0.3574564:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[8]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au neuvieme axe factoriel? {#0.2737965:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[9]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le premier axe factoriel?{#33.814980:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[1]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le deuxieme axe factoriel?{#20.604355:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[2]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le troisieme axe factoriel?{#17.696435:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[3]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le quatrieme axe factoriel?{#7.440877:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[4]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le cinquieme axe factoriel?{#5.561787:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[5]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le sixieme axe factoriel?{#5.047819:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[6]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le septieme axe factoriel?{#4.533405:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[7]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le huitieme axe factoriel?{#3.001398:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[8]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le neuvieme axe factoriel?{#2.298944:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[9]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la premiere variable avec le premier axe factoriel? {#-0.2411907:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[1,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la deuxieme variable avec le premier axe factoriel? {#-0.3093355:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[2,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la troisieme variable avec le premier axe factoriel? {#-0.2942241:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[3,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la quatrieme variable avec le premier axe factoriel? {#0.1903666:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[4,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la cinquieme variable avec le premier axe factoriel? {#-0.3027729:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[5,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la sixieme variable avec le premier axe factoriel? {#0.2349807:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[6,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la septieme variable avec le premier axe factoriel? {#-0.5222439:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[7,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la huitieme variable avec le premier axe factoriel? {#0.3092153:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[8,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la neuvieme variable avec le premier axe factoriel? {#-0.4561700:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[9,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le vecteur propre norme a la valeur propre de la premiere variable par rapport a l'axe 1 {#-0.4840218:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[1,1]* sqrt(ev$values[1])
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le vecteur propre norme a la valeur propre de la deuxieme variable par rapport a l'axe 1 {#-0.6207749:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[2,1]* sqrt(ev$values[1])
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le vecteur propre norme a la valeur propre de la troisieme variable par rapport a l'axe 1 {#-0.5904493:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[3,1]* sqrt(ev$values[1])
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la premiere variable au premier axe factoriel?{#5.817295:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la deuxieme variable au premier axe factoriel?{#9.568847:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la troisieme variable au premier axe factoriel? {#8.656785:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la quatrieme variable au premier axe factoriel? {#3.623944:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[4,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la cinquieme variable au premier axe factoriel? {#9.16714:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[5,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la sixieme variable au premier axe factoriel? {#5.521593:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[6,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la septieme variable au premier axe factoriel? {#27.273868:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[7,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la huitieme variable au premier axe factoriel? {#9.561413:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[8,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la neuvieme variable au premier axe factoriel? {#20.809110:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[9,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la premiere variable au deuxieme axe factoriel?{#0.003673446:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la deuxieme variable au deuxieme axe factoriel?{#1.619598049:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la troisieme variable au deuxieme axe factoriel? {#0.217563752:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la quatrieme variable au deuxieme axe factoriel? {#16.264783032:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[4,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la cinquieme variable au deuxieme axe factoriel? {#16.730467065:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[5,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la sixieme variable au deuxieme axe factoriel? {#25.249007984:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[6,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la sepieme variable au deuxieme axe factoriel? {#2.231581096:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[7,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la huitieme variable au deuxieme axe factoriel? {#31.621017557:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[8,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la neuvieme variable au deuxieme axe factoriel? {#6.062308019:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[9,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la premiere variable. {#24.56122:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la deuxieme variable. {#32.35338:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la troisieme variable. {#27.19910:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la quatrieme variable. {#55.91813:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la cinquieme variable. {#54.53651:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la sixieme variable. {#72.92278:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la septieme variable. {#69.72972:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la huitieme variable. {#78.51656:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la neuvieme variable. {#59.85733:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la premiere  observation sur le premier axe factoriel ? {#-0.83215071:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la deuxieme observation sur le premier axe factoriel ? {#-1.20951089:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la troisieme observation sur le premier axe factoriel ? {#-2.45109380:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la quatrieme observation sur le premier axe factoriel ? {#1.11827432:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la cinquieme observation sur le premier axe factoriel ? {#1.71509341:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la sixieme observation sur le premier axe factoriel ? {#1.05934061:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la premiere  observation sur le deuxieme axe factoriel ? {#-1.693810254:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la deuxieme observation sur le deuxieme axe factoriel ? {#-1.252687103:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la troisieme observation sur le deuxieme axe factoriel ? {#-2.022834918:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la quatrieme observation sur le deuxieme axe factoriel ? {#-1.706258904:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la cinquieme observation sur le deuxieme axe factoriel ? {#1.111231249:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la sixieme observation sur le deuxieme axe factoriel ? {#3.266677748:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=as.matrix(t(df)-mean(df));mx=t(mx); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2]

@@ -1,0 +1,10 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/460882/a9107785066048aa9cfb4b7a1793f611
+bundleId: https://api.rpubs.com/api/v1/document/460882/a9107785066048aa9cfb4b7a1793f611
+url: http://rpubs.com/calciu/460882
+when: 1548405272.31739

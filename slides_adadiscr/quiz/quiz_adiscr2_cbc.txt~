@@ -1,0 +1,91 @@
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat. Quelle est la moyenne de la premiere variable pour les acheteurs ? {#9.27189:0.01}
+//ad=lda(X$Florence~X$R+X$F+X$M);ad$mean
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la moyenne de la premiere variable pour les nonacheteurs? {#14.03589:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);ad$mean
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la moyenne de la deuxieme variable pour les acheteurs ? {#5.327189:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);ad$mean
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la moyenne de la deuxieme variable pour les nonacheteurs? {#3.844644:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);ad$mean
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la moyenne de la troisieme variable pour les acheteurs ? {#228.4747:0.1}
+//ad=lda(X$Florence~X$R+X$F+X$M);ad$mean
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la moyenne de la troisieme variable pour les nonacheteurs? {#204.1497:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);ad$mean
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la variance de la premiere variable pour les acheteurs ? {#36.5389794:0.001}
+//df=X[X$Florence==1,c("R","F","M")];mgc=scale(df,center=TRUE,scale=FALSE);t(mgc) %*% mgc/nrow(df)
+
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la variance de la premiere variable pour les nonacheteurs? {#69.2079096:0.001}
+//df=X[X$Florence==0,c("R","F","M")];mgc=scale(df,center=TRUE,scale=FALSE);t(mgc) %*% mgc/nrow(df)
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la variance de la deuxieme variable pour les acheteurs ? {#15.0680626:0.001}
+//df=X[X$Florence==1,c("R","F","M")];mgc=scale(df,center=TRUE,scale=FALSE);t(mgc) %*% mgc/nrow(df)
+
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la variance de la deuxieme variable pour les nonacheteurs? {#12.0347540:0.001}
+//df=X[X$Florence==0,c("R","F","M")];mgc=scale(df,center=TRUE,scale=FALSE);t(mgc) %*% mgc/nrow(df)
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la variance de la troisieme variable pour les acheteurs ? {#8957.65028:0.001}
+//df=X[X$Florence==1,c("R","F","M")];mgc=scale(df,center=TRUE,scale=FALSE);t(mgc) %*% mgc/nrow(df)
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la variance de la troisieme variable pour les nonacheteurs? {#10358.83400:0.001}
+//df=X[X$Florence==0,c("R","F","M")];mgc=scale(df,center=TRUE,scale=FALSE);t(mgc) %*% mgc/nrow(df)
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la Variance inter-groupe de la première variable ? {#5.673936:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);mgc=scale(ad$mean,center=TRUE,scale=FALSE);t(mgc) %*% mgc/2
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la Variance inter-groupe de la deuxième variable ? {#0.549485:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);mgc=scale(ad$mean,center=TRUE,scale=FALSE);t(mgc) %*% mgc/2
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la Variance inter-groupe de la troisième variable ? {#147.925272:0.00001}
+//ad=lda(X$Florence~X$R+X$F+X$M);mgc=scale(ad$mean,center=TRUE,scale=FALSE);t(mgc) %*% mgc/2
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la Variance intra-groupe moyenne de la première variable ? {#65.6633306:0.001}
+//mgc1=scale(X[X$Florence==1,c("R","F","M")],center=TRUE,scale=FALSE);W1=t(mgc1) %*% mgc1/nrow(mgc1);mgc2=scale(X[X$Florence==0,c("R","F","M")],center=TRUE,scale=FALSE);W2=t(mgc2) %*% mgc2/nrow(mgc2);(nrow(mgc1)*W1+nrow(mgc2)*W2)/nrow(X)
+
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la Variance intra-groupe moyenne de la deuxième variable ? {#12.3638680:0.001}
+//mgc1=scale(X[X$Florence==1,c("R","F","M")],center=TRUE,scale=FALSE);W1=t(mgc1) %*% mgc1/nrow(mgc1);mgc2=scale(X[X$Florence==0,c("R","F","M")],center=TRUE,scale=FALSE);W2=t(mgc2) %*% mgc2/nrow(mgc2);(nrow(mgc1)*W1+nrow(mgc2)*W2)/nrow(X)
+
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quelle est la Variance intra-groupe moyenne de la troisième variable ? {#10206.80556:0.001}
+//mgc1=scale(X[X$Florence==1,c("R","F","M")],center=TRUE,scale=FALSE);W1=t(mgc1) %*% mgc1/nrow(mgc1);mgc2=scale(X[X$Florence==0,c("R","F","M")],center=TRUE,scale=FALSE);W2=t(mgc2) %*% mgc2/nrow(mgc2);(nrow(mgc1)*W1+nrow(mgc2)*W2)/nrow(X)
+
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le coefficient de la premiere variable dans la (premiere) fonction discriminante?{#-0.1006555827:0.001} 
+//lda(X$Florence~X$R+X$F+X$M)
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le coefficient de la deuxieme variable dans la (premiere) fonction discriminante?{#0.1591067033:0.001} 
+//lda(X$Florence~X$R+X$F+X$M)
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le coefficient de la troisieme variable dans la (premiere) fonction discriminante?{#0.0006005181:0.0001} 
+//lda(X$Florence~X$R+X$F+X$M)
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le score centre du deuxieme acheteur sur le (premier) axe discriminant? {#-1.965856081:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);predict(ad)$x[as.numeric(rownames(X[X$Florence==1,])),1]
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le score centre du troisieme acheteur sur le (premier) axe discriminant? {#1.434712224:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);predict(ad)$x[as.numeric(rownames(X[X$Florence==1,])),1]
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le score centre du quatrieme acheteur sur le (premier) axe discriminant? {#-0.022236326:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);predict(ad)$x[as.numeric(rownames(X[X$Florence==1,])),1]
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le score centre du deuxieme nonacheteur sur le (premier) axe discriminant? {#-0.5066667264:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);predict(ad)$x[as.numeric(rownames(X[X$Florence==0,])),1]
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le score centre du troisieme nonacheteur sur le (premier) axe discriminant? {#0.3718105542:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);predict(ad)$x[as.numeric(rownames(X[X$Florence==0,])),1]
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le score centre du quatrieme nonacheteur sur le (premier) axe discriminant? {#1.7206964373:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);predict(ad)$x[as.numeric(rownames(X[X$Florence==0,])),1]
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le cutting score entre le groupe des acheteurs et des nonacheteurs ? {#0.5716011:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);m1=mean(predict(ad)$x[as.numeric(rownames(X[X$Florence==1,])),1]);n1=nrow(X[X$Florence==1,]);m2=mean(predict(ad)$x[as.numeric(rownames(X[X$Florence==0,])),1]);n2=nrow(X[X$Florence==0,]);(n2*m1+n1*m2)/(n1+n2)
+
+Dans la base de données clients CharlesBookClub2000 on essaye de trouver l'axe discriminant formé de la cominaison linéaire des variables R (Récence),F (Fréquence), M (Montant)  qui distingue au mieu les acheteurs des nonacheteurs du livre sur Florence. La variable expliqué nommée Florence est codée selon les deux modalités 1=Achat et 0=non-achat.  Quel est le hit rate obtenu par l'analyse discriminante ? {#0.8915:0.001}
+//ad=lda(X$Florence~X$R+X$F+X$M);sum(diag(xtabs(~X$Florence+predict(ad)$class))/nrow(X))

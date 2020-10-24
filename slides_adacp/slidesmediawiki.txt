@@ -1,0 +1,1597 @@
+<center>'''Analyse factorielle en composantes principales'''</center>
+
+==== Michel Calciu ====
+=== Cours à l'Université de Lille 1 - 2013/2014 ===
+== Introduction ==
+===== Réduction et positionnement =====
+L'analyse en composantes principales a pour objet la description synthétique de tableaux de données dans lesquels des individus sont décrits par des variables quantitatives multiples. Cette description doit permettre :
+
+- une réduction de l'information; les variables descriptives sont regroupées au sein de facteurs synthétiques, les composantes principales, qui correspondent à des dimensions sous-jacentes du problème;
+
+‑ le positionnement des individus par rapport à ces composantes principales, ce qui peut mettre en évidence des typologies d'individus ainsi que les variables qui ont amené à la création de ces types[#_ftn1 [1]].
+
+L'étude d'un échantillon ou d'une population ne peut prétendre habituellement être complète que si un nombre élevé de variables, appelées critères, tests, ou mesures sont évaluées pour chacun des cas. L'ensemble de ces mesures couvre de façon complète, du moins on l'espère, une partie structurée et connaissable du domaine d'investigation. À première vue, chacune de ces variables pourrait sembler d'égale importance; considérant cependant que plusieurs d'entre elles sont en corrélation, donc redondantes, il est possible de découvrir l'existence d'un plus petit nombre de variables dans un ordre décroissant d'importance, indépendantes (du moins habituellement) les unes des autres et telles que les premières expliquent la plus grande partie de la dispersion. C'est l'objectif que se proposent les divers modèles de l'analyse factorielle et qu'ils atteignent, du moins dans leurs grandes lignes[#_ftn2 [2]].
+
+
+== Modèle géométrique à deux variables ==
+===== Données brutes =====
+Voici une situation à deux variables permettant d'illustrer géométriquement le but poursuivi par la recherche des composantes principales. Supposons un ensemble de sujets mesurés sur deux variables. 
+
+Prenons le cas de différents modèles de voitures.
+
+
+
+{| style="border-spacing:0;"
+| style="background-color:transparent;border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Obs
+| style="background-color:transparent;border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Modèle
+| style="background-color:transparent;border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Prix
+| style="background-color:transparent;border:0.002cm solid #000000;padding:0.097cm;"| Cylindrée 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| AS2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Austin Metro Special
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 39999
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 998
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| CI4
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Citroën AX 10 RE
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 44250
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 954 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| DA2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Daihatsu Charade 1000 TS 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 48750
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 993
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Panda 1000 Cl.
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 40333
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 999 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI5
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno 45 fire 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 44916
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 999 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI8
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno Turbo TE
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 83350
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1301 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FID
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno 70 SL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 59483
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1302
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FO1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Ford Fiesta Junior
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 43500
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1117
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FO9
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Ford Fiesta X R-2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 72476
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1597
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| NI1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Nissan Micra 1.0 DX
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 41333
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 988 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| OP1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Opel Corsa Swing Belux 1.0 S
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 43500
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 993
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 XE 1.0
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 44200
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 954
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 52600
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1124
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE6
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GT 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 63216
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1360
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE9
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GTI 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 83916
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1580 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 4 TL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 43270
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 956
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 4 GTL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 46020
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1108
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE4
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 SL 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 47187
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1108
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE7
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 GTS 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 57500
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1397
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE8
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 GT Turbo
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 84395
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1397 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SE4
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Seat Ibiza 1.5 GLX 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 64278
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1461
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SE9
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Seat Marbella 900 GL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 36565
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 903
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SZ2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Suzuki Swift 1.0 GA 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 40383
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 993
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SZ3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Suzuki Swift 1.3 GL 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 48850
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1324
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| TO1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Toyota Starlett 1000 L
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 46666
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 999
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| TO2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Toyota Starlett 1300 XL 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 56166
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1295
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| VW3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Volkswagen Polo Coupé GT
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 60150
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1272
+
+|}
+===== Figure =====
+Dans un espace à deux dimensions, chaque sujet est représenté par un point dont les coordonnées sont les scores (figure 1).
+
+
+[[Image:image002.gif]]===== Figure 1. Nuage de points pour deux variables =====
+===== Données centrées =====
+Pour centrer les données on soustrait de chaque élément d'une colonne du tableau (chaque valeur d'une variable) la moyenne de la colonne (de la variable).
+
+
+
+{| style="border-spacing:0;"
+| style="background-color:transparent;border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Obs
+| style="background-color:transparent;border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Modèle
+| style="background-color:transparent;border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Prix
+| style="background-color:transparent;border:0.002cm solid #000000;padding:0.097cm;"| Cylindrée 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| AS2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Austin Métro Special
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -13232,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -167,63
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| CI4
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Citroën AX 10 RE
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -8981,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -211,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| DA2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Daihatsu Charade 1000 TS 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -4481,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -172,63
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Panda 1000 Cl.
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -12898,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -166,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI5
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno 45 fire 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -8315,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -166,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI8
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno Turbo TE
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 30118,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 135,37 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FID
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno 70 SL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6251,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 136,37 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FO1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Ford Fiesta Junior
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -9731,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -48,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FO9
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Ford Fiesta X R-2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 19244,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 431,37
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| NI1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Nissan Micra 1.0 DX
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -11898,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -177,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| OP1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Opel Corsa Swing Belux 1.0 S
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -9731,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -172,63
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 XE 1.0
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -9031,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -211,63
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -631,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -41,63
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE6
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GT 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 9984,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 194,37
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE9
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GTI 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 30684,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 414,37 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 4 TL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -9961,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -209,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 4 GTL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -7211,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -57,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE4
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 SL 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -6044,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -57,63
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE7
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 GTS 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 4268,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 231,37
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE8
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 GT Turbo
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 31163,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 231,37 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SE4
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Seat Ibiza 1.5 GLX 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 11046,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 295,37 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SE9
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Seat Marbella 900 GL
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -16666,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -262,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SZ2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Suzuki Swift 1.0 GA 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -12848,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -172,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SZ3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Suzuki Swift 1.3 GL 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -4381,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 158,37 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| TO1
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Toyota Starlett 1000 L
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -6565,56
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -166,63 
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| TO2
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Toyota Starlett 1300 XL 
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 2934,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 129,37
+
+|-
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| VW3
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Volkswagen Polo Coupé GT
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6918,44
+| style="background-color:transparent;border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 106,37
+
+|}
+===== Figure =====
+Le graphique pour les premières deux variables est illustré en figure 2
+
+
+[[Image:image004.gif]]===== Figure 2. Données centrées =====
+===== Données centrées et réduites =====
+Souvent pour éviter les grandes différences d'ordre de grandeur entre les variables on réduit les donne en divisant chaque colonne du tableau (chaque valeur d'une variable) par l'écart type de la colonne (de la variable).
+
+
+
+{| style="border-spacing:0;"
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Obs
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Modèle
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Prix
+| style="border:0.002cm solid #000000;padding:0.097cm;"| Cylindrée 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| AS2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Austin Métro Special
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,98
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,84
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| CI4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Citroën AX 10 RE
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,66
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -1,06
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| DA2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Daihatsu Charade 1000 TS 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,33
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,86
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Panda 1000 Cl.
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,95
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,83 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI5
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno 45 fire 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,61
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,83
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno Turbo TE
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 2,22
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,68 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FID
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno 70 SL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,46
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,68 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FO1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Ford Fiesta Junior
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,72
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,24 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FO9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Ford Fiesta X R-2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1,42
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 2,15
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| NI1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Nissan Micra 1.0 DX
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,88
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,89
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| OP1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Opel Corsa Swing Belux1.0 S
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,72
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,86
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 XE 1.0
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,67
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -1,06
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,05
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,21
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE6
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GT 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,74
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,97
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GTI 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 2,26
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 2,07
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 4 TL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,74
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -1,05
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 4 GTL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,53
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,29
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 SL 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,45
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,29
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 GTS 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,31
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1,15
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 GT Turbo
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 2,30
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1,15 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SE4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Seat Ibiza 1.5 GLX 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,82
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 1,47 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SE9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Seat Marbella 900 GL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -1,23
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -1,31 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SZ2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Suzuki Swift 1.0 GA 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,95
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,86 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SZ3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Suzuki Swift 1.3 GL 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,32
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,79 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| TO1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Toyota Starlett 1000 L
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,48
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,83 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| TO2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Toyota Starlett 1300 XL 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,22
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,65
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| VW3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Volkswagen Polo Coupé GT
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,51
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,53
+
+|}
+===== Figure =====
+Le graphique pour les premières deux variables est illustré en figure 3:
+
+
+===== Figure 3 - Données centrées et réduites =====
+===== Forme générale du nuage de points =====
+La forme générale du nuage de points est celle d'une ellipse si les variables sont distribuées normalement. Une ligne contour d'égale densité permet de mieux voir la distribution de ces points. 
+
+
+===== Figure 4 - Contour elliptique de deux variables conjointes normalement distribuées =====
+Considérons les dispersions des deux variables X (Cylindrée) et de Y (Prix) qui sont mesurées habituellement par les variances, mais qu'on représente ici comme les projections extrêmes des lignes contours. Sur l'axe des X la dispersion va de a à b et sur l'axe des Y, elle va de c à d. On constate que les dispersions sur ces deux axes sont habituellement assez importantes pour qu'on doive tenir compte des deux variables pour expliquer adéquatement la dispersion totale: une explication simplifiée par réduction du nombre de variables ne semble donc pas, à première vue du moins, pouvoir être envisagée dans ces conditions. De plus, on observe une corrélation entre les deux variables: il y a redondance, c'est-à-dire que l'une des variables contient une partie de l'information de l'autre. 
+
+
+===== Recherche d’axes qui maximisent la variance =====
+Considérons maintenant les deux axes de l'ellipse comme nouveaux axes de référence du système. Dans le cas de variables standard, ces nouveaux axes forment un angle de 45° par rapport aux anciens. Cet angle est différent dans le cas de variables non standard.
+
+
+===== Figure 5 - Représentation des sujets dans l'espace des axes de l'ellipse. =====
+En effectuant une modification des coordonnées des points du nuage afin d'exprimer leurs positions par rapport aux nouveaux axes, on réalise une transformation intéressante. Ces nouveaux axes représentent de nouvelles variables, appelées composantes, fonctions des anciennes variables X et Y et dont la dispersion dans le nuage de points est maximum pour l'une, allant de e à f, et minimum pour l'autre, allant de g à h. Ainsi, la première composante rend compte de la plus grande partie de la variance alors que la deuxième composante, en plus d'être indépendante de la première, joue un rôle d'autant moins important que la corrélation '''r'''xy est élevée; le rôle de la deuxième composante peut même dans certains cas devenir négligeable. L'indépendance des composantes ressort de l'orientation de l'ellipse relativement aux nouveaux axes de référence.
+
+Le but qu'on se donnait est atteint: une situation décrite antérieurement par deux variables liées l'est maintenant par deux composantes indépendantes dont la première est plus importante qu'aucune des variables et dont la seconde, dans certains cas, peut être négligée. 
+
+===== L’importance de variables et composantes =====
+L'''importance d'une variable ou d'une composante est donnée par sa variance ''ou sa somme des écarts à la moyenne. On comprendra mieux intuitivement cet énoncé si on considère qu'à la limite, une variable dont tous les scores sont égaux, c'est-à-dire dont la variance est nulle, est une variable qui n'ajoute aucun renseignement à une situation. 
+
+La plus grande partie du chapitre portera sur l'analyse de variables standard.
+
+C'est le cas le plus universel et celui où toutes les variables sont au départ considérées comme d'égale importance. 
+
+Plusieurs auteurs proposent l'extraction des composantes de variables centrées mais non réduites. Cette approche a comme point de départ la matrice des variances et covariances '''V''' plutôt que celle des corrélations '''R'''<nowiki>; ils vont même jusqu'à suggérer comme point de départ la matrice des sommes des carrés des écarts aux moyennes et des sommes des produits croisés. Cette méthode établit ainsi une hiérarchie des variables; cette hiérarchie est basée sur l'étendue des échelles des variables. Or l'étendue d'une échelle est arbitraire. D'autre part, les techniques d'analyse factorielle ont pour but l'explication des corrélations entre ces variables; et on sait que l'indice r de corrélation est totalement indépendant de l'étendue des échelles des variables. C'est pourquoi une approche autre que celle reposant sur la matrice de corrélations </nowiki>'''R''' qui impose de traiter toutes les variables sur un même pied, apparaît à plusieurs points de vue gratuite et injustifiée; le lecteur pourra s'en tenir à cette partie de l'exposé. On a cru bon cependant d'ajouter un article sur les conséquences de l'usage de variables non standard, c'est-à-dire sur l'extraction des composantes à partir de la matrice V des variances et covariances, ce qui permettra d'évaluer les différences et similitudes des méthodes.
+
+== Modèle géométrique à plus de deux variables ==
+===== Trois variables =====
+Les sujets d'un échantillon mesurés sur trois variables liées peuvent être représentés dans un espace à trois dimensions par un nuage de points de forme ellipsoïdale; les lieux d'égale densité constituent des surfaces contours dont toute intersection avec un plan décrit une ellipse; un ballon de rugby plus ou moins aplati donne une bonne idée d'un tel contour. Les trois axes principaux sont perpendiculaires et représentent les trois composantes ordonnées. Ces trois composantes sont indépendantes; de plus la première rend compte de la plus grande partie de la variance du système tandis que la variance expliquée par les deux autres composantes est moindre. Dans certains cas, l'importance des deuxième et troisième composantes peut être faible au point de rendre le système presque totalement explicable par la seule première composante, ou dans les situations moins simples, par les première et deuxième composantes.
+
+===== Plusieurs variables =====
+On peut facilement imaginer la situation où un plus grand nombre de variables est étudié, ce qui entraîne espace multidimensionnel, nuage de points hyper-ellipsoïdal, hyperespace, hyperplan, etc. 
+
+La méthode des composantes principales est aussi dite des axes principaux, ce qui rend plus explicite le modèle géométrique. Un axe principal dans une ellipse est un segment qui, passant par le centre de l'ellipse, atteint celle-ci perpendiculairement à une tangente. Pour espace à trois dimensions et plus, les mots ellipse et tangente sont remplacés par ellipsoïde et plan tangent.
+
+La recherche des composantes principales consiste à déterminer ce qu'on pourrait considérer comme les '''longueurs''' (racines latentes symbolisées j) et les '''directions''' (vecteur fj des vecteurs latents) des axes principaux.
+
+La première composante correspond à la meilleure description possible de la position des points du nuage. Cette exigence peut s'exprimer mathématiquement en fixant que la somme des carrés des écarts de chaque point à cet axe soit minimum, ou encore, en imposant que la variance de cette composante soit maximum. Chaque composante additionnelle répond au même critère et exige en plus d'être perpendiculaire à toutes les précédentes. L'orthogonalité observée des composantes répond à l'exigence de leur indépendance.
+
+== Développement du modèle algébrique ==
+===== Introduction =====
+On a vu que le modèle géométrique de la recherche d'une composante consiste à transformer les coordonnées de points, ou ce qui est équivalent, à effectuer une rotation orthogonale des axes, de telle sorte qu'on en arrive à une variance maximum du premier facteur. Le vecteur de transformation (ensemble des coefficients de saturations d'un facteur) agit sur la matrice des variables de façon à créer une variable nouvelle appelée composante. On considérera dans cet article le cas où une importance égale est attachée à chaque variable, en transformant la matrice '''M''' des scores bruts en la matrice '''X''' des scores standard.
+
+===== Position du problème =====
+Le vecteur des scores de la composante répond à l'expression '''y''' = '''Xf''' où '''f''' est le vecteur de transformation recherché.
+
+La variance de la composante s'écrit:
+
+'''y'y'''/n = ('''Xf''')'('''Xf''')/n ='''f'X'Xf'''/n = '''f'Rf'''
+
+Cette variance est maximum pour '''f''' répondant à la condition:
+
+<center><math>\frac{\partial f\text{'}Rf}{\partial f\text{'}}</math><nowiki>= 0</nowiki></center>
+
+<center>2'''Rf '''<nowiki>= 0</nowiki></center>
+
+<center>'''Rf''' = 0</center>
+
+
+===== Cas simplifié à deux variables =====
+Examinons le cas simple, mais généralisable, d'une matrice X à deux variables; la condition du maximum de la variance sera:
+
+<center><math>\mathit{Rf}=\left(\begin{array}{cc}1& 	r\\ 
+r& 	1\end{array}\right)\left(\begin{array}{c}{a}_{1}\\ 
+{a}_{2}\end{array}\right)</math></center>
+
+
+c'est-à-dire: a1+ ra2 = u
+
+ra1 + a2<nowiki>= 0</nowiki>
+
+d'où (1 - r2) a1 = 0 et (1 - r2) a2 = 0
+
+
+On constate alors qu'une solution sans intérêt (a1 = a2 <nowiki>= 0) est la conséquence de</nowiki>
+
+<center>(1 - r2) = <math>\left(\begin{array}{cc}1& 	r\\ 
+r& 	1\end{array}\right)</math>≠ 0 c'est-à-dire de r ≠ 1</center>
+
+On constate aussi qu'une solution indéterminée est la conséquence de la condition 
+
+<center>(1 - r2) = <math>\left(\begin{array}{cc}1& 	r\\ 
+r& 	1\end{array}\right)</math><nowiki>= </nowiki>0 c'est-à-dire de r = 1</center>
+
+C'est une condition rarement rencontrée.
+
+===== Utilisation du terme de Lagrange =====
+Pour contourner cette difficulté, on ajoute à l'expression de la variance la condition '''f'f'''<nowiki>=</nowiki>'''k''' fixant ainsi les valeurs de '''f''' et du terme de Lagrange; ce qui donne la fonction: 
+
+<center>'''V''' = '''f'Rf-λ'''('''f'f '''- '''k''').</center>
+
+La variance de la composante est maximum pour 
+
+<center><math>\frac{\partial V}{\partial f\text{'}}</math><nowiki>= 2 </nowiki>'''Rf''' - 2 '''λ f''' = 0</center>
+
+d'où l'équation:
+
+<center>('''R''' - '''λ I''')'''f''' = 0</center>
+
+Revenons au cas particulier des deux variables; I'expression
+
+('''R''' - '''I''')'''f''' = 0
+
+peut s'écrire
+
+<center><math>\left(\begin{array}{cc}1-\lambda & 	r\\ 
+r& 	1-\lambda \end{array}\right)\left(\begin{array}{c}{a}_{1}\\ 
+{a}_{2}\end{array}\right)</math><nowiki>= 0</nowiki></center>
+
+d'où on tire
+
+<center><nowiki>[(1-</nowiki>λ)2 - r2] a1 <nowiki>= 0 et [(1-</nowiki>λ)2 - r2] a2 <nowiki>= 0</nowiki></center>
+
+La seule solution acceptable est celle de l'indétermination, c'est-à-dire de
+
+<center><nowiki>[(1-</nowiki>λ)2 - r2] = |'''R'''- λ '''I|''' = 0</center>
+
+Cette condition détermine, d'une façon générale, le nombre de racines latentes λ possible: ce nombre est égal à l'ordre de '''R'''.
+
+
+===== Resultat =====
+A chaque valeur λi correspond un vecteur '''f'''iobtenu par la solution de ('''R''' - λi'''I''')'''f'''i = 0. L'ensemble des '''f'''i constitue la matrice '''F''' de transformation. La levée de l'indétermination se fera en fixant ou normant la valeur de '''f''''<sub>j</sub>'''f'''<sub>j</sub> .
+
+L'ensemble de ces conditions peut s'écrire:
+
+<center>'''RF''' = '''FΛ'''</center>
+
+
+== Application au marché des voitures ==
+===== Presentation =====
+Le tableau simplifié avec 10 observations à 6 variables, ça veut dire que 10 modèles de voitures analysées sont jugés selon six critères. Pour réduire la complexité d'une telle comparaison on va utiliser l'analyse en composantes principales pour trouver un nombre réduit (deux) de composantes principales (indépendantes) qui captent la plus grande partie de l'information et qui remplaceront les six variables, qui souvent sont corrélées entre elles.
+
+===== Matrice des variances/covariances =====
+On calcule la matrice des variances covariances ('''V = M'M'''/n) en multipliant la transposée du tableau des données centrées (M) avec le tableau lui même. La matrice '''V '''calculée est la suivante:
+
+ICI tableau M !!
+
+===== Matrice de corrélations =====
+On calcule la matrice de corrélations ('''R = X'X'''/n) en multipliant la trasposée du tableau des données centrées et réduites avec le tableau. La matrice '''R '''calculée est la suivante:
+
+ICI tableau R !!
+
+Sur cette matrice ('''V''') on calcule les valeures et les vecteurs propres selon un algorythme connu :
+
+===== Extraction des valeurs et vecteurs propres =====
+ICI tableau F1 !!
+
+===== Utilisation des valeurs propres =====
+La somme de valeurs propres <math>\sum {\lambda }_{i}</math><nowiki>= 7 et correspond à la variance totale (informations totale) des sept variables centrées réduites. Ca veut dire que en remplaçant les variables originales par les composantes principales on ne perd pas d'informations. En plus on constate que les premiers deux facteurs expriment </nowiki>78,3% (5,5 / 7) de la variance (information totale). 
+
+
+Ca veut dire qu'on peut sans trop de perte d'information utiliser seulement ces deux composantes comme axes pour representer le nuage de points et par rapport aux axes de variables utilisées dans les graphiques precedents ces axes sont ortogonales (noncorrélées entre elles). 
+
+===== Utilisation des vecteurs propres =====
+En dessous des valeurs propres sont rangés en colonne les vecteurs propres qui sont les coefficients avec lesquels sont pondérées les variables pour obtenir les facteurs. Pour voir l'orientation des variables par rapport aux composantes principales ils suffit de placer sur un graphique les coordonnées représentés par les vecteurs propres:
+
+
+L'orientation des variables par rapport aux axes permet d’interpréter ces axes. Les variables qui sont plus proches du première axe du coté positif comme la vitesse, le prix , la cylindrée et du coté négatif le poids/puissance, permettent une interprétations d'itermpreter l'axe comme étant l'axe de performances (techiques..), l'autre axes auquels sont corrélés positivement le volume du coffre et négativement la logueur.
+
+===== Calcul de scores factoriels =====
+Les nouvelles coordonnées des observations sur les axes sont calculées conformément à la définition des facteurs ( y = xf) en multipliant le tabeau de données originales (centrées reduite) par la matrice des vecteurs propres, Le nouveau tableau est:
+
+<center>'''Y = XF'''</center>
+
+Les coordonnées des modèles de voitures qui ce trouvent dans les colonne du tableau Y qui corespondent au premières deux axes sont ilustré dans l'image suivante;
+
+
+[[Image:image016.gif]]Ainsi on obtient la carte de positionnement des sujets analysés, qui permet d'identifier des groupes et d'essayer d'interpreter.
+
+
+== Propriétés des vecteurs latents ==
+===== Introduction =====
+On a vu que la résolution de l'équation '''RF''' = '''FΛ''' qu'on écrit aussi ('''R''' - λi'''I''')'''f'''i = 0, entraîne des valeurs indéterminées des éléments de '''f'''i. Cette indétermination est levée en normant ces vecteurs. Les normes à l'unité et à i sont particulièrement utiles. Examinons-en les propriétés et les conséquences sur la variance des composantes. On représentera par '''F'''1 la matrice des vecteurs latents normés à l'unité et par F<sub>λ</sub> celle des vecteurs latents normés à λi.
+
+===== A) Normes des vecteurs latents =====
+1) Rappelons la propriété suivante des vecteurs latents normés à l'unité (le théorème 2 de l'article 2.6.4, Laforge, 1981):
+
+<center>'''F''''1'''F'''1 = '''I'''(1)</center>
+
+Considérant les relations
+
+<center>'''RF'''1 = '''F'''1Λ</center>
+
+<center>et '''F''''1'''F'''1 = '''I'''</center>
+
+on voit que '''RF'''1 = '''F'''1'''I''' Λ<nowiki>= </nowiki>'''F'''1('''F''''1'''F'''1)Λ = ('''F'''1'''F''''1) '''F'''1 Λ
+
+et donc que '''F'''1'''F''''1 = '''I'''(2)
+
+Les relations (1) et (2) établissent que la somme des carrés des éléments d'une même colonne de F1 est égale à l'unité, de même que celle des éléments d'une même ligne. Pour la matrice 
+
+<center>'''F'''1 <nowiki>= </nowiki><math>\left(\begin{array}{cc}{a}_{1}& 	{b}_{1}\\ 
+{a}_{2}& 	{b}_{2}\end{array}\right)</math> </center>
+
+on aura la somme de carrés des lignes et des colonnes égales à zéro
+
+ainsi que a1b1 + a2b2 = 0 et a1a2 + b1b2 = 0
+
+2) Dans le cas d'une norme à i on sait que 
+
+<center>'''F'F''' = Λ</center>
+
+Considérant les relations
+
+<center>'''RF'''<sub>λ</sub> = '''F'''<sub>λ</sub> Λ et '''F'''<sub>λ</sub>'''' F'''<sub>λ</sub> = Λ</center>
+
+on voit que'''RF'''<sub>λ</sub> ='''F'''<sub>λ</sub>('''F'''<sub>λ</sub>''''F'''<sub>λ</sub>) = ('''F'''<sub>λ</sub>'''F'''<sub>λ</sub>''''''')'''F'''<sub>λ</sub>
+
+d'où '''F'''<sub>λ</sub>''''F'''<sub>λ</sub> <nowiki>= </nowiki>'''R'''
+
+Dans le cas d'une matrice de saturations 
+
+<center>'''F'''<sub>λ</sub> <nowiki>= </nowiki><math>\left(\begin{array}{cc}{c}_{1}& 	{d}_{1}\\ 
+{c}_{2}& 	{d}_{2}\end{array}\right)</math> </center>
+
+ces relations signifient
+
+<center>c12 + d12 = 1</center>
+
+<center>c22 + d22 = 1</center>
+
+<center>c1c2 + d1d2 = r12</center>
+
+<center>c<sub>1</sub>2 + c<sub>2</sub>2 = λ1</center>
+
+<center>d<sub>1</sub>2 + d<sub>2</sub>2 = λ2</center>
+
+<center>c<sub>1</sub>d<sub>1</sub> + c<sub>2</sub>d<sub>2</sub> = 0</center>
+
+===== B) Variance des composantes =====
+1 ) L'application de la matrice de transformation '''F'''1 à celle des variables standard '''X''' donne la matrice des composantes '''Y'''1:
+
+<center>'''Y'''1 = '''XF'''1</center>
+
+Les variances de telles composantes sont égales aux racines latentes j. Rappelons que les variances des composantes sont
+
+'''Y''''1'''Y'''1/n = '''F''''1'''RF'''1 = '''F'''1'''F'''1Λ<nowiki>= </nowiki>Λ(3)
+
+2) L'application de la matrice de transformation '''F''' à celle des variables standard '''X''' donne la matrice des composantes '''Y''':
+
+<center>'''Y'''<sub>λ</sub> = '''XF'''<sub>λ</sub></center>
+
+À la suite du théorème 4 de l'article 2.6.4, on montre que les variances de ces facteurs sont égales aux carrés des racines latentes. On a ici, d'après les relations précédentes, I'expression des variances des composantes:
+
+<center>'''Y'''<sub>λ</sub>''''Y'''<sub>λ</sub>/n = '''F'''<sub>λ</sub>''''RF'''<sub>λ</sub><nowiki>= </nowiki>'''F'''<sub>λ</sub>''''F'''<sub>λ</sub>Λ <nowiki>= </nowiki>Λ 2</center>
+
+Pour rendre les variances égales à ce qu'elles sont dans le cas de la transformation unitaire '''F'''1 il est nécessaire de les diviser par Λ. On écrit donc 
+
+'''Y''''1'''Y'''1/n = ('''F'''<sub>λ</sub>''''RF'''<sub>λ</sub>) Λ-1 = ('''Λ'''-1/2'''F'''<sub>λ</sub>''''''')'''R'''('''F'''<sub>λ</sub>'''Λ'''-1/2)(4)
+
+Rapprochant les expressions (3) et (4), on observe donc la relation intéressante suivante entre '''F'''1 et '''F'''<sub>λ</sub>:
+
+<center>'''F'''1 = '''F'''<sub>λ</sub>'''Λ'''-1/2</center>
+
+On retient donc les relations symboliques '''Y''' = '''Y'''1 = '''Y'''<sub>λ </sub>'''Λ'''-1
+
+On a pu constater, que '''F'''<sub>λ</sub> affiche dans l'immédiat plus d'informations intéressantes que '''F'''1 en particulier en ce qui a trait aux variances des composantes et aux corrélations entre les variables. C'est pourquoi on préfère souvent interpréter la nature des composantes à partir de '''F'''<sub>λ</sub> plutôt que de '''F'''1. Cependant, à l'occasion du calcul de scores factoriels qui respectent la somme initiale des variances, il est nécessaire d'utiliser la matrice de transformation unitaire '''F'''1 = '''F'''<sub>λ</sub>'''Λ'''-1/2.
+
+3) Les v variables de '''X''' sont standard alors que les composantes ont des variances égales aux racines latentes λ1, λ2, . . .· · On sait de plus que 
+
+v = λ1 + λ2 + ..
+
+On pourra trouver utile dans certains cas de rendre standard ces composantes. Il suffit pour cela de diviser les éléments de chaque composante par l'écart type correspondant λi1/2. D'où les composantes standard seront 
+
+<center>'''Y'''S = '''Y Λ'''-1/2 = '''XF1'''<sub> </sub>'''Λ'''-1/2 = '''X'''('''F'''<sub>λ </sub>'''Λ'''-1/2)'''Λ'''-1/2 = '''XF'''<sub>λ </sub>'''Λ'''-1</center>
+
+C'est souvent cette dernière expression qu'on utilise dans les logiciels stastiques pour établir la matrice des composantes standard ou des scores factoriels standard. Cette opération offre l'avantage de rendre comparables les divers scores d'un sujet et facilite l'identification des composantes.
+
+===== Données sur le marché des petites voitures[#_ftn4 [4]] =====
+
+{| style="border-spacing:0;"
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Modèle
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Prix
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Cylindrée
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Poids/Puissance
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Longueure
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Volume du coffre
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Consommation
+| style="border:0.002cm solid #000000;padding:0.097cm;"| Vitèsse 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| AS2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Austin Métro Special
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 39999
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 998
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 23,2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3403
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 955
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 140
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| CI4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Citroën AX 10 RE
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 44250
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 954
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 19,4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3500
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1170
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 5,6
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 145 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| DA2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Daihatsu Charade 1000 TS 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 48750
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 993
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 20,8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3610
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1151
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 145
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Panda 1000 Cl.
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 40333
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 999
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 21,8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3644
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1088
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 140 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI5
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno 45 fire 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 44916
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 999
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 21,5
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3645
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 968
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 145 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FI8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno Turbo TE
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 83350
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1301
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 11
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3644
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 968
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 8,9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 200 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FID
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Fiat Uno 70 SL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 59483
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1302
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 16
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3645
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 968
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 7,7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 165 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FO1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Ford Fiesta Junior
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 43500
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1117
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 22,7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3645
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 900
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 137 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| FO9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Ford Fiesta X R-2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 72476
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1597
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 12
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3645
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 973
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 9,3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 180
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| NI1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Nissan Micra 1.0 DX
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 41333
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 988
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 17
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3640
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 375
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 140 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| OP1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Opel Corsa Swing Belux 1.0 S
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 43500
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 993
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 22,4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3622
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 845
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 7,2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 143
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 XE 1.0
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 44200
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 954
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 23,8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3705
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1200
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 134
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 52600
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1124
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 21,4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3705
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1200
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 5,8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 142
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE6
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GT 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 63216
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1360
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 13,9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3705
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1200
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 9,2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 170
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| PE9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Peugeot 205 GTI 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 83916
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1580
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 11,2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3705
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1200
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 8,7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 190 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 4 TL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 43270
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 956
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 33,1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3670
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 950
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 115 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 4 GTL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 46020
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1108
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 28,4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3670
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 950
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 120 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 SL 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 47187
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1108
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 20,6
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3591
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 915
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 5,8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 143
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 GTS 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 57500
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1397
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 13,8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3591
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 915
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 7,9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 167
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| RE8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Renault 5 GT Turbo
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 84395
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1397
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 10,2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3591
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 915
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 8,7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 200 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SE4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Seat Ibiza 1.5 GLX 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 64278
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1461
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 14,7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3637
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1200
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 8,8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 175 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SE9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Seat Marbella 900 GL
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 36565
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 903
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 23,4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3475
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1088
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 7,3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 131 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SZ2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Suzuki Swift 1.0 GA 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 40383
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 993
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 18,4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3585
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 400
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 145 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| SZ3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Suzuki Swift 1.3 GL 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 48850
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1324
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 14
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3585
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 400
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,5
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 163 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| TO1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Toyota Starlett 1000 L
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 46666
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 999
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 19,5
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3700
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 202
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,1
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 150 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| TO2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Toyota Starlett 1300 XL 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 56166
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1295
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 15
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3700
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 202
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 6,8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 170
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| VW3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Volkswagen Polo Coupé GT
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 60150
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1272
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 14
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 3655
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 1040
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 170
+
+|}
+== Rotation des axes principaux ==
+===== Inroduction =====
+Il est rare qu'une analyse factorielle s'arrête à la détermination des composantes principales ou des facteurs communs. En effet, ces opérations donnent généralement lieu à une matrice des saturations où chaque variable est expliquée par plusieurs sinon toutes les composantes retenues. La définition des composantes est souvent difficile à cause du nombre plutôt grand de saturations élevées, en particulier dans le cas des premières composantes: on appelle composantes générales celles définies par toutes les variables et composantes de groupe celles qui ne le sont que par quelques-unes.
+
+Soit un ensemble de quatre variables dont on a extrait les composantes. Les vecteurs de transformation, normés pour leurs racines latentes respectives, constituent la matrice F suivante:
+
+===== Matrice des saturations =====
+
+{| style="border-spacing:0;"
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,91
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,08
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,06
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,08
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,07
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,07
+| style="border:0.002cm solid #000000;padding:0.097cm;"| 0,06
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,89
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,02
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,04
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,07
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,07
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,06
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,06
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,85
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,23
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,25
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,07
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,07
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,06
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,06
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,28
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,25
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,84
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,02
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,02
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,02
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,02
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,14
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,93
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,13
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,01
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,01
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,01
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,01
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,85
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,22
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,02
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,07
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,07
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,06
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,06
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,92
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,11
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,16
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,08
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,07
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,07
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,06
+
+|}
+
+{| style="border-spacing:0;"
+|| 1
+|| 2
+|| 3
+|| 4
+|| 5
+|| 6
+|| 7
+
+|-
+|| 4,36
+|| 1,12
+|| 0,97
+|| 0,36
+|| 0,34
+|| 0,31
+|| 0,29
+
+|}
+Les sommes des carrés des éléments des lignes sont approximativement égales à 1: ce sont les variances de variables standard. Les sommes des carrés des éléments des colonnes sont égales aux racines latentes, variances des composantes.
+
+On ne retient, pour l'illustration en deux dimensions, que les deux premières composantes symbolisées A et B: ce sont d'ailleurs les deux seules dont la variance est supérieure à l'unité, c'est-à-dire à celle des variables. Les proportions de la variance totale expliquées par ces deux facteurs sont respectivement 4,36/7 = 0,62 et 1,12/7 = 0,16; la matrice F" des saturations est ainsi réduite à la suivante:
+
+
+===== Matrice F de saturations normé aux valeurs propres =====
+
+{| style="border-spacing:0;"
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Composante
+| style="border:0.002cm solid #000000;padding:0.097cm;"| Composante
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Variables
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| A
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| B 
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Prix
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,91
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,08
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Cylindrée
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,89
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,02
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Poids/Puissance
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,85
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,23
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Longueure
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,28
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,25
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Volume du coffre
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,14
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,93
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Consommation
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,85
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,22
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Vitèsse
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,92
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,11
+
+|}
+===== Interpretation graphique =====
+Dans la figure 1 on illustre les positions relatives des composantes et des variables. Les composantes étant indépendantes, on les représente par des axes orthogonaux A et B, tandis que les variables sont disposées comme des vecteurs dont les projections sur les axes A et B sont les saturations. chaque vecteur a pour longueur la racine carrée d'une somme de carrés de ligne de la matrice des saturations.
+
+[[Image:image018.gif]]Figure 1. Longueurs et orientations des quatre variables et des facteurs A et B. 
+
+
+La nature de la composante A est définie par l'apport des sept variables à sa variance; ces '''contributions''' sont de 19,3% (0,91^2/4,36 = 0,193) pour la première variable, 18,17% (0,892/4,36 = 0,1817) pour la seconde variable, de 16,6% pour la troisième (-0,852/4,36 = 0,1657), de 1,8% pour la quatrième (0,282/4,36 = 0,018), de 4,5% pour la cinquième (0,142/4,36 = 0,0045) , de 16,6% pour la sixième (0,852/4,36 = 0,1657) et de 19,4% pour la septième (0,922/4,36 = 0,1941).
+
+Ces contributions, lorsqu'elles sont importantes, ne permettent d ignorer aucune des variables: on dit d'une telle composante qu'elle est générale La détermination de sa nature serait cependant plus facile si les saturations fortes étaient moins nombreuses. On arrive à ce résultat en effectuant une rotation des axes de référence jusqu'en une position rendant maximum certaines saturations et minimum les autres.
+
+===== Une rotation orthogonale =====
+La figure 2 illustre une telle rotation orthogonale:
+
+
+[[Image:image020.gif]]Figure 2. Projection des variables sur les nouveaux axes de référence . 
+
+
+Les nouvelles projections constituent la nouvelle matrice de saturations:
+
+
+{| style="border-spacing:0;"
+|| 
+|| Composante
+|| Composante
+
+|-
+|| Variables
+|| C
+|| C
+
+|-
+|| Prix
+|| 0,89
+|| 0,19
+
+|-
+|| Cylindrée
+|| 0,88
+|| 0,09
+
+|-
+|| Poids/Puissance
+|| -0,87
+|| 0,13
+
+|-
+|| Longueure
+|| 0,31
+|| -0,21
+
+|-
+|| Volume du coffre
+|| 0,02
+|| 0,94
+
+|-
+|| Consommation
+|| 0,81
+|| 0,32
+
+|-
+|| Vitèsse
+|| 0,92
+|| 0,00
+
+|}
+Les deux composantes C et D ne sont pas les mêmes que les précédentes A et B, car elles constituent de nouvelles combinaisons linéaires de quatre variables. La composante C est définie surtout par les variables 1, 2, 3, 5 et 6, alors que D l'est par les variables 4 et éventuellement 5. Les nouvelles composantes sont alors dites de groupe par opposition aux composantes générales d'avant rotation.
+
+===== Discussion =====
+On a donc vu que la configuration de la structure factorielle n'est pas unique: une matrice de saturations définissant une structure peut être transformée sans en trahir les propriétés mathématiques et les hypothèses fondamentales. Il existe donc plusieurs moyens mathématiquement équivalents de définir les dimensions sous-jacentes à un même ensemble de données. Cependant ces solutions ne sont pas toutes équivalentes quant à leur degré de signification dans un domaine théorique donné; certaines respectent mieux la loi de la parcimonie scientifique, d'autres permettent une meilleure compréhension du domaine étudié. Le chercheur a donc la responsabilité finale du choix du type de rotation à effectuer.
+
+En termes géométriques, les résultats recherchés dans une rotation peuvent se traduire ainsi: certaines des variables seront rapprochées de l'un ou de l'autre axe nouveau et auront sur ceux-ci des projections élevées; en même temps, elles feront avec les autres axes un angle voisin de 90° s'y projetant faiblement; le plus petit nombre possible de variables restera également éloigné des axes (voir Kim, dans SPSS. D. 484).
+
+En d'autres termes, étant donné un nombre de facteurs expliquant une fraction fixe de la variance, il s'agit de simplifier les lignes (méthode quartimax) ou les colonnes (méthode varimax) en rendant voisines de zéro le maximum de saturations.
+
+===== Rotations varimax et quartimax =====
+Il existe plusieurs procédés et critères mathématiques pour effectuer ces rotations. La méthode quartimax, proposée vers 1950 par plusieurs auteurs, consiste à maximiser la variance des carrés; comme cette méthode exige la maximisation de la somme des saturations à la quatrième puissance, on l'appelle quartimax. Une autre méthode proposée par Kaiser en 1958 repose sur la maximisation de la somme des variances des carrés des saturations dans chaque colonne il s'ensuit une augmentation de certaines saturations et la diminution des autres. Cette méthode dite varimax est la plus largement employée. Une troisième méthode, dite équimax, vise à la simplification simultanée des lignes et des colonnes de la matrice des saturations.
+
+La rotation orthogonale de type varimax est obtenue au moyen de fonctions trigonométriques en traitant deux composantes à la fois:
+
+
+<nowiki>= </nowiki>
+
+La matrice de transformation est bien orthogonale car:
+
+cos2 + sin2 = 1 et sin cos - sin cos = 0 
+
+Le traitement par ordinateur se prête à des rotations successives d'angle jusqu'à la satisfaction des critères suivants:
+
+
+a) rotation varimax: n(aij/hi)4 - 2
+
+
+b) rotation quartimax: aij4 maximum.
+
+Comme on a pu le constater dans les figures précédentes, une rotation orthogonale des axes ne permet pas toujours de faire passer ceux-ci aux centres des agglomérations de variables. On pourrait y arriver cependant en effectuant plutôt une rotation dite oblique: on s'assure alors au maximum de l'augmentation ou de la diminution de certaines saturations: ce qui facilite l'interprétation des résultats. Cependant il est bien évident qu'on perd alors l'indépendance des facteurs. De plus, la démarche mathématique d'une telle méthode est plus complexe que celle d'une rotation orthogonale et certaines propriétés de la matrice des saturations sont perdues, dont celle de la somme des carrés des saturations de ligne qui n'est plus égale aux communautés. Après avoir connu une certaine faveur, les rotations obliques semblent laisser place chez les utilisateurs aux rotations orthogonales qui, plus simples à plusieurs points de vue, donnent des résultats satisfaisants. Nunnally (p. 321-333) offre une bonne discussion sur ces questions.
+
+== Exemple de rotation des axes principaux ==
+===== Exemple de Thurstone =====
+Le but de la rotation des axes est de faciliter l'identification de la nature des facteurs. Cependant la tâche n'est souvent pas facile et requiert une bonne connaissance de la nature des variables soumises à l'analyse factorielle
+
+On propose ici un exemple d'analyse emprunté à la géométrie élémentaire. Les résultats étant connus, comme le suggère Thurstone, on peut alors porter son attention sur la stratégie qui permet l'identification des facteurs.
+
+L'objet de l'étude est le parallélépipède rectangle dont on veut découvrir les facteurs, c'est-à-dire les éléments géométriques essentiels à sa description. On a choisi de créer 100 boîtes dont les 3 dimensions, longueur (L), hauteur (H) et profondeur (P), devraient se dégager comme facteurs; ces dimensions sont générées de façon aléatoire. Pour ces 100 cas, on crée 1û variables y compris celles des dimensions, que l'on soumet à l'analyse factorielle par la méthode de Hotelling. La matrice de saturations, dont on ne retient que les trois premières colonnes, est la suivante pour les autres détails au sujet de
+
+cette application):
+
+Matrice de saturations (avant rotation)
+
+
+{| style="border-spacing:0;"
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Facteur 1
+| style="border-top:0.002cm solid #000000;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Facteur 2
+| style="border:0.002cm solid #000000;padding:0.097cm;"| Facteur 3
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Xl
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| longueur (L)
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,81
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,16
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,53
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| X2
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| hauteur (H)
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,61
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,59
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,48
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| X3
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| profondeur (P)
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,51
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,76
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,36
+
+
+
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| X4
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 2(L+ P)
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,91
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,36
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,15
+
+
+
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| X5
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| LH
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,84
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,46
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| - 0, 1 2
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| X6
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| HP
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,73
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,02
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,66
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| X7
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| LP
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,86
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,31
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,26
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| X8
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,88
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,40
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,09
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| X9
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| LHP
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,92
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,09
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| 0,09
+
+|-
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| Xl0
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 2(L+H)
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| 0,87
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:none;padding:0.097cm;"| -0,44
+| style="border-top:none;border-bottom:0.002cm solid #000000;border-left:0.002cm solid #000000;border-right:0.002cm solid #000000;padding:0.097cm;"| -0,06
+
+|}
+On constate rapidement que le nombre élevé de saturations importantes rend difficile l'identification des facteurs. Il peut même paraître étonnant que ces facteurs ne soient pas plus clairement mis en évidence par les trois premières variables: cela provient du fait que c'est en tenant compte des 10 variables que l'identification doit se faire.
+
+-Cette matrice de saturations est alors soumise à une rotation orthogonale de type varimax, dont voici les résultats:
+
+
+===== Matrice de saturations après rotation varimax =====
+Matrice de saturations (rotation varimax)
+
+
+{| style="border-spacing:0;"
+|| 
+|| 
+|| Facteur 1
+|| Facteur 2
+|| Facteur 3
+
+|-
+|| Xl
+|| longueur (L)
+|| 0,97
+|| 0,10
+|| 0,15-
+
+|-
+|| X2
+|| hauteur (H)
+|| 0,19
+|| -0,01
+|| 0,96
+
+|-
+|| X3
+|| profondeur (P)
+|| 0,01
+|| 0,99
+|| 0,06 
+
+|-
+|| X4
+|| 2(L+ P)
+|| 0,68
+|| 0,70
+|| 0,15 
+
+|-
+|| X5
+|| LH
+|| 0,75
+|| 0,01
+|| 0,61
+
+|-
+|| X6
+|| HP
+|| 0,05
+|| 0,60
+|| 0,78
+
+|-
+|| X7
+|| LP
+|| 0,74
+|| 0,60
+|| 0,08
+
+|-
+|| X8
+|| 
+|| 0,62
+|| 0,73
+|| 0,15
+
+|-
+|| X9
+|| LHP
+|| 0,60
+|| 0,41
+|| 0,58
+
+|-
+|| Xl0
+|| 2(L+H)
+|| 0.73
+|| 0 05
+|| 0.65
+
+|}
+===== Discussion =====
+L'examen des trois premières lignes montre bien que les variables L, H et P sont les facteurs: chaque variable explique bien un et un seul facteur. Il est rare qu'en recherche on arrive à identifier à l'avance les facteurs; on se retrouve plutôt en présence d'une série de variables plus ou moins liées, comme le sont par exemple les variables composites 4 à 10 de notre tableau. L'identification de chaque facteur, à partir des saturations, est encore possible à la condition de bien connaître la composition des variables. En toutes circonstances, c'est de la connaissance approfondie des variables que dépend le succès de l'opération d'analyse factorielle; on ne saurait trop insister sur cette partie proprement créatrice de l'analyse où les ressources de connaissance et de réflexion du chercheur sont essentielles: le modèle mathématique et l'ordinateur ont fourni leur aide et ne sont plus d'aucun recours pour cette étape très spécifique au domaine étudié.
+
+Le premier facteur est celui qui répond à l'ensemble des conditions suivantes: il est présent dans les variables 4, 5, 7, 8, 9 et 10 mais absent de la variable 6; c'est évidemment la longueur L. On identifie de façon semblable les deux autres facteurs. Le facteur 2 est présent dans les variables 4, 6, 7, 8, 9 mais absent des variables 5 et 10. L'examen de la composition, c'est-à-dire de la formule de ces variables, permet d'identifier comme étant P ce second facteur. De façon semblable, on identifie comme hauteur H le troisième facteur.
+
+== Remarques générales sur l'analyse factorielle ==
+===== Conclusions =====
+Il y a un certain nombre de précautions à prendre à l'occasion de l'emploi de l'analyse factorielle. En voici quelques-unes.
+
+Quoiqu'en principe les scores factoriels soient indépendants, il n'en est pas toujours ainsi en pratique, spécialement si les communautés ou éléments de la diagonale de la matrice des corrélations sont différents de l'unité. Une autre raison de cette indépendance imparfaite est qu'un score factoriel est obtenu par la combinaison linéaire d'un nombre de variables inférieur à celui du problème original.
+
+L'analyse factorielle a pour but d'étudier les corrélations "naturelles" entre plusieurs variables. Si ces corrélations étaient artificiellement obtenues, il ne faudrait pas s'étonner de voir apparaître une configuration artificielle de facteurs: ce serait le cas, par exemple, si une variable additionnelle était une combinaison linéaire d'autres variables, ou encore si les mêmes items apparaissaient dans l'élaboration de plus d'une variable; on rencontre une telle situation dans la construction des diverses échelles du MMPI (voir Shure et Miles, p. 14-18).
+
+Il peut arriver que deux variables, dont les saturations sont élevées pour un facteur donné, soient effectivement sans corrélation entre elles. On peut observer une telle situation dans la matrice des saturations avant rotation dans l'article 8.4.2. Il est prudent, au moment de la définition des facteurs, de veiller à ne retenir que les variables qui ont entre elles des corrélations significatives.
+
+Il est important de tenir compte de l'homogénéité des sujets. La structure factorielle peut être considérablement affectée par l'âge, le sexe, le niveau socio-économique, l'éducation des sujets. Si l'homogénéité ne peut pas être facilement réalisée, certains auteurs préconisent l'insertion de l'une ou l'autre de ces influences comme variables additionnelles, à la condition de les annuler ensuite par l'emploi de la méthode d'analyse factorielle dite de la racine carrée (voir Nunnally, p. 370-371).
+
+On ne retient en général que les composantes principales les plus importantes, c'est-à-dire expliquant la plus grande partie de la variance. Il peut arriver cependant que cette plus grande partie de la variance d'un sous-groupe soit attribuable aux composantes négligées: la discrimination entre ces sujets serait apparente surtout sur ces composantes Cette remarque suggère l'importance que peut revêtir la recherche des composantes principales pour divers sous-groupes de l'échantillon original.
+
+Les composantes principales, étant indépendantes les unes des autres, sont plus faciles à interpréter que les variables elles-mêmes. Ce qui ne signifie nullement que cette interprétation est aisée. Habituellement on gagne beaucoup à joindre à cette analyse celles de la régression multiple et de la variance à variables multiples. Il ne faut point perdre de vue qu'une technique d'analyse factorielle n'est que l'application d'un modèle mathématique sur un ensemble de données numériques, dans le but de guider l'exploration préliminaire d'un domaine complexe.
+
+On peut dans un rapport de recherche se contenter de ne présenter que les matrices des corrélations et des saturations. Une colonne de la matrice des saturations définit une composante. On ne doit pas cependant interpréter les composantes comme uniquement celles d'un certain nombre de tests; elles sont aussi les composantes de scores sur ces tests Lorsqu'on a défini une composante par l'examen d'une des colonnes de saturations, on peut procéder à sa vérification sur les scores factoriels de certains sujets Un sujet possédant la caractéristique de cette composante doit alors présenter un score factoriel proportionnel On peut procéder de façon plus systématique en regroupant les sujets, puis en les comparant au moyen de l'analyse de la variance
+
+Si les mêmes facteurs ou composantes ont été obtenus sur plusieurs échantillons, on peut leur accorder une meilleure confiance L'analyse factorielle est habituellement précédée d'hypothèses, et c'est dans ce cas surtout que les facteurs sont utilisés comme concepts théoriques; sinon les composantes qui ne sont qu'une structure mathématiquement justifiée, risquent d'être difficilement explicables.
+
+Le changement des signes d'un vecteur latent (si le signe d'un élément est changé, il faut les changer tous) ne modifie pas les propriétés algébriques de la matrice des saturations. Cependant l'interprétation doit être modifiée; il faut considérer le facteur correspondant comme inversé dans son orientation: par exemple introversion plutôt qu'extroversion, difficulté plutôt que facilité, etc.
+
+L'absence chez certains sujets d'un ou de plusieurs scores constitue, comme dans toute étude inférentielle, un problème sérieux. Tous les résultats sont en effet nécessaires au calcul des corrélations. S'il n'y a pas lieu de croire à des absences intentionnelles, on peut se permettre d'ignorer les sujets qui en sont affectés.
+
+Le nombre de sujets sur lequel on effectue une analyse factorielle est de toute première importance. Une étude sur k variables donne lieu à (k2 - k)/2 corrélations des variables prise deux à deux: ce qui constitue la matrice de corrélations. La probabilité d'apparition d'une corrélation significative, pour la population dont la corrélation est nulle, grandit avec le nombre de corrélations calculées et la petitesse de l'échantillon. Dans le cas d'un petit échantillon, la matrice de corrélations pourrait facilement, par hasard, être truffée de corrélations très erronées: ce qui aurait pour effet de révéler une structure factorielle fausse. Nunnally recommande en pratique de ne point travailler sur un échantillon qui soit plus petit que dix fois le nombre de variables.
+
+L'utilisation de grosses batteries de variables, par exemple les questionnaires interminables, comporte de nombreux dangers. Obéissant au désir de tout savoir le chercheur est tenté de multiplier les variables, sans connaissance raisonnable de leur nature, ce qui conduit à des structures inexplicables. On a vu dans l'article précédent combien l'interprétation est dépendante de la connaissance interne de chaque variable.
+
+Il ne faut pas utiliser l'analyse factorielle en n'importe quelle circonstance. C'est un instrument qui aide à mettre en évidence des structures: il est donc essentiel que les variables retenues appartiennent à un système. L'intérêt serait faible de soumettre à cette technique un amas de variables. Les facilités qu'offre aujourd'hui l'ordinateur sont loin de diminuer un tel risque. Des phénomènes aussi variés que les poussées inflationnistes, les chasses aux sorcières, les succès des mouvements évangélistes, soumis à l'analyse factorielle feraient-ils apparaître comme explication commune les oppositions idéologiques des grands blocs politiques?
+
+
+[#_ftnref1 [1]]Vedrine J.-P. "Le traitement des données en marketing", Ed. Organisation, Paris, 1991.[#_ftnref2 [2]]Hubert Laforge "Analyse multivariée pour les sciences sociales et biologiques avec applications des logiciels BMP, BMDP, SPSS, SAS", Ed. Etudes Vivantes, Montréal, 1981.[#_ftnref3 [3]]Le tableau est annexé à la fin du document[#_ftnref4 [4]]adapté d'après M. Delattre dans J-.P. Lambin "La recherche marketing", McGraw - Hill, Paris, 1990 p.306.

@@ -1,0 +1,2851 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>L'analyse discriminante</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Unix)">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGEDBY" CONTENT="Mihai Calciu">
+	<META NAME="CHANGED" CONTENT="20101027;22182500">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { color: #000000 }
+		H1 { color: #000000 }
+		P { color: #000000 }
+		H4 { color: #000000 }
+		H4.cjk { font-family: "SimSun" }
+		H4.ctl { font-family: "Lucida Sans" }
+		H3 { color: #000000 }
+		H3.cjk { font-family: "SimSun" }
+		H3.ctl { font-family: "Lucida Sans" }
+		H5 { color: #000000 }
+		H5.cjk { font-family: "SimSun" }
+		H5.ctl { font-family: "Lucida Sans" }
+		H2 { color: #000000 }
+		H2.cjk { font-family: "SimSun" }
+		H2.ctl { font-family: "Lucida Sans" }
+		H6 { color: #000000 }
+		H6.cjk { font-family: "SimSun" }
+		H6.ctl { font-family: "Lucida Sans" }
+		A:link { color: #0000ff }
+		A:visited { color: #0000ff }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="fr-FR" TEXT="#000000" LINK="#0000ff" VLINK="#0000ff" BGCOLOR="#ffffff" DIR="LTR">
+<H1><FONT SIZE=4>L'analyse discriminante </FONT>
+</H1>
+<H4 CLASS="western">M. Calciu</H4>
+<H3 CLASS="western">Cours d'analyse des données à l'Université
+Lille 1</H3>
+<H5 CLASS="western">Analyse discriminante</H5>
+<H2 CLASS="western">Introduction 
+</H2>
+<H6 CLASS="western">Présentation</H6>
+<P>L'analyse discriminante connue dans la pratique marketing sous le
+nom <B>&quot;scoring&quot;</B> essaye de déterminer la contribution
+des variables qui expliquent l'appartenance des individus à des
+groupes. Deux ou plusieurs groupes sont comparés, pour déterminer
+s'ils différent et pour comprendre la nature de ces différences. En
+marketing il est important d'identifier des caractéristiques qui&nbsp;
+déterminent l'appartenance à des groupes, qui permettraient de
+distinguer entre:</P>
+<P>- utilisateurs permanents et occasionnels d'un produit;</P>
+<P>- acheteurs d'une marque et les acheteurs de marques concurrentes;</P>
+<P>- clients loyaux et aloyaux</P>
+<P><A NAME="_ftnref1"></A>- vendeurs bons, médiocres et mauvais <A HREF="#_ftn1"><FONT SIZE=1 STYLE="font-size: 8pt">[1]
+</FONT></A>
+</P>
+<H6 CLASS="western">Exemple:</H6>
+<P><A NAME="_ftnref2"></A>Par exemple suite à un concours de vente
+on a réussi de séparer trois groupes de vendeurs. Pour identifier
+les éléments (les variables) qui permettent de distinguer entre un
+bon et un mauvais vendeur, on a appliqué un questionnaire aux
+participants a ce concours dans le quel on s'est intéressé d'une
+manière prioritaire à quatre caractéristiques :&nbsp;&nbsp; le
+nombre de contacts avec des nouveaux clients&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp; la proportion de contacts avec rendez-vous d'avance; les
+coups de téléphone aux prospects et le nombre de nouveau comptes
+visités<A HREF="#_ftn2"> <FONT SIZE=1 STYLE="font-size: 8pt">[2] </FONT></A>.
+</P>
+<P>Tableau 1 Actions des vendeurs concernant les nouveaux clients</P>
+<CENTER>
+	<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">Individus</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">Nombre de contacts nouveaux
+				clients&nbsp;&nbsp;&nbsp;&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">Proportion de contacts avec
+				rendez-vous d'avance</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">Coups de téléphone aux
+				prospects</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">Nombre de nouveau comptes
+				visités</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm"><B>i</B></P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">X1</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">X2</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">X3</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">X4</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=5 VALIGN=TOP>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm"><B>Gagneurs
+				du grand prix (G)</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">1 KZV</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">130</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">62</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">148</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">42</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">2 BOR</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">122</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">70</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">186</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">44</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">3 NUA</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">89</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">68</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">171</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">32</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">4 NOA</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">104</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">58</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">135</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">40</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">5 HJV</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">116</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">40</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">160</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">6 VRX</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">100</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">65</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">151</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">30</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">7 BFO</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">85</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">66</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">183</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">42</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">8 MIG</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">113</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">59</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">130</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">25</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">9 WLL</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">108</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">52</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">163</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">41</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">10 GJN</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">116</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">48</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">154</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">48</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">11OKX</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">99</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">57</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">188</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">32</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">12KAA</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">78</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">70</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">190</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">40</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">13 UHO</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">106</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">61</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">157</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">38</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">14 GCI</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">94</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">58</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">173</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">29</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">15 CSN</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">98</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">64</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">37</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=5 VALIGN=TOP>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm"><B>Gagneurs
+				du prix de consolation (C)</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">1 XDC</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">105</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">39</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">155</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">45</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">2 OAH</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">86</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">60</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">140</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">33</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">3 VKS</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">64</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">48</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">132</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">4 EXL</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">104</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">119</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">29</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">5 PQT</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">102</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">53</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">143</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">41</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">6 ITE</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">73</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">62</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">128</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">30</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">7 OXX</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">94</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">51</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">152</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">8 DON</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">59</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">64</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">130</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">28</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">9 CIG</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">84</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">31</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">102</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">32</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">10 GID</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">91</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">47</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">96</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">35</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">11 PLO</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">83</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">40</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">87</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">30</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">12 KOJ</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">95</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">42</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">114</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">28</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">13 DIN</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">68</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">52</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">123</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">26</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">14 RZI</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">101</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">51</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">98</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">24</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">15 UOE</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">89</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">39</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">117</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">33</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=5 VALIGN=TOP>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm"><B>Vendeurs
+				sans succès (S)</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">1 MJB</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">80</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">23</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">69</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">32</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">2 VKN</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">47</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">42</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">74</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">33</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">3 XOG</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">26</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">37</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">132</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">20</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">4 AUT</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">94</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">24</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">68</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">26</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">5 ZCU</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">57</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">32</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">94</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">23</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">6 AKY</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">38</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">41</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">83</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">28</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">7 HZL</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">29</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">52</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">96</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">22</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">8 NHN</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">48</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">24</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">73</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">26</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">9 KZW</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">57</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">82</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">28</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">10 ZUB</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="de-DE" STYLE="border: none; padding: 0cm">39</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">37</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">98</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">21</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">11 NFJ</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">51</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">38</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">117</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">24</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">12 TFJ</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">40</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">42</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">112</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">22</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">13RLM</P>
+			</TD>
+			<TD WIDTH=57>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">64</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">21</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">67</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">29</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">14 XGF</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">35</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">32</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">78</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">25</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">15AMA</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">51</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">29</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">81</P>
+			</TD>
+			<TD WIDTH=57>
+				<P STYLE="border: none; padding: 0cm">26</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<H2 CLASS="western">Modèle géométrique</H2>
+<H6 CLASS="western">Cas à deux variables</H6>
+<P>Pour simplifier, on prend deux groupes de sujets (vendeurs)
+mesurés sur deux variables X et Y. Une première variable indiquant
+le nombre de contacts avec des nouveaux clients sera notée Y et la
+deuxième variable, proportion des contacts par rendez-vous sera
+notée par X.</P>
+<P>Les réponses des individus à ces questions, sont représentées
+dans la figure 1. Les deux questions représentent les variables
+selon lesquelles on aimerait arriver à distinguer les deux groupes. 
+</P>
+<P><A NAME="_x0000_i1025"></A><IMG SRC="slides_fichiers%5Cfig1.gif" NAME="images1" ALIGN=BOTTOM WIDTH=449 HEIGHT=336 BORDER=0></P>
+<P>Figure 1</P>
+<P>En analysant le graphique on se rend compte que sur chacune des
+axes représentés par les deux variables il y a une région
+importante d'incertitude, dans la quelle pour les même valeurs des
+variables on trouve des individus appartenant aux deux groupes (bons
+et mauvais vendeurs).</P>
+<H6 CLASS="western">Objectif</H6>
+<P>Le but de l'analyse discriminante serait de trouver un nouvel axe
+comme combinaison linéaire des variables qui permettrait de réduire
+cette zone d'incertitude. Un tel axe dans l'exemple donné est
+illustré dans la figure 2.</P>
+<P><A NAME="_x0000_i1026"></A><IMG SRC="slides_fichiers%5Cfig2.gif" NAME="images2" ALIGN=BOTTOM WIDTH=287 HEIGHT=215 BORDER=0></P>
+<P>Figure 2</P>
+<H6 CLASS="western">Cas général</H6>
+<P>Imaginons&nbsp; maintenant, d'une manière plus générale, que
+ces variables sont centrées pour l'ensemble des deux groupes.</P>
+<P><A NAME="_ftnref3"></A>On illustre dans un espace à deux
+dimensions les coordonnées de chaque sujet sur les variables en
+question et on trace les lignes contours de 95 % (1,96 ) Ou 68 % (1
+a). Les hypothèses de normalité des variables conjointes et
+d'homogénéité des variances et covariances sont maintenues<A HREF="#_ftn3">
+<FONT SIZE=1 STYLE="font-size: 8pt">[3] </FONT></A>. 
+</P>
+<P>La figure 3 en est un exemple.</P>
+<P><A NAME="_x0000_i1027"></A><IMG SRC="slides_fichiers%5Cfig3.gif" NAME="images3" ALIGN=BOTTOM WIDTH=277 HEIGHT=233 BORDER=0></P>
+<P>Fig.3&nbsp; Lignes contours de deux échantillons de variables
+conjointes homogènes et normalement distribuées.</P>
+<P>Dans la démarche habituelle de l'analyse, on éprouvera d'abord
+le besoin de déterminer s'il faut considérer les moyennes ou
+centroïdes de chaque population comme distinctes: L'analyse de
+variance multiple est un instrument bien indiqué pour cette tâche.
+Il apparaît ensuite intéressant, connaissant les scores d'un
+éventuel sujet sur les deux variables, de déterminer, à
+l'intérieur d'un pourcentage d'erreur, l'appartenance de ce sujet à
+l'une ou l'autre de ces populations.</P>
+<H6 CLASS="western">Zones d’incertitude et attribution
+d’appartenance</H6>
+<P>&nbsp;Si l'on se base, pour une telle attribution d'appartenance,
+sur la connaissance du seul score X, on voit que l'incertitude de la
+décision va de a à b et touche les sujets situés dans la région
+hachurée de la figure 4.</P>
+<P><A NAME="_x0000_i1028"></A><IMG SRC="slides_fichiers%5Cfig4.gif" NAME="images4" ALIGN=BOTTOM WIDTH=260 HEIGHT=215 BORDER=0></P>
+<P>Fig.4&nbsp; Région d'incertitude basée sur la variable X</P>
+<P><A NAME="_x0000_i1029"></A><IMG SRC="slides_fichiers%5Cfig5.gif" NAME="images5" ALIGN=BOTTOM WIDTH=304 HEIGHT=249 BORDER=0></P>
+<P>Fig. 5&nbsp; Région d'incertitude basée sur la variable Y</P>
+<H6 CLASS="western">La région sure</H6>
+<P>Si cette décision est prise en tenant compte des deux variables,
+on&nbsp; constate que la région sure correspond alors à la surface
+hachurée</P>
+<P><A NAME="_x0000_i1030"></A><IMG SRC="slides_fichiers%5Cfig6.gif" NAME="images6" ALIGN=BOTTOM WIDTH=264 HEIGHT=223 BORDER=0></P>
+<P>Fig. 6 Région d'incertitude basée sur deux variables</P>
+<H6 CLASS="western">Région minimum d'incertitude 
+</H6>
+<P>Cette seconde façon de procéder, quoique meilleure que la
+première, peut comporter encore de grosses imprécisions (sauf cas
+particuliers) car la véritable région d'incertitude est celle de
+l'intersection des deux ellipses</P>
+<P><A NAME="_x0000_i1031"></A><IMG SRC="slides_fichiers%5Cfig7.gif" NAME="images7" ALIGN=BOTTOM WIDTH=268 HEIGHT=222 BORDER=0></P>
+<P>Fig. 7&nbsp; Région minimum d'incertitude</P>
+<H6 CLASS="western">Recherche des axes discriminants</H6>
+<P>On propose de considérer une nouvelle variable qui soit une
+combinaison linéaire des précédentes; géométriquement, cette
+nouvelle variable est représentée par un axe sur lequel on projette
+les divers points des groupes de sujets. Aux fins d'illustration, on
+limite le nombre de variables de départ ainsi que le nombre de
+groupes à deux; dans la pratique, le modèle mathématique dont il
+sera question à l'article suivant ne comporte pas de telles limites.</P>
+<P>L'axe est appelé axe de la fonction discriminante. Les points
+projetés sur cet axe se distribuent normalement pour chacun des
+groupes; les valeurs de cette fonction comprises entre les lignes
+pointillés correspondent à la région d'incertitude. On désire que
+l'axe occupe une position telle que la projection des points donne
+lieu au minimum de superposition des divers groupes de sujets.</P>
+<P>La figure 8 illustre la situation particulière de la recherche de
+la fonction de deux variables qui discrimine au maximum deux groupes
+de cas.</P>
+<H6 CLASS="western">Maximiser le pouvoir discriminant</H6>
+<P>La qualité de la discrimination est liée à la superposition des
+deux distributions de projections sur l'axe. On peut mesurer la
+qualité de la dispersion à la grandeur du rapport de la variance
+entre les moyennes à la variance à l'intérieur d'un groupe
+variance inter-groupe / variance intra-groupe.</P>
+<P>Ce rapport est analogue au F de l'analyse de variance. On suppose
+que la variance des scores à l'intérieur de chaque groupe répond
+au critère d'homogénéité de telle sorte que cette variance intra
+est la moyenne des variances intra des groupes considérés.</P>
+<P>Un rapport maximum est lié non seulement à la grandeur de son
+numérateur mais aussi à l'étroitesse du dénominateur: la variance
+inter atteindra son maximum pour l'axe parallèle au segment joignant
+les centroides tandis que la variance intra sera minimum pour un axe
+perpendiculaire à l'axe principal des ellipses; c'est en une
+position intermédiaire que se situe le rapport maximum des variances
+inter et intra.</P>
+<P><A NAME="_x0000_i1032"></A><IMG SRC="slides_fichiers%5Cfig8.gif" NAME="images8" ALIGN=BOTTOM WIDTH=283 HEIGHT=202 BORDER=0></P>
+<P>Figure 8. Modèle géométrique de la fonction discriminante.</P>
+<H6 CLASS="western">Resultats</H6>
+<P>L'analyse discriminante a pour but de déterminer cet axe optimum
+de la fonction discriminante, c'est-à-dire de calculer les éléments
+d'un vecteur k qui définissent une combinaison linéaire des
+variables X et Y. Ces exigences géométriques peuvent être
+avantageusement traitées à la manière de l'extraction des
+composantes principales, car des fonctions discriminantes
+orthogonales successives s'apparentent à ces composantes. On
+comprend alors que le nombre possible de ces fonctions soit limité
+par le nombre de variables et aussi par le nombre de groupes: ce qui
+est dans le sens d'une interprétation plus aisée de la
+discrimination. Ceci est d'ailleurs facilité par le fait que des
+fonctions discriminantes additionnelles sont responsables d'une
+proportion de moins en moins élevée du pouvoir discriminateur
+total; il est souvent souhaitable de limiter à deux ou à trois ces
+fonctions discriminantes afin d'en rendre possible l'illustration
+géométrique et donc l'interprétation (voir Cooley et Lohnes, 1971,
+p. 244-246).</P>
+<H2 CLASS="western">Les coefficients de la fonction discriminante</H2>
+<H6 CLASS="western">Utilisation des coefficients</H6>
+<P>Une manière de déterminer quelles sont les variables qui
+discriminent entre les deux types de gagnants aux concours de ventes
+est de construire un index, basé sur les valeurs des
+caractéristiques mesurées, qui sépare les deux groupes, formant
+une combinaison linéaire de ces dernières du genre:</P>
+<P ALIGN=CENTER><IMG SRC="slides_fichiers/image002.gif" NAME="images9" ALIGN=BOTTOM WIDTH=219 HEIGHT=19 BORDER=0>
+</P>
+<P>ou&nbsp; 
+<IMG SRC="slides_fichiers/image004.gif" NAME="images10" ALIGN=BOTTOM WIDTH=87 HEIGHT=19 BORDER=0>
+sont des coefficients arbitraires. En analyse discriminante les
+coefficients sont dérivés de telle manière que la variation des
+scores de Y entre les (deux) groupes soit si large que possible et la
+variation des scores de Y à l'intérieur des groupes (within group
+ou intra-groupe) soie si petite que possible. Autrement dit on
+calcule les coefficients qui maximisent le rapport&nbsp;variance
+inter-groupe / variance intra-groupe.</P>
+<P>Ce ci fait les groupes aussi distincts que possible du point de
+vue des nouveaux scores de l'index.</P>
+<P><A NAME="_ftnref4"></A>Pour l'exemple analysé les coefficients
+discriminants sont 
+<IMG SRC="slides_fichiers/image006.gif" NAME="images11" ALIGN=BOTTOM WIDTH=332 HEIGHT=19 BORDER=0>
+et la combinaison linéaire qui différencie de manière maximale
+entre les groupes est<A HREF="#_ftn4"> <FONT SIZE=1 STYLE="font-size: 8pt">[4]
+</FONT></A>
+</P>
+<P>Y = 0,059 X<SUB>1</SUB> +&nbsp; 0,063 X<SUB>2</SUB> +&nbsp; 0,034
+X<SUB>3</SUB> - 0,032 X<SUB>4</SUB>,</P>
+<H6 CLASS="western">Calcul des scores sur les axes discriminants</H6>
+<P>Ayant les coefficients discriminants on peut calculer le score de
+chaque vendeur, si ce score est plus proche de la moyenne des scores
+du groupe des gagnants du grand prix, l'individu sera affecté à ce
+groupe si non il était affecté à l'autre groupe.</P>
+<P>On peut observer que l'approche de l'analyse&nbsp; discriminante
+est proche de celui de la <I><B>régression</B></I>. Dans les chacun
+des cas on essaye d'expliquer (prévoir) une variable dépendante par
+une combinaison linéaire de variables indépendantes. En régression
+la variable expliquée est continue. En analyse discriminante la
+variable dépendante est l'appartenance à un groupe. On peut
+transformer le problème d'analyse discriminante pour de groupes en
+problème de régression en utilisant une variable muette (dummy)
+comme variable dépendante. Les coefficients de régression
+résultants seront proportionnels à ceux obtenus par l'analyse
+discriminante.</P>
+<P>Tableau 2</P>
+<P>Scores calculés des gagnants du grand prix et du prix de
+consolation utilisant la fonction discriminante 
+</P>
+<P>Y = 0,059 X<SUB>1</SUB> +&nbsp; 0,063 X<SUB>2</SUB> +&nbsp; 0,034
+X<SUB>3</SUB> - 0,032 X<SUB>4</SUB>,</P>
+<CENTER>
+	<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">X1</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">X2</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">X3</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">X4</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">Y</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=6 VALIGN=TOP>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm"><B>Gagneurs
+				du grand prix (G)</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">1 KZV</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">130</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">62</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">148</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">42</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">15,1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">2 BOR</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">122</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">70</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">186</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">44</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">16,4</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">3&nbsp; NUA</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">89</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">68</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">171</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">32</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">14,2</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">4 NOA</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">104</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">58</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">135</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">40</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">13,0</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">5 HJV</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">116</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">40</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">160</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">13,5</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">6 VRX</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">100</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">65</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">151</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">30</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">14,1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">7 BFO</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">85</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">66</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">183</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">42</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">14,0</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">8 MIG</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">113</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">59</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">130</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">25</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">13,9</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">9 WLL</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">108</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">52</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">163</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">41</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">13,8</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">10 GJN</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">116</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">48</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">154</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">48</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">13,5</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">11OKX</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">99</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">57</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">188</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">32</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">14,7</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">12KAA</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">78</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">70</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">190</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">40</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">14,1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">13 UHO</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">106</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">61</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">157</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">38</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">14,1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">14 GCI</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">94</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">58</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">173</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">29</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">14,1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">15 CSN</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">98</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">64</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">37</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">9,8</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm"><FONT SIZE=2 STYLE="font-size: 9pt">Moyenne</FONT></P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">103,9</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">59,9</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">155,1</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">37,0</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">13,9</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=6 VALIGN=TOP>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm"><B>Gagneurs
+				du prix de consolation (C)</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">1 XDC</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">105</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">39</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">155</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">45</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">12,4</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">2 OAH</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">86</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">60</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">140</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">33</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">12,5</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">3 VKS</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">64</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">48</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">132</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">10,1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">4 EXL</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">104</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">119</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">29</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">11,4</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">5 PQT</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">102</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">53</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">143</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">41</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">12,8</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">6 ITE</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">73</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">62</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">128</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">30</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">11,5</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">7 OXX</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">94</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">51</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">152</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">36</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">12,7</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">8 DON</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">59</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">64</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">130</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">28</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">11,0</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">9 CIG</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">84</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">31</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">102</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">32</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">9,3</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">10 GID</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">91</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">47</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">96</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">35</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">10,4</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">11 PLO</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">83</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">40</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">87</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">30</P>
+			</TD>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">9,3</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P LANG="nl-NL" STYLE="border: none; padding: 0cm">12 KOJ</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">95</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">42</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">114</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">28</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">11,1</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">13 DIN</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">68</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">52</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">123</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">26</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">10,6</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">14 RZI</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">101</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">51</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">98</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">24</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">11,6</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">15 UOE</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">89</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">39</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">117</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">33</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">10,5</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm"><FONT SIZE=2 STYLE="font-size: 9pt">Moyenne</FONT></P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">86,5</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">47,7</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">122,4</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">32,4</P>
+			</TD>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">11,1</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<H2 CLASS="western">Interprétation de la fonction discriminante</H2>
+<H6 CLASS="western">Tester la différentiation obtenue</H6>
+<P>Dans une approche rigoureuse avant d'interpréter la fonction
+discriminante, on doit tester si au niveau des scores discriminants
+on obtient une différentiation significative entre les groupes. Cela
+se fait en appliquant un test en F aux valeurs de la statistique D<SUP>2</SUP>
+de Mahalanobis&nbsp; (qui mesure la distance de chaque case à la
+moyenne du groupe, tout en permettant des axes corrélés et des
+unités de mesure différentes).</P>
+<H6 CLASS="western">Les coefficients discriminants</H6>
+<P>La fonction discriminante originale contient des poids
+(coefficients) à appliquer aux valeurs brutes des variables. Ces
+poids sont influencés par l'échelle de mesure des variables. Pour
+éviter des effets d'échelle de mesure arbitraire <I>quand on
+compare les contributions de chaque variable on utilise des
+coefficients standardisés</I>, obtenus par multiplication des
+coefficients bruts de chaque variable par l'écart type pour
+l'ensemble des groupes (pooled standard deviation) de. 
+</P>
+<H2 CLASS="western">Classification des individus utilisant la
+fonction discriminante</H2>
+<H6 CLASS="western">Calcul de cutting score</H6>
+<P>Pour classifier les individus dans un des groupes on doit fixer un
+score (cutting score) qui joue le rôle de frontière entre les
+groupes. Normalement c'est la moyenne des scores des deux groupes. Si
+les groupes sont de dimensions égales le <B>cutting score</B> (Y<SUB>CS</SUB>)
+est égale à la moyenne des moyennes des scores des groupes.</P>
+<P><IMG SRC="slides_fichiers/image008.gif" NAME="images12" ALIGN=BOTTOM WIDTH=283 HEIGHT=19 BORDER=0>
+</P>
+<P>Si les groupes ne sont pas égaux on utilisera une moyenne
+pondérée du genre:</P>
+<P><IMG SRC="slides_fichiers/image010.gif" NAME="images13" ALIGN=BOTTOM WIDTH=126 HEIGHT=38 BORDER=0>
+</P>
+<P>où 
+<IMG SRC="slides_fichiers/image012.gif" NAME="images14" ALIGN=BOTTOM WIDTH=13 HEIGHT=19 BORDER=0>
+<SUB>1 </SUB>et 
+<IMG SRC="slides_fichiers/image013.gif" NAME="images15" ALIGN=BOTTOM WIDTH=13 HEIGHT=19 BORDER=0>
+<SUB>2</SUB> sont les scores discriminants moyens et n<SUB>1</SUB> et
+n<SUB>2</SUB> sont les dimensions des groupes (on observe que la
+moyenne de chaque groupe est pondérée avec la dimension de l'autre.</P>
+<H6 CLASS="western">Attribution aux groupes</H6>
+<P>Dans le cas du concours des vendeurs, une règle de décision
+simple serait de classifier un vendeur dans le groupe des gagnants du
+grand prix si son score est plus proche de la moyenne des scores du
+groupe des gagnants du grand prix, que de la moyenne des scores du
+groupe des gagnants du prix de consolation,&nbsp; si non il sera
+affecté au groupe des gagnants du prix de consolation.</P>
+<P>Tableau 3 - L'appartenance de groupe prédite utilisant la règle
+de classification simple</P>
+<CENTER>
+	<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=60>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD COLSPAN=2 WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">Différences par ra p-port
+				à la moyenne du</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">Appartenance de 
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">Score dis- criminant</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">Premier groupe</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">Deuxieme groupe</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">&nbsp;groupe predite</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">Yi</P>
+			</TD>
+			<TD WIDTH=121>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">Yi&nbsp; - Yg</P>
+			</TD>
+			<TD WIDTH=60>
+				<P LANG="en-GB" STYLE="border: none; padding: 0cm">Yi - Yc</P>
+			</TD>
+			<TD WIDTH=60>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">&nbsp; 
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=5 VALIGN=TOP>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">Gagneurs
+				du grand prix (G)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">15,1</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">1,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">4,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">2</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">16,4</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">2,3</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">5,3</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">3</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">14,2</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">0,1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">3,1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">4</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">13,0</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-1,1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">1,8</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">5</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">13,5</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-0,6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">2,4</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">14,1</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">0,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">2,9</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">7</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">14,0</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-0,1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">2,8</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">8</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">13,9</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-0,2</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">2,7</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">9</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">13,8</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-0,3</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">2,6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">10</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">13,5</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-0,7</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">2,3</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">11</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">14,7</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">0,6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">3,6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">12</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">14,1</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">0,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">3,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">13</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">14,1</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">0,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">3,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">14</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">14,1</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-0,1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">2,9</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">15</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">13,2</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-0,9</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">2,1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">G</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=5 VALIGN=TOP>
+				<P CLASS="msonormal" STYLE="border: none; padding: 0cm">Gagneurs
+				du prix de consolation (C)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">12,4</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-1,7</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">1,2</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">2</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">12,5</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-1,6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">1,3</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">3</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">10,1</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-4,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">-1,1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">4</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">11,4</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-2,7</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">0,3</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">5</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">12,8</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-1,3</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">1,7</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm"><B>G</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">11,5</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-2,6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">0,4</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">7</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">12,7</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-1,4</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">1,5</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm"><B>G</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">8</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">11,0</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-3,1</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">-0,2</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">9</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">9,3</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-4,8</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">-1,9</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">10</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">10,4</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-3,7</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">-0,8</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">11</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">9,3</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-4,8</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">-1,8</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">12</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">11,1</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-3,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">0,0</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">13</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">10,6</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-3,5</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">-0,6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">14</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">11,6</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-2,5</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">0,5</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=49>
+				<P STYLE="border: none; padding: 0cm">15</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">10,5</P>
+			</TD>
+			<TD WIDTH=121>
+				<P STYLE="border: none; padding: 0cm">-3,6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">-0,6</P>
+			</TD>
+			<TD WIDTH=60>
+				<P STYLE="border: none; padding: 0cm">C</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<H6 CLASS="western">La qualité de la classification</H6>
+<P>La conformité de cette classification prédictive avec la réalité
+est illustrée par le tableau suivant, appelé matrice des confusions</P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR VALIGN=TOP>
+		<TD WIDTH=79>
+			<P STYLE="border: none; padding: 0cm">Apparte-nance prédite</P>
+		</TD>
+		<TD COLSPAN=2 WIDTH=154>
+			<P STYLE="border: none; padding: 0cm">Appartenance réelle</P>
+			<P STYLE="border: none; padding: 0cm">G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			C</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=79>
+			<P STYLE="border: none; padding: 0cm">G</P>
+		</TD>
+		<TD WIDTH=77>
+			<P STYLE="border: none; padding: 0cm">15</P>
+		</TD>
+		<TD WIDTH=77>
+			<P STYLE="border: none; padding: 0cm">2</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=79>
+			<P STYLE="border: none; padding: 0cm">C</P>
+		</TD>
+		<TD WIDTH=77>
+			<P STYLE="border: none; padding: 0cm">0</P>
+		</TD>
+		<TD WIDTH=77>
+			<P STYLE="border: none; padding: 0cm">13</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><A NAME="_ftnref5"></A><A NAME="_ftnref6"></A>En générale cette
+matrice est un tableau de contingence g x g ( où g est le nombre de
+groupes), en ligne figurent les appartenances réelles et en colonnes
+les affectations par le modèle. On peut y repérer le nombre
+d'affectations correctes et erronées<A HREF="#_ftn5"> <FONT SIZE=1 STYLE="font-size: 8pt">[5]
+</FONT></A>. Le <B>hit rate </B>est le pourcentage d'affectations
+correctes par rapport au nombre total d'individus.&nbsp; Pour que le
+modèle présente un intérêt, il faut que le hit score soit
+suffisamment élevé. Dans le cas de deux groupes à effectifs égaux
+<A HREF="#_ftn6"><FONT SIZE=1 STYLE="font-size: 8pt">[6] </FONT></A>,
+une procédure de répartition purement aléatoire entraînerait 50 %
+d'affectations correctes. La différence entre le hit score et 50 %
+mesure ainsi la qualité du modèle. Le caractère significatif de
+cette différence est repéré à l'aide de l'expression:</P>
+<P LANG="nl-NL">Z = (p &nbsp; 0,5)/[(0,5)(0,5)/n]<SUP>1/2</SUP></P>
+<P><A NAME="_ftnref7"></A>où n est le nombre d'individus. Si Z est
+supérieur à 1,64, le modèle a significativement mieux réussi à
+classer les individus qu'un processus aléatoire, à un seuil de 95 %
+<A HREF="#_ftn7"><FONT SIZE=1 STYLE="font-size: 8pt">[7] </FONT></A>.</P>
+<H6 CLASS="western">Critères du maximum chance et proportional
+chance</H6>
+<P>Quand les groupes sont de dimensions différentes le hit rate ne
+peut plus être comparé au critère du 50% dans ce cas on peut
+utiliser deux critères: le critère de la probabilité maximum
+(maximum chance) et le critère de la probabilité proportionnelle
+(proportional chance). Le critère <B>maximum chance </B>considère
+que tout individu choisit aléatoirement doit être classé comme
+appartenant au plus grand groupe. Le critère <B>proportional chance</B>
+est donné par la somme des carrés des proportions de chaque groupe
+par rapport au nombre totale d'individus (dans le cas de deux groupes
+C<SUB>pro </SUB>= p<SUP>2</SUP> + (1 - p)<SUP>2</SUP>).</P>
+<P><A NAME="_ftnref8"></A>Si le groupe G (grand prix) avait 20
+membres et le groupe C (prix de consolations) avait 80 membres<A HREF="#_ftn8">
+<FONT SIZE=1 STYLE="font-size: 8pt">[8] </FONT></A>le critère
+maximum chance serait 80 et le critère proportional chance (0,20)<SUP>2</SUP>
++ (0,80)<SUP>2</SUP> = 0,68. Un hit rate de 85% montrera une bonne
+amélioration par rapport à la pure chance mais il sera moins fort
+par rapport au critère maximum chance.</P>
+<H2 CLASS="western"><A NAME="_ftnref9"></A>Développement
+mathématique du modèle<A HREF="#_ftn9"> <FONT SIZE=1 STYLE="font-size: 8pt">[9]
+</FONT></A>
+</H2>
+<H6 CLASS="western">Matrice de covariances intra-groupes</H6>
+<P>Soit une matrice <B>X</B> de scores centrés sur v variables.
+Celle-ci est partitionnée en g sous-matrices <B>D</B><SUB>i</SUB> de
+n<SUB>i</SUB> cas.</P>
+<P>À chaque partition correspond un centroïde de <B>m</B><SUB>i</SUB>
+= (m<SUB>i1</SUB>,...m<SUB>iv</SUB>), une matrice de dispersion
+(sommes des carrés des écarts et des produits des écarts aux
+moyennes) <B>W</B><SUB>i</SUB> ainsi qu'une matrice de covariances <B>V</B><SUB>i</SUB>
+= <B>W</B><SUB>i</SUB> /(n<SUB>i</SUB> - 1).</P>
+<P>Les matrices de covariances de chaque groupe étant homogènes, il
+y a intérêt à considérer la matrice de dispersion au sein des
+groupes <B>W</B> = <B>W</B><SUB>1</SUB> + · · · + <B>W</B><SUB>g</SUB>
+à laquelle correspond la matrice moyenne de covariances intra
+groupes <B>V</B>= <B>W</B>/( 
+<IMG SRC="slides_fichiers/image015.gif" NAME="images16" ALIGN=BOTTOM WIDTH=9 HEIGHT=19 BORDER=0>
+n<SUB>i</SUB>-g).</P>
+<P>L'ensemble des centroïdes mj constitue la matrice</P>
+<P><IMG SRC="slides_fichiers/image017.gif" NAME="images17" ALIGN=BOTTOM WIDTH=122 HEIGHT=37 BORDER=0>
+</P>
+<P>Soit 
+<IMG SRC="slides_fichiers/image019.gif" NAME="images18" ALIGN=BOTTOM WIDTH=41 HEIGHT=47 BORDER=0>
+= 0. 
+</P>
+<H6 CLASS="western">Matrice de covariances inter-groupes</H6>
+<P>La matrice correspondante des covariances est dite d'intergroupes
+et s'obtient ainsi:</P>
+<P><B>B</B> = <B>M'M</B>/(g - 1)</P>
+<P>La fonction discriminante <B>y</B> recherchée est celle qu'on
+obtient au moyen d'une combinaison linéaire <B>k</B> de la matrice <B>X</B>
+de telle sorte qu'à une variance intra groupes donnée corresponde
+un maximum de la variance inter groupes. On peut représenter ainsi
+la dispersion des cas et moyennes des trois groupes sur l'axe y de la
+fonction discriminante.</P>
+<P><A NAME="_x0000_i1033"></A><IMG SRC="slides_fichiers%5Cfig9.gif" NAME="images19" ALIGN=BOTTOM WIDTH=299 HEIGHT=48 BORDER=0></P>
+<P>Figure 9 - Dispersion de trois groupes sur l'axe de la fonction
+discriminante.</P>
+<H6 CLASS="western">La fonction discriminante expression générale</H6>
+<P>La fonction discriminante ayant pour expression générale <B>y</B>
+= <B>Xk</B>, les projections sur y des centroïdes, c'est-à-dire des
+moyennes des groupes, seront <B>Mk</B> et la variance de ces moyennes
+ou variance inter sera <B>k'M'Mk</B>/(g - 1) = <B>k'Bk</B>. De la
+même façon, la variance intra groupes sera <B>k'Vk</B>.</P>
+<P>On désire considérer simultanément une dispersion maximum des
+moyennes pour une dispersion donnée des cas au sein des groupes. On
+choisit d'arrêter la condition d'une variance intra unité,
+c'est-à-dire <B>k'Vk </B>= 1, qui s'ajoute au multiplicateur
+indéterminé de Lagrange pour former l'équation</P>
+<P>F = <B>k'Bk</B> - (<B>k'Vk</B> - 1)</P>
+<H6 CLASS="western">Critères de maximisation</H6>
+<P>On calcule alors les valeurs du vecteur k qui maximisent F:</P>
+<P>= 2<B>Bk</B> - 2 <B>Vk</B> = 0</P>
+<P>= <B>Bk</B> - <B>Vk</B> = 0</P>
+<P LANG="de-DE">= (<B>B</B> - <B>V</B>)<B>k</B> = 0</P>
+<P>On sait que celle équation comporte une solution différente de
+zéro pour |<B>B</B> - <B>V</B>| = 0.</P>
+<P>Ces équations, solutions du problème de la fonction
+discriminante présentent donc une grande ressemblance avec celles du
+problème de l'analyse&nbsp; factorielle. On leur donne la forme
+habituelle en pré multipliant par l'inverse de <B>V</B>:</P>
+<P LANG="en-GB">(<B>V</B><SUP>-1</SUP><B>B</B> - <B>I</B>)<B>k</B> =
+0</P>
+<P>et</P>
+<P>|<B>V</B><SUP>-1</SUP><B>B</B> - <B>I</B>| = 0</P>
+<P>C'est le problème de la recherche des vecteurs latents <B>k</B>
+d'une matrice carrée non symétrique <B>V</B><SUP>-1</SUP><B>B</B>.
+Il y a intérêt à faire en sorte de revenir a une matrice
+symétrique. On a vu (théorème 7 ...) qu'une matrice non symétrique
+<B>M</B> peut être écrite comme la somme d'une matrice symétrique
+<B>S</B> et d'une matrice non symétrique <B>A </B>: <B>M</B> = <B>S</B>
++ <B>A</B>. Par multiplications et additions appropriées de lignes,
+on rend diagonale la matrice symétrique et on remplace <B>V</B><SUP>-1</SUP><B>B
+</B>par <B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2</SUP>
+qui a la propriété d'être symétrique et d'avoir les mêmes
+racines et vecteurs latents que <B>V</B><SUP>-1</SUP><B>B</B>.</P>
+<P>L'expression de la solution de la fonction discriminante devient
+donc:</P>
+<P LANG="en-GB">(<B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2
+</SUP>- <B>I</B>)<B>k</B> = 0</P>
+<P LANG="en-GB">| <B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2
+</SUP>- <B>I</B> | = 0</P>
+<P>La résolution de l'équation</P>
+<P LANG="en-GB">| <B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2
+</SUP>- <B>I</B> | = 0</P>
+<P>comporte un nombre de solutions égal au minimum suivant: soit le
+nombre de groupes moins un, soit le nombre de variables. Chacune de
+ces valeurs est introduite dans l'équation</P>
+<P>(<B>D</B><SUB>V</SUB><SUP>-1/2</SUP><B>BD</B><SUB>v</SUB><SUP>-1/2
+</SUP>- <SUB>i</SUB><B>I</B>)<B>k</B><SUB>i</SUB> = 0</P>
+<P>entraînant un nombre correspondant de solutions <B>k</B><SUB>i</SUB>.
+On a vu antérieurement que les vecteurs <B>k</B><SUB>i</SUB> sont
+orthogonaux, c'est-à-dire indépendants:&nbsp; la matrice <B>K</B>
+des vecteurs <B>k</B><SUB>i</SUB> répond donc à la relation <B>K'K
+</B>&nbsp;= <B>I</B>&nbsp;&nbsp; lorsque normée aux racines
+latentes.</P>
+<P>Le calcul se fait à partir de la valeur des matrices <B>B</B> et
+<B>V</B> des covariances inter et intra. Si on procède à partir des
+matrices de dispersion, la solution serait la même sauf pour les
+racines latentes qui s'en trouveraient multipliées par le rapport 
+</P>
+<P>(g - 1 ) / ( n<SUB>i</SUB> - g).</P>
+<P>Plusieurs auteurs présentent la fonction discriminante comme
+étant définie par le vecteur k tel que le rapport de la variance
+inter à la variance intra soit maximum:</P>
+<P>C'est une approche équivalente à celle décrite plus haut où
+<B>k'Vk</B> étant fixé à 1, on recherche les valeurs de k qui
+maximisent le numérateur.</P>
+<H2 CLASS="western">Rotation des axes des fonctions discriminantes</H2>
+<H6 CLASS="western">Interprétation</H6>
+<P>Une fonction discriminante est définie par un vecteur colonnes de
+coefficients appliqués, par une combinaison linéaire, aux variables
+étudiées; ces coefficients sont dits bruts ou standard (beta
+weights) selon qu'ils s'appliquent à des variables brutes ou
+standard. Le but de telles combinaisons linéaires est de séparer au
+maximum les groupes les uns des autres; en plus d'être indépendantes
+les unes des autres, les fonctions discriminantes ont un pouvoir de
+discrimination qui décroît d'une fonction à l'autre. Le nombre de
+fonctions discriminantes est le plus petit des deux possibilités
+suivantes: nombre de variables ou nombre de groupes moins un.</P>
+<H6 CLASS="western">Méthodes de rotation</H6>
+<P>On a vu qu'à beaucoup de points de vue, les fonctions
+discriminantes présentent une grande analogie avec les facteurs mis
+en évidence par l'une ou l'autre technique de l'analyse factorielle.
+En particulier, on peut souhaiter identifier par un nom chacune de
+celles-ci, en se basant sur les contributions des variables, telles
+qu'exprimées de façon comparable par les coefficients standard.
+Comme en analyse factorielle, une telle identification n'est pas
+toujours facile, à moins de procéder à une rotation des axes des
+fonctions tout en maintenant constantes les positions relatives des
+cas et des moyennes ou centroïdes. Une rotation VARIMAX est proposée
+en option dans le programme SPSS; on obtient ainsi des coefficients
+qui sont le plus possible voisins de 1 pour les uns, et de zéro pour
+les autres. L'avantage qu'on en tire est celui d'une facilité plus
+grande d'interprétation, mais cependant on y perd la connaissance de
+l'ordre des fonctions quant à leur pouvoir de discrimination. C'est
+pourquoi il est suggéré de n'utiliser qu'avec prudence la rotation
+des axes des fonctions discriminantes (voir Klecka, dans SPSS, p.
+444-445).</P>
+<H6 CLASS="western">Méthodes de sélection des variables</H6>
+<P>Plusieurs méthodes peuvent être utilisées dans le choix des
+variables à inclure dans l'édification des fonctions
+discriminantes. Celle dont il a été question jusqu'à maintenant,
+et qui consiste à considérer toutes les variables à la fois, est
+dite méthode directe.</P>
+<P>On peut aussi faire appel à une approche hiérarchique (stepwise)
+où les variables sont introduites une à une selon leur capacité
+décroissante à mettre en évidence la différence entre les
+groupes. Au cours des sélections successives, il est possible que
+des variables déjà entrées perdent leur pouvoir de discrimination:
+la raison en est une redondance d'information, c'est-à-dire que le
+pouvoir de discrimination de cette variable est désormais inclus
+dans quelque combinaison de nouvelles variables retenues.</P>
+<P>Donc à chaque étape de l'analyse, on procède à l'élimination
+des variables devenues inutiles. Dans le programme SPSS ce test de
+variable apparaît sous le titre F-TO-REMOVE.</P>
+<P>Divers critères, mettant l'accent sur l'un ou l'autre aspect de
+la dispersion des groupes, sont utilisés pour la sélection de
+variables: 
+</P>
+<P>a) le test de Wilks vise à minimiser un rapport où entrent en
+considération la dispersion des centroïdes et la cohésion des cas
+au sein des groupes: il est semblable à un test multivarié F sur
+les différences entre les centroïdes;</P>
+<P>b) plusieurs tests, reliés à la notation de distance de
+Mahalanobis, visent à maximiser l'écart entre les deux groupes les
+plus rapprochés (les méthodes MAHAL, MAXMINF, MINRESID du programme
+SPSS sont des variantes de cette approche); 
+</P>
+<P>c) la méthode de Rao consiste à choisir la variable qui
+contribue le plus à une distance généralisée, évaluée sur les
+variables précédentes.</P>
+<P>Pour tous ces critères, une variable est sélectionnée lorsque
+son rapport F partiel dépasse une valeur critique, c'est-à-dire
+lorsque sa contribution à la dispersion additionnelle des centroïdes
+est statistiquement significative: dans le programme SPSS ce F est
+dit F-TO-ENTER</P>
+<H6 CLASS="western">Test de signification</H6>
+<P>On peut poursuivre, jusqu'à exhaustion, l'extraction des
+fonctions discriminantes. Mais comme dans le cas des composantes
+principales, l'intérêt des fonctions additionnelles va décroissant.
+Dans beaucoup d'applications on ne dépasse pas deux ou trois
+fonctions afin de tirer parti de la facilité et de l'intérêt d'une
+illustration de la position des groupes de sujets dans un espace à
+trois dimensions et moins. 
+</P>
+<P>L'effet de discrimination de la fonction i par rapport à toutes
+les fonctions est exprimé par la proportion (Hope, p. 117-120;
+Cooley et Lohnes, p.248-250)</P>
+<P ALIGN=CENTER><IMG SRC="slides_fichiers/image021.gif" NAME="images20" ALIGN=BOTTOM WIDTH=36 HEIGHT=79 BORDER=0>
+</P>
+<P>Ce rapport exprime la proportion de la variance expliquée par
+chaque fonction discriminante. Cependant cette proportion ne conduit
+pas à une décision statistique au sens habituel du terme. On
+recourt souvent à un autre indicateur.</P>
+<P>On montre que: 
+<IMG SRC="slides_fichiers/image023.gif" NAME="images21" ALIGN=BOTTOM WIDTH=97 HEIGHT=81 BORDER=0>
+</P>
+<P>,où p= nombre de fonctions discriminantes, 
+</P>
+<P>peut être utilisé pour exprimer la capacité de discrimination
+d'un ensemble</P>
+<P>de variables (ce paramètre est similaire à&nbsp; 
+<IMG SRC="slides_fichiers/image025.gif" NAME="images22" ALIGN=BOTTOM WIDTH=55 HEIGHT=38 BORDER=0>
+de l'article 11.3.0. de Laforge). De même pour les fonctions au-delà
+de la k-ième fonction:</P>
+<P ALIGN=CENTER><IMG SRC="slides_fichiers/image027.gif" NAME="images23" ALIGN=BOTTOM WIDTH=100 HEIGHT=81 BORDER=0>
+</P>
+<P>Ce lambda ( 
+<IMG SRC="slides_fichiers/image029.gif" NAME="images24" ALIGN=BOTTOM WIDTH=13 HEIGHT=19 BORDER=0>
+) est donc une mesure de l'inverse de la puissance discriminative
+expliquée par les fonctions discriminantes à venir. La
+signification de la discrimination des fonctions restantes k à p, à
+la suite de l'acceptation des k premières, peut se calculer au moyen
+de l'approximation de Bartlett:</P>
+<P ALIGN=CENTER><IMG SRC="slides_fichiers/image031.gif" NAME="images25" ALIGN=BOTTOM WIDTH=176 HEIGHT=38 BORDER=0>
+</P>
+<P>&nbsp;avec&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+d.l. = (v-k) (g-k-1)</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+où&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+v: nombre de variables</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+g: nombre de groupes</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+et&nbsp;&nbsp;&nbsp;&nbsp; 
+<IMG SRC="slides_fichiers/image032.gif" NAME="images26" ALIGN=BOTTOM WIDTH=100 HEIGHT=81 BORDER=0>
+</P>
+<P>Si pour ces fonctions discriminantes (k + 1) à p, on obtient une
+valeur de x2 qui ne dépasse pas le seuil critique, on considère que
+les k premières fonctions calculées suffisent seules à expliquer
+de façon significative les écarts entre les groupes.</P>
+<P>Une autre méthode permettant de juger de la valeur de
+discrimination de chaque fonction est celle de la corrélation
+canonique qui mesure l'étroitesse de la relation entre une fonction
+discriminante et l'appartenance à l'un ou l'autre groupe. Le carré
+de cette corrélation canonique exprime la proportion de la variance
+de la fonction discriminante expliquée par une fonction
+d'appartenance aux divers groupes. Les programmes universels
+d'analyse discriminante font appel, en plus d'autres méthodes, au
+calcul d'une telle corrélation canonique.</P>
+<H2 CLASS="western">Remarques et résumé</H2>
+<H6 CLASS="western">Discussion</H6>
+<P>L'analyse discriminante peut être vue comme un cas spécial
+d'analyse factorielle. Mais le but diffère: il s'agit de faire
+ressortir au maximum les différences entre des groupes mesurés dans
+un espace multidimensionnel, en projetant chaque cas dans l'espace
+unidimensionnel d'un petit nombre de fonctions linéaires
+orthogonales.</P>
+<P>Cette opération fait suite habituellement à celle de l'analyse
+de variance multivariée où, en présence d'une situation où
+plusieurs groupes sont mesurés sur plusieurs variables, on
+s'intéresse d'abord à déterminer s'il y a différence
+significative entre les groupes. Dans le cas de résultats positifs,
+il devient intéressant de déterminer, parmi les variables, celles
+qui sont responsables dans un ordre décroissant d'importance des
+différences entre les groupes: c'est le but de l'analyse
+discriminante. Une exploitation plus poussée des résultats conduit
+à leur utilisation dans le but de classifier (en se donnant comme
+objectif une probabilité minimum d'erreurs) des nouveaux sujets dans
+les divers groupes: l'étude de cette technique fait l'objet du
+chapitre suivant.</P>
+<P>Le rôle de l'analyse discriminante peut être envisagé de deux
+façons quant à l'attribution des qualificatifs d'indépendance et
+de dépendance, aux variables mesurées sur les populations visées
+et aux fonctions discriminantes. En sciences d'exploration, en
+général, les populations sont considérées comme variables
+indépendantes (predictor) et les fonctions discriminantes comme
+variables dépendantes (critères). En sciences expérimentales, ces
+rôles se trouvent renversés.</P>
+<P>L'analyse discriminante consiste donc à projeter dans un
+sous-espace approprie des échantillons de mesures
+multidimensionnelles. L'interprétation de cette opération peut être
+faite en termes (voir Cooley et Lohnes, p. 243) soit du nombre et de
+l'importance relative des fonctions discriminantes retenues, soit de
+la localisation dans l'espace discriminant des populations étudiées.</P>
+<P CLASS="msonormal"><BR><BR>
+</P>
+<HR WIDTH=262 ALIGN=LEFT SIZE=2>
+<DIV ID="ftn1" DIR="LTR">
+	<P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[1] </FONT><A HREF="#_ftnref1"><SPAN LANG="en-GB">Gilbert
+	A. Churchill, &quot;Marketing Research, Methodological Foundations&quot;,
+	5e Ed., Dryden Press, 1991. </SPAN></A>
+	</P>
+</DIV>
+<DIV ID="ftn2" DIR="LTR">
+	<P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[2] </FONT><A HREF="#_ftnref2">ibidem
+	</A>
+	</P>
+</DIV>
+<DIV ID="ftn3" DIR="LTR">
+	<P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[3] </FONT><A HREF="#_ftnref3">Hubert
+	Laforge &quot;Analyse multivariée pour les sciences sociales et
+	biologiques avec applications des logiciels BMP, BMDP, SPSS, SAS&quot;,
+	Ed. Etudes Vivantes, Montréal, 1981. </A>
+	</P>
+</DIV>
+<DIV ID="ftn4" DIR="LTR">
+	<P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[4] </FONT><A HREF="#_ftnref4">&nbsp;
+	les coefficients (poids) sont donnés par le vecteur propre qui
+	résulte de la résolution de l'équation: </A>
+	</P>
+	<P LANG="en-GB">(<B>W</B><SUP>-1</SUP><B>B</B> - <B>I</B>)<B>v</B> =
+	0,</P>
+	<P>où <B>W</B> est la matrice des variances-covariances
+	intra-groupes (<B>within</B> group) et <B>B </B>est la matrice des
+	sommes des carrées et produits croisés inter-groupes (<B>between</B>
+	group) 
+	</P>
+</DIV>
+<DIV ID="ftn5" DIR="LTR">
+	<P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[5] </FONT><A HREF="#_ftnref5">Vedrine
+	J.-P. &quot;Le traitement des données en marketing&quot;, Ed.
+	Organisation, Paris, 1991. </A>
+	</P>
+</DIV>
+<DIV ID="ftn6" DIR="LTR">
+	<P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[6] </FONT>
+	</P>
+</DIV>
+<DIV ID="ftn7" DIR="LTR">
+	<P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[7] </FONT>
+	</P>
+</DIV>
+<DIV ID="ftn8" DIR="LTR">
+	<P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[8]
+	</FONT><A HREF="#_ftnref8">Churchill, 91 </A>
+	</P>
+</DIV>
+<DIV ID="ftn9" DIR="LTR">
+	<P CLASS="msonormal"><FONT SIZE=1 STYLE="font-size: 8pt">[9] </FONT><A HREF="#_ftnref9">Hubert
+	Laforge &quot;Analyse multivariée pour les sciences sociales et
+	biologiques avec applications des logiciels BMP, BMDP, SPSS, SAS&quot;,
+	Ed. Etudes Vivantes, Montréal, 1981. </A>
+	</P>
+</DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,268 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf8">
+<title>Recherche Marketing et Analyse des données</title>
+<link href="../opencpu/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+<style>
+body {
+	padding-top: 60px;
+}
+</style>
+<link href="../opencpu/common.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap-hacks.css" rel="stylesheet"/>
+<link href="../opencpu/docs.css" rel="stylesheet"/>
+</head>
+
+<body bgcolor=white lang=FR>
+<!-- Some hidden elements that will be cloned when needed -->
+
+<div class="hidden">
+  <div class="httpfile"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls">
+            <input class="input-file realinputvalue" multiple type="file">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="httpparameter"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls"> 
+            <!-- <textarea class="input-xlarge realinputvalue" rows="2"></textarea>-->
+            <input type="text" class="input-xlarge realinputvalue" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of hidden stuff -->
+    	<!-- Top Navigation bar (the black one) -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="#"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="./slides2.htm">Home</a></li>
+						<li><a href="../slides_adintro/slides2.htm">Intro</a></li>
+						<li><a href="../slides_adunivarie/slides2.htm">Unviarie</a></li>
+						<li><a href="../slides_adbivarie/slides2.htm">Bivarie</a></li>
+						<li><a href="../slides_adacp/slides2.htm">ACP</a></li>
+						<li><a href="../slides_adtypo/slides2.htm">Cluster</a></li>
+						<li><a href="../slides_adadiscr/slides2.htm">Discrim</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="about.html">About</a></li>
+						<li><a href="support.html">Support</a></li>
+						<li><a href="/auth/login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <!-- subnav, mostly invisible -->
+	<div id="subnav" class="subnav subnav-fixed">
+		<ul class="nav nav-pills">
+			<li><a href="#intro">Intro</a></li>
+			<li><a href="#mgeom2v">MGeo2d</a></li>
+			<li><a href="#mgeom3v">MGeo3d</a></li>
+			<li><a href="#aplivoit">Appli</a></li>
+			<li><a href="#aidinterp">Aides</a></li>
+		<li><a href="#explrot">ExampleRot</a></li>
+			<li><a href="#remarques">Remarques</a></li>
+		</ul>
+	</div>
+
+
+    	<div class="container">
+        
+        		<div class="row">
+			<div class="span6">
+				<div class="page-header">
+					<h1>
+						Testing Tool <small>learn while playing...</small>
+					</h1>
+				</div>
+				<p>This side shows a little ajax tool that you can use to poke
+					around with the API. Simply select a method, endpoint and add some
+					parameters.</p>
+
+				<p>Your browser has multiple mechanisms to perform a HTTP
+					request. In most cases you want to do the request using Ajax, which
+					supports all methods. However, Ajax cannot be used for binary
+					streams (e.g. uploading files or displaying images). For those
+					cases you can use the form request method.</p>
+
+			</div>
+
+			<div class="span6">
+				<div class="page-header">
+					<h1>Text and Examples</h1>
+				</div>
+				<p>This side shows and overview and descriptions of the API.
+					However OpenCPU is best understood while by playing around with the
+					API.</p>
+
+				<p class="narrowblock">
+					<button data-example="example">Example button</button>
+					Whenever you see a red button like the one here, this indicates an
+					example demo. Clicking an example button will automatically fill
+					out the Testing tool and perform the request. Keep your eye on the
+					testing tool while running an example!
+				</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="toolkit" class="span6">
+				<form id="paramform" class="well" target="outputframe">
+					<fieldset>
+						<div class="row">
+								<div class="span0">
+								<div class="control-group">
+								  <label class="control-label" for="textvalue">Example</label>
+									<div class="controls">
+									  <textarea class="input-xxlarge realinputvalue" id="textvalue" value="Example text" rows="2">Example text</textarea>
+									</div>
+								</div>
+                             
+                             </div>   
+						<div id="tohide">
+                             
+							<div class="span1">
+								<div class="control-group">
+									<label class="control-label" for="httpmethod">Method</label>
+									<div class="controls">
+										<select class="input-small" id="httpmethod">
+											<option>GET</option>
+											<option>POST</option>
+											<option>PUT</option>
+											<option>DELETE</option>
+											<option>OPTIONS</option>
+											<option>HEAD</option>
+										</select>
+									</div>
+								</div>
+							</div>    
+							<div class="span4">
+								<div class="control-group">
+									<label class="control-label" for="urlvalue">Endpoint</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" id="urlvalue"
+											value="/R/pub">
+									</div>
+								</div>
+							</div>
+						</div>
+                        </div>       <!-- end tohide -->
+
+
+						<div id="allparameters">
+							<div class="row show-grid">
+								<div class="span2">
+									<div class="control-group">
+										<label class="control-label">Parameter Name</label>
+									</div>
+								</div>
+								<div class="span3">
+									<div class="control-group">
+										<label class="control-label">Parameter Value</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div align="left">
+							<button id="addprambutton" class="btn btn-primary">
+								<i class="icon-plus icon-white"></i> Add parameter
+							</button>
+							<button id="addfilebutton" class="btn btn-primary">
+								<i class="icon-file icon-white"></i> Add file
+							</button>
+						</div>
+
+						<br />
+
+						<div align="right">
+							<button id="submitblank" class="btn btn-success"
+								data-targetframe="_blank">
+								<i class="icon-share icon-white"></i> Popup
+							</button>
+							<button id="submitform" class="btn btn-success">
+								<i class="icon-share icon-white"></i> iFrame
+							</button>
+							<img src="spinner.gif" id="formspinner" />
+							<button id="submitajax" class="btn btn-success btn-large">
+								<i class="icon-download-alt icon-white"></i> Ajax request
+							</button>
+							<img src="spinner.gif" id="ajaxspinner" />
+						</div>
+					</fieldset>
+				</form>
+
+				<div id="errordiv"></div>
+
+				<div id="ajaxoutput">
+					<pre id="statuspre">0</pre>
+					<pre class="pre-scrollable prettyprint linenums" id="outputpre"></pre>
+					<pre class="pre-scrollable prettyprint linenums" id="headerpre"></pre>
+				</div>
+
+				<iframe name="outputframe" id="outputframe" class="input-xxlarge"></iframe>
+			</div>
+<div id="rightcolumndiv" class="span6">   
+		<div id="fullscreenwarning" class="alert alert-warning">
+					<a class="close" data-dismiss="alert">×</a> <strong>Viewer
+						tip!</strong> When viewing this page on a low resolution it might be useful
+					to enable full screen (F11) or to zoom out a bit (ctrl -) in order
+					to display the full testing tool.
+				</div>
+
+
+<H1 ALIGN=CENTER>Titre</H1>
+<H4 CLASS="western"><FONT FACE="Arial">Michel Calciu</FONT></H4>
+<H3 CLASS="western">Cours &agrave; l'Universit&eacute; de Lille 1 -
+2013/2014</H3>
+<section id="intro"><h2 CLASS="western">Titre section</H2>
+<H6 CLASS="western">Titre slide</H6>
+<P>paragraphe ...</P>
+</section>
+</div>		  <!-- end right -->
+</div><!-- end row -->
+</div> <!-- end continer -->
+<script src="../opencpu/jquery-1.7.2.min.js"></script> 
+<script src="../opencpu/bootstrap/js/bootstrap.js"></script> 
+<script src="../opencpu/common.js"></script> 
+<script src="../opencpu/docs.js"></script> 
+<script src="../opencpu/camip.js"></script> 
+<script src="slide-example.js"></script>
+</body>
+</html>
+</BODY>
+</HTML>

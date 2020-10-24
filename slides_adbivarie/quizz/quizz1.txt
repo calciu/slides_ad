@@ -1,0 +1,213 @@
+La dépense moyenne pour des achats par catalogue est de 927 pour les hommes et de 682 pour les femmes. L'ecart type chez les hommes est de 2381 et chez les femmes 2177. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#0.7252632:0.001} 
+//xa=927;xb=682;sa=2381;sb=2177;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 672 pour les hommes et de 219 pour les femmes. L'ecart type chez les hommes est de 591 et chez les femmes 131. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#1:0.001} 
+//xa=672;xb=219;sa=591;sb=131;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 977 pour les hommes et de 189 pour les femmes. L'ecart type chez les hommes est de 3021 et chez les femmes 498. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#0.9808755:0.001} 
+//xa=977;xb=189;sa=3021;sb=498;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 38 pour les hommes et de 536 pour les femmes. L'ecart type chez les hommes est de 75 et chez les femmes 1048. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#0.9998645:0.001} 
+//xa=38;xb=536;sa=75;sb=1048;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 741 pour les hommes et de 937 pour les femmes. L'ecart type chez les hommes est de 1350 et chez les femmes 2802. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#0.6873347:0.001} 
+//xa=741;xb=937;sa=1350;sb=2802;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 810 pour les hommes et de 68 pour les femmes. L'ecart type chez les hommes est de 616 et chez les femmes 63. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#1:0.001} 
+//xa=810;xb=68;sa=616;sb=63;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 878 pour les hommes et de 14 pour les femmes. L'ecart type chez les hommes est de 1616 et chez les femmes 15. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#0.9999918:0.001} 
+//xa=878;xb=14;sa=1616;sb=15;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 317 pour les hommes et de 357 pour les femmes. L'ecart type chez les hommes est de 1009 et chez les femmes 441. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#0.6142845:0.001} 
+//xa=317;xb=357;sa=1009;sb=441;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 40 pour les hommes et de 584 pour les femmes. L'ecart type chez les hommes est de 37 et chez les femmes 1540. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#0.9966624:0.001} 
+//xa=40;xb=584;sa=37;sb=1540;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 804 pour les hommes et de 269 pour les femmes. L'ecart type chez les hommes est de 2203 et chez les femmes 765. Quelle est la probabilité que la moyenne des femmes soit differente de celle des hommes {#0.9670824:0.001} 
+//xa=804;xb=269;sa=2203;sb=765;n=table(V44);pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 826 pour les hommes et de 585 pour les femmes. L'ecart type chez les hommes est de 1595 et chez les femmes 1322. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#0.1790303:0.001}
+//xa=826;xb=585;sa=1595;sb=1322;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 253 pour les hommes et de 342 pour les femmes. L'ecart type chez les hommes est de 722 et chez les femmes 982. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#0.2842771:0.001} 
+//xa=253;xb=342;sa=722;sb=982;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 977 pour les hommes et de 34 pour les femmes. L'ecart type chez les hommes est de 2787 et chez les femmes 65. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#0.003194668:0.001} 
+//xa=977;xb=34;sa=2787;sb=65;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+
+La dépense moyenne pour des achats par catalogue est de 377 pour les hommes et de 435 pour les femmes. L'ecart type chez les hommes est de 840 et chez les femmes 575. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#0.3256025:0.001} 
+//xa=377;xb=435;sa=840;sb=575;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 170 pour les hommes et de 34 pour les femmes. L'ecart type chez les hommes est de 224 et chez les femmes 90. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#3.237210e-06:0.001} 
+//xa=170;xb=34;sa=224;sb=90;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 276 pour les hommes et de 412 pour les femmes. L'ecart type chez les hommes est de 362 et chez les femmes 1014. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#0.1646958:0.001} 
+//xa=276;xb=412;sa=362;sb=1014;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 39 pour les hommes et de 480 pour les femmes. L'ecart type chez les hommes est de 74 et chez les femmes 1445. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#0.009605116:0.001} 
+//xa=39;xb=480;sa=74;sb=1445;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 136 pour les hommes et de 259 pour les femmes. L'ecart type chez les hommes est de 321 et chez les femmes 878. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#0.154772:0.001} 
+//xa=136;xb=259;sa=321;sb=878;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 845 pour les hommes et de 98 pour les femmes. L'ecart type chez les hommes est de 1817 et chez les femmes 77. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#0.000464386:0.001} 
+//xa=845;xb=98;sa=1817;sb=77;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+La dépense moyenne pour des achats par catalogue est de 441 pour les hommes et de 335 pour les femmes. L'ecart type chez les hommes est de 1397 et chez les femmes 588. Quelle est la probabilité qu'il n'y ait pas de différence entre la moyenne des femmes et celle des hommes {#0.2878881:0.001} 
+//xa=441;xb=335;sa=1397;sb=588;n=table(V44);1-pnorm(abs(xa-xb)/sqrt(sa*sa/n[1]+sb*sb/n[2]))
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 36 hommes qui ne sont pas disponibles et 19 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#18.94759:0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=36;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=19;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 31 hommes qui ne sont pas disponibles et 8 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#17.27775 :0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=31;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=8;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 27 hommes qui ne sont pas disponibles et 24 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#7.979495 :0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=27;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=24;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 10 hommes qui ne sont pas disponibles et 29 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#37.2445 :0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=10;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=29;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 24 hommes qui ne sont pas disponibles et 16 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#3.156775 :0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=24;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=16;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 33 hommes qui ne sont pas disponibles et 11 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#9.912226 :0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=33;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=11;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 34 hommes qui ne sont pas disponibles et 17 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#9.342687 :0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=34;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=17;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 20 hommes qui ne sont pas disponibles et 22 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#5.292765 :0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=20;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=22;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 14 hommes qui ne sont pas disponibles et 21 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#22.14923 :0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=14;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=21;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 2 (disponibilité d'acheter par le catalgue CAMIP) et 27 (être homme où femme). Il y a 17 hommes qui ne sont pas disponibles et 29 hommes qui sont éventuellement disponibles de d'acheter chez CAMIP. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#20.01647:0.001} 
+//xt=xtabs(~V3+V44);tc=table(V44);tl=table(V3);xt[1,1]=17;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=29;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 34 hommes qui n'ont jamais acheté par catalogue et 19 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#22.03608:0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=34;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=19;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 33 hommes qui n'ont jamais acheté par catalogue et 15 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#15.64938 :0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=33;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=15;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 18 hommes qui n'ont jamais acheté par catalogue et 19 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#5.554525 :0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=18;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=19;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 21 hommes qui n'ont jamais acheté par catalogue et 28 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#9.546493 :0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=21;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=28;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 27 hommes qui n'ont jamais acheté par catalogue et 19 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#2.937101 :0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=27;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=19;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 22 hommes qui n'ont jamais acheté par catalogue et 16 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#4.428283 :0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=22;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=16;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 22 hommes qui n'ont jamais acheté par catalogue et 29 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#13.68806 :0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=22;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=29;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 19 hommes qui n'ont jamais acheté par catalogue et 17 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#7.043828 :0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=19;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=17;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 30 hommes qui n'ont jamais acheté par catalogue et 6 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#31.29142 :0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=30;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=6;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+Supposons que suite au croisement des questions 3 (avoir acheté par catalogue) et 27 (être homme où femme). Il y a 33 hommes qui n'ont jamais acheté par catalogue et 18 hommes qui avait déjà acheté mais pas cette année. Quelle est la valeur du Chi2 pour le tableau qui résulte de ce croisement? {#16.94912:0.001} 
+//xt=xtabs(~V4+V44);tc=table(V44);tl=table(V4);xt[1,1]=33;xt[1,2]=tl[1]-xt[1,1];xt[2,1]=18;xt[2,2]=tl[2]-xt[2,1];xt[3,]=tc-as.vector(c(1,1)%*%xt[1:2,1:2]);chisq.test(xt, correct=FALSE)[1] 
+
+La proportion des hommes qui achetent par catalogue est de 0.4 et celle des femmes est de 0.418 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.580682:0.001} 
+//pa=0.4;pb=0.418;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.75 et celle des femmes est de 0.84 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.8915785 :0.001} 
+//pa=0.75;pb=0.84;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.01 et celle des femmes est de 0.071 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.9600938 :0.001} 
+//pa=0.01;pb=0.071;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.65 et celle des femmes est de 0.706 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.7472285 :0.001} 
+//pa=0.65;pb=0.706;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.73 et celle des femmes est de 0.769 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.6914357 :0.001} 
+//pa=0.73;pb=0.769;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.22 et celle des femmes est de 0.289 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.8113466 :0.001} 
+//pa=0.22;pb=0.289;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.54 et celle des femmes est de 0.558 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.5797116 :0.001} 
+//pa=0.54;pb=0.558;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.24 et celle des femmes est de 0.323 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.8481658 :0.001} 
+//pa=0.24;pb=0.323;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.91 et celle des femmes est de 0.935 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.6978135 :0.001} 
+//pa=0.91;pb=0.935;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.12 et celle des femmes est de 0.202 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative optimiste) ? {#0.8938038:0.001} 
+//pa=0.12;pb=0.202;n=table(V44);p=(n[1]*pa+n[2]*pb)/(n[1]+n[2]);pnorm(abs(pa-pb)/sqrt(p*(1-p)*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.4 et celle des femmes est de 0.418 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.5793398  :0.001} 
+//pa=0.4;pb=0.418;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.75 et celle des femmes est de 0.84 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.8415923 :0.001} 
+//pa=0.75;pb=0.84;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.01 et celle des femmes est de 0.071 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.7512636 :0.001} 
+//pa=0.01;pb=0.071;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.65 et celle des femmes est de 0.706 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.7333115 :0.001} 
+//pa=0.65;pb=0.706;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.73 et celle des femmes est de 0.769 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.6677748 :0.001} 
+//pa=0.73;pb=0.769;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.22 et celle des femmes est de 0.289 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.7785934 :0.001} 
+//pa=0.22;pb=0.289;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.54 et celle des femmes est de 0.558 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.5793398 :0.001} 
+//pa=0.54;pb=0.558;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.24 et celle des femmes est de 0.323 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.8220397 :0.001} 
+//pa=0.24;pb=0.323;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.91 et celle des femmes est de 0.935 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.6095177 :0.001} 
+//pa=0.91;pb=0.935;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+La proportion des hommes qui achetent par catalogue est de 0.12 et celle des femmes est de 0.202 . quelle est la probabilité que la proportion des femmes soit differente de celle des hommes (altervative pessimiste) ? {#0.8191272:0.001} 
+//pa=0.12;pb=0.202;n=table(V44);p=.5;pnorm(abs(pa-pb)/sqrt(.25*(1/n[1] +1/n[2])))
+
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 2,6,7,4,3,5,8,1. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.04761905  :0.001} 
+//r1=c(2,6,7,4,3,5,8,1);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))
+//r1=sample(1:n) …
+ 
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 2,6,7,5,8,3,4,1. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.3095238 :0.001} 
+//r1=c(2,6,7,5,8,3,4,1);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 3,5,6,4,1,7,2,8. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#0.2380952 :0.001} 
+//r1=c(3,5,6,4,1,7,2,8);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 2,8,7,6,1,3,5,4. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.2142857 :0.001} 
+//r1=c(2,8,7,6,1,3,5,4);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 6,1,4,5,7,2,3,8. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#0.2380952 :0.001} 
+//r1=c(6,1,4,5,7,2,3,8);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 8,2,6,4,7,3,1,5. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.3809524 :0.001} 
+//r1=c(8,2,6,4,7,3,1,5);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 8,6,3,7,2,1,5,4. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.5238095 :0.001} 
+//r1=c(8,6,3,7,2,1,5,4);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 7,3,2,1,5,4,8,6. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#0.3333333 :0.001} 
+//r1=c(7,3,2,1,5,4,8,6);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 4,6,3,8,5,7,2,1. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.3809524 :0.001} 
+//r1=c(4,6,3,8,5,7,2,1);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 7,5,6,1,8,2,3,4. Quel est le coefficient de correlation des rangs de Spearman entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.4285714:0.001} 
+//r1=c(7,5,6,1,8,2,3,4);n=length(r1);r0=1:n;d2=(r1-r0)^2;1-6*sum(d2)/(n*(n^2-1))

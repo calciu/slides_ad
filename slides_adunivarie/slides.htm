@@ -1,0 +1,848 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+<TITLE>Collecte des données, analyse univariée et bivariée</TITLE>
+<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.0  (Linux)">
+<META NAME="CREATED" CONTENT="0;0">
+<META NAME="CHANGED" CONTENT="20100409;11555800">
+<META NAME="Info 3" CONTENT="">
+<META NAME="Info 4" CONTENT="">
+<STYLE TYPE="text/css">
+<!--
+TD P {
+	color: #000000
+}
+H1 {
+	color: #000000
+}
+P {
+	color: #000000
+}
+H4 {
+	color: #000000
+}
+H3 {
+	color: #000000
+}
+H2 {
+	color: #000000
+}
+H6 {
+	color: #000000
+}
+A:link {
+	color: #0000ff
+}
+A:visited {
+	color: #0000ff
+}
+-->
+</STYLE>
+<link href="../opencpu/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+<style>
+body {padding-top: 60px;}
+</style>
+<link href="../opencpu/common.css" rel="stylesheet"/>
+<link href="../opencpu/bootstrap-hacks.css" rel="stylesheet"/>
+<link href="../opencpu/docs.css" rel="stylesheet"/>
+</HEAD>
+<BODY LANG="fr-FR" TEXT="#000000" LINK="#0000ff" VLINK="#0000ff" BGCOLOR="#ffffff" DIR="LTR">
+<!-- Some hidden elements that will be cloned when needed -->
+<div class="hidden">
+  <div class="httpfile"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls">
+            <input class="input-file realinputvalue" multiple type="file">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="httpparameter"> <a class="close">&times;</a>
+    <div class="row show-grid">
+      <div class="span2">
+        <div class="control-group">
+          <div class="controls">
+            <input type="text" class="input-medium fakeinputname" value="">
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="control-group">
+          <div class="controls"> 
+            <!-- <textarea class="input-xlarge realinputvalue" rows="2"></textarea>-->
+            <input type="text" class="input-xlarge realinputvalue" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of hidden stuff -->
+
+<H1><FONT FACE="Arial">Analyses univariées</FONT></H1>
+<H4><A NAME="0001"></A><FONT FACE="Arial">Michel Calciu </FONT> </H4>
+<H3>Cours à l'Université de Lille 1 - &nbsp;2018/2019</H3>
+<H2><A NAME="0051"></A><A NAME="0101"></A><FONT FACE="Arial">Statistiques
+  descriptives &gt; </FONT>Données quantitatives &gt; <U>Mesures de
+  position (de tendance centrale)</U></H2>
+<H6><A NAME="0151"></A><FONT FACE="Symbol">·</FONT>&nbsp; Moyenne
+  (arithmétique) </H6>
+<P class="narrowblock">La moyenne d'une série statistique de n observations est le
+  quotient de leur somme par leur nombre. </P>
+<P ALIGN=CENTER class="narrowblock"><img src="images/slides_htm_m68d49361.gif" NAME="Objet1" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=102 HEIGHT=55> Unde k reprezinta coloana iar i linia sau observatia (1) <br/>
+  <button data-example="diffmeanmissingCamipW">Moyennes et Valeurs manquantes Camip</button>
+  <br/>
+  <button data-example="meanCamipW">Moyene Camip</button>
+</P>
+<H6><A NAME="020"></A><FONT FACE="Symbol">·</FONT>&nbsp; Médiane </H6>
+<P class="narrowblock">La valeur d'une série statistique pour laquelle le nombre
+  d'observations inférieures ou supérieures à cette valeur sont
+  égal. La détermination de la médiane nécessite le classement de
+  la série par ordre de grandeur (croissante ou décroissante). S'il y
+  a n = 2p + 1 observations celui de rang p+1 sera la médiane. Si par
+  contre n = 2p observations toute valeur comprise entre celle de rang
+  p et celle de rang p+1 peut convenir comme médiane. Mesures
+  appariées <B>quantile</B>, <B>quartiles</B>(quantile d'ordre 4, Q1,
+  Q2 et Q3) et <B>déciles</B>, <B>centile</B>. </P>
+<H6><FONT FACE="Symbol">·</FONT>&nbsp; Mode</H6>
+<P CLASS="narrowblock">Le mode est la valeur la plus souvent rencontrée
+  d'une série statistique </P>
+<H2><U>Mesures de dispersion</U></H2>
+<H6>Definition</H6>
+<P CLASS="narrowblock">Les indicateurs de dispersion ont pour objet de
+  mesurer la plus ou moins grande concentration des valeurs autour de
+  leur tendance centrale. </P>
+<H6><A NAME="030"></A><FONT FACE="Symbol">·</FONT>&nbsp; <SPAN STYLE="font-weight: normal">Etendue
+  (Range)</SPAN> </H6>
+<P class="narrowblock">La différence entre la valeur maximum et minimum d'une série.
+  Est l'intervalle qui sépare les deux valeurs extrêmes </P>
+<H6><A NAME="035"></A><FONT FACE="Symbol">·</FONT>&nbsp; <SPAN STYLE="font-weight: normal">Ecart
+  moyen</SPAN> </H6>
+<P class="narrowblock">est la moyenne des valeurs absolues des écarts par rapport à la
+  moyenne; </P>
+<H6><A NAME="040"></A><FONT FACE="Symbol">·</FONT>&nbsp; <SPAN STYLE="font-weight: normal">Dispersion
+  ou variation totale</SPAN> </H6>
+<P class="narrowblock">Est la somme des carrés des écarts par rapport à la moyenne : </P>
+<P ALIGN=CENTER class="narrowblock"><img src="images/slides_htm_6605f292.gif" NAME="Objet2" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=190 HEIGHT=29><SUP> </SUP>(2) </P>
+<H6><A NAME="0451"></A><FONT FACE="Symbol">·</FONT>&nbsp; <SPAN STYLE="font-weight: normal">Variance</SPAN> </H6>
+<P class="narrowblock">Est la moyenne des carrés des écarts par rapport à la moyenne : </P>
+<P ALIGN=CENTER class="narrowblock"><img src="images/slides_htm_5ce34c2d.gif" NAME="Objet3" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=55 HEIGHT=26> = <SUP> <img src="images/slides_htm_m67f86420.gif" NAME="Objet4" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=31 HEIGHT=29></SUP> = <img src="images/slides_htm_c8ec72.gif" NAME="Objet5" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=122 HEIGHT=55>= <img src="images/slides_htm_m746d6ccf.gif" NAME="Objet6" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=68 HEIGHT=52> (3) </P>
+<P class="narrowblock">Si la moyenne a été obtenue sur <I>échantillon</I>, un degré
+  de liberté a été consommé pour le calcul de cette moyenne et la
+  variance devient </P>
+<P ALIGN=CENTER class="narrowblock"><img src="images/slides_htm_m60458e3f.gif" NAME="Objet7" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=55 HEIGHT=26> <SPAN LANG="nl-NL">= </SPAN><SUP><SPAN LANG="nl-NL"> <img src="images/slides_htm_m59afc777.gif" NAME="Objet8" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=26 HEIGHT=29></SPAN></SUP><SPAN LANG="nl-NL"> = <img src="images/slides_htm_m3d019c36.gif" NAME="Objet9" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=122 HEIGHT=55>= <img src="images/slides_htm_m7511a5b6.gif" NAME="Objet10" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=68 HEIGHT=52> (4) </SPAN> </P>
+<H6><A NAME="050"></A><FONT FACE="Symbol">·</FONT>&nbsp; <SPAN STYLE="font-weight: normal">Ecart
+  type</SPAN></H6>
+<P CLASS="narrowblock">Est la racine carrée de la variance : dans le
+  cas d'un calcul sur échantillon : </P>
+<P ALIGN=CENTER class="narrowblock"><img src="images/slides_htm_md9cb642.gif" NAME="Objet11" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=43 HEIGHT=26> <SPAN LANG="nl-NL">= <img src="images/slides_htm_m304da25d.gif" NAME="Objet12" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=25 HEIGHT=26> = <img src="images/slides_htm_m378c5575.gif" NAME="Objet13" ALIGN=ABSMIDDLE HSPACE=10 WIDTH=149 HEIGHT=60></SPAN><SUP><SPAN LANG="nl-NL"> (5)</SPAN></SUP> </P>
+<H2>Données qualitatives</H2>
+<H6>Definition</H6>
+<P CLASS="narrowblock">Des données qualitatives apparaissent chaque
+  fois que la personne interrogée a le choix entre plusieurs modalités
+  qui lui sont proposées explicitement ou implicitement (dans le cas
+  d'une question ouverte avec post-codification). </P>
+<H6><A NAME="060"></A><FONT FACE="Symbol">·</FONT>&nbsp; <SPAN STYLE="font-weight: normal">La
+  fréquence et la proportion</SPAN> </H6>
+<P class="narrowblock">Pour chaque individu, la réponse correspond à un code ou
+  éventuellement à plusieurs si le choix est multiple (voir
+  questionnaire CAMIP). Sur l'ensemble de la population enquêté, on
+  dénombrera alors le nombre de fois qu'un code j donné est apparu
+  pour la variable k étudiée : ceci indique la fréquence absolue <B>N</B><SUB><B>jk</B></SUB> de la modalité. Si cette fréquence absolue est rapportée aux N
+  personnes considérées, on obtient la fréquence relative de la
+  modalité </P>
+<P class="narrowblock">p<SUB>jk</SUB> = N<SUB>jk</SUB>/N (6) </P>
+<H6><A NAME="065"></A><FONT FACE="Symbol">·</FONT>&nbsp; <SPAN STYLE="font-weight: normal">Variance
+  et écart type d'une proportion</SPAN> </H6>
+<P CLASS="narrowblock">Pour une modalité donnée, la fréquence
+  relative joue un rôle similaire à celui de la moyenne pour les
+  variables quantitatives. Des Indicateurs de dispersion sont également
+  disponibles. Dans la mesure ou un individu a choisi ou non une
+  modalité donnée, on a affaire à un processus binomial. Il est donc
+  possible d'associer une variance et un écart type à chaque modalité
+  d'une variable qualitative : </P>
+<P class="narrowblock" LANG="nl-NL">VAR(jk) = (p<SUB>jk</SUB>) (1 - p<SUB>jk</SUB>)/N (7) </P>
+<P class="narrowblock" LANG="nl-NL">ET(jk) = [(p<SUB>jk</SUB>) (1 - p<SUB>jk</SUB>)/N]<SUP>1/2 </SUP>(8) </P>
+<P class="narrowblock">On constate que ces indicateurs sont d'autant plus faibles que p<SUB>jk</SUB> est proche de 1 ou de 0. Dans les deux cas, cela signifie que les
+  réponses sont très concentrées, soit sur la modalité j, soit sur
+  l'ensemble des autres modalités. </P>
+<H2><A NAME="070"></A>Données ordinales</H2>
+<H6>Nature</H6>
+<P CLASS="narrowblock">Les données ordinales sont plus difficiles à
+  présenter que les autres catégories de données. Comme on l'a vu,
+  il s'agit de données concernant des rangs de préférence ou de
+  similarité. </P>
+<P class="narrowblock">On notera que la notion de rang moyen n'a pas de signification, le
+  passage d'un rang au suivant ne correspondant généralement pas a
+  une variation d'intensité de préférence constante. </P>
+<H6>Quelques mesures</H6>
+<P class="narrowblock">Si l'on prend le cas des préférences, pour chaque individu, on
+  disposera d'un classement des m items proposés. Sur l'ensemble de la
+  population interrogée, il sera ainsi possible de comptabiliser : </P>
+<P CLASS="narrowblock"><A NAME="075"></A><FONT FACE="Symbol">·</FONT>&nbsp; <B>fonction</B> <B>de répartition des rangs</B> </P>
+<P class="narrowblock">- le nombre de fois qu'un item donné a été classé en 1<SUP>re</SUP> position, en 2<SUP>e</SUP>.., en m<SUP>e</SUP> ; </P>
+<P CLASS="narrowblock"><A NAME="080"></A><FONT FACE="Symbol">·</FONT>&nbsp; <B>matrice de préférences.</B> - le nombre de fois qu'un item donné
+  a été classé avant un autre item; </P>
+<H2><A NAME="085"></A><A NAME="090"></A>Les intervalles de confiance:
+  données quantitatives</H2>
+<H6>Population, échantillons et distribution d'échantillonnage</H6>
+<P CLASS="narrowblock">Dans la plupart des cas, une enquête ne portera
+  que sur un échantillon extrait de la population étudiée. On aura
+  alors à déduire des résultats obtenus sur échantillon les
+  valeurs, c'est-à-dire celles qui seraient disponibles si l'ensemble
+  de la population était connue. </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1029"></A><IMG SRC="slides_fichiers/Image425.gif" NAME="images5" ALIGN=BOTTOM WIDTH=313 HEIGHT=383 BORDER=0></P>
+<P ALIGN=CENTER class="narrowblock"><FONT SIZE=1 STYLE="font-size: 7pt"><B>Figure 7 -
+  Population, échantillons et distribution d'échantillonnage</B></FONT> </P>
+<H6><A NAME="095"></A><U>Théorème Central Limit</U></H6>
+<P CLASS="narrowblock"><A NAME="_x0000_i1030"></A>Quand on tire des
+  échantillons de dimension <B>n</B> d'une population à moyenne <B>µ</B> et variance <FONT FACE="Symbol"><B>s</B></FONT><SUP><B>2 </B></SUP>pour
+  des <B>n</B> grands la <B>moyenne des échantillons</B> sera
+  distribuée approximativement normalement avec une moyenne égale à <B>µ</B> et une variance&nbsp;<IMG SRC="slides_fichiers/Image426.gif" NAME="images6" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0><SUP>2</SUP>égale
+  à <FONT FACE="Symbol"><B>s</B></FONT><SUP><B>2</B></SUP><B>/</B>n </P>
+<P class="narrowblock">Comme <FONT FACE="Symbol"><B>s</B></FONT> est inconnu on l'estime
+  à partir de s: </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1031"></A><A NAME="_x0000_i1032"></A><A NAME="_x0000_i1033"></A> <IMG SRC="slides_fichiers/Image426.gif" NAME="images7" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0><FONT FACE="Symbol">»<IMG SRC="slides_fichiers/Image427.gif" NAME="images8" ALIGN=BOTTOM WIDTH=20 HEIGHT=24 BORDER=0></FONT> =&nbsp;<IMG SRC="slides_fichiers/Image428.gif" NAME="images9" ALIGN=BOTTOM WIDTH=93 HEIGHT=66 BORDER=0> (9) </P>
+<H6>Ajustements pour échantillons exhaustifs</H6>
+<P class="narrowblock">Pour des échantillons exhaustifs quand n/N &lt; 1/7 </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1034"></A><IMG SRC="slides_fichiers/Image429.gif" NAME="images10" ALIGN=BOTTOM WIDTH=99 HEIGHT=40 BORDER=0>(10) </P>
+<H6>Distribution normale d'une variable centrée et réduite</H6>
+<P class="narrowblock">Distribution normale d'une variable centrée et réduite Z (m=0 et
+  ET = 1) <BR>
+&nbsp; </P>
+<TABLE WIDTH=284 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+  <TR VALIGN=TOP>
+    <TD WIDTH=7%><P CLASS="narrowblock" ALIGN=RIGHT>-3,5&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock" ALIGN=RIGHT>-3&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock" ALIGN=RIGHT>-2,5&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock" ALIGN=RIGHT>-2&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock" ALIGN=RIGHT>-1,5&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock" ALIGN=RIGHT>-1&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock" ALIGN=RIGHT>-0,5&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,5&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">1&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">1,5&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">2&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">2,5&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">3&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">3,5&nbsp;</P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,00&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,00&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,02&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,05&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,13&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,24&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,35&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,40&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,35&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,24&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,13&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,05&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,02&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,00&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,00&nbsp;</P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,00&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,00&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,01&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,02&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,07&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,16&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,31&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,50&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,69&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,83&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,93&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,97&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">0,99&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">1,00&nbsp;</P></TD>
+    <TD WIDTH=7%><P CLASS="narrowblock">1,00&nbsp;</P></TD>
+  </TR>
+</TABLE>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1035"></A><IMG SRC="slides_fichiers/Image430.gif" NAME="images11" ALIGN=BOTTOM WIDTH=300 HEIGHT=145 BORDER=0></P>
+<P ALIGN=CENTER class="narrowblock"><FONT SIZE=1 STYLE="font-size: 7pt"><B>Figure 9 - La
+  distribution normale</B></FONT> </P>
+<H6><A NAME="100"></A><FONT FACE="Symbol">·</FONT>&nbsp; <U>a)
+  Détermination de l'intervalle de confiance</U> </H6>
+<P class="narrowblock">La population totale est de taille <B>N</B>; la valeur vraie de la
+  moyenne de la variable analysée est <B>µ</B>, et son écart type <FONT FACE="Symbol"><B>s</B></FONT><I>. </I>Ces deux valeurs <B>µ</B> et <FONT FACE="Symbol"><B>s</B></FONT> sont inconnues, mais sur l'échantillon de taille <B>n</B>, une
+  moyenne et un écart-type <B>s</B> ont été repérés (cf. graphique
+  1). Il s'agit de déduire <B>µ</B> et <FONT FACE="Symbol"><B>s</B></FONT> de ces valeurs et <B>s</B>. </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1036"></A><IMG SRC="slides_fichiers/Image431.gif" NAME="images12" ALIGN=BOTTOM WIDTH=250 HEIGHT=170 BORDER=0></P>
+<P ALIGN=CENTER class="narrowblock"><FONT SIZE=1 STYLE="font-size: 7pt"><B>Figure 10:
+  Caractéristiques de la population totale et de l'échantillon</B></FONT> </P>
+<P class="narrowblock">Cette déduction suit des règles simples issues de la théorie
+  des sondages, dans la mesure où les hypothèses suivantes sont
+  respectées : </P>
+<P class="narrowblock">- les éléments de l'échantillon ont été sélectionnés de
+  manière aléatoire; </P>
+<P class="narrowblock">- l'échantillon est non exhaustif (n/N &lt; 1/7) </P>
+<P class="narrowblock">- l'échantillon comprend au moins 30 individus. </P>
+<P class="narrowblock"><A NAME="_x0000_i1037"></A>Dans ces conditions, on montre que les
+  moyennes d'échantillon suivent une loi normale de moyenne <B>µ</B> et d'écart type&nbsp;<IMG SRC="slides_fichiers/Image426.gif" NAME="images13" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0>,
+  avec : </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1038"></A><IMG SRC="slides_fichiers/Image426.gif" NAME="images14" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0>= <FONT FACE="Symbol"><B>s /</B></FONT><FONT FACE="Times New Roman"><SPAN STYLE="font-weight: normal">(</SPAN></FONT>n<SUP>1/2</SUP>) </P>
+<P class="narrowblock">Comme <FONT FACE="Symbol"><B>s</B></FONT> est inconnu, il est
+  estimé à partir de <B>s</B> : </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1039"></A><A NAME="_x0000_i1040"></A><A NAME="_x0000_i1041"></A> <IMG SRC="slides_fichiers/Image426.gif" NAME="images15" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0><FONT FACE="Symbol"><B>»<IMG SRC="slides_fichiers/Image427.gif" NAME="images16" ALIGN=BOTTOM WIDTH=20 HEIGHT=24 BORDER=0></B></FONT> = [<FONT FACE="Symbol">S</FONT>(X -<IMG SRC="slides_fichiers/Image433.gif" NAME="images17" ALIGN=BOTTOM WIDTH=18 HEIGHT=20 BORDER=0>)<SUP>2</SUP>/(n
+  - 1)]<SUP>l/2</SUP> </P>
+<P class="narrowblock">Si l'on désire travailler avec un seuil de confiance 1-<FONT FACE="Symbol">a</FONT>,
+  un intervalle de confiance pour la moyenne <B>µ</B> est obtenu à
+  l'aide de l'expression: </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1042"></A><A NAME="_x0000_i1043"></A> <B>µ</B> =&nbsp;<IMG SRC="slides_fichiers/Image433.gif" NAME="images18" ALIGN=BOTTOM WIDTH=18 HEIGHT=20 BORDER=0><FONT FACE="Symbol">±</FONT> z<SUB><FONT FACE="Symbol">a</FONT></SUB><SUB>/2</SUB><IMG SRC="slides_fichiers/Image426.gif" NAME="images19" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0> (11) </P>
+<P class="narrowblock">où z<SUB><FONT FACE="Symbol">a</FONT></SUB><SUB>/2</SUB> est la
+  valeur lue dans la table de la loi normale réduite pour une
+  probabilité (1 - <FONT FACE="Symbol">a</FONT>/2). Il y a ainsi une
+  probabilité (1 - <FONT FACE="Symbol">a</FONT>) que la valeur
+  recherchée se situe dans cette fourchette. </P>
+<button data-example="iconfW">Interv Conf</button>
+
+<H6>Exemple</H6>
+<P class="narrowblock">Exemple</P>
+<P class="narrowblock">L'association des étudiants d'une université envisage d'ouvrir
+  un ciné-club; afin d'en évaluer la fréquentation, elle a réalisé
+  une enquête par sondage sur un échantillon de 400 individus. <BR>
+  Une
+  moyenne de fréquentation de 10 séances par an et par individu a été
+  obtenue avec un écart type s = 20. Au seuil de confiance (1 - a) =
+  95 % l'intervalle de confiance est: <BR>
+  µ = 10 <FONT FACE="Symbol">±</FONT> (1,96) (20/(400)<SUP>1/2</SUP>) = 10 <FONT FACE="Symbol">±</FONT> 1,96 <BR>
+  Il a 95 chances sur 100 de se situer dans la fourchette
+  [11,96: 8,04]. Si l'université comprend 5000 étudiants, une
+  fréquentation globale de 50 000 places peut être attendue en
+  moyenne; la fréquentation globale a 95 % de chances de se situer
+  dans l'intervalle [59800: 40200]. </P>
+<H6><A NAME="105"></A><A NAME="110"></A><U>Cas particulier: </U>Echantillon exhaustif</H6>
+<P CLASS="narrowblock">1- Dans le cas d'un <I>échantillon exhaustif</I>,
+  c'est-à-dire avec n &gt; N/7, l'écart type <FONT FACE="Symbol"><B>s</B></FONT>,
+  des moyennes d'échantillons doit être corrigé par le facteur
+  d'exhaustivité [(N - n)/(N - 1)]1/2. L'intervalle de confiance
+  devient alors : </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1044"></A><A NAME="_x0000_i1045"></A> <B>µ</B> =&nbsp;<IMG SRC="slides_fichiers/Image433.gif" NAME="images20" ALIGN=BOTTOM WIDTH=18 HEIGHT=20 BORDER=0><FONT FACE="Symbol">±</FONT> z<SUB><FONT FACE="Symbol">a</FONT></SUB><SUB>/2</SUB><IMG SRC="slides_fichiers/Image426.gif" NAME="images21" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0>[(N
+  - n)/(N - 1)]<SUP>l/2 </SUP>(12) </P>
+<P class="narrowblock">On remarque que si n est faible par rapport à N, (N - n)/(N - 1)
+  est proche de 1. Au contraire, si n est grand par rapport à N, (N -
+  n)/(N - 1) est proche de 0; à la limite, pour n = N, µ = . </P>
+  <button data-example="iconfexhW">Interv Conf Exh</button>
+<H6 LANG="de-DE">Exemple</H6>
+<P class="narrowblock" LANG="de-DE">E<BR>
+  x<BR>
+  e<BR>
+  m<BR>
+  p<BR>
+  l<BR>
+  e</P>
+<P class="narrowblock">Dans l'exemple précédent, supposons que l'université considérée
+  ne comporte que 2 000 étudiants au total. L'échantillon de 400
+  personnes prélevé par l'association des étudiants doit donc être
+  qualifié d'exhaustif, et il faut utiliser le facteur de correction,
+  égal ici à [(2 000 - 400)/(2 000 - 1 )] = 0,80. <BR>
+  Au seuil de
+  confiance (1 - <FONT FACE="Symbol">a</FONT>) = 95 %, l'intervalle de
+  confiance devient: <BR>
+  µ = 10 <FONT FACE="Symbol">±</FONT> (1,96)
+  (20/) (0,80)<SUP>1/2</SUP>= 10 <FONT FACE="Symbol">±</FONT> 1,74 µ
+  a 95 chances sur 100 de se situer dans la fourchette [11,74: 8,26]. </P>
+<H6><A NAME="115"></A><U>Cas particulier: </U>Petit échantillon</H6>
+<P CLASS="narrowblock">2 - Dans le cas d'un <I>petit échantillon</I>,
+  avec n &lt; 30, et lorsque <FONT FACE="Symbol"><B>s</B></FONT> est
+  estimé, les moyennes d'échantillons ne sont plus répartis autour
+  de la moyenne vraie selon une loi normale, mais selon une <I><B>loi
+  de Student</B></I> à n - 1 degrés de liberté. Dans la formule
+  (1l), z<SUB><FONT FACE="Symbol">a</FONT></SUB><SUB>/2</SUB> est alors
+  remplacé par t<SUB><FONT FACE="Symbol">a</FONT></SUB><SUB>/2</SUB>,
+  lu sur la table de Student pour n -1 degrés de liberté et un seuil
+  de confiance (1 - <FONT FACE="Symbol">a</FONT>). </P>
+     <button data-example="iconfpetitW">Interv Conf Petit</button>
+
+<H6 LANG="de-DE">Exemple</H6>
+<P class="narrowblock" LANG="de-DE">E<BR>
+  x<BR>
+  e<BR>
+  m<BR>
+  p<BR>
+  l<BR>
+  e</P>
+<P class="narrowblock">Au lieu d'utiliser un échantillon de 400 personnes, L'association
+  des étudiants s'est limitée à 21 interviews. La moyenne
+  d'échantillon (15) suit une loi de Student à 20 degrés de liberté.
+  Dans la mesure où l'écart type repéré sur l'échantillon s'élève
+  à 20, au seuil de confiance de 95 %, t = 2,086 et l'intervalle de
+  confiance devient alors: <BR>
+  µ= 15 <FONT FACE="Symbol">±</FONT> (2,086) (20/(400-1)<SUP>1/2</SUP>) = 15 <FONT FACE="Symbol">±</FONT> 9,10 à 95 chances sur 100 de se situer dans la fourchette [5,89:
+  24,10]. </P>
+     <button data-example="iconfCamipW">Interv Conf Camip</button>
+
+<H2><A NAME="120"></A>Les intervalles de confiance: données
+  qualitatives</H2>
+<H6>Particularites</H6>
+<P CLASS="narrowblock">Dans le cas de variables qualitatives, la
+  problématique de la prévision des valeurs réelles se pose dans les
+  mêmes termes que pour les variables quantitatives, mais maintenant,
+  il s'agit de fréquences d'apparition de modalités et non plus de
+  moyennes. </P>
+<P class="narrowblock">La population totale est de taille N; la valeur vraie de la
+  fréquence de la modalité analysée est <FONT FACE="Symbol">p</FONT>.
+  Sur l'échantillon de taille n, une proportion p a été trouvée. </P>
+<H6>Analogies</H6>
+<P class="narrowblock">On montre que les proportions lues sur les échantillons suivent
+  une loi normale de moyenne <FONT FACE="Symbol">p</FONT> et d'écart
+  type <FONT FACE="Symbol">s</FONT><SUB>p</SUB> = [p(l - p)/n]<SUP>l/2</SUP>. </P>
+<P class="narrowblock">Au seuil de risque <FONT FACE="Symbol">a</FONT>, l'intervalle de
+  confiance est obtenu par l'expression : </P>
+<P ALIGN=CENTER class="narrowblock"><FONT FACE="Symbol">p</FONT> = p <FONT FACE="Symbol">±</FONT> z<SUB><FONT FACE="Symbol">a</FONT></SUB><SUB>/2</SUB>.[p(1 - p)/n]<SUP>l/2</SUP> (15) </P>
+<P class="narrowblock">Généralement, on prendra, pour calculer l'écart type des
+  proportions, p = 50 %, qui correspond au cas le plus défavorable et
+  non la proportion observée.. </P>
+  <button data-example="iconfppessW">IConf Prop Pess</button><br/>
+      <button data-example="iconfpoptiW">IConf Prop Opti</button><br/>
+   <button data-example="iconfpdiffW">IConf Prop Diff</button>
+<H6 LANG="de-DE">Exemple</H6>
+<P class="narrowblock" LANG="de-DE">E<BR>
+  x<BR>
+  e<BR>
+  m<BR>
+  p<BR>
+  l<BR>
+  e </P>
+<P class="narrowblock">Dans le cadre d'une étude de notoriété, 25 % des personnes
+  interrogées ont déclaré connaître la marque M. Un échantillon
+  aléatoire non exhaustif de 1000 individus a été utilisé. L'écart
+  type des proportions est alors: <BR>
+  [0,5(0,5)/1000]<SUP>l/2</SUP> =
+  0,0158. <BR>
+  Il y a 95 chances sur 100 que le véritable taux de
+  notoriété se situe dans la fourchette: <BR>
+  <FONT FACE="Symbol">p</FONT> = 0,25 <FONT FACE="Symbol">±</FONT> 1,96.(0,0158)<BR>
+  Il doit être
+  ainsi compris entre 0,25 - 0,03 = 0,22 et 0,25 + 0,03 = 0,28,
+  c'est-à-dire entre 22 % et 28 %. </P>
+<H2><A NAME="125"></A><A NAME="130"></A>Les tests d'hypothèse:
+  Données quantitatives</H2>
+<H6><A NAME="135"></A><U>a) Position du problème</U></H6>
+<P CLASS="narrowblock">(La valeur de la moyenne trouvée sur
+  échantillon aura souvent à être mise en relation avec une valeur a <I>priori </I><B>µ</B><SUB><B>o.</B></SUB>) On peut faire des
+  hypothèses concernant la relation entre la moyenne de la population
+  et une telle valeur apriori. Une idée simple est à la base du teste
+  d'hypothèses: une Hypothèse peut être rejetée mais elle ne peut
+  jamais être acceptée, par ce que des preuve ultérieures peuvent
+  montrer le contraire. (exemple: l'homme qui à un comportement
+  d'homme pauvre est-il vraiment pauvre...) </P>
+<H6><A NAME="140"></A>Hypothèse nulle Ho</H6>
+<P CLASS="narrowblock">On appellera <B>Hypothèse nulle H</B><SUB><B>o</B></SUB> l'hypothèse selon laquelle la situation vraie est différente ou
+  plus défavorable que celle qui est matérialisée par cette valeur a
+  priori. L'hypothèse nulle doit être choisie de telle manière que
+  son rejet permet &quot;d'accepter&quot; la conclusion désirée.
+  L'<B>hypothèse alternative</B> est <B>H</B><SUB><B>a</B></SUB>. Par
+  le biais d'un test d'hypothèse il s'agira d'évaluer dans quelle
+  mesure Ho peut être rejetée. </P>
+<H6><A NAME="145"></A>Test unilatéral et bilatéral</H6>
+<P CLASS="narrowblock">On parlera de <B>test unilatéral</B> quand il
+  s'agira de vérifier que la moyenne vraie est plus forte (test dit &quot;
+  à droite &quot;), ou plus faible (test dit &quot; à gauche &quot;)
+  que µ<SUB>o</SUB>. On aura affaire à un <B>test bilatéral</B> quand il s'agira de démontrer que la moyenne vraie est différente
+  de µ<SUB>o</SUB>. </P>
+<H6 LANG="de-DE">Exemple</H6>
+<P class="narrowblock" LANG="de-DE">E<BR>
+  x<BR>
+  e<BR>
+  m<BR>
+  p<BR>
+  l<BR>
+  e</P>
+<P class="narrowblock">Les intentions d'achat X d'un produit nouveau découlant d'une
+  enquête par sondage auprès des utilisateurs potentiels doivent être
+  comparées avec le seuil de rentabilité de ce produit µ<SUB>o</SUB>,
+  et il faut vérifier l'hypothèse selon laquelle ce seuil de
+  rentabilité sera bien dépassé. L'hypothèse H<SUB>o</SUB> <I><B>s'énonce
+  ici de la façon suivante: </B></I>&quot; la situation du marché est
+  telle que le seuil de rentabilité ne sera pas atteint <I>&quot; </I><I><B>et</B></I> H<SUB>1</SUB><I>,:</I> <I>&quot; </I>le seuil de rentabilité sera
+  dépassé &quot;. Le test d'hypothèse nécessaire est alors un test
+  unilatéral <I><B>à droite.</B></I> <BR>
+  Si &gt; µ<SUB>o</SUB>, ce
+  peut être dû au fait que la vraie moyenne est réellement
+  supérieure à µ<SUB>o</SUB>. Ce peut être également dû au fait
+  que la vraie moyenne est inférieure à µ<SUB>o</SUB> mais que le
+  hasard a fait porter le sondage sur un échantillon particulièrement
+  favorable. Il est évident que plus ( - µ<SUB>o</SUB>) est grand,
+  moins le risque de se trouver dans cette deuxième situation est
+  fort.</P>
+<H6><A NAME="150"></A><A NAME="155"></A>b) Réalisation d'un test
+  unilatéral à droite - 1) H<SUB>o</SUB> : µ &lt; µ<SUB>o</SUB></H6>
+<P CLASS="narrowblock">Dans le problème posé, H<SUB>o</SUB> est
+  associée à la situation µ &lt; µ<SUB>o</SUB>. Une première façon
+  de procéder consiste à déterminer la probabilité - dénommée <B>probabilité critique p.c.</B> - Avec laquelle H<SUB>o</SUB> est
+  conforme aux résultats lus sur échantillon. </P>
+<P class="narrowblock">Le graphique 2 résume les termes du problème : Si la moyenne
+  vraie était µ, la probabilité d'obtenir sur échantillon une
+  valeur supérieure ou égale à serait donnée par la surface lue
+  sous la courbe au-delà de la valeur . </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1046"></A>.<IMG SRC="slides_fichiers/Image435.gif" NAME="images22" ALIGN=BOTTOM WIDTH=297 HEIGHT=127 BORDER=0> </P>
+<P ALIGN=CENTER class="narrowblock"><FONT SIZE=1 STYLE="font-size: 7pt"><B>Figure 11:
+  Test unilatéral à droite</B></FONT> </P>
+<P class="narrowblock">Dans la mesure où le sondage est aléatoire, non exhaustif et
+  porte sur un effectif supérieur à 30, cette probabilité est
+  calculée à partir d'une table de la loi normale réduite : </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1047"></A><A NAME="_x0000_i1048"></A> Z = (<IMG SRC="slides_fichiers/Image433.gif" NAME="images23" ALIGN=BOTTOM WIDTH=18 HEIGHT=20 BORDER=0>-
+  µ<SUB>o</SUB>)/&nbsp;<IMG SRC="slides_fichiers/Image426.gif" NAME="images24" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0> et p.c. = P (Z <FONT FACE="Symbol">³</FONT> Z) (13) </P>
+<P class="narrowblock">Le fait de rejeter l'hypothèse nulle est associée à un risque
+  égal à p.c. Plus cette probabilité critique est faible et moins il
+  y a de risque à rejeter Ho. </P>
+<H6><A NAME="160"></A>2) valeur seuil X<SUP>*</SUP></H6>
+<P CLASS="narrowblock">X*, telle que tout résultat de sondage X
+  supérieur à X* permette de rejeter l'hypothèse nulle avec moins de
+  chances de se tromper. </P>
+<P class="narrowblock">La valeur seuil X* est obtenue à l'aide de l'expression suivante,
+  issue de la formule [11] : </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1049"></A>X* = µo + Z<FONT FACE="Symbol">a<IMG SRC="slides_fichiers/Image426.gif" NAME="images25" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0></FONT> (14) </P>
+<P class="narrowblock">La règle est alors la suivante: </P>
+<P class="narrowblock">• Si &lt; X*: acceptation de Ho </P>
+<P class="narrowblock">• Si <FONT FACE="Symbol">³</FONT> X*: rejet de Ho </P>
+<H6><A NAME="165"></A>3) tests unilatéraux à gauche</H6>
+<P CLASS="narrowblock">Les tests unilatéraux à gauche s'effectuent de
+  la même façon; la probabilité critique est la surface sous la
+  courbe au-dessous de la valeur X trouvée sur échantillon. La
+  valeur-seuil X* est calculée à partir de la relation </P>
+<P ALIGN=CENTER class="narrowblock"><A NAME="_x0000_i1050"></A>X* = µo - Z<FONT FACE="Symbol">a<IMG SRC="slides_fichiers/Image426.gif" NAME="images26" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0></FONT> (15) </P>
+<P class="narrowblock">Les tests bilatéraux nécessiteront l'évaluation de deux
+  valeurs-seuil: une X* à droite de µo et une X** à gauche, par
+  utilisation simultanée des formules (14) et (15). </P>
+  <button data-example="testhypW">Tests Hypo</button><br/>
+<P class="narrowblock">&nbsp;</P>
+<H6 LANG="de-DE">Exemple</H6>
+<P class="narrowblock" LANG="de-DE">E<BR>
+  x<BR>
+  e<BR>
+  m<BR>
+  p<BR>
+  l<BR>
+  e</P>
+<P class="narrowblock">Le seuil de rentabilité d'un produit industriel nouveau s'élève
+  à 50 en moyenne par entreprise appartenant au marché potentiel Sur
+  un échantillon de 100 entreprises, une intention d'achat moyenne de
+  62 a été repérée, avec un écart-type de 60. <BR>
+  Z<SUB>62</SUB> =
+  (62 - 50) / (60/ 1100) = 2 <BR>
+  p.c. = P(Z &gt; Zx) = p(Z &gt; 2) =
+  0,023 <BR>
+  Avec un seuil de risque a = 5 %, I'hypothèse nulle est
+  rejetée. En fait Ho peut être rejetée dès que l'on trouve, sur
+  échantillon une valeur au moins égale à: <BR>
+  = 50 + (1,64) . (60/
+  100<SUP>1/2</SUP>) = 59,84 </P>
+<H6><A NAME="170"></A><U>c) Les risques associés au test d'hypothèse</U></H6>
+<P CLASS="narrowblock">La procédure qui vient d'être exposée ne
+  s'intéresse qu'à une seule catégorie de risque, celui de rejeter
+  Ho alors qu'elle est vraie. C'est le risque <FONT FACE="Symbol">a</FONT> ,risque de première espèce ou encore de risque de type 1. Il sera
+  souvent nécessaire de prendre également en considération le risque
+  d'accepter à tort Ho : c'est le risque <FONT FACE="Symbol">b</FONT>,
+  risque de seconde espèce ou encore de type II. </P>
+<P class="narrowblock">Le tableau 3 reproduit les résultats possibles d'un test
+  d'hypothèse </P>
+<TABLE BORDER=1 CELLPADDING=0 CELLSPACING=2>
+  <TR VALIGN=TOP>
+    <TD WIDTH=25%>&nbsp;</TD>
+    <TD COLSPAN=2 WIDTH=75%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>DÉCISION</B></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=25%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>SITUATION</B> </P>
+      <P class="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"><B>REELLE&nbsp;</B> </P></TD>
+    <TD WIDTH=36%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>Ho n'est pas rejetée&nbsp;</B></P></TD>
+    <TD WIDTH=39%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>Ho est rejetée&nbsp;</B></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=25%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>Ho est vraie&nbsp;</B></P></TD>
+    <TD WIDTH=36%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>Décision correcte</B> </P>
+      <P class="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"><B>Seuil
+        de confiance:</B> </P>
+      <P class="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"><I>Proba
+        = </I>1 - <FONT FACE="Symbol">a</FONT> </P></TD>
+    <TD WIDTH=39%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>Décision incorrecte</B> </P>
+      <P class="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"><B>Erreur
+        de type I</B> </P>
+      <P class="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"><I>Proba
+        = </I><FONT FACE="Symbol"><I>a</I></FONT> </P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=25%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>Ho n'est pas vraie&nbsp;</B></P></TD>
+    <TD WIDTH=36%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>Décision incorrecte</B> </P>
+      <P class="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"><B>Erreur
+        de type II</B> </P>
+      <P class="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"><I>Proba
+        =</I><FONT FACE="Symbol"><I>b</I></FONT> </P></TD>
+    <TD WIDTH=39%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <B>Décision correcte</B> </P>
+      <P class="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"><B>Puissance
+        du test:</B> </P>
+      <P class="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"><I>Proba
+        = 1 - </I><FONT FACE="Symbol"><I>b</I></FONT> </P></TD>
+  </TR>
+</TABLE>
+<P ALIGN=CENTER class="narrowblock"><I><B>Tableau 1.3.: Résultats d'un test hypothèse</B></I> </P>
+<P class="narrowblock">Il est bien évident que, pour une taille d'échantillon donnée,
+  le risque <FONT FACE="Symbol">a</FONT> et le risque <FONT FACE="Symbol">b</FONT> évoluent de façon opposée. Réduire le risque a demande de choisir
+  une valeur-seuil X* plus forte, mais ceci s'accompagne d'une
+  augmentation du risque <FONT FACE="Symbol">b</FONT>, puisqu'il y aura
+  plus de chances d'accepter à tort l'hypothèse nulle .
+</P>
+<H6 LANG="de-DE">Exemple</H6>
+<P class="narrowblock" LANG="de-DE">E<BR>
+  x<BR>
+  e<BR>
+  m<BR>
+  p<BR>
+  l<BR>
+  e</P>
+<P class="narrowblock">Avec les données de l'exemple précédent, on a vu que le risque <FONT FACE="Symbol">a</FONT> était limité à 5 % si l'on
+  choisissait une valeur-seuil de 59,84. <BR>
+  Supposons que la véritable
+  valeur des ventes moyennes par entreprise soit 62. Avec une vraie
+  moyenne de 62 et un écart type des moyennes d'échantillon de 6
+  (60/100<SUP>1/2</SUP> = 6), il y a une probabilité de 35,94 % de
+  sélectionner un échantillon dont la moyenne observée sera
+  inférieure ou égale à 59,84. En effet: <BR>
+  Z = (59,84 - 62)/6 = -
+  0,36 et P(Z <FONT FACE="Symbol">£</FONT> 0,36) = 0,3594 <BR>
+  Il y a
+  donc ici une probabilité de 35,94 % d'accepter à tort l'hypothèse
+  nulle. C'est la valeur du risque <FONT FACE="Symbol">b</FONT>. <BR>
+  Si
+  l'entreprise veut se prémunir plus fortement contre le rejet à tort
+  de Ho avec un risque a de 2,5 % seulement, elle sera amenée à
+  choisir une valeur seuil plus forte, égale à: <BR>
+  X* = 50 + 1,96(6)
+  = 61,76 <BR>
+  La sélection d'une telle valeur-seuil augmente le risque <FONT FACE="Symbol">b</FONT>. Dans l'hypothèse où la moyenne vraie
+  est 62: <BR>
+  Z = (61,76 - 62)/6 = - 0,04 et P(Z <FONT FACE="Symbol">£</FONT> -0,04) = 0,484 <BR>
+  Le risque <FONT FACE="Symbol">b</FONT> est ici de
+  48,4 %. </P>
+<H2><A NAME="175"></A>Les tests d'hypothèse: Données qualitatives</H2>
+<H6>Analogies</H6>
+<P class="narrowblock">En ce qui concerne les test d'hypothèse, les mêmes procédures
+  que pour les variables quantitatives sont employées. C'est la
+  formule (15) qui servira désormais dans le calcul des probabilités
+  critiques et des valeurs-seuil. </P>
+  
+<H6 LANG="de-DE">Exemple</H6>
+<P class="narrowblock" LANG="de-DE">E<BR>
+  x<BR>
+  e<BR>
+  m<BR>
+  p<BR>
+  l<BR>
+  e</P>
+<P class="narrowblock">Le taux de notoriété de la marque M dont il était question dans
+  l'exemple précédent a été mesuré à la suite d'une campagne
+  publicitaire. Le taux de notoriété précédemment connu s'élevait
+  à 21%. Peut-on en conclure que la publicité a fait augmenter de
+  façon significative la connaissance de la marque ? <BR>
+  L'hypothèse
+  nulle correspond ici au cas où la publicité n'a eu aucun effet sur
+  la notoriété de la marque et donc que la proportion vraie est
+  toujours au niveau ancien de 21%. Le rejet éventuel de l'hypothèse
+  nulle demande de calculer la probabilité critique p.c., définie ici
+  comme la probabilité d'obtenir une proportion observée sur
+  échantillon au moins égale à 25 % dans une population où la
+  proportion vraie est 21%. <BR>
+  La proportion observée p correspond,
+  en valeur centrée réduite <BR>
+  Zp = (0,25 - 0,21)/0,0158 = 2,53
+  probabilité critique est donc: P(Z &gt; Zp) = 0,57 % </P>
+       <button data-example="testhyppessW">Tests Hypo Prop Pess</button><br/>
+<button data-example="testhyppoptiW">Tests Hypo Prop Opti</button><br/>
+ </section>
+ <section id="chi2">
+    <H2><A NAME="180"></A>Les tests de conformité
+     avec une distribution théorique</H2>
+
+   <H6><A NAME="180"></A>Test du chi2</H6>
+<P CLASS="narrowblock">Les résultats du dépouillement d'une question
+  qualitative se présentent comme une distribution de fréquences
+  d'apparition des différentes modalités de la variable concernée. </P>
+<P class="narrowblock">Cette distribution peut être comparée à une distribution a
+  priori, dite distribution théorique. Comme dans les tests
+  d'hypothèses vus plus haut, deux hypothèses sont alors testées: </P>
+<P class="narrowblock">- Ho la distribution observée n'est pas significativement
+  différente de la distribution théorique. </P>
+<P class="narrowblock">- Hl: la distribution observée est significativement différente
+  de la distribution théorique. </P>
+<H6><A NAME="185"></A><U>a) Application du test du Khi-Deux</U></H6>
+<P CLASS="narrowblock">La loi du Khi-Deux (<FONT FACE="Symbol">c</FONT><SUP>2</SUP>)
+  donne la répartition des écarts entre les fréquences absolues
+  théoriques et les fréquences absolues observées, sous hypothèse
+  nulle. </P>
+<P class="narrowblock">On mesure le <FONT FACE="Symbol">c</FONT><SUP>2</SUP> par : </P>
+<P ALIGN=CENTER class="narrowblock"><FONT FACE="Symbol">c</FONT><SUP>2 </SUP>= <FONT FACE="Symbol">S</FONT> [Nj - <FONT FACE="Symbol">q</FONT>j]<SUP>2</SUP> /<FONT FACE="Symbol">q</FONT>j
+  (16) </P>
+<P class="narrowblock">où <B>Nj</B> = fréquence absolue observée pour la modalité j; <FONT FACE="Symbol"><B>q</B></FONT><B>j</B> = fréquence absolue
+  théorique pour la modalité j. </P>
+<P class="narrowblock">Cette valeur calculée du <FONT FACE="Symbol">c</FONT><SUP>2</SUP> est comparée avec la valeur lue sur la table du <FONT FACE="Symbol">c</FONT><SUP>2</SUP>,
+  pour <B>m - 1</B> degrés de liberté lorsque la variable qualitative
+  comporte m modalités , et pour un seuil de confiance donné 1 - <FONT FACE="Symbol">a</FONT>.
+  Si la valeur calculée du <FONT FACE="Symbol">c</FONT><SUP>2</SUP> est supérieure à la valeur de la table, Ho peut être rejetée avec
+  un risque inférieur à <FONT FACE="Symbol">a</FONT>. </P>
+<H6>Exemple</H6>
+<P class="narrowblock">Le tableau 1.4. reproduit une application du test du <FONT FACE="Symbol">c</FONT><SUP>2</SUP> pour le traitement des résultats d'une étude sur les clients d'une
+  ligne aérienne. Il s'agit ici de vérifier si l'échantillon
+  interrogé respecte bien les proportions connues des passagers eu
+  égard à leur qualité d'abonné ou non. Le <FONT FACE="Symbol">c</FONT><SUP>2</SUP> calculé apparaissant plus faible que le <FONT FACE="Symbol">c</FONT><SUP>2</SUP> lu sur la table (5,99 pour 2 degrés de liberté au seuil de 5 %),
+  les différences constatées ne sont pas significatives. </P>
+<P ALIGN=CENTER class="narrowblock"><I><B>Tableau 1.4.: Application du test du Khi-Deux</B></I> </P>
+<TABLE WIDTH=307 BORDER=1 CELLPADDING=0 CELLSPACING=2>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Modalité&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Effectif observé Nj&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Effectif théorique </FONT><FONT FACE="Symbol"><FONT SIZE=1 STYLE="font-size: 7pt">Q</FONT></FONT><FONT SIZE=1 STYLE="font-size: 7pt">j</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">N</SPAN></FONT><SUB><FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">j</SPAN></FONT></SUB><FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">-</SPAN></FONT><FONT FACE="Symbol"><FONT SIZE=1 STYLE="font-size: 7pt">Q</FONT></FONT><SUB><FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">j</SPAN></FONT></SUB><FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">;</SPAN></FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">(N</SPAN></FONT><SUB><FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">j</SPAN></FONT></SUB><FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">-</SPAN></FONT><FONT FACE="Symbol"><FONT SIZE=1 STYLE="font-size: 7pt">Q</FONT></FONT><SUB><FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">j</SPAN></FONT></SUB><FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">)</SPAN></FONT><SUP><FONT SIZE=1 STYLE="font-size: 7pt"><SPAN LANG="nl-NL">2</SPAN></FONT></SUP></P></TD>
+    <TD WIDTH=22%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">(N</FONT><SUB><FONT SIZE=1 STYLE="font-size: 7pt">j</FONT></SUB><FONT SIZE=1 STYLE="font-size: 7pt">-</FONT><FONT FACE="Symbol"><FONT SIZE=1 STYLE="font-size: 7pt">Q</FONT></FONT><SUB><FONT SIZE=1 STYLE="font-size: 7pt">j</FONT></SUB><FONT SIZE=1 STYLE="font-size: 7pt">)</FONT><SUP><FONT SIZE=1 STYLE="font-size: 7pt">2</FONT></SUP> <FONT SIZE=1 STYLE="font-size: 7pt">/</FONT><FONT FACE="Symbol"><FONT SIZE=1 STYLE="font-size: 7pt">Q</FONT></FONT></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Abonné année&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">80&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">90&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" ALIGN=RIGHT STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">-10&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">100&nbsp;</FONT></P></TD>
+    <TD WIDTH=22%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">1,11&nbsp;</FONT></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Abonné mois&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">50&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">45&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">5&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">25&nbsp;</FONT></P></TD>
+    <TD WIDTH=22%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">0 56&nbsp;</FONT></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Autre&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">100&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">95&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">5&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">25&nbsp;</FONT></P></TD>
+    <TD WIDTH=22%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">0 26&nbsp;</FONT></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Total&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">230&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">230&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=22%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT FACE="Symbol"><FONT SIZE=1 STYLE="font-size: 7pt">c</FONT></FONT><SUP><FONT SIZE=1 STYLE="font-size: 7pt">2</FONT></SUP><FONT SIZE=1 STYLE="font-size: 7pt">=
+        1,93</FONT></P></TD>
+  </TR>
+</TABLE>
+  <button data-example="chi2univCamipW">Chi2 univ. Camip</button>
+<P class="narrowblock">Nombre de degrés de liberté: 2 Valeur du Khi-Deux au seuil de 5
+  %: 5,99 </P>
+<H6><A NAME="190"></A><U>b) Application du test de Kolmogorov-Smirnov</U></H6>
+<P CLASS="narrowblock">La qualité de l'ajustement d'une fonction de
+  répartition observée à une fonction de répartition a priori peut
+  également être évaluée à l'aide du test de Kolmogorov-Smirnov. </P>
+<P class="narrowblock">On aura recours à un test chaque fois que les modalités de la
+  variable qualitative considérée sont ordonnables, mais aussi
+  lorsque les effectifs des différentes classes sont trop faibles pour
+  autoriser l'utilisation du test du <FONT FACE="Symbol">c</FONT><SUP>2</SUP> . </P>
+<P class="narrowblock">Le test demande de calculer des fréquence relatives observées
+  cumulées F<SUB>o</SUB>(j) et des fréquences relatives cumulées
+  théoriques F<SUB><FONT FACE="Symbol">q</FONT></SUB>(j) : F<SUB>o</SUB>(j)
+  et F<SUB><FONT FACE="Symbol">q</FONT></SUB>(j) représentent
+  respectivement les pourcentages des effectifs observés et théoriques
+  enregistrés jusqu'à la modalité j. Pour chaque modalité la valeur
+  |F<SUB>o</SUB>(j) - F<SUB><FONT FACE="Symbol">q</FONT></SUB>(j)| est
+  calculée. Un indicateur D est alors établi, tel que : </P>
+<P class="narrowblock">D = Maxj |F<SUB>o</SUB>(j) - F<FONT FACE="Symbol">q</FONT>(j)|
+  (17) Cette valeur est comparée à celle lue sur une table du D de
+  Kolmogorov-Smirnov pour un seuil de confiance donné. A un seuil de
+  risque de 5%, et pour des effectifs totaux supérieurs à 35, D est
+  approximativement égal à 1,36/ </P>
+<H6>Exemple</H6>
+<P class="narrowblock">Le tableau 1.5. donne une application de ce test à l'étude sur
+  les clients d'une ligne aérienne. Le D calculé est plus faible que
+  le D de la table au seuil de 5% : les différences ne sont pas
+  significatives, comme on l'avait déjà constaté avec le test du <FONT FACE="Symbol">c</FONT><SUP>2</SUP>. </P>
+<P ALIGN=CENTER class="narrowblock"><I><B>Tableau 1.5.: Application du test de
+  Kolmogorov-Smirnov</B></I> </P>
+<TABLE WIDTH=307 BORDER=1 CELLPADDING=0 CELLSPACING=2>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Modalité&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Fréquence&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Cumulé&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Fréquence&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Cumulé&nbsp;</FONT></P></TD>
+    <TD WIDTH=20%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">|Fo(J)-F</FONT><FONT FACE="Symbol"><FONT SIZE=1 STYLE="font-size: 7pt">q</FONT></FONT><FONT SIZE=1 STYLE="font-size: 7pt">(J)|</FONT></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">relative&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Fo(j)&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Relative&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">F</FONT><FONT FACE="Symbol"><FONT SIZE=1 STYLE="font-size: 7pt">q</FONT></FONT><FONT SIZE=1 STYLE="font-size: 7pt">(j)</FONT></P></TD>
+    <TD WIDTH=20%>&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">observée&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Théorique&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=20%>&nbsp;</TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Abonné année&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">34,78 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">34,78 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">39,13 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">39,13 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=20%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">4,35 %&nbsp;</FONT></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Abonné mois&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">21,74 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">56,52 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">19,57 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">58,70 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=20%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">2,17 %&nbsp;</FONT></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Autre&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">43,48 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">100,00 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">41,30 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">100,00 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=20%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">0,00 %&nbsp;</FONT></P></TD>
+  </TR>
+  <TR VALIGN=TOP>
+    <TD WIDTH=15%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">Total&nbsp;</FONT></P></TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">100,00 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=17%><P CLASS="narrowblock" STYLE="border: 1.00pt solid #000000; padding: 0.05cm"> <FONT SIZE=1 STYLE="font-size: 7pt">100,00 %&nbsp;</FONT></P></TD>
+    <TD WIDTH=15%>&nbsp;</TD>
+    <TD WIDTH=20%>&nbsp;</TD>
+  </TR>
+</TABLE>
+<P class="narrowblock">Valeur calculée de D = 0,0435 Valeur de D au seuil de 5 %: 0,089</P>
+<script src="../opencpu/jquery-1.7.2.min.js"></script> 
+<script src="../opencpu/bootstrap/js/bootstrap.js"></script> 
+<script src="../opencpu/common.js"></script> 
+<script src="../opencpu/docs.js"></script> 
+<script src="../opencpu/camip.js"></script> 
+<script src="slide-example.js"></script>
+</BODY>
+</HTML>

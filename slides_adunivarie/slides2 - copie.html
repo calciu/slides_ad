@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>Collecte des donn??es, analyse univari??e et bivari??e</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1671.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p5 {margin: 0.0px 0.0px 14.0px 0.0px; line-height: 17.0px; font: 11.7px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p6 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 13.0px; font: 10.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p7 {margin: 0.0px 0.0px 14.0px 0.0px; line-height: 17.0px; font: 14.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 13.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 13.0px; font: 11.0px 'Helvetica Neue'; color: #000000; -webkit-text-stroke: #000000}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 13.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85); background-color: #ffffff}
+    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 13.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85); min-height: 12.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; line-height: 13.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #000000; -webkit-text-stroke: #000000}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p15 {margin: 0.0px 0.0px 16.1px 0.0px; line-height: 28.0px; font: 24.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p16 {margin: 0.0px 0.0px 15.9px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p17 {margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p18 {margin: 0.0px 0.0px 20.9px 0.0px; line-height: 10.0px; font: 9.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p19 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p20 {margin: 0.0px 0.0px 12.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    li.li3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    li.li4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+    span.s2 {-webkit-text-stroke: 0px #000000}
+    span.s3 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #0000e9}
+    span.s4 {text-decoration: underline ; font-kerning: none}
+    span.s5 {font: 14.0px Times; font-kerning: none}
+    span.s6 {font-kerning: none; background-color: #b3b3b3}
+    span.s7 {font-kerning: none; background-color: #ffffff}
+    span.s8 {font: 12.0px Times; font-kerning: none}
+    span.s9 {font: 11.0px Times; font-kerning: none}
+    span.s10 {font: 12.0px Times; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s11 {font: 10.0px Times; font-kerning: none}
+    span.s12 {font: 9.0px Times; font-kerning: none}
+    span.Apple-tab-span {white-space:pre}
+    table.t1 {width: 360.0px}
+    table.t2 {width: 784.0px}
+    table.t3 {width: 305.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td1 {width: 24.0px}
+    td.td2 {width: 300.0px; margin: 0.5px 0.5px 0.5px 0.5px; padding: 1.0px 1.0px 1.0px 1.0px}
+    td.td3 {width: 283.4px; margin: 0.5px 0.5px 0.5px 0.5px; padding: 1.0px 1.0px 1.0px 1.0px}
+    td.td4 {width: 490.6px; margin: 0.5px 0.5px 0.5px 0.5px; padding: 1.0px 1.0px 1.0px 1.0px}
+    td.td5 {width: 246.9px; margin: 0.5px 0.5px 0.5px 0.5px; padding: 1.0px 1.0px 1.0px 1.0px}
+    td.td6 {width: 239.7px; margin: 0.5px 0.5px 0.5px 0.5px; padding: 1.0px 1.0px 1.0px 1.0px}
+    td.td7 {width: 53.0px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td8 {width: 44.0px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td9 {width: 45.4px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td10 {width: 39.8px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td11 {width: 41.2px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td12 {width: 55.6px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td13 {width: 45.3px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td14 {width: 47.0px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td15 {width: 44.2px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    td.td16 {width: 42.4px; margin: 1.0px 1.0px 1.0px 1.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #6d6d6d #6d6d6d #6d6d6d #6d6d6d}
+    ul.ul1 {list-style-type: disc}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">×</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">×</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<ul class="ul1">
+  <li class="li3"><span class="s2"><a href="file:///Users/user/Documents/MyWebSites/mc_slides/slides_adunivarie/slides2.htm"><span class="s3">Home</span></a></span></li>
+  <li class="li3"><span class="s2"><a href="file:///Users/user/Documents/MyWebSites/mc_slides/slides_adintro/slides2.htm"><span class="s3">Intro</span></a></span><span class="s4">&amp;eacute;</span></li>
+  <li class="li3"><span class="s2"><a href="file:///Users/user/Documents/MyWebSites/mc_slides/slides_adunivarie/slides2.htm"><span class="s3">Unviarie</span></a></span></li>
+  <li class="li3"><span class="s2"><a href="file:///Users/user/Documents/MyWebSites/mc_slides/slides_adbivarie/slides2.htm"><span class="s3">Bivarie</span></a></span></li>
+  <li class="li4"><a href="file:///Users/user/Documents/MyWebSites/mc_slides/slides_adacp/slides2.htm"><span class="s3">ACP</span></a></li>
+  <li class="li3"><span class="s2"><a href="file:///Users/user/Documents/MyWebSites/mc_slides/slides_adtypo/slides2.htm"><span class="s3">Cluster</span></a></span></li>
+  <li class="li3"><span class="s2"><a href="file:///Users/user/Documents/MyWebSites/mc_slides/slides_adadiscr/slides2.htm"><span class="s3">Discrim</span></a></span></li>
+</ul>
+<ul class="ul1">
+  <li class="li3"><span class="s2"><a href="file:///Users/user/Documents/MyWebSites/mc_slides/slides_adunivarie/about.html"><span class="s3">About</span></a></span></li>
+  <li class="li3"><span class="s2"><a href="file:///Users/user/Documents/MyWebSites/mc_slides/slides_adunivarie/support.html"><span class="s3">Support</span></a></span></li>
+  <li class="li3"><span class="s2"><a href="file:///auth/login"><span class="s3">Login</span></a></span></li>
+</ul>
+<ul class="ul1">
+  <li class="li3"><span class="s2"></span><span class="s4">statdescr</span></li>
+  <li class="li3"><span class="s2"></span><span class="s4">mesdisp</span></li>
+  <li class="li3"><span class="s2"></span><span class="s4">d-qualy</span></li>
+  <li class="li3"><span class="s2"></span><span class="s4">/d-ordy</span></li>
+  <li class="li3"><span class="s2"></span><span class="s4">iconfquant</span></li>
+  <li class="li3"><span class="s2"></span><span class="s4">iconfqual</span></li>
+  <li class="li3"><span class="s2"></span><span class="s4">testh-quanty</span></li>
+  <li class="li3"><span class="s2"></span><span class="s4">testh-qualy</span></li>
+  <li class="li3"><span class="s2"></span><span class="s4">test de conformite</span></li>
+</ul>
+<p class="p5"><span class="s5"><b>Testing Tool </b></span><span class="s1"><b>learn while playing...</b></span><span class="s5"><b><span class="Apple-converted-space"> </span></b></span></p>
+<p class="p6"><span class="s1">This side shows a little ajax tool that you can use to poke around with the API. Simply select a method, endpoint and add some parameters. Your browser has multiple mechanisms to perform a HTTP request. In most cases you want to do the request using Ajax, which supports all methods. However, Ajax cannot be used for binary streams (e.g. uploading files or displaying images). For those cases you can use the form request method.<span class="Apple-converted-space"> </span></span></p>
+<p class="p7"><span class="s1"><b>Text and Examples</b></span></p>
+<p class="p6"><span class="s1">This side shows and overview and descriptions of the API. However OpenCPU is best understood while by playing around with the API.</span></p>
+<p class="p8"><span class="s6">Example button</span></p>
+<p class="p6"><span class="s1">Whenever you see a red button like the one here, this indicates an example demo. Clicking an example button will automatically fill out the Testing tool and perform the request. Keep your eye on the testing tool while running an example!<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">Example</span></p>
+<p class="p9"><span class="s7">Example text</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">Method</span></p>
+<p class="p10"><span class="s1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><span class="s9">GET</span></p>
+<p class="p10"><span class="s1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><span class="s9">POST</span></p>
+<p class="p10"><span class="s1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><span class="s9">PUT</span></p>
+<p class="p10"><span class="s1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><span class="s9">DELETE</span></p>
+<p class="p10"><span class="s1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><span class="s9">OPTIONS</span></p>
+<p class="p10"><span class="s1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><span class="s9">HEAD</span></p>
+<p class="p11"><span class="s7"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p1"><span class="s1">Endpoint</span></p>
+<p class="p9"><span class="s7">/R/pub</span><span class="s8"><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">Parameter Name<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">Parameter Value<span class="Apple-converted-space"> </span></span></p>
+<p class="p8"><span class="s6">Add parameter Add file<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p12"><span class="s6">Popup iFrame<span class="Apple-converted-space"> </span></span><span class="s10"> </span><span class="s6">Ajax request </span><span class="s10"><span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p13"><span class="s1">0</span></p>
+<p class="p14"><span class="s1"></span><br></p>
+<p class="p14"><span class="s1"></span><br></p>
+<p class="p15"><span class="s1"><b>Analyses univari&amp;eacute;es</b></span></p>
+<p class="p16"><span class="s1"><b>Michel Calciu<span class="Apple-converted-space"> </span></b></span></p>
+<p class="p7"><span class="s1"><b>Cours ?? l'Universit&amp;eacute; de Lille -  2018/2019</b></span></p>
+<p class="p17"><span class="s1"><b>Statistiques descriptives, Donn&amp;eacute;es quantitatives , Mesures de position (de tendance centrale)</b></span></p>
+<p class="p18"><span class="s1"><b>??  Moyenne (arithm&amp;eacute;tique)<span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s1">La moyenne d'une s&amp;eacute;rie statistique de n observations est le quotient de leur somme par leur nombre.<span class="Apple-converted-space">  </span>Unde k reprezinta coloana iar i linia sau observatia (1)<span class="Apple-converted-space"> </span></span></p>
+<p class="p8"><span class="s6">Moyennes et Valeurs manquantes Camip</span><span class="s10"><span class="Apple-converted-space"> </span></span></p>
+<p class="p8"><span class="s6">Moyene Camip</span><span class="s10"><span class="Apple-converted-space"> </span></span></p>
+<p class="p18"><span class="s1"><b>??  M&amp;eacute;diane<span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s1">La valeur d'une s&amp;eacute;rie statistique pour laquelle le nombre d'observations inf&amp;eacute;rieures ou sup&amp;eacute;rieures ?? cette valeur sont &amp;eacute;gal. La d&amp;eacute;termination de la m&amp;eacute;diane n&amp;eacute;cessite le classement de la s&amp;eacute;rie par ordre de grandeur (croissante ou d&amp;eacute;croissante). S'il y a n = 2p + 1 observations celui de rang p+1 sera la m&amp;eacute;diane. Si par contre n = 2p observations toute valeur comprise entre celle de rang p et celle de rang p+1 peut convenir comme m&amp;eacute;diane. Mesures appari&amp;eacute;es <b>quantile</b>, <b>quartiles</b>(quantile d'ordre 4, Q1, Q2 et Q3) et <b>d&amp;eacute;ciles</b>, <b>centile</b>.</span></p>
+<p class="p18"><span class="s1"><b>  Mode</b></span></p>
+<p class="p1"><span class="s1">Le mode est la valeur la plus souvent rencontr&amp;eacute;e d'une s&amp;eacute;rie statistique<span class="Apple-converted-space"> </span></span></p>
+<p class="p17"><span class="s1"><b>Mesures de dispersion</b></span></p>
+<p class="p18"><span class="s1"><b>Definition</b></span></p>
+<p class="p1"><span class="s1">Les indicateurs de dispersion ont pour objet de mesurer la plus ou moins grande concentration des valeurs autour de leur tendance centrale.</span></p>
+<p class="p18"><span class="s1"><b>&amp;eacute;  </b>Etendue (Range)<b><span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s1">La diff&amp;eacute;rence entre la valeur maximum et minimum d'une s&amp;eacute;rie. Est l'intervalle qui s&amp;eacute;pare les deux valeurs extr&amp;eacute;mes</span></p>
+<p class="p18"><span class="s1"><b>??  </b>Ecart moyen<b><span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s1">est la moyenne des valeurs absolues des &amp;eacute;carts par rapport ?? la moyenne;</span></p>
+<p class="p18"><span class="s1"><b>??  </b>Dispersion ou variation totale<b><span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s1">Est la somme des carr&amp;eacute;s des &amp;eacute;carts par rapport ?? la moyenne :<span class="Apple-converted-space"> </span></span><span class="s11"><sup> </sup></span><span class="s1">(2)</span></p>
+<p class="p18"><span class="s1"><b>??  </b>Variance<b><span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s1">Est la moyenne des carr&amp;eacute;s des &amp;eacute;carts par rapport ?? la moyenne :<span class="Apple-converted-space">  </span>=<span class="Apple-converted-space">  </span>= =<span class="Apple-converted-space">  </span>(3) Si la moyenne a &amp;eacute;t&amp;eacute; obtenue sur <i>&amp;eacute;chantillon</i>, un degr?? de libert?? a ??t?? consomm?? pour le calcul de cette moyenne et la variance devient<span class="Apple-converted-space">  </span>=<span class="Apple-converted-space">  </span>= =<span class="Apple-converted-space">  </span>(4)</span></p>
+<p class="p18"><span class="s1"><b>??  </b>Ecart type</span></p>
+<p class="p1"><span class="s1">Est la racine carr??e de la variance : dans le cas d'un calcul sur ??chantillon :<span class="Apple-converted-space">  </span>=<span class="Apple-converted-space">  </span>=<span class="Apple-converted-space"> </span></span><span class="s11"><sup> (5)</sup></span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p8"><span class="s6">Moyenne, Variance, Ecart-type:Camip</span><span class="s10"><span class="Apple-converted-space"> </span></span></p>
+<p class="p17"><span class="s1"><b>Donn??es qualitatives</b></span></p>
+<p class="p18"><span class="s1"><b>Definition</b></span></p>
+<p class="p1"><span class="s1">Des donn??es qualitatives apparaissent chaque fois que la personne interrog??e a le choix entre plusieurs modalit??s qui lui sont propos??es explicitement ou implicitement (dans le cas d'une question ouverte avec post-codification).</span></p>
+<p class="p18"><span class="s1"><b>??  </b>La fr??quence et la proportion<b><span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s1">Pour chaque individu, la r??ponse correspond ?? un code ou ??ventuellement ?? plusieurs si le choix est multiple (voir questionnaire CAMIP). Sur l'ensemble de la population enqu??t??, on d??nombrera alors le nombre de fois qu'un code j donn?? est apparu pour la variable k ??tudi??e : ceci indique la fr??quence absolue <b>N</b></span><span class="s11"><b><sub>jk</sub></b></span><span class="s1"> de la modalit??. Si cette fr??quence absolue est rapport??e aux N personnes consid??r??es, on obtient la fr??quence relative de la modalit?? p</span><span class="s11"><sub>jk</sub></span><span class="s1"> = N</span><span class="s11"><sub>jk</sub></span><span class="s1">/N (6)</span></p>
+<p class="p18"><span class="s1"><b>??  </b>Variance et ??cart type d'une proportion<b><span class="Apple-converted-space"> </span></b></span></p>
+<p class="p1"><span class="s1">Pour une modalit?? donn??e, la fr??quence relative joue un r??le similaire ?? celui de la moyenne pour les variables quantitatives. Des Indicateurs de dispersion sont ??galement disponibles. Dans la mesure ou un individu a choisi ou non une modalit?? donn??e, on a affaire ?? un processus binomial. Il est donc possible d'associer une variance et un ??cart type ?? chaque modalit?? d'une variable qualitative : VAR(jk) = (p</span><span class="s11"><sub>jk</sub></span><span class="s1">) (1 - p</span><span class="s11"><sub>jk</sub></span><span class="s1">)/N (7) ET(jk) = [(p</span><span class="s11"><sub>jk</sub></span><span class="s1">) (1 - p</span><span class="s11"><sub>jk</sub></span><span class="s1">)/N]</span><span class="s11"><sup>1/2 </sup></span><span class="s1">(8) On constate que ces indicateurs sont d'autant plus faibles que p</span><span class="s11"><sub>jk</sub></span><span class="s1"> est proche de 1 ou de 0. Dans les deux cas, cela signifie que les r??ponses sont tr??s concentr??es, soit sur la modalit?? j, soit sur l'ensemble des autres modalit??s.</span></p>
+<p class="p19"><span class="s1"> </span></p>
+<p class="p8"><span class="s6">Proportions Camip</span><span class="s10"><span class="Apple-converted-space"> </span></span></p>
+<p class="p17"><span class="s1"><b>Donn??es ordinales</b></span></p>
+<p class="p18"><span class="s1"><b>Nature</b></span></p>
+<p class="p1"><span class="s1">Les donn??es ordinales sont plus difficiles ?? pr??senter que les autres cat??gories de donn??es. Comme on l'a vu, il s'agit de donn??es concernant des rangs de pr??f??rence ou de similarit??. On notera que la notion de rang moyen n'a pas de signification, le passage d'un rang au suivant ne correspondant g??n??ralement pas a une variation d'intensit?? de pr??f??rence constante.</span></p>
+<p class="p18"><span class="s1"><b>Quelques mesures</b></span></p>
+<p class="p1"><span class="s1">Si l'on prend le cas des pr??f??rences, pour chaque individu, on disposera d'un classement des m items propos??s. Sur l'ensemble de la population interrog??e, il sera ainsi possible de comptabiliser : ??  <b>fonction</b> <b>de r??partition des rangs</b> - le nombre de fois qu'un item donn?? a ??t?? class?? en 1</span><span class="s11"><sup>re</sup></span><span class="s1"> position, en 2</span><span class="s11"><sup>e</sup></span><span class="s1">.., en m</span><span class="s11"><sup>e</sup></span><span class="s1"> ; ??  <b>matrice de pr??f??rences.</b> - le nombre de fois qu'un item donn?? a ??t?? class?? avant un autre item;</span></p>
+<p class="p19"><span class="s1"> </span></p>
+<p class="p8"><span class="s6">F.repartition de rangs</span><span class="s10"><span class="Apple-converted-space"> </span></span></p>
+<p class="p8"><span class="s6">Matrice des pr??ferences</span><span class="s10"><span class="Apple-converted-space"> </span></span></p>
+<p class="p17"><span class="s1"><b>Les intervalles de confiance: donn??es quantitatives</b></span></p>
+<p class="p18"><span class="s1"><b>Population, ??chantillons et distribution d'??chantillonnage</b></span></p>
+<p class="p1"><span class="s1">Dans la plupart des cas, une enqu??te ne portera que sur un ??chantillon extrait de la population ??tudi??e. On aura alors ?? d??duire des r??sultats obtenus sur ??chantillon les valeurs, c'est-??-dire celles qui seraient disponibles si l'ensemble de la population ??tait connue.<span class="Apple-converted-space">  </span><b>Figure 1 - Population, ??chantillons et distribution d'??chantillonnage</b></span></p>
+<p class="p18"><span class="s4"><b>Th??or??me Central Limit</b></span></p>
+<p class="p1"><span class="s1">Quand on tire des ??chantillons de dimension <b>n</b> d'une population ?? moyenne <b>??</b> et variance <b>s</b></span><span class="s11"><b><sup>2 </sup></b></span><span class="s1">pour des <b>n</b> grands la <b>moyenne des ??chantillons</b> sera distribu??e approximativement normalement avec une moyenne ??gale ?? <b>??</b> et une variance </span><span class="s11"><sup>2</sup></span><span class="s1">??gale ?? <b>s</b></span><span class="s11"><b><sup>2</sup></b></span><span class="s1"><b>/</b>n Comme <b>s</b> est inconnu on l'estime ?? partir de s: ?? =  (9)</span></p>
+<p class="p18"><span class="s1"><b>Ajustements pour ??chantillons exhaustifs</b></span></p>
+<p class="p1"><span class="s1">Pour des ??chantillons exhaustifs quand n/N &lt; 1/7 (10)</span></p>
+<p class="p18"><span class="s1"><b>Distribution normale d'une variable centr??e et r??duite</b></span></p>
+<p class="p1"><span class="s1">Distribution normale d'une variable centr??e et r??duite Z (m=0 et ET = 1)<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"> </span></p>
+<table width="360.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">-3,5 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">-3 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">-2,5 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">-2 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">-1,5 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">-1 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">-0,5 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,5 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">1 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">1,5 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">2 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">2,5 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">3 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">3,5 </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,00 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,00 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,02 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,05 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,13 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,24 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,35 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,40 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,35 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,24 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,13 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,05 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,02 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,00 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,00 </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,00 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,00 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,01 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,02 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,07 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,16 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,31 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,50 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,69 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,83 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,93 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,97 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">0,99 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">1,00 </span></p>
+      </td>
+      <td valign="top" class="td1">
+        <p class="p1"><span class="s1">1,00 </span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1">(a) cumul??<span class="Apple-converted-space"> </span></span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1">(b) densit??</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p1"><span class="s1"><b>Figure 2 - La distribution normale d'une variable centr??e et r??duite</b></span></p>
+<p class="p20"><span class="s1"></span><br></p>
+<p class="p18"><span class="s1"><b>Distribution normale d'une variable</b></span></p>
+<p class="p19"><span class="s1">Toute loi normale est compl??tement caract??ris??e par ces deux premiers moments centr??s : l???esp??rance et la variance.</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><b>Figure 3 - La distribution normale d'une variable</b></span></p>
+<p class="p19"><span class="s1">Si X est une variable al??atoire r??elle qui suit une loi normale d???esp??rance <i>??</i> et de variance <i>????</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1">, <i>X ~ N(??, ??</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i>)</i>, alors <i>Z = (X ??? ??)/?? ~ N(0, 1)</i></span></p>
+<p class="p19"><span class="s1"><i>Si Z est une variable al??atoire r??elle qui suit une loi normale centr??e r??duite, Z ~ N(0, 1), alors X = ?? + ??Z ~ N(??, ??</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i>)</i></span></p>
+<p class="p8"><span class="s6">Loi Normale</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Loi Normale Inverse</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Plot Loi Normale</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Loi Normale 2</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Plot Loi Normale 2</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p20"><span class="s1"><i></i></span><br></p>
+<p class="p18"><span class="s1"><i>??  </i></span><span class="s4"><i>a) D??termination de l'intervalle de confiance</i></span><span class="s1"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>La population totale est de taille N; la valeur vraie de la moyenne de la variable analys??e est ??, et son ??cart type s. Ces deux valeurs ?? et s sont inconnues, mais sur l'??chantillon de taille n, une moyenne et un ??cart-type s ont ??t?? rep??r??s (cf. graphique 1). Il s'agit de d??duire ?? et s de ces valeurs et s.<span class="Apple-converted-space">  </span>Figure 4: Caract??ristiques de la population totale et de l'??chantillon Cette d??duction suit des r??gles simples issues de la th??orie des sondages, dans la mesure o?? les hypoth??ses suivantes sont respect??es : - les ??l??ments de l'??chantillon ont ??t?? s??lectionn??s de mani??re al??atoire; - l'??chantillon est non exhaustif (n/N &lt; 1/7) - l'??chantillon comprend au moins 30 individus. Dans ces conditions, on montre que les moyennes d'??chantillon suivent une loi normale de moyenne ?? et d'??cart type , avec : = s /(n</i></span><span class="s11"><i><sup>1/2</sup></i></span><span class="s1"><i>) Comme s est inconnu, il est estim?? ?? partir de s : ?? = [S(X -)</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i>/(n - 1)]</i></span><span class="s11"><i><sup>l/2</sup></i></span><span class="s1"><i> Si l'on d??sire travailler avec un seuil de confiance 1-a, un intervalle de confiance pour la moyenne ?? est obtenu ?? l'aide de l'expression: ?? = ?? z</i></span><span class="s11"><i><sub>a/2</sub></i></span><span class="s1"><i> (11) o?? z</i></span><span class="s11"><i><sub>a/2</sub></i></span><span class="s1"><i> est la valeur lue dans la table de la loi normale r??duite pour une probabilit?? (1 - a/2). Il y a ainsi une probabilit?? (1 - a) que la valeur recherch??e se situe dans cette fourchette.</i></span></p>
+<p class="p8"><span class="s6">Interv Conf</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Plot Interv Conf</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Exemple L'association des ??tudiants d'une universit?? envisage d'ouvrir un cin??-club; afin d'en ??valuer la fr??quentation, elle a r??alis?? une enqu??te par sondage sur un ??chantillon de 400 individus.<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Une moyenne de fr??quentation de 10 s??ances par an et par individu a ??t?? obtenue avec un ??cart type s = 20. Au seuil de confiance (1 - a) = 95 % l'intervalle de confiance est:<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>?? = 10 ?? (1,96) (20/(400)</i></span><span class="s11"><i><sup>1/2</sup></i></span><span class="s1"><i>) = 10 ?? 1,96<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Il a 95 chances sur 100 de se situer dans la fourchette [11,96: 8,04]. Si l'universit?? comprend 5000 ??tudiants, une fr??quentation globale de 50 000 places peut ??tre attendue en moyenne; la fr??quentation globale a 95 % de chances de se situer dans l'intervalle [59800: 40200].</i></span></p>
+<p class="p18"><span class="s4"><i>Cas particulier: </i></span><span class="s1"><i>Echantillon exhaustif</i></span></p>
+<p class="p1"><span class="s1"><i>1- Dans le cas d'un ??chantillon exhaustif, c'est-??-dire avec n &gt; N/7, l'??cart type s, des moyennes d'??chantillons doit ??tre corrig?? par le facteur d'exhaustivit?? [(N - n)/(N - 1)]1/2. L'intervalle de confiance devient alors : ?? = ?? z</i></span><span class="s11"><i><sub>a/2</sub></i></span><span class="s1"><i>[(N - n)/(N - 1)]</i></span><span class="s11"><i><sup>l/2 </sup></i></span><span class="s1"><i>(12) On remarque que si n est faible par rapport ?? N, (N - n)/(N - 1) est proche de 1. Au contraire, si n est grand par rapport ?? N, (N - n)/(N - 1) est proche de 0; ?? la limite, pour n = N, ?? = .</i></span></p>
+<p class="p8"><span class="s6">Interv Conf Exh</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Dans l'exemple pr??c??dent, supposons que l'universit?? consid??r??e ne comporte que 2 000 ??tudiants au total. L'??chantillon de 400 personnes pr??lev?? par l'association des ??tudiants doit donc ??tre qualifi?? d'exhaustif, et il faut utiliser le facteur de correction, ??gal ici ?? [(2 000 - 400)/(2 000 - 1 )] = 0,80.<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Au seuil de confiance (1 - a) = 95 %, l'intervalle de confiance devient:<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>?? = 10 ?? (1,96) (20/) (0,80)</i></span><span class="s11"><i><sup>1/2</sup></i></span><span class="s1"><i>= 10 ?? 1,74 ?? a 95 chances sur 100 de se situer dans la fourchette [11,74: 8,26].</i></span></p>
+<p class="p18"><span class="s4"><i>Cas particulier: </i></span><span class="s1"><i>Petit ??chantillon</i></span></p>
+<p class="p1"><span class="s1"><i>2 - Dans le cas d'un petit ??chantillon, avec n &lt; 30, et lorsque s est estim??, les moyennes d'??chantillons ne sont plus r??partis autour de la moyenne vraie selon une loi normale, mais selon une loi de Student ?? n - 1 degr??s de libert??. Dans la formule (1l), z</i></span><span class="s11"><i><sub>a/2</sub></i></span><span class="s1"><i> est alors remplac?? par t</i></span><span class="s11"><i><sub>a/2</sub></i></span><span class="s1"><i>, lu sur la table de Student pour n -1 degr??s de libert?? et un seuil de confiance (1 - a).</i></span></p>
+<table cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1"><i></i></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1"><i></i></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"><i>(a) degr??s de libert??</i></span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"><i>(b) Loi Student vs. Normale</i></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p1"><span class="s1"><i>Figure 5 - Loi de Student</i></span></p>
+<p class="p8"><span class="s6">Interv Conf Petit</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Au lieu d'utiliser un ??chantillon de 400 personnes, L'association des ??tudiants s'est limit??e ?? 21 interviews. La moyenne d'??chantillon (15) suit une loi de Student ?? 20 degr??s de libert??. Dans la mesure o?? l'??cart type rep??r?? sur l'??chantillon s'??l??ve ?? 20, au seuil de confiance de 95 %, t = 2,086 et l'intervalle de confiance devient alors:<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>??= 15 ?? (2,086) (20/(400-1)</i></span><span class="s11"><i><sup>1/2</sup></i></span><span class="s1"><i>) = 15 ?? 9,10 ?? 95 chances sur 100 de se situer dans la fourchette [5,89: 24,10].</i></span></p>
+<p class="p8"><span class="s6">Interv Conf Camip</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p17"><span class="s1"><i>Les intervalles de confiance: donn??es qualitatives</i></span></p>
+<p class="p18"><span class="s1"><i>Particularites</i></span></p>
+<p class="p1"><span class="s1"><i>Dans le cas de variables qualitatives, la probl??matique de la pr??vision des valeurs r??elles se pose dans les m??mes termes que pour les variables quantitatives, mais maintenant, il s'agit de fr??quences d'apparition de modalit??s et non plus de moyennes. La population totale est de taille N; la valeur vraie de la fr??quence de la modalit?? analys??e est p. Sur l'??chantillon de taille n, une proportion p a ??t?? trouv??e.</i></span></p>
+<p class="p18"><span class="s1"><i>Analogies</i></span></p>
+<p class="p1"><span class="s1"><i>On montre que les proportions lues sur les ??chantillons suivent une loi normale de moyenne p et d'??cart type s</i></span><span class="s11"><i><sub>p</sub></i></span><span class="s1"><i> = [p(l - p)/n]</i></span><span class="s11"><i><sup>l/2</sup></i></span><span class="s1"><i>. Au seuil de risque a, l'intervalle de confiance est obtenu par l'expression : p = p ?? z</i></span><span class="s11"><i><sub>a/2</sub></i></span><span class="s1"><i>.[p(1 - p)/n]</i></span><span class="s11"><i><sup>l/2</sup></i></span><span class="s1"><i> (15) G??n??ralement, on prendra, pour calculer l'??cart type des proportions, p = 50 %, qui correspond au cas le plus d??favorable et non la proportion observ??e..</i></span></p>
+<p class="p8"><span class="s6">IConf Prop Pess</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">IConf Prop Opti</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">IConf Prop Diff</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Plot</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Dans le cadre d'une ??tude de notori??t??, 25 % des personnes interrog??es ont d??clar?? conna??tre la marque M. Un ??chantillon al??atoire non exhaustif de 1000 individus a ??t?? utilis??. L'??cart type des proportions est alors:<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>[0,5(0,5)/1000]</i></span><span class="s11"><i><sup>l/2</sup></i></span><span class="s1"><i> = 0,0158.<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Il y a 95 chances sur 100 que le v??ritable taux de notori??t?? se situe dans la fourchette:<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>p = 0,25 ?? 1,96.(0,0158)</i></span></p>
+<p class="p1"><span class="s1"><i>Il doit ??tre ainsi compris entre 0,25 - 0,03 = 0,22 et 0,25 + 0,03 = 0,28, c'est-??-dire entre 22 % et 28 %.</i></span></p>
+<p class="p8"><span class="s6">IConf Prop Pess Camip</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">IConf Prop Opti Camip</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p17"><span class="s1"><i>Les tests d'hypoth??se: Donn??es quantitatives</i></span></p>
+<p class="p18"><span class="s4"><i>a) Position du probl??me</i></span></p>
+<p class="p1"><span class="s1"><i>(La valeur de la moyenne trouv??e sur ??chantillon aura souvent ?? ??tre mise en relation avec une valeur a priori ??</i></span><span class="s11"><i><sub>o.</sub></i></span><span class="s1"><i>) On peut faire des hypoth??ses concernant la relation entre la moyenne de la population et une telle valeur apriori. Une id??e simple est ?? la base du teste d'hypoth??ses: une Hypoth??se peut ??tre rejet??e mais elle ne peut jamais ??tre accept??e, par ce que des preuve ult??rieures peuvent montrer le contraire. (exemple: l'homme qui ?? un comportement d'homme pauvre est-il vraiment pauvre...)</i></span></p>
+<p class="p18"><span class="s1"><i>Hypoth??se nulle Ho</i></span></p>
+<p class="p1"><span class="s1"><i>On appellera Hypoth??se nulle H</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i> l'hypoth??se selon laquelle la situation vraie est diff??rente ou plus d??favorable que celle qui est mat??rialis??e par cette valeur a priori. L'hypoth??se nulle doit ??tre choisie de telle mani??re que son rejet permet "d'accepter" la conclusion d??sir??e. L'hypoth??se alternative est H</i></span><span class="s11"><i><sub>a</sub></i></span><span class="s1"><i>. Par le biais d'un test d'hypoth??se il s'agira d'??valuer dans quelle mesure Ho peut ??tre rejet??e.</i></span></p>
+<p class="p18"><span class="s1"><i>Test unilat??ral et bilat??ral</i></span></p>
+<p class="p1"><span class="s1"><i>On parlera de test unilat??ral quand il s'agira de v??rifier que la moyenne vraie est plus forte (test dit " ?? droite "), ou plus faible (test dit " ?? gauche ") que ??</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>. On aura affaire ?? un test bilat??ral quand il s'agira de d??montrer que la moyenne vraie est diff??rente de ??</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>.</i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Les intentions d'achat X d'un produit nouveau d??coulant d'une enqu??te par sondage aupr??s des utilisateurs potentiels doivent ??tre compar??es avec le seuil de rentabilit?? de ce produit ??</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>, et il faut v??rifier l'hypoth??se selon laquelle ce seuil de rentabilit?? sera bien d??pass??. L'hypoth??se H</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i> s'??nonce ici de la fa??on suivante: " la situation du march?? est telle que le seuil de rentabilit?? ne sera pas atteint " et H</i></span><span class="s11"><i><sub>1</sub></i></span><span class="s1"><i>,: " le seuil de rentabilit?? sera d??pass?? ". Le test d'hypoth??se n??cessaire est alors un test unilat??ral ?? droite.<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Si X¯ &gt; ??</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>, ce peut ??tre d?? au fait que la vraie moyenne est r??ellement sup??rieure ?? ??</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>. Ce peut ??tre ??galement d?? au fait que la vraie moyenne est inf??rieure ?? ??</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i> mais que le hasard a fait porter le sondage sur un ??chantillon particuli??rement favorable. Il est ??vident que plus (X¯ - ??</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>) est grand, moins le risque de se trouver dans cette deuxi??me situation est fort.</i></span></p>
+<p class="p18"><span class="s1"><i>b) R??alisation d'un test unilat??ral ?? droite - 1) H<sub>o</sub> : ?? &lt; ??<sub>o</sub></i></span></p>
+<p class="p1"><span class="s1"><i>Dans le probl??me pos??, H</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i> est associ??e ?? la situation ?? &lt; ??</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>. Une premi??re fa??on de proc??der consiste ?? d??terminer la probabilit?? - d??nomm??e probabilit?? critique p.c. - Avec laquelle H</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i> est conforme aux r??sultats lus sur ??chantillon. Le graphique 2 r??sume les termes du probl??me : Si la moyenne vraie ??tait ??, la probabilit?? d'obtenir sur ??chantillon une valeur sup??rieure ou ??gale ?? serait donn??e par la surface lue sous la courbe au-del?? de la valeur . . Figure 6: Test unilat??ral ?? droite Dans la mesure o?? le sondage est al??atoire, non exhaustif et porte sur un effectif sup??rieur ?? 30, cette probabilit?? est calcul??e ?? partir d'une table de la loi normale r??duite : Z = (- ??</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>)/  et p.c. = P (Z</i></span><span class="s12"><i><sup>*</sup></i></span><span class="s1"><i> &gt; Z) (13) Le fait de rejeter l'hypoth??se nulle est associ??e ?? un risque ??gal ?? p.c. Plus cette probabilit?? critique est faible et moins il y a de risque ?? rejeter Ho.</i></span></p>
+<p class="p18"><span class="s1"><i>2) valeur seuil X<sup>*</sup></i></span></p>
+<p class="p1"><span class="s1"><i>X*, telle que tout r??sultat de sondage X sup??rieur ?? X* permette de rejeter l'hypoth??se nulle avec moins de chances de se tromper. La valeur seuil X* est obtenue ?? l'aide de l'expression suivante, issue de la formule [11] : X* = ??o + Za (14) La r??gle est alors la suivante: ??? Si &lt; X*: acceptation de Ho ??? Si ?? X*: rejet de Ho</i></span></p>
+<p class="p18"><span class="s1"><i>3) tests unilat??raux ?? gauche</i></span></p>
+<p class="p1"><span class="s1"><i>Les tests unilat??raux ?? gauche s'effectuent de la m??me fa??on; la probabilit?? critique est la surface sous la courbe au-dessous de la valeur X trouv??e sur ??chantillon. La valeur-seuil X* est calcul??e ?? partir de la relation X* = ??o - Za (15) Les tests bilat??raux n??cessiteront l'??valuation de deux valeurs-seuil: une X* ?? droite de ??o et une X** ?? gauche, par utilisation simultan??e des formules (14) et (15).</i></span></p>
+<p class="p8"><span class="s6">Tests Hypo</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Plot Tests Hypo</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Plot Tests Hypo 2</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Le seuil de rentabilit?? d'un produit industriel nouveau s'??l??ve ?? 50 en moyenne par entreprise appartenant au march?? potentiel Sur un ??chantillon de 100 entreprises, une intention d'achat moyenne de 62 a ??t?? rep??r??e, avec un ??cart-type de 60.<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Z</i></span><span class="s11"><i><sub>62</sub></i></span><span class="s1"><i> = (62 - 50) / (60/ 1100) = 2<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>p.c. = P(Z &gt; Zx) = p(Z &gt; 2) = 0,023<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Avec un seuil de risque a = 5 %, I'hypoth??se nulle est rejet??e. En fait Ho peut ??tre rejet??e d??s que l'on trouve, sur ??chantillon une valeur au moins ??gale ??:<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>= 50 + (1,64) . (60/ 100</i></span><span class="s11"><i><sup>1/2</sup></i></span><span class="s1"><i>) = 59,84</i></span></p>
+<p class="p18"><span class="s4"><i>c) Les risques associ??s au test d'hypoth??se</i></span></p>
+<p class="p1"><span class="s1"><i>La proc??dure qui vient d'??tre expos??e ne s'int??resse qu'?? une seule cat??gorie de risque, celui de rejeter Ho alors qu'elle est vraie. C'est le risque a ,risque de premi??re esp??ce ou encore de risque de type 1. Il sera souvent n??cessaire de prendre ??galement en consid??ration le risque d'accepter ?? tort Ho : c'est le risque b, risque de seconde esp??ce ou encore de type II. Le tableau 3 reproduit les r??sultats possibles d'un test d'hypoth??se</i></span></p>
+<table width="784.0" cellspacing="0" cellpadding="0" class="t2">
+  <tbody>
+    <tr>
+      <td valign="top" class="td3">
+        <p class="p19"><span class="s1"><i><br>
+</i></span></p>
+      </td>
+      <td colspan="2" valign="top" class="td4">
+        <p class="p19"><span class="s1"><i>DÉCISION</i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td3">
+        <p class="p19"><span class="s1"><i>SITUATION REELLE</i></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p19"><span class="s1"><i>Ho n'est pas rejetée</i></span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p19"><span class="s1"><i>Ho est rejetée</i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td3">
+        <p class="p19"><span class="s1"><i>Ho est vraie</i></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p1"><span class="s1"><i>Décision correcte<span class="Apple-converted-space"> </span></i></span></p>
+        <p class="p1"><span class="s1"><i>Seuil de confiance:<span class="Apple-converted-space"> </span></i></span></p>
+        <p class="p19"><span class="s1"><i>Proba = 1 - a<span class="Apple-converted-space"> </span></i></span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p1"><span class="s1"><i>Décision incorrecte<span class="Apple-converted-space"> </span></i></span></p>
+        <p class="p1"><span class="s1"><i>Erreur de type I<span class="Apple-converted-space"> </span></i></span></p>
+        <p class="p19"><span class="s1"><i>Proba = a<span class="Apple-converted-space"> </span></i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td3">
+        <p class="p19"><span class="s1"><i>Ho n'est pas vraie</i></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p1"><span class="s1"><i>Décision incorrecte<span class="Apple-converted-space"> </span></i></span></p>
+        <p class="p1"><span class="s1"><i>Erreur de type II<span class="Apple-converted-space"> </span></i></span></p>
+        <p class="p19"><span class="s1"><i>Proba =b<span class="Apple-converted-space"> </span></i></span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p1"><span class="s1"><i>Décision correcte<span class="Apple-converted-space"> </span></i></span></p>
+        <p class="p1"><span class="s1"><i>Puissance du test:<span class="Apple-converted-space"> </span></i></span></p>
+        <p class="p19"><span class="s1"><i>Proba = 1 - b<span class="Apple-converted-space"> </span></i></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p1"><span class="s1"><i>Tableau 1.3.: R??sultats d'un test hypoth??se Il est bien ??vident que, pour une taille d'??chantillon donn??e, le risque a et le risque b ??voluent de fa??on oppos??e. R??duire le risque a demande de choisir une valeur-seuil X* plus forte, mais ceci s'accompagne d'une augmentation du risque b, puisqu'il y aura plus de chances d'accepter ?? tort l'hypoth??se nulle .</i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Avec les donn??es de l'exemple pr??c??dent, on a vu que le risque a ??tait limit?? ?? 5 % si l'on choisissait une valeur-seuil de 59,84.<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Supposons que la v??ritable valeur des ventes moyennes par entreprise soit 62. Avec une vraie moyenne de 62 et un ??cart type des moyennes d'??chantillon de 6 (60/100</i></span><span class="s11"><i><sup>1/2</sup></i></span><span class="s1"><i> = 6), il y a une probabilit?? de 35,94 % de s??lectionner un ??chantillon dont la moyenne observ??e sera inf??rieure ou ??gale ?? 59,84. En effet:<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Z = (59,84 - 62)/6 = - 0,36 et P(Z ?? 0,36) = 0,3594<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Il y a donc ici une probabilit?? de 35,94 % d'accepter ?? tort l'hypoth??se nulle. C'est la valeur du risque b.<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Si l'entreprise veut se pr??munir plus fortement contre le rejet ?? tort de Ho avec un risque a de 2,5 % seulement, elle sera amen??e ?? choisir une valeur seuil plus forte, ??gale ??:<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>X* = 50 + 1,96(6) = 61,76<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>La s??lection d'une telle valeur-seuil augmente le risque b. Dans l'hypoth??se o?? la moyenne vraie est 62:<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Z = (61,76 - 62)/6 = - 0,04 et P(Z ?? -0,04) = 0,484<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Le risque b est ici de 48,4 %.<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p17"><span class="s1"><i>Les tests d'hypoth??se: Donn??es qualitatives</i></span></p>
+<p class="p18"><span class="s1"><i>Analogies</i></span></p>
+<p class="p1"><span class="s1"><i>En ce qui concerne les test d'hypoth??se, les m??mes proc??dures que pour les variables quantitatives sont employ??es. C'est la formule (15) qui servira d??sormais dans le calcul des probabilit??s critiques et des valeurs-seuil.</i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Le taux de notori??t?? de la marque M dont il ??tait question dans l'exemple pr??c??dent a ??t?? mesur?? ?? la suite d'une campagne publicitaire. Le taux de notori??t?? pr??c??demment connu s'??levait ?? 21%. Peut-on en conclure que la publicit?? a fait augmenter de fa??on significative la connaissance de la marque ?<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>L'hypoth??se nulle correspond ici au cas o?? la publicit?? n'a eu aucun effet sur la notori??t?? de la marque et donc que la proportion vraie est toujours au niveau ancien de 21%. Le rejet ??ventuel de l'hypoth??se nulle demande de calculer la probabilit?? critique p.c., d??finie ici comme la probabilit?? d'obtenir une proportion observ??e sur ??chantillon au moins ??gale ?? 25 % dans une population o?? la proportion vraie est 21%.<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>La proportion observ??e p correspond, en valeur centr??e r??duite<span class="Apple-converted-space"> </span></i></span></p>
+<p class="p1"><span class="s1"><i>Zp = (0,25 - 0,21)/0,0158 = 2,53 probabilit?? critique est donc: P(Z &gt; Zp) = 0,57 %</i></span></p>
+<p class="p8"><span class="s6">Tests Hypo Prop Pess</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Tests Hypo Prop Opti</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p17"><span class="s1"><i>Les tests de conformit?? avec une distribution th??orique</i></span></p>
+<p class="p18"><span class="s1"><i>Test du chi2</i></span></p>
+<p class="p1"><span class="s1"><i>Les r??sultats du d??pouillement d'une question qualitative se pr??sentent comme une distribution de fr??quences d'apparition des diff??rentes modalit??s de la variable concern??e. Cette distribution peut ??tre compar??e ?? une distribution a priori, dite distribution th??orique. Comme dans les tests d'hypoth??ses vus plus haut, deux hypoth??ses sont alors test??es: - Ho la distribution observ??e n'est pas significativement diff??rente de la distribution th??orique. - Hl: la distribution observ??e est significativement diff??rente de la distribution th??orique.</i></span></p>
+<p class="p18"><span class="s1"><i>La loi du khi-deux</i></span></p>
+<p class="p1"><span class="s1"><i>Soient Z</i></span><span class="s11"><i><sub>1</sub></i></span><span class="s1"><i>,... ,Z</i></span><span class="s11"><i><sub>n</sub></i></span><span class="s1"><i>, n variables al??atoires r??elles ind??pendantes et identiquement distribu??es, Z</i></span><span class="s11"><i><sub>i</sub></i></span><span class="s1"><i> ~ N(0; 1), mutuellement ind??pendantes deux ?? deux. Alors la loi de la variable al??atoire d??finie par :<span class="Apple-converted-space">  </span>est dite loi du khi-deux ?? n degr??s de libert??, <span class="Apple-converted-space"> </span></i></span></p>
+<p class="p21"><span class="s1"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p22"><span class="s1"><i>Figure 7 - Loi du Khi-deux</i></span></p>
+<p class="p8"><span class="s6">Loi Khi-deux</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Loi Khi-deux Inverse</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Plot Loi Khi-deux</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Loi Khi-deux 2</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p8"><span class="s6">Plot Loi Khi-deux 2</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p18"><span class="s4"><i>a) Application du test du Khi-Deux</i></span></p>
+<p class="p1"><span class="s1"><i>La loi du Khi-Deux (c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i>) donne la r??partition des ??carts entre les fr??quences absolues th??oriques et les fr??quences absolues observ??es, sous hypoth??se nulle. On mesure le c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i> par : c</i></span><span class="s11"><i><sup>2 </sup></i></span><span class="s1"><i>= S [Nj - qj]</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i> /qj (16) o?? Nj = fr??quence absolue observ??e pour la modalit?? j; qj = fr??quence absolue th??orique pour la modalit?? j. Cette valeur calcul??e du c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i> est compar??e avec la valeur lue sur la table du c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i>, pour m - 1 degr??s de libert?? lorsque la variable qualitative comporte m modalit??s , et pour un seuil de confiance donn?? 1 - a. Si la valeur calcul??e du c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i> est sup??rieure ?? la valeur de la table, Ho peut ??tre rejet??e avec un risque inf??rieur ?? a.</i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Le tableau 1.4. reproduit une application du test du c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i> pour le traitement des r??sultats d'une ??tude sur les clients d'une ligne a??rienne. Il s'agit ici de v??rifier si l'??chantillon interrog?? respecte bien les proportions connues des passagers eu ??gard ?? leur qualit?? d'abonn?? ou non. Le c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i> calcul?? apparaissant plus faible que le c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i> lu sur la table (5,99 pour 2 degr??s de libert?? au seuil de 5 %), les diff??rences constat??es ne sont pas significatives. Tableau 1.4.: Application du test du Khi-Deux</i></span></p>
+<table width="305.0" cellspacing="0" cellpadding="0" class="t3">
+  <tbody>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Modalit?? </i></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p1"><span class="s1"><i>Effectif observ?? Nj </i></span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p1"><span class="s1"><i>Effectif th??orique Qj</i></span></p>
+      </td>
+      <td valign="top" class="td10">
+        <p class="p1"><span class="s1"><i>N</i></span><span class="s11"><i><sub>j</sub></i></span><span class="s1"><i>-Q</i></span><span class="s11"><i><sub>j</sub></i></span><span class="s1"><i>;</i></span></p>
+      </td>
+      <td valign="top" class="td11">
+        <p class="p1"><span class="s1"><i>(N</i></span><span class="s11"><i><sub>j</sub></i></span><span class="s1"><i>-Q</i></span><span class="s11"><i><sub>j</sub></i></span><span class="s1"><i>)</i></span><span class="s11"><i><sup>2</sup></i></span></p>
+      </td>
+      <td valign="top" class="td12">
+        <p class="p1"><span class="s1"><i>(N</i></span><span class="s11"><i><sub>j</sub></i></span><span class="s1"><i>-Q</i></span><span class="s11"><i><sub>j</sub></i></span><span class="s1"><i>)</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i> /Q</i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Abonn?? ann??e </i></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p1"><span class="s1"><i>80 </i></span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p1"><span class="s1"><i>90 </i></span></p>
+      </td>
+      <td valign="top" class="td10">
+        <p class="p1"><span class="s1"><i>-10 </i></span></p>
+      </td>
+      <td valign="top" class="td11">
+        <p class="p1"><span class="s1"><i>100 </i></span></p>
+      </td>
+      <td valign="top" class="td12">
+        <p class="p1"><span class="s1"><i>1,11 </i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Abonn?? mois </i></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p1"><span class="s1"><i>50 </i></span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p1"><span class="s1"><i>45 </i></span></p>
+      </td>
+      <td valign="top" class="td10">
+        <p class="p1"><span class="s1"><i>5 </i></span></p>
+      </td>
+      <td valign="top" class="td11">
+        <p class="p1"><span class="s1"><i>25 </i></span></p>
+      </td>
+      <td valign="top" class="td12">
+        <p class="p1"><span class="s1"><i>0 56 </i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Autre </i></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p1"><span class="s1"><i>100 </i></span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p1"><span class="s1"><i>95 </i></span></p>
+      </td>
+      <td valign="top" class="td10">
+        <p class="p1"><span class="s1"><i>5 </i></span></p>
+      </td>
+      <td valign="top" class="td11">
+        <p class="p1"><span class="s1"><i>25 </i></span></p>
+      </td>
+      <td valign="top" class="td12">
+        <p class="p1"><span class="s1"><i>0 26 </i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Total </i></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p1"><span class="s1"><i>230 </i></span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p1"><span class="s1"><i>230 </i></span></p>
+      </td>
+      <td valign="top" class="td10">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+      <td valign="top" class="td11">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+      <td valign="top" class="td12">
+        <p class="p1"><span class="s1"><i>c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i>= 1,93</i></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p1"><span class="s1"><i>Nombre de degr??s de libert??: 2 Valeur du Khi-Deux au seuil de 5 %: 5,99</i></span></p>
+<p class="p8"><span class="s6">Chi2 univ. Camip</span><span class="s10"><i><span class="Apple-converted-space"> </span></i></span></p>
+<p class="p18"><span class="s4"><i>b) Application du test de Kolmogorov-Smirnov</i></span></p>
+<p class="p1"><span class="s1"><i>La qualit?? de l'ajustement d'une fonction de r??partition observ??e ?? une fonction de r??partition a priori peut ??galement ??tre ??valu??e ?? l'aide du test de Kolmogorov-Smirnov. On aura recours ?? un test chaque fois que les modalit??s de la variable qualitative consid??r??e sont ordonnables, mais aussi lorsque les effectifs des diff??rentes classes sont trop faibles pour autoriser l'utilisation du test du c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i> . Le test demande de calculer des fr??quence relatives observ??es cumul??es F</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>(j) et des fr??quences relatives cumul??es th??oriques F</i></span><span class="s11"><i><sub>q</sub></i></span><span class="s1"><i>(j) : F</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>(j) et F</i></span><span class="s11"><i><sub>q</sub></i></span><span class="s1"><i>(j) repr??sentent respectivement les pourcentages des effectifs observ??s et th??oriques enregistr??s jusqu'?? la modalit?? j. Pour chaque modalit?? la valeur |F</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>(j) - F</i></span><span class="s11"><i><sub>q</sub></i></span><span class="s1"><i>(j)| est calcul??e. Un indicateur D est alors ??tabli, tel que : D = Maxj |F</i></span><span class="s11"><i><sub>o</sub></i></span><span class="s1"><i>(j) - Fq(j)| (17) Cette valeur est compar??e ?? celle lue sur une table du D de Kolmogorov-Smirnov pour un seuil de confiance donn??. A un seuil de risque de 5%, et pour des effectifs totaux sup??rieurs ?? 35, D est approximativement ??gal ?? 1,36/</i></span></p>
+<p class="p18"><span class="s1"><i>Exemple</i></span></p>
+<p class="p1"><span class="s1"><i>Le tableau 1.5. donne une application de ce test ?? l'??tude sur les clients d'une ligne a??rienne. Le D calcul?? est plus faible que le D de la table au seuil de 5% : les diff??rences ne sont pas significatives, comme on l'avait d??j?? constat?? avec le test du c</i></span><span class="s11"><i><sup>2</sup></i></span><span class="s1"><i>. Tableau 1.5.: Application du test de Kolmogorov-Smirnov</i></span></p>
+<table width="305.0" cellspacing="0" cellpadding="0" class="t3">
+  <tbody>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Modalit?? </i></span></p>
+      </td>
+      <td valign="top" class="td13">
+        <p class="p1"><span class="s1"><i>Fr??quence </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>Cumul?? </i></span></p>
+      </td>
+      <td valign="top" class="td15">
+        <p class="p1"><span class="s1"><i>Fr??quence </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>Cumul?? </i></span></p>
+      </td>
+      <td valign="top" class="td16">
+        <p class="p1"><span class="s1"><i>|Fo(J)-Fq(J)|</i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+      <td valign="top" class="td13">
+        <p class="p1"><span class="s1"><i>relative </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>Fo(j) </i></span></p>
+      </td>
+      <td valign="top" class="td15">
+        <p class="p1"><span class="s1"><i>Relative </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>Fq(j)</i></span></p>
+      </td>
+      <td valign="top" class="td16">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+      <td valign="top" class="td13">
+        <p class="p1"><span class="s1"><i>observ??e </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+      <td valign="top" class="td15">
+        <p class="p1"><span class="s1"><i>Th??orique </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+      <td valign="top" class="td16">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Abonn?? ann??e </i></span></p>
+      </td>
+      <td valign="top" class="td13">
+        <p class="p1"><span class="s1"><i>34,78 % </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>34,78 % </i></span></p>
+      </td>
+      <td valign="top" class="td15">
+        <p class="p1"><span class="s1"><i>39,13 % </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>39,13 % </i></span></p>
+      </td>
+      <td valign="top" class="td16">
+        <p class="p1"><span class="s1"><i>4,35 % </i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Abonn?? mois </i></span></p>
+      </td>
+      <td valign="top" class="td13">
+        <p class="p1"><span class="s1"><i>21,74 % </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>56,52 % </i></span></p>
+      </td>
+      <td valign="top" class="td15">
+        <p class="p1"><span class="s1"><i>19,57 % </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>58,70 % </i></span></p>
+      </td>
+      <td valign="top" class="td16">
+        <p class="p1"><span class="s1"><i>2,17 % </i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Autre </i></span></p>
+      </td>
+      <td valign="top" class="td13">
+        <p class="p1"><span class="s1"><i>43,48 % </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>100,00 % </i></span></p>
+      </td>
+      <td valign="top" class="td15">
+        <p class="p1"><span class="s1"><i>41,30 % </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i>100,00 % </i></span></p>
+      </td>
+      <td valign="top" class="td16">
+        <p class="p1"><span class="s1"><i>0,00 % </i></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p1"><span class="s1"><i>Total </i></span></p>
+      </td>
+      <td valign="top" class="td13">
+        <p class="p1"><span class="s1"><i>100,00 % </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+      <td valign="top" class="td15">
+        <p class="p1"><span class="s1"><i>100,00 % </i></span></p>
+      </td>
+      <td valign="top" class="td14">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+      <td valign="top" class="td16">
+        <p class="p1"><span class="s1"><i> </i></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p1"><span class="s1"><i>Valeur calcul??e de D = 0,0435 Valeur de D au seuil de 5 %: 0,089<span class="Apple-converted-space"> </span></i></span></p>
+</body>
+</html>

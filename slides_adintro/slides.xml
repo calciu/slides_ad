@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<?cocoon-process type="xslt"?>
+<?xml-stylesheet href="navigation.xsl" type="text/xsl"?>
+<!DOCTYPE slides[
+<!ENTITY hellip "&#x2026;">
+<!ENTITY agrave "&#xE0;">
+<!ENTITY aacute "&#xE1;">
+<!ENTITY acirc "&#xE2;">
+<!ENTITY atilde "&#xE3;">
+<!ENTITY auml "&#xE4;">
+<!ENTITY aring "&#xE5;">
+<!ENTITY aelig "&#xE6;">
+<!ENTITY ccedil "&#xE7;">
+<!ENTITY egrave "&#xE8;">
+<!ENTITY eacute "&#xE9;">
+<!ENTITY ecirc "&#xEA;">
+<!ENTITY euml "&#xEB;">
+<!ENTITY igrave "&#xEC;">
+<!ENTITY iacute "&#xED;">
+<!ENTITY icirc "&#xEE;">
+<!ENTITY iuml "&#xEF;">
+<!ENTITY eth "&#xF0;">
+<!ENTITY ntilde "&#xF1;">
+<!ENTITY ograve "&#xF2;">
+<!ENTITY oacute "&#xF3;">
+<!ENTITY ocirc "&#xF4;">
+<!ENTITY otilde "&#xF5;">
+<!ENTITY ouml "&#xF6;">
+<!ENTITY divide "&#xF7;">
+<!ENTITY oslash "&#xF8;">
+<!ENTITY ugrave "&#xF9;">
+<!ENTITY uacute "&#xFA;">
+<!ENTITY ucirc "&#xFB;">
+<!ENTITY uuml "&#xFC;">
+<!ENTITY yacute "&#xFD;">
+<!ENTITY thorn "&#xFE;">
+<!ENTITY yuml "&#xFF;">
+<!ENTITY oelig "&#x153;">
+<!ENTITY euro "&#x20AC;">
+<!ENTITY deg "&#xB0;">
+<!ENTITY nbsp "&#xA0;">
+<!ENTITY ndash "&#x2013;">
+<!ENTITY mdash "&#x2014;">
+<!ENTITY ldquo "&#x201C;">
+<!ENTITY rdquo "&#x201D;">
+<!ENTITY lsquo "&#x2018;">
+<!ENTITY rsquo "&#x2019;">
+]>
+<slides style="apachecon">
+<title>Recherche Marketing: Collecte et Analyse des donn&eacute;es</title>
+<authors>
+<person>
+<name>M. Calciu</name>
+<email></email>
+</person>
+</authors>
+<event>
+<name>Cours d'analyse des donn&eacute;es &agrave; l'Universit&eacute; Lille 1</name>
+<date></date>
+<time></time>
+<location></location>
+</event>
+<section>
+<title>Introduction</title>
+<slide>
+<title>Le concept du marketing</title>
+<p>Dans l'&eacute;poque actuelle o&ugrave; le savoir produire ne suffit plus pour assurer la place d'une entreprise ou d'un produit sur le march&eacute; &agrave; cause d'un environnement tr&egrave;s concurrentiel, l'approche marketing semble offrir la cl&eacute; du succ&egrave;s.</p>
+
+<p>
+<i>L'id&eacute;e centrale du marketing est la concentration sur le consommateur( ou le client) et l'adaptation &agrave; ses attentes</i>. Le marketing c'est un <i>&eacute;tat d'esprit</i>, c'est un <i>art</i>, mais c'est aussi une <i>science</i>. Traditionnellement on fait la distinction entre deux phases du marketing, la <i>phase analytique</i> ou la recherche marketing (Marketing Research) et la <i>phase op&eacute;rationnelle</i> qui regroupe le marketing op&eacute;rationnel et strat&eacute;gique.</p>
+
+</slide>
+<slide>
+<title>Le r&ocirc;le de la recherche marketing</title>
+<p>La <i>recherche marketing</i> d&eacute;veloppe un ensemble de techniques pour l'&eacute;tude du consommateur, de la client&egrave;le et du march&eacute;. Elle d&eacute;tecte et enregistre les besoins et motivations des clients, qu'elle d&eacute;duit souvent &agrave; partir des attitudes exprim&eacute;es ou des comportements observ&eacute;s. Elle dispose de tout un arsenal coh&eacute;rent de m&eacute;thodes pour arriver &agrave; &eacute;valuer les march&eacute;s et leurs attentes, pour identifier la perception (positionnement) des produits et des services par rapport aux attentes et aux concurrents, pour segmenter la client&egrave;le afin d'isoler et cibler les groupes que l'entreprise avec ses moyens et ses comp&eacute;tences peut le mieux servir.</p>
+
+<p>
+<imgspan src="slides_fichiers/Image417.gif"></imgspan>&nbsp;</p>
+<p>
+<b>&nbsp;</b>
+</p>
+<p>
+<fork uri="">Figure 1. Le marketing et le consommateur.</fork>
+</p>
+<p>Le marketing op&eacute;rationnel et le marketing strat&eacute;gique utilisent les informations fournies par la recherche marketing pour d&eacute;velopper et appliquer une politique de produit, de prix, de communication et de distribution adapt&eacute;e aux attentes de la client&egrave;le cibl&eacute;e.</p>
+
+</slide>
+<slide>
+<title>Objectifs du cours</title>
+<p>L'objectif de ce cours est de pr&eacute;senter les <i>techniques de recueil, traitement et analyse des donn&eacute;es</i> int&eacute;gr&eacute;es au <i>cadre conceptuel de la recherche marketing</i>. Ces techniques sont illustr&eacute;es par de nombreux <i>exemples et &eacute;tudes de cas</i>. La solution de la plupart des traitements des donn&eacute;es qu'elles impliquent est pr&eacute;sent&eacute;e sur <i>tableur</i> (Excel), qui est l'instrument microinformatique le plus utilis&eacute; dans les entreprises. Un <i>logiciel d'analyse des donn&eacute;es</i> multidimensionnelles &eacute;crit par l'auteur est mis &agrave; disposition. Il int&egrave;gre sur le tableur les m&eacute;thodes d'analyse multivari&eacute;e les plus importantes pour la pratique de la recherche marketing.</p>
+
+</slide>
+<slide>
+<title>La typologie des &eacute;tudes de march&eacute;</title>
+<p>Toute recherche commence par une phase <b>exploratoire</b>. Les entretiens individuels et/ou de groupe sont des moyens de d&eacute;couverte de la probl&eacute;matique du march&eacute; (ou domaine) &eacute;tudi&eacute;. Avec la probl&eacute;matique &eacute;clair&eacute;e on passe &agrave; la phase <b>descriptive</b>, &agrave; l'aide de techniques <i>d'observation</i> et de <i>communication</i>. Les techniques d'observation permettent d'enregistrer le comportement d'une mani&egrave;re inobtrusive. Mais dans la plupart des cas l'information est obtenue par enqu&ecirc;te sur &eacute;chantillon &agrave; l'aide d'un questionnaire. Dans cette cat&eacute;gorie on trouve les enqu&ecirc;tes ponctuelles, les enqu&ecirc;tes omnibus les panels. Par fois l'<i>exp&eacute;rimentation</i> &agrave; travers l'&eacute;tude <b>causale</b> est aussi exig&eacute;e. Les tests de concept, les copy tests, tests de produit, les march&eacute;s test servent &agrave; accro&icirc;tre la qualit&eacute; de la d&eacute;cision manag&eacute;riale.</p>
+
+</slide>
+</section>
+<section>
+<title>La collecte des donn&eacute;es et les sources d'informations</title>
+<slide>
+<title>Information primaire et secondaire</title>
+<p>Pour obtenir des informations il y a le choix entre des donn&eacute;es pr&eacute;existantes (<b>information secondaire</b>) publi&eacute;es ou non publi&eacute;es, externes ou internes &agrave; l'entreprise qui sont souvent peu co&ucirc;teuses mais aussi peu adapt&eacute;es aux objectifs de l'&eacute;tude et des donn&eacute;es recueillies directement en observant ou en interrogeant les clients (<b>information primaire</b>).</p>
+
+</slide>
+<slide>
+<title>Cat&eacute;gories de donn&eacute;es secondaires</title>
+<p>Les <i>donn&eacute;es internes</i> sur les ventes, les clients, les actions marketing pass&eacute;es, les co&ucirc;ts, sur la distribution et les acheteurs organis&eacute;s souvent en base de donn&eacute;es, sont des outils redoutables (voir essentiels) pour cibler la client&egrave;le. Le marketing direct, la vente par correspondance, le marketing des bases de donn&eacute;es illustrent la force que peuvent apporter les donn&eacute;es internes &agrave; une entreprise.</p>
+
+<p>Les <i>donn&eacute;es externes</i> sont soit publiques (en libre acc&egrave;s ou &agrave; des co&ucirc;ts modiques) soit commerciales. Parmi les donn&eacute;es <i>publiques</i> on trouve des informations publi&eacute;es ou des informations accessibles on-line dans des bases de donn&eacute;es sp&eacute;cialis&eacute;es ou (et maintenant de plus en plus) sur Internet.</p>
+
+<p>Les informations <i>commerciales</i> sont offertes par des services d'informations standardis&eacute;es pour le marketing (des profils client&egrave;le, mesure des ventes et des parts de march&eacute;, mesure d'exposition &agrave; des medias et de leur impact et plus rarement des &eacute;tudes &agrave; la carte).</p>
+</slide>
+</section>
+<section>
+<title>Recherche des informations primaires</title>
+
+<slide>
+<title>Utiliser la connaissance du comportement du consommateur comme guide</title>
+<p>Les mod&egrave;les conceptuels du <i>comportement du consommateur</i> que ce soit le consommateur individuel ou le consommateur industriel sont un guide essentiel pour sp&eacute;cifier les informations n&eacute;cessaires.</p>
+<p>D'une mani&egrave;re simplifi&eacute;e on suppose que le consommateur est model&eacute; par des facteurs d'environnement (de son environnement), que par rapport &agrave; un produit ou service il est soumis &agrave; un ensemble de stimuli qui viennent de sources incontr&ocirc;lables par l'entreprise (l'environnement) mais aussi &agrave; des stimuli g&eacute;n&eacute;r&eacute;s par l'entreprise ou bien par le produit lui-m&ecirc;me.</p>
+
+</slide>
+<slide>
+<title>Facteurs</title>
+<p>Parmi les <b>facteurs d'environnement</b> qui d&eacute;terminent le comportement du consommateur on trouve les caract&eacute;ristiques socio-demographiques (&acirc;ge, sexe, occupation, &eacute;tat civil, niveau d'&eacute;ducation, classe ou cat&eacute;gorie sociale, cycle de vie familial) mais aussi les caract&eacute;ristiques psycho-sociales (personnalit&eacute;, style de vie). Tous ces &eacute;l&eacute;ments sont importants pour la segmentation du march&eacute;.</p>
+
+</slide>
+<slide>
+<title>R&eacute;ponses aux stimuli</title>
+<p>La <b>r&eacute;action aux stimuli</b> g&eacute;n&eacute;r&eacute;s par le march&eacute; est progressive, les individus ne deviennent pas brusquement des acheteurs d'une marque (produit/service), ils &eacute;voluent en apprenant et traversent plusieurs phases. Il s'agit d'une &eacute;tape cognitive (information, apprentissage, connaissance), d'une &eacute;tape affective (ou se forment les attitudes et les pr&eacute;f&eacute;rences et ou les motivations ont un r&ocirc;le &agrave; jouer) et &eacute;tape conative ( d'action, achat). L'ordre de ces &eacute;tapes diff&egrave;re en fonction des situations d'achat (premier achat, achat r&eacute;p&eacute;t&eacute;, produit impliquant ou non-impliquant etc.). Pour l'entreprise il est important de savoir dans quelle phase se trouve le client par rapport au produit offert, afin de pr&eacute;parer et doser les stimuli &agrave; administrer et trouver un mix-marketing adapt&eacute; pour faire avancer les sujets vis&eacute;s vers l'&eacute;tat d'acheteur ou d'acheteur fid&egrave;le. C'est pour cela que le recueil direct d'informations aupr&egrave;s de la client&egrave;le devra permettre de d&eacute;celer progressivement par rapport au produit, le degr&eacute; de connaissance, les attitudes, les intentions d'achat, les motivations, les habitudes et comportements d'achat.</p>
+
+</slide>
+</section>
+<section>
+<title>Moyens de collecte d&rsquo;informations primaires</title>
+<slide>
+<title>Observation, enqu&ecirc;te et exp&eacute;rimentation</title>
+<p>Les donn&eacute;es primaires sont obtenues par observation ou par communication directe. La communication suppose souvent la r&eacute;daction d'un questionnaire et c'est le seul moyen pour obtenir des informations sur les attitudes, connaissances, motivations et intentions. L'observation est plus adapt&eacute;e pour procurer des donn&eacute;es comportementales.</p>
+
+</slide>
+<slide>
+<title>Le questionnaire</title>
+<p>Le questionnaire est l'instrument le plus fr&eacute;quemment utilis&eacute; pour le recueil direct des informations. Apr&egrave;s une r&eacute;daction attentive qui essaye de couvrir tout les informations &agrave; obtenir, suivi par des phases de pr&eacute;test et correction, le questionnaire est administr&eacute; (par voie postale, t&eacute;l&eacute;phone ou t&eacute;l&eacute;matique) &agrave; un &eacute;chantillon repr&eacute;sentatif de la population cibl&eacute;e. Les questionnaires remplis sont collect&eacute;s et d&eacute;pouill&eacute;s. Toutes les r&eacute;ponses sont codifi&eacute;es et enregistr&eacute;es dans des tableaux de donn&eacute;es (appel&eacute;s parfois bordereaux de d&eacute;pouillement) o&ugrave; chaque ligne repr&eacute;sente un questionnaire, comme dans la Figure 2.</p>
+
+</slide>
+<slide>
+<title>&nbsp;(a) exemple de questionnaire :</title>
+<form>
+<p>Questionnaire&nbsp; No.&nbsp; <input/>(1)<br/>Courte pr&eacute;sentation des objectifs de l'&eacute;tude....<br/>&nbsp;<fork uri=""></fork>1)&nbsp;&nbsp; Laquelle des marques suivantes pr&eacute;f&eacute;rez-vous? (2)</p>
+
+<table width="" align="">
+<tr>
+<td>Marque A&nbsp;</td><td><input/>1&nbsp;</td>
+</tr>
+<tr>
+<td>Marque B&nbsp;</td><td><input/>&nbsp; 2</td>
+</tr>
+<tr>
+<td>Marque C</td><td><input/>&nbsp; 3</td>
+
+</tr>
+<tr>
+<td>Autres&nbsp;</td><td><input/>&nbsp; 4</td>
+</tr>
+</table>
+<p>&nbsp; <fork uri=""></fork>2)&nbsp; Qui vous a signal&eacute; cette marque (OUI=1&nbsp;&nbsp; NON=0)</p>
+
+<table width="" align="">
+<tr>
+<td>la Pub</td><td><input/>&nbsp;&nbsp;&nbsp; (3)</td>
+</tr>
+<tr>
+<td>la presse sp&eacute;cialis&eacute;e</td><td><input/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (4)</td>
+</tr>
+<tr>
+<td>des amis</td><td><input/>&nbsp;&nbsp;&nbsp;&nbsp; (5)</td>
+
+</tr>
+<tr>
+<td>autres sources</td><td><input/>&nbsp;&nbsp; (6)</td>
+</tr>
+</table>
+<p>&nbsp;<fork uri=""></fork>3)&nbsp;&nbsp; Indiquez votre degr&eacute; d'accord sur la possession des attributs<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; suivants par les marques A,B et C:&nbsp; (1 = pas du tout d'accord,<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 = pas d'accord, 3 = d'accord 4 = tout &agrave; fait d'accord)<br/> &nbsp;</p>
+
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>&nbsp;Marque A&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; 4</td><td>&nbsp;Marque B&nbsp;&nbsp;1&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; 4</td><td>&nbsp;Marque C&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp; 4</td>
+
+</tr>
+<tr>
+<td>Pas cher&nbsp;&nbsp;<br/> Bonne qualit&eacute;&nbsp;&nbsp; Innovant&nbsp;&nbsp; Commode</td><td><input/><input/><input/><input/>( 7)&nbsp;&nbsp;<br/>
+<input/><input/><input/><input/>( 8)&nbsp;&nbsp;<br/>
+<input/><input/><input/><input/>( 9)&nbsp;&nbsp;<br/>
+<input/><input/><input/><input/>(10)</td><td><input/><input/><input/><input/>(11)&nbsp;&nbsp;<br/>
+
+<input/><input/><input/><input/>(12)&nbsp;&nbsp;<br/>
+<input/><input/><input/><input/>(13)&nbsp;&nbsp;<br/>
+<input/><input/><input/><input/>(14)</td><td><input/><input/><input/><input/>(15)&nbsp;&nbsp;<br/>
+<input/><input/><input/><input/>(16)&nbsp;&nbsp;<br/>
+<input/><input/><input/><input/>(17)&nbsp;&nbsp;<br/>
+<input/><input/><input/><input/>(18)</td>
+</tr>
+</table>
+<p>&nbsp;<br/> &nbsp;<fork uri=""></fork>
+
+</p>
+<table width="" align="">
+<tr>
+<td>4) Estez vous ?&nbsp; (19)</td><td>5) Quel est votre age ?(20)</td>
+</tr>
+<tr>
+<td>Femme&nbsp; <input/>1&nbsp;&nbsp;<br/> Homme&nbsp; <input/>2</td><td><input/></td>
+
+</tr>
+</table>
+<p>
+<input/>
+</p>
+<input/>
+</form>
+<p>&nbsp;</p>
+</slide>
+<slide>
+<title>(b) exemple de tableau de d&eacute;pouillement d'enqu&ecirc;te</title>
+<p>(ICI lien vers ou integrer question.html)</p>
+<form>
+
+<table width="75%" align="">
+<tr>
+<td><textarea></textarea></td><td><input/> <input/></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+</form>
+<p>
+<fork uri="">&nbsp;</fork>
+</p>
+<p>Figure 2. Le questionnaire: pr&eacute;codage, codage et enregistrement des reponses</p>
+<p>Le questionnaire pr&eacute;sent&eacute; en Figure 2 est un exemple r&eacute;duit et simplifi&eacute;. Un vrai questionnaire (le cas CAMIP) est donn&eacute; en annexe ainsi qu'une collection des types de questions qui tient compte d'un mod&egrave;le hi&eacute;rarchique du comportement du consommateur.</p>
+
+</slide>
+<slide>
+<title>La codification des questions</title>
+<div>
+<table width="" align="">
+<tr>
+<td>Type de question</td><td>Nombres de colonnes (variables) par question</td>
+</tr>
+<tr>
+<td>Questions <b>nominales</b>:</td><td>&nbsp;&nbsp;&nbsp;</td>
+</tr>
+
+<tr>
+<td>Q. au choix multiple exclusif</td><td>une</td>
+</tr>
+<tr>
+<td>Q. au choix multiple non exclusif</td><td>autant de colonnes que le nombre de modalit&eacute;s (cod&eacute;es 0 ou 1)</td>
+</tr>
+<tr>
+<td>Q. ouvertes (autres ...)</td><td>une et on augmente le nombre de modalit&eacute;s en fonction des r&eacute;ponses</td>
+
+</tr>
+<tr>
+<td>Questions. <b>ordinales</b></td><td>plusieures modalit&eacute;s (tant de colonnes que propositions possibles)</td>
+</tr>
+<tr>
+<td>Questions. <b>quantitatives</b></td><td>une; si &eacute;chelle d'attitude une colonne pour chaque item</td>
+</tr>
+</table>
+</div>
+
+<p>
+<b><i>Tableau 1.1 - R&egrave;gles d'enregistrement des r&eacute;ponses aux questionnaires dans les tableaux de donn&eacute;es d'enqu&ecirc;te</i></b>
+</p>
+</slide>
+<slide>
+<title>Les questionnairs en ligne</title>
+<p>Il est possible d'enregistrer les r&eacute;ponses au questionnaire directement sur l'ordinateur. Les questionnaires automatis&eacute;s sur ordinateur ont l'avantage d'&eacute;liminer en grande partie les fautes de frappe, ils codent et enregistrent les donn&eacute;es automatiquement dans des tableaux. Un exemple de questionnaire automatis&eacute; sur tableur est donn&eacute; en annexe. Sur le Web de l'Internet le m&eacute;canisme des formulaires (Forms) facilite la saisie des r&eacute;ponses &agrave; l'aide d'objets d'interface adapt&eacute;s (zones de texte, zone d'entr&eacute;e, cases d'options, cases &agrave; cocher, listes &agrave; s&eacute;lection unique ou multiple etc.). Les informations saisies sont capt&eacute;es sur le serveur de celui qui m&egrave;ne l'enqu&ecirc;te et enregistr&eacute;es dans une base de donn&eacute;es ou autrement trait&eacute;es par des programmes adapt&eacute;s, qui profitent d'un autre standard qui s'est impos&eacute; sur Internet le CGI (Common Gateway Interface). En profitant des deux standards les Forms et les CGI il est relativement facile de mener des enqu&ecirc;tes interactives en temps r&eacute;el et &agrave; distance. Des informations suppl&eacute;mentaires concernant la pr&eacute;paration des enqu&ecirc;tes sur Internet se trouvent dans l'annexe.</p>
+
+</slide>
+</section>
+<section>
+<title>Nature des informations</title>
+<slide>
+<title>.&nbsp; Types d'informations</title>
+<p>
+<b>Informations quantitatives</b> &egrave; r&eacute;sultent de l'observation des comportements des intervenants sur le march&eacute;, elles sont relativement objectives et contr&ocirc;lables et r&eacute;pondent aux questions "&nbsp;combien ?&nbsp;" et "&nbsp;comment ?&nbsp;" (ex. notori&eacute;t&eacute; des produits, possession des produits, quantit&eacute;s achet&eacute;es, fr&eacute;quences d'achat, lieux d'achat, modes d'information sur les produits etc.)</p>
+
+<p>
+<b>Informations qualitatives</b> &egrave; s'int&eacute;ressent aux facteurs qui d&eacute;terminent les comportements et sont de nature subjective. Leur recueil et interpr&eacute;tation sont en g&eacute;n&eacute;ral plus difficiles (ex. les motivations, perceptions, les opinions et attitudes, les pr&eacute;f&eacute;rences etc.)</p>
+</slide>
+<slide>
+<title>La mesure</title>
+
+<p>En marketing le questionnaire sert aussi comme instrument de mesure.</p>
+<p>La <b>mesure</b> est d&eacute;finie: comme &eacute;tant form&eacute;e de "&nbsp;r&egrave;gles pour attribuer des nombres &agrave; des objets, de telle sorte qu'elles repr&eacute;sentent des quantit&eacute;s d'attributs&nbsp;" (1. on mesure des attributs des objets, non pas les objets eux-m&ecirc;mes; 2. la mani&egrave;re dans laquelle les nombres sont attribu&eacute;s n'est pas sp&eacute;cifi&eacute;e, les nombres jouent un r&ocirc;le de symbole, ce ne sont pas les propri&eacute;t&eacute;s intrins&egrave;ques des nombres, qui sont prises en compte mais les propri&eacute;t&eacute;s des attributs qu'ils repr&eacute;sentent). Une autre d&eacute;finition consid&egrave;re la mesure "comme le moyen d'obtenir des symboles repr&eacute;sentant les propri&eacute;t&eacute;s des personnes, d'objets, d'&eacute;v&eacute;nements ou d'&eacute;tats, de telle sorte que ces symboles aient les m&ecirc;mes relations entre eux que les choses repr&eacute;sent&eacute;es".</p>
+
+</slide>
+<slide>
+<title>Les echelles de mesure</title>
+<p>Les <b>&eacute;chelles nominales</b>: ont comme seule propri&eacute;t&eacute; <i>l'identit&eacute;</i>, la plus simple des propri&eacute;t&eacute;s d'une &eacute;chelle de nombres. L'identit&eacute; exprime l'appartenance des objets &eacute;tudi&eacute;s &agrave; une cat&eacute;gorie. Elles sont les plus pauvres en informations.</p>
+
+<p>Les <b>&eacute;chelles ordinales</b> ont une seconde propri&eacute;t&eacute; des &eacute;chelles de nombres, l'<i>ordre ,</i> qui est ajout&eacute; &agrave; la premi&egrave;re<i>.</i> Elles permettent de classer les objets selon un ordre donn&eacute;.</p>
+
+<p>Elles apparaissent dans les mesures de pr&eacute;f&eacute;rences sous la forme d'&eacute;chelles de classement, comparaison par paires, tierc&eacute; des pr&eacute;f&eacute;rences etc..</p>
+<p>Les <b>&eacute;chelles d'intervalle</b> ajoutent une troisi&egrave;me propri&eacute;t&eacute; des &eacute;chelles de nombres, le fait que <i>l'intervalle</i> entre les nombres a un sens, ce qui signifie que les <i>diff&eacute;rences</i> peuvent &ecirc;tre compar&eacute;es. (exemple: les &eacute;chelles de temp&eacute;rature Celsius et Farenheit)</p>
+
+<p>Les <b>&eacute;chelles de ratio</b> se diff&eacute;rentient par rapport aux &eacute;chelles d'intervalle par le fait qu'elles poss&egrave;dent un <i>z&eacute;ro absolu</i>.</p>
+</slide>
+</section>
+<section>
+<title>Le tableau de donn&eacute;es: documentation, v&eacute;rification, transformation des donn&eacute;es.</title>
+
+<slide>
+<title>Organisation d&rsquo;un tableau de d&eacute;pouillement d&rsquo;enqu&ecirc;te</title>
+<p>Dans la Figure 3. est pr&eacute;sent&eacute;e une organisation possible sur tableur des donn&eacute;es collect&eacute;es par enqu&ecirc;te.</p>
+<p>
+<imgspan src="slides_fichiers/Image418.gif"></imgspan>
+</p>
+
+<p>
+<fork uri="">Figure 3. Organisation des donn&eacute;es sur une feuille de calcul (sur tableur)</fork>
+</p>
+</slide>
+<slide>
+<title>Variables et observations</title>
+<p>Chaque colonne du tableau repr&eacute;sente une variable (voir par exemple le tableau de la Figure 2.) . Pour faciliter la s&eacute;lection des variables pour les &eacute;ventuels traitements, elles doivent avoir des noms.</p>
+<p>
+<imgspan src="slides_fichiers/Image419.gif"></imgspan>
+</p>
+
+<p>
+<fork uri="">Figure 4. La place et le nom d'une variable dans le tableau de donn&eacute;es (tableur)</fork>
+</p>
+</slide>
+</section>
+<section>
+<title>Analyses pr&eacute;liminaires des donn&eacute;es: tableaux de fr&eacute;quence et statistiques descriptives</title>
+<slide>
+<title>Les traitements usuels</title>
+<p>Les premiers traitements appliqu&eacute;s aux donn&eacute;es cherchent &agrave; r&eacute;sumer et &agrave; mettre en &eacute;vidence les &eacute;ventuelles erreurs et/ou donn&eacute;es aberrantes qui ont &eacute;chapp&eacute; &agrave; la correction au moment de la saisie. Il s'agit des statistiques descriptives et de tableaux de fr&eacute;quence (simples et crois&eacute;s). Une grande partie des &eacute;tudes marketing (90%) ne vont pas plus loin dans les analyses pour d&eacute;crire le march&eacute;.</p>
+
+</slide>
+<slide>
+<title>Tableaux de fr&eacute;quence</title>
+<p>Les tableaux de fr&eacute;quence montrent le nombre des cas enregistr&eacute; dans diff&eacute;rents intervalles ou cat&eacute;gories. Les tableaux de fr&eacute;quences simples (tris &agrave; plat) comptent les fr&eacute;quences pour une seul variable. Ils sont souvent represent&eacute; sous forme d'<b>histogrammes</b>.</p>
+
+<p>
+<imgspan src="slides_fichiers/Image420.gif"></imgspan>
+</p>
+<p>
+<fork uri="">Figure 5. Le tableau de fr&eacute;quence simple (ou tris &agrave; plat). Sur tableur il y a la fonction FREQUENCE( nom variable, matrice d'intervalles) qui le calcule.</fork>
+</p>
+<p>voil&agrave; comment on calcule sur un tableur la frequence et la frequence cumul&eacute; des reponses &agrave; la premi&egrave;re question de la mini-enqu&ecirc;te pr&eacute;sent&eacute; en Figure 3.</p>
+
+<div>
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td>
+</tr>
+<tr>
+<td>1</td><td>&nbsp;</td><td>Interv.</td><td>Freq.</td><td>Freq.Cum</td><td>&lt;--Formule</td>
+
+</tr>
+<tr>
+<td>2</td><td>Marque A</td><td>1</td><td>3</td><td>3</td><td>=F3</td>
+</tr>
+<tr>
+<td>3</td><td>Marque B</td><td>2</td><td>4</td><td>7</td><td>=G3+F4</td>
+
+</tr>
+<tr>
+<td>4</td><td>Marque C</td><td>3</td><td>7</td><td>14</td><td>..</td>
+</tr>
+<tr>
+<td>5</td><td>Marque D</td><td>4</td><td>2</td><td>16</td><td>..</td>
+
+</tr>
+</table>
+</div>
+<p>
+<fork uri="">Tableau 1.2 - Calcul de la distribution et r&eacute;partition de fr&eacute;quence sur tableur</fork>
+</p>
+</slide>
+<slide>
+<title>Anatomie d&rsquo;un distribution de fr&eacute;quence</title>
+<p>A partir de la distribution de fr&eacute;quence et la r&eacute;partition des fr&eacute;quences (ou la fr&eacute;quence cumul&eacute;e) on calcule un grand nombre de statistiques descriptives. La Figure 6. montre graphiquement comment des statistiques comme la moyenne, la m&eacute;diane, les quartiles sont d&eacute;duites a partir d'une distribution de fr&eacute;quence. Elle montre aussi quel est l'int&eacute;r&ecirc;t d'utiliser la fr&eacute;quence cumul&eacute;e pour identifier certaines de ces mesures. Pour mieux reconna&icirc;tre l'allure de la distribution de fr&eacute;quence empirique on trace sur l'histogramme le <b>polygone de fr&eacute;quence</b> en r&eacute;unissant les points qui se trouvent au milieux sur le cot&eacute; haut des barres.</p>
+
+<p>
+<imgspan src="slides_fichiers/Image421.gif"></imgspan>&nbsp;(a)</p>
+<p>
+<imgspan src="slides_fichiers/Image422.gif"></imgspan>&nbsp;(b)</p>
+<p>
+<fork uri="">Figure 6. Anatomie d'une distribution de fr&eacute;quence (a) et d'une r&eacute;partition de fr&eacute;quence (b) . Le lien entre un histogramme et un box plot</fork>
+</p>
+</slide>
+<slide>
+<title>Les tableaux crois&eacute;s</title>
+
+<p>Les tableaux crois&eacute;s (tris crois&eacute;s) comptent la fr&eacute;quence des cas ayant de caract&eacute;ristiques (intervalles) communes sur deux ou plusieurs variables. Ils r&eacute;sument l'information contenue dans les variables juxtapos&eacute;s et permettent d'analyser l'association et les liens entre les variables. Les tableaux crois&eacute;s de deux variables seront trait&eacute;s au chapitre sur les analyses bivari&eacute;s et les tableaux crois&eacute;s multiples appara&icirc;tront dans les chapitres qui portent sur l'analyse de donn&eacute;es multidimensionnelle.</p>
+</slide>
+</section>
+</slides>

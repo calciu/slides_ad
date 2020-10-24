@@ -1,0 +1,32 @@
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 2,6,7,4,3,5,8,1. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#0:0.001} 
+//r1=c(2,6,7,4,3,5,8,1);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 2,6,7,5,8,3,4,1. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.2142857:0.001} 
+//r1=c(2,6,7,5,8,3,4,1);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 3,5,6,4,1,7,2,8. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#0.2142857:0.001} 
+//r1=c(3,5,6,4,1,7,2,8);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 2,8,7,6,1,3,5,4. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.2142857 :0.001} 
+//r1=c(2,8,7,6,1,3,5,4);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 6,1,4,5,7,2,3,8. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#0.2142857:0.001} 
+//r1=c(6,1,4,5,7,2,3,8);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)
+
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 8,2,6,4,7,3,1,5. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.2857143 :0.001} 
+//r1=c(8,2,6,4,7,3,1,5);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 8,6,3,7,2,1,5,4. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.4285714:0.001} 
+//r1=c(8,6,3,7,2,1,5,4);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)
+
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 7,3,2,1,5,4,8,6. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#0.2142857 :0.001} 
+//r1=c(7,3,2,1,5,4,8,6);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)
+
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 4,6,3,8,5,7,2,1. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.2857143:0.001} 
+//r1=c(4,6,3,8,5,7,2,1);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)
+
+Le classement des concepts de pages web dans un experiment d'analyse conjointe donné par un participant pour exprimer sa préférence est 7,5,6,1,8,2,3,4. Quel est le tau de Kendal qui exprime la relation entre ce classement et classement initial de 1 à 8 de ces concepts? {#-0.2142857:0.001} 
+//r1=c(7,5,6,1,8,2,3,4);ftau<-function(r1,r2){n=length(r1);s=0;for(i in 1:(n-1)){  sgn=sign(r1[i]-r1[-(1:i)]) * sign(r2[i]-r2[-(1:i)]);s=s+sum(sgn)};return(2*s/(n^2 - n))}; ftau(r1,1:8)

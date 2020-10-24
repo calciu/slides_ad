@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+<?cocoon-process type="xslt"?>
+<?xml-stylesheet href="outline.xsl" type="text/xsl"?>
+<!DOCTYPE slides[
+<!ENTITY hellip "&#x2026;">
+<!ENTITY agrave "&#xE0;">
+<!ENTITY aacute "&#xE1;">
+<!ENTITY acirc "&#xE2;">
+<!ENTITY atilde "&#xE3;">
+<!ENTITY auml "&#xE4;">
+<!ENTITY aring "&#xE5;">
+<!ENTITY aelig "&#xE6;">
+<!ENTITY ccedil "&#xE7;">
+<!ENTITY egrave "&#xE8;">
+<!ENTITY eacute "&#xE9;">
+<!ENTITY ecirc "&#xEA;">
+<!ENTITY euml "&#xEB;">
+<!ENTITY igrave "&#xEC;">
+<!ENTITY iacute "&#xED;">
+<!ENTITY icirc "&#xEE;">
+<!ENTITY iuml "&#xEF;">
+<!ENTITY eth "&#xF0;">
+<!ENTITY ntilde "&#xF1;">
+<!ENTITY ograve "&#xF2;">
+<!ENTITY oacute "&#xF3;">
+<!ENTITY ocirc "&#xF4;">
+<!ENTITY otilde "&#xF5;">
+<!ENTITY ouml "&#xF6;">
+<!ENTITY divide "&#xF7;">
+<!ENTITY oslash "&#xF8;">
+<!ENTITY ugrave "&#xF9;">
+<!ENTITY uacute "&#xFA;">
+<!ENTITY ucirc "&#xFB;">
+<!ENTITY uuml "&#xFC;">
+<!ENTITY yacute "&#xFD;">
+<!ENTITY thorn "&#xFE;">
+<!ENTITY yuml "&#xFF;">
+<!ENTITY oelig "&#x153;">
+<!ENTITY euro "&#x20AC;">
+<!ENTITY deg "&#xB0;">
+<!ENTITY nbsp "&#xA0;">
+<!ENTITY ndash "&#x2013;">
+<!ENTITY mdash "&#x2014;">
+<!ENTITY ldquo "&#x201C;">
+<!ENTITY rdquo "&#x201D;">
+<!ENTITY lsquo "&#x2018;">
+<!ENTITY rsquo "&#x2019;">
+]>
+<slides style="apachecon">
+<title>Analyses univari&eacute;es</title>
+<section>
+<title>Statistiques descriptives &gt; Donn&eacute;es quantitatives &gt; Mesures de position (de tendance centrale)</title>
+<slide>
+<title>-&nbsp; Moyenne (arithm&eacute;tique)</title>
+
+<p>La moyenne d'une s&eacute;rie statistique de n observations est le quotient de leur somme par leur nombre.</p>
+<p>
+<i>mu</i><span>k</span> = Sx<sub>ik</sub>/n (1)</p>
+</slide>
+<slide>
+<title>-&nbsp; M&eacute;diane</title>
+<p>La valeur d'une s&eacute;rie statistique pour laquelle le nombre d'observations inf&eacute;rieures ou sup&eacute;rieures &agrave; cette valeur sont &eacute;gal. La d&eacute;termination de la m&eacute;diane n&eacute;cessite le classement de la s&eacute;rie par ordre de grandeur (croissante ou d&eacute;croissante). S'il y a n = 2p + 1 observations celui de rang p+1 sera la m&eacute;diane. Si par contre n = 2p observations toute valeur comprise entre celle de rang p et celle de rang p+1 peut convenir comme m&eacute;diane. Mesures appari&eacute;es <b>quantile</b>, <b>quartiles</b>(quantile d'ordre 4, Q1, Q2 et Q3) et <b>d&eacute;ciles</b>, <b>centile</b>.</p>
+
+</slide>
+<slide>
+<title>-&nbsp; Mode</title>
+<p>Le mode est la valeur la plus souvent rencontr&eacute;e d'une s&eacute;rie statistique</p>
+</slide>
+</section>
+<section>
+<title>Mesures de dispersion</title>
+<slide>
+<title>Definition</title>
+
+<p>Les indicateurs de dispersion ont pour objet de mesurer la plus ou moins grande concentration des valeurs autour de leur tendance centrale.</p>
+</slide>
+<slide>
+<title>-&nbsp; Etendue (Range)</title>
+<p>La diff&eacute;rence entre la valeur maximum et minimum d'une s&eacute;rie. Est l'intervalle qui s&eacute;pare les deux valeurs extr&ecirc;mes</p>
+</slide>
+<slide>
+<title>-&nbsp; Ecart moyen</title>
+
+<p>est la moyenne des valeurs absolues des &eacute;carts par rapport &agrave; la moyenne;</p>
+</slide>
+<slide>
+<title>-&nbsp; Dispersion ou variation totale</title>
+<p>Est la somme des carr&eacute;s des &eacute;carts par rapport &agrave; la moyenne :</p>
+<p>DISP(k) = S (X<sub>ik</sub> - <imgspan src="slides_fichiers/Image423.gif"></imgspan>
+
+<span>k</span>)<sup>2</sup> (2)</p>
+</slide>
+<slide>
+<title>-&nbsp; Variance</title>
+<p>Est la moyenne des carr&eacute;s des &eacute;carts par rapport &agrave; la moyenne :</p>
+
+<p>VAR(k) = s(k)<sup>2</sup> = S (Xik - <imgspan src="slides_fichiers/Image423.gif"></imgspan>k)<sup>2</sup>/n = DlSP(k)/n (3)</p>
+<p>Si la moyenne a &eacute;t&eacute; obtenue sur <i>&eacute;chantillon</i>, un degr&eacute; de libert&eacute; a &eacute;t&eacute; consomm&eacute; pour le calcul de cette moyenne et la variance devient</p>
+
+<p>VAR(k) = s(k)<sup>2</sup> = S (X<sub>ik</sub> - <imgspan src="slides_fichiers/Image423.gif"></imgspan>
+<span>k</span>)<sup>2</sup>/(n-1) (4)</p>
+</slide>
+<slide>
+<title>-&nbsp; Ecart type</title>
+
+<p>Est la racine carr&eacute;e de la variance : dans le cas d'un calcul sur &eacute;chantillon :</p>
+<p>ET(k) = s(k) = [S (X<sub>ik</sub> - <imgspan src="slides_fichiers/Image423.gif"></imgspan>
+<span>k</span>)<sup>2</sup>/(n-1)]<sup>1/2 (5)</sup>
+</p>
+</slide>
+
+</section>
+<section>
+<title>Donn&eacute;es qualitatives</title>
+<slide>
+<title>Definition</title>
+<p>Des donn&eacute;es qualitatives apparaissent chaque fois que la personne interrog&eacute;e a le choix entre plusieurs modalit&eacute;s qui lui sont propos&eacute;es explicitement ou implicitement (dans le cas d'une question ouverte avec post-codification).</p>
+</slide>
+<slide>
+<title>-&nbsp; La fr&eacute;quence et la proportion</title>
+
+<p>Pour chaque individu, la r&eacute;ponse correspond &agrave; un code ou &eacute;ventuellement &agrave; plusieurs si le choix est multiple (voir questionnaire CAMIP). Sur l'ensemble de la population enqu&ecirc;t&eacute;, on d&eacute;nombrera alors le nombre de fois qu'un code j donn&eacute; est apparu pour la variable k &eacute;tudi&eacute;e : ceci indique la fr&eacute;quence absolue <b>N<sub>jk</sub></b> de la modalit&eacute;. Si cette fr&eacute;quence absolue est rapport&eacute;e aux N personnes consid&eacute;r&eacute;es, on obtient la fr&eacute;quence relative de la modalit&eacute;</p>
+
+<p>p<sub>jk</sub> = N<sub>jk</sub>/N (6)</p>
+</slide>
+<slide>
+<title>-&nbsp; Variance et &eacute;cart type d'une proportion</title>
+<p>Pour une modalit&eacute; donn&eacute;e, la fr&eacute;quence relative joue un r&ocirc;le similaire &agrave; celui de la moyenne pour les variables quantitatives. Des Indicateurs de dispersion sont &eacute;galement disponibles. Dans la mesure ou un individu a choisi ou non une modalit&eacute; donn&eacute;e, on a affaire &agrave; un processus binomial. Il est donc possible d'associer une variance et un &eacute;cart type &agrave; chaque modalit&eacute; d'une variable qualitative :</p>
+
+<p>VAR(jk) = (p<sub>jk</sub>) (1 - p<sub>jk</sub>)/N (7)</p>
+<p>ET(jk) = [(p<sub>jk</sub>) (1 - p<sub>jk</sub>)/N]<sup>1/2</sup> (8)</p>
+<p>On constate que ces indicateurs sont d'autant plus faibles que pjk est proche de 1 ou de 0. Dans les deux cas, cela signifie que les r&eacute;ponses sont tr&egrave;s concentr&eacute;es, soit sur la modalit&eacute; j, soit sur l'ensemble des autres modalit&eacute;s.</p>
+
+</slide>
+</section>
+<section>
+<title>Donn&eacute;es ordinales</title>
+<slide>
+<title>Nature</title>
+<p>Les donn&eacute;es ordinales sont plus difficiles &agrave; pr&eacute;senter que les autres cat&eacute;gories de donn&eacute;es. Comme on l'a vu, il s'agit de donn&eacute;es concernant des rangs de pr&eacute;f&eacute;rence ou de similarit&eacute;.</p>
+
+<p>On notera que la notion de rang moyen n'a pas de signification, le passage d'un rang au suivant ne correspondant g&eacute;n&eacute;ralement pas a une variation d'intensit&eacute; de pr&eacute;f&eacute;rence constante.</p>
+</slide>
+<slide>
+<title>Quelques mesures</title>
+<p>Si l'on prend le cas des pr&eacute;f&eacute;rences, pour chaque individu, on disposera d'un classement des m items propos&eacute;s. Sur l'ensemble de la population interrog&eacute;e, il sera ainsi possible de comptabiliser :</p>
+
+<p>-&nbsp; <fork uri=""></fork>
+<b>fonction de r&eacute;partition des rangs</b>
+</p>
+<p>- le nombre de fois qu'un item donn&eacute; a &eacute;t&eacute; class&eacute; en 1<sup>re</sup> position, en 2<sup>e</sup>.., en m<sup>e</sup> ;</p>
+
+<p>-&nbsp; <fork uri=""></fork>
+<b>matrice de pr&eacute;f&eacute;rences.</b> - le nombre de fois qu'un item donn&eacute; a &eacute;t&eacute; class&eacute; avant un autre item;</p>
+</slide>
+</section>
+
+<section>
+<title>Les intervalles de confiance: donn&eacute;es quantitatives</title>
+<slide>
+<title>Population, &eacute;chantillons et distribution d'&eacute;chantillonnage</title>
+<p>Dans la plupart des cas, une enqu&ecirc;te ne portera que sur un &eacute;chantillon extrait de la population &eacute;tudi&eacute;e. On aura alors &agrave; d&eacute;duire des r&eacute;sultats obtenus sur &eacute;chantillon les valeurs, c'est-&agrave;-dire celles qui seraient disponibles si l'ensemble de la population &eacute;tait connue.</p>
+
+<p>
+<imgspan src="slides_fichiers/Image425.gif"></imgspan>
+</p>
+<p>
+<b><span>Figure 7 - Population, &eacute;chantillons et distribution d'&eacute;chantillonnage</span></b>
+</p>
+</slide>
+<slide>
+<title>Th&eacute;or&egrave;me Central Limit</title>
+<p>Quand on tire des &eacute;chantillons de dimension <b>n</b> d'une population &agrave; moyenne <b>mu</b> et variance <b><span>s</span><sup>2</sup></b> pour des <b>n</b> grands la <b>moyenne des &eacute;chantillons</b> sera distribu&eacute;e approximativement normalement avec une moyenne &eacute;gale &agrave; <b>mu</b> et une variance&nbsp;<imgspan src="slides_fichiers/Image426.gif"></imgspan>
+
+<sup>2</sup>&eacute;gale &agrave; <b><span>s</span><sup>2</sup>/</b>n</p>
+<p>Comme <b><span>s</span></b> est inconnu on l'estime &agrave; partir de s:</p>
+<p>
+<imgspan src="slides_fichiers/Image426.gif"></imgspan>
+
+<imgspan src="slides_fichiers/Image427.gif"></imgspan> =&nbsp;<imgspan src="slides_fichiers/Image428.gif"></imgspan> (9)</p>
+</slide>
+<slide>
+<title>Ajustements pour &eacute;chantillons exhaustifs</title>
+<p>Pour des &eacute;chantillons exhaustifs quand n/N &lt; 1/7</p>
+<p>
+<imgspan src="slides_fichiers/Image429.gif"></imgspan>(10)</p>
+
+</slide>
+<slide>
+<title>Distribution normale d'une variable centr&eacute;e et r&eacute;duite</title>
+<p>Distribution normale d'une variable centr&eacute;e et r&eacute;duite Z (m=0 et ET = 1)<br/>&nbsp;</p>
+<table width="284" align="">
+<tbody>
+<tr>
+<td>-3,5&nbsp;</td><td>-3&nbsp;</td><td>-2,5&nbsp;</td><td>-2&nbsp;</td><td>-1,5&nbsp;</td><td>-1&nbsp;</td><td>-0,5&nbsp;</td><td>0&nbsp;</td><td>0,5&nbsp;</td><td>1&nbsp;</td><td>1,5&nbsp;</td><td>2&nbsp;</td><td>2,5&nbsp;</td><td>3&nbsp;</td><td>3,5&nbsp;</td>
+
+</tr>
+<tr>
+<td>0,00&nbsp;</td><td>0,00&nbsp;</td><td>0,02&nbsp;</td><td>0,05&nbsp;</td><td>0,13&nbsp;</td><td>0,24&nbsp;</td><td>0,35&nbsp;</td><td>0,40&nbsp;</td><td>0,35&nbsp;</td><td>0,24&nbsp;</td><td>0,13&nbsp;</td><td>0,05&nbsp;</td><td>0,02&nbsp;</td><td>0,00&nbsp;</td><td>0,00&nbsp;</td>
+
+</tr>
+<tr>
+<td>0,00&nbsp;</td><td>0,00&nbsp;</td><td>0,01&nbsp;</td><td>0,02&nbsp;</td><td>0,07&nbsp;</td><td>0,16&nbsp;</td><td>0,31&nbsp;</td><td>0,50&nbsp;</td><td>0,69&nbsp;</td><td>0,83&nbsp;</td><td>0,93&nbsp;</td><td>0,97&nbsp;</td><td>0,99&nbsp;</td><td>1,00&nbsp;</td><td>1,00&nbsp;</td>
+
+</tr>
+</tbody>
+</table>
+<p>
+<imgspan src="slides_fichiers/Image430.gif"></imgspan>
+</p>
+<p>
+<b><span>Figure 9 - La distribution normale</span></b>
+</p>
+</slide>
+<slide>
+<title>-&nbsp; a) D&eacute;termination de l'intervalle de confiance</title>
+<p>La population totale est de taille <b>N</b>; la valeur vraie de la moyenne de la variable analys&eacute;e est <b>mu</b>, et son &eacute;cart type <b><span>s</span></b><i>.</i> Ces deux valeurs <b>mu</b> et <b><span>s</span></b> sont inconnues, mais sur l'&eacute;chantillon de taille <b>n</b>, une moyenne et un &eacute;cart-type <b>s</b> ont &eacute;t&eacute; rep&eacute;r&eacute;s (cf. graphique 1). Il s'agit de d&eacute;duire <b>mu</b> et <b><span>s</span></b> de ces valeurs et <b>s</b>.</p>
+
+<p>
+<imgspan src="slides_fichiers/Image431.gif"></imgspan>
+</p>
+<p>
+<b><span>Figure 10: Caract&eacute;ristiques de la population totale et de l'&eacute;chantillon</span></b>
+</p>
+<p>Cette d&eacute;duction suit des r&egrave;gles simples issues de la th&eacute;orie des sondages, dans la mesure o&ugrave; les hypoth&egrave;ses suivantes sont respect&eacute;es :</p>
+
+<p>- les &eacute;l&eacute;ments de l'&eacute;chantillon ont &eacute;t&eacute; s&eacute;lectionn&eacute;s de mani&egrave;re al&eacute;atoire;</p>
+<p>- l'&eacute;chantillon est non exhaustif (n/N &lt; 1/7)</p>
+
+<p>- l'&eacute;chantillon comprend au moins 30 individus.</p>
+<p>Dans ces conditions, on montre que les moyennes d'&eacute;chantillon suivent une loi normale de moyenne <b>mu</b> et d'&eacute;cart type&nbsp;<imgspan src="slides_fichiers/Image426.gif"></imgspan>, avec :</p>
+<p>
+<imgspan src="slides_fichiers/Image426.gif"></imgspan>= <b><span>s /</span></b>(n<sup>1/2</sup>)</p>
+
+<p>Comme <b><span>s</span></b> est inconnu, il est estim&eacute; &agrave; partir de <b>s</b> :</p>
+<p>
+<imgspan src="slides_fichiers/Image426.gif"></imgspan>
+<b><span>&rsquo;<figure src="slides_fichiers/Image427.gif"></figure>
+</span></b> = [S(X -<imgspan src="slides_fichiers/Image433.gif"></imgspan>)<sup>2</sup>/(n - 1)]<sup>l/2</sup>
+
+</p>
+<p>Si l'on d&eacute;sire travailler avec un seuil de confiance 1-a, un intervalle de confiance pour la moyenne <b>mu</b> est obtenu &agrave; l'aide de l'expression:</p>
+<p>
+<b>mu</b> =&nbsp;<imgspan src="slides_fichiers/Image433.gif"></imgspan>+/- z<span>a</span>/2<imgspan src="slides_fichiers/Image426.gif"></imgspan> (11)</p>
+
+<p>o&ugrave; z<span>a</span>/2 est la valeur lue dans la table de la loi normale r&eacute;duite pour une probabilit&eacute; (1 - a/2). Il y a ainsi une probabilit&eacute; (1 - a) que la valeur recherch&eacute;e se situe dans cette fourchette.</p>
+</slide>
+<slide>
+<title>Exemple</title>
+<p>L'association des &eacute;tudiants d'une universit&eacute; envisage d'ouvrir un cin&eacute;-club; afin d'en &eacute;valuer la fr&eacute;quentation, elle a r&eacute;alis&eacute; une enqu&ecirc;te par sondage sur un &eacute;chantillon de 400 individus.<br/>Une moyenne de fr&eacute;quentation de 10 s&eacute;ances par an et par individu a &eacute;t&eacute; obtenue avec un &eacute;cart type s = 20. Au seuil de confiance (1 - a) = 95 % l'intervalle de confiance est:<br/>mu = 10 +/- (1,96) (20/(400)<sup>1/2</sup>) = 10 +/- 1,96<br/>Il a 95 chances sur 100 de se situer dans la fourchette [11,96: 8,04]. Si l'universit&eacute; comprend 5000 &eacute;tudiants, une fr&eacute;quentation globale de 50 000 places peut &ecirc;tre attendue en moyenne; la fr&eacute;quentation globale a 95 % de chances de se situer dans l'intervalle [59800: 40200].</p>
+
+</slide>
+<slide>
+<title>Cas particulier: Echantillon exhaustif</title>
+<p>1- Dans le cas d'un <i>&eacute;chantillon exhaustif</i>, c'est-&agrave;-dire avec n &gt; N/7, l'&eacute;cart type <b><span>s</span></b>, des moyennes d'&eacute;chantillons doit &ecirc;tre corrig&eacute; par le facteur d'exhaustivit&eacute; [(N - n)/(N - 1)]1/2. L'intervalle de confiance devient alors :</p>
+
+<p>
+<b>mu</b> =&nbsp;<imgspan src="slides_fichiers/Image433.gif"></imgspan>+/- z<span>a</span>/2<imgspan src="slides_fichiers/Image426.gif"></imgspan>[(N - n)/(N - 1)]<sup>l/2</sup> (12)</p>
+<p>On remarque que si n est faible par rapport &agrave; N, (N - n)/(N - 1) est proche de 1. Au contraire, si n est grand par rapport &agrave; N, (N - n)/(N - 1) est proche de 0; &agrave; la limite, pour n = N, mu = .</p>
+
+</slide>
+<slide>
+<title>Exemple</title>
+<p>Dans l'exemple pr&eacute;c&eacute;dent, supposons que l'universit&eacute; consid&eacute;r&eacute;e ne comporte que 2 000 &eacute;tudiants au total. L'&eacute;chantillon de 400 personnes pr&eacute;lev&eacute; par l'association des &eacute;tudiants doit donc &ecirc;tre qualifi&eacute; d'exhaustif, et il faut utiliser le facteur de correction, &eacute;gal ici &agrave; [(2 000 - 400)/(2 000 - 1 )] = 0,80.<br/>Au seuil de confiance (1 - a) = 95 %, l'intervalle de confiance devient:<br/>mu = 10 +/- (1,96) (20/) (0,80)<sup>1/2</sup>= 10 +/- 1,74 mu a 95 chances sur 100 de se situer dans la fourchette [11,74: 8,26].</p>
+
+</slide>
+<slide>
+<title>Cas particulier: Petit &eacute;chantillon</title>
+<p>2 - Dans le cas d'un <i>petit &eacute;chantillon</i>, avec n &lt; 30, et lorsque <b><span>s</span></b> est estim&eacute;, les moyennes d'&eacute;chantillons ne sont plus r&eacute;partis autour de la moyenne vraie selon une loi normale, mais selon une <b><i>loi de Student</i></b> &agrave; n - 1 degr&eacute;s de libert&eacute;. Dans la formule (1l), z<span>a</span>/2 est alors remplac&eacute; par t<span>a</span>/2, lu sur la table de Student pour n -1 degr&eacute;s de libert&eacute; et un seuil de confiance (1 - a).</p>
+
+</slide>
+<slide>
+<title>Exemple</title>
+<p>Au lieu d'utiliser un &eacute;chantillon de 400 personnes, L'association des &eacute;tudiants s'est limit&eacute;e &agrave; 21 interviews. La moyenne d'&eacute;chantillon (15) suit une loi de Student &agrave; 20 degr&eacute;s de libert&eacute;. Dans la mesure o&ugrave; l'&eacute;cart type rep&eacute;r&eacute; sur l'&eacute;chantillon s'&eacute;l&egrave;ve &agrave; 20, au seuil de confiance de 95 %, t = 2,086 et l'intervalle de confiance devient alors:<br/>mu= 15 +/- (2,086) (20/(400-1)<sup>1/2</sup>) = 15 +/- 9,10 &agrave; 95 chances sur 100 de se situer dans la fourchette [5,89: 24,10].</p>
+
+</slide>
+</section>
+<section>
+<title>Les intervalles de confiance: donn&eacute;es qualitatives</title>
+<slide>
+<title>Particularites</title>
+<p>Dans le cas de variables qualitatives, la probl&eacute;matique de la pr&eacute;vision des valeurs r&eacute;elles se pose dans les m&ecirc;mes termes que pour les variables quantitatives, mais maintenant, il s'agit de fr&eacute;quences d'apparition de modalit&eacute;s et non plus de moyennes.</p>
+
+<p>La population totale est de taille N; la valeur vraie de la fr&eacute;quence de la modalit&eacute; analys&eacute;e est p. Sur l'&eacute;chantillon de taille n, une proportion p a &eacute;t&eacute; trouv&eacute;e.</p>
+</slide>
+<slide>
+<title>Analogies</title>
+<p>On montre que les proportions lues sur les &eacute;chantillons suivent une loi normale de moyenne p et d'&eacute;cart type sp = [p(l - p)/n]<sup>l/2</sup>.</p>
+
+<p>Au seuil de risque a, l'intervalle de confiance est obtenu par l'expression :</p>
+<p>p = p +/- z<span>a</span>/2.[p(1 - p)/n]<sup>l/2</sup> (15)</p>
+<p>G&eacute;n&eacute;ralement, on prendra, pour calculer l'&eacute;cart type des proportions, p = 50 %, qui correspond au cas le plus d&eacute;favorable et non la proportion observ&eacute;e..</p>
+
+</slide>
+<slide>
+<title>Exemple</title>
+<p>Dans le cadre d'une &eacute;tude de notori&eacute;t&eacute;, 25 % des personnes interrog&eacute;es ont d&eacute;clar&eacute; conna&icirc;tre la marque M. Un &eacute;chantillon al&eacute;atoire non exhaustif de 1000 individus a &eacute;t&eacute; utilis&eacute;. L'&eacute;cart type des proportions est alors:<br/>[0,5(0,5)/1000]<sup>l/2</sup> = 0,0158.<br/>Il y a 95 chances sur 100 que le v&eacute;ritable taux de notori&eacute;t&eacute; se situe dans la fourchette:<br/>p = 0,25 +/- 1,96.(0,0158)<br/>Il doit &ecirc;tre ainsi compris entre 0,25 - 0,03 = 0,22 et 0,25 + 0,03 = 0,28, c'est-&agrave;-dire entre 22 % et 28 %.</p>
+
+</slide>
+</section>
+<section>
+<title>Les tests d'hypoth&egrave;se: Donn&eacute;es quantitatives</title>
+<slide>
+<title>a) Position du probl&egrave;me</title>
+<p>(La valeur de la moyenne trouv&eacute;e sur &eacute;chantillon aura souvent &agrave; &ecirc;tre mise en relation avec une valeur a <i>priori</i> <b>mu<sub>o.</sub></b>) On peut faire des hypoth&egrave;ses concernant la relation entre la moyenne de la population et une telle valeur apriori. Une id&eacute;e simple est &agrave; la base du teste d'hypoth&egrave;ses: une Hypoth&egrave;se peut &ecirc;tre rejet&eacute;e mais elle ne peut jamais &ecirc;tre accept&eacute;e, par ce que des preuve ult&eacute;rieures peuvent montrer le contraire. (exemple: l'homme qui &agrave; un comportement d'homme pauvre est-il vraiment pauvre...)</p>
+
+</slide>
+<slide>
+<title>Hypoth&egrave;se nulle Ho</title>
+<p>On appellera <b>Hypoth&egrave;se nulle H<sub>o</sub></b> l'hypoth&egrave;se selon laquelle la situation vraie est diff&eacute;rente ou plus d&eacute;favorable que celle qui est mat&eacute;rialis&eacute;e par cette valeur a priori. L'hypoth&egrave;se nulle doit &ecirc;tre choisie de telle mani&egrave;re que son rejet permet "d'accepter" la conclusion d&eacute;sir&eacute;e. L'<b>hypoth&egrave;se alternative</b> est <b>H<sub>a</sub></b>. Par le biais d'un test d'hypoth&egrave;se il s'agira d'&eacute;valuer dans quelle mesure Ho peut &ecirc;tre rejet&eacute;e.</p>
+
+</slide>
+<slide>
+<title>Test unilat&eacute;ral et bilat&eacute;ral</title>
+<p>On parlera de <b>test unilat&eacute;ral</b> quand il s'agira de v&eacute;rifier que la moyenne vraie est plus forte (test dit " &agrave; droite "), ou plus faible (test dit " &agrave; gauche ") que muo. On aura affaire &agrave; un <b>test bilat&eacute;ral</b> quand il s'agira de d&eacute;montrer que la moyenne vraie est diff&eacute;rente de muo.</p>
+
+</slide>
+<slide>
+<title>Exemple</title>
+<p>Les intentions d'achat X d'un produit nouveau d&eacute;coulant d'une enqu&ecirc;te par sondage aupr&egrave;s des utilisateurs potentiels doivent &ecirc;tre compar&eacute;es avec le seuil de rentabilit&eacute; de ce produit muo, et il faut v&eacute;rifier l'hypoth&egrave;se selon laquelle ce seuil de rentabilit&eacute; sera bien d&eacute;pass&eacute;. L'hypoth&egrave;se Ho <i><b>s'&eacute;nonce ici de la fa&ccedil;on suivante:</b></i> " la situation du march&eacute; est telle que le seuil de rentabilit&eacute; ne sera pas atteint <i>" <b>et</b></i> H1<i>,: "</i> le seuil de rentabilit&eacute; sera d&eacute;pass&eacute; ". Le test d'hypoth&egrave;se n&eacute;cessaire est alors un test unilat&eacute;ral <i><b>&agrave; droite.</b></i>
+
+<br/>Si &gt; muo, ce peut &ecirc;tre d&ucirc; au fait que la vraie moyenne est r&eacute;ellement sup&eacute;rieure &agrave; muo. Ce peut &ecirc;tre &eacute;galement d&ucirc; au fait que la vraie moyenne est inf&eacute;rieure &agrave; muo mais que le hasard a fait porter le sondage sur un &eacute;chantillon particuli&egrave;rement favorable. Il est &eacute;vident que plus ( - muo) est grand, moins le risque de se trouver dans cette deuxi&egrave;me situation est fort.</p>
+
+</slide>
+<slide>
+<title>b) R&eacute;alisation d'un test unilat&eacute;ral &agrave; droite - 1) Ho : mu &lt; muo</title>
+<p>Dans le probl&egrave;me pos&eacute;, Ho est associ&eacute;e &agrave; la situation mu &lt; muo. Une premi&egrave;re fa&ccedil;on de proc&eacute;der consiste &agrave; d&eacute;terminer la probabilit&eacute; - d&eacute;nomm&eacute;e <b>probabilit&eacute; critique p.c.</b> - Avec laquelle Ho est conforme aux r&eacute;sultats lus sur &eacute;chantillon.</p>
+
+<p>Le graphique 2 r&eacute;sume les termes du probl&egrave;me : Si la moyenne vraie &eacute;tait mu, la probabilit&eacute; d'obtenir sur &eacute;chantillon une valeur sup&eacute;rieure ou &eacute;gale &agrave; serait donn&eacute;e par la surface lue sous la courbe au-del&agrave; de la valeur .</p>
+<p>.<imgspan src="slides_fichiers/Image435.gif"></imgspan>
+
+</p>
+<p>
+<b><span>Figure 11: Test unilat&eacute;ral &agrave; droite</span></b>
+</p>
+<p>Dans la mesure o&ugrave; le sondage est al&eacute;atoire, non exhaustif et porte sur un effectif sup&eacute;rieur &agrave; 30, cette probabilit&eacute; est calcul&eacute;e &agrave; partir d'une table de la loi normale r&eacute;duite :</p>
+
+<p>Z = (<imgspan src="slides_fichiers/Image433.gif"></imgspan>- muo)/&nbsp;<imgspan src="slides_fichiers/Image426.gif"></imgspan> et p.c. = P (Z ^3 Z) (13)</p>
+<p>Le fait de rejeter l'hypoth&egrave;se nulle est associ&eacute;e &agrave; un risque &eacute;gal &agrave; p.c. Plus cette probabilit&eacute; critique est faible et moins il y a de risque &agrave; rejeter Ho.</p>
+
+</slide>
+<slide>
+<title>2) valeur seuil X*</title>
+<p>X*, telle que tout r&eacute;sultat de sondage X sup&eacute;rieur &agrave; X* permette de rejeter l'hypoth&egrave;se nulle avec moins de chances de se tromper.</p>
+<p>La valeur seuil X* est obtenue &agrave; l'aide de l'expression suivante, issue de la formule [11] :</p>
+<p>X* = muo + Z<imgspan src="slides_fichiers/Image426.gif"></imgspan> (14)</p>
+
+<p>La r&egrave;gle est alors la suivante:</p>
+<p>o Si &lt; X*: acceptation de Ho</p>
+<p>o Si ^3 X*: rejet de Ho</p>
+</slide>
+<slide>
+<title>3) tests unilat&eacute;raux &agrave; gauche</title>
+
+<p>Les tests unilat&eacute;raux &agrave; gauche s'effectuent de la m&ecirc;me fa&ccedil;on; la probabilit&eacute; critique est la surface sous la courbe au-dessous de la valeur X trouv&eacute;e sur &eacute;chantillon. La valeur-seuil X* est calcul&eacute;e &agrave; partir de la relation</p>
+<p>X* = muo - Z<imgspan src="slides_fichiers/Image426.gif"></imgspan> (15)</p>
+
+<p>Les tests bilat&eacute;raux n&eacute;cessiteront l'&eacute;valuation de deux valeurs-seuil: une X* &agrave; droite de muo et une X** &agrave; gauche, par utilisation simultan&eacute;e des formules (14) et (15).</p>
+</slide>
+<slide>
+<title>Exemple</title>
+<p>Le seuil de rentabilit&eacute; d'un produit industriel nouveau s'&eacute;l&egrave;ve &agrave; 50 en moyenne par entreprise appartenant au march&eacute; potentiel Sur un &eacute;chantillon de 100 entreprises, une intention d'achat moyenne de 62 a &eacute;t&eacute; rep&eacute;r&eacute;e, avec un &eacute;cart-type de 60.<br/>Z62 = (62 - 50) / (60/ 1100) = 2<br/>p.c. = P(Z &gt; Zx) = p(Z &gt; 2) = 0,023<br/>Avec un seuil de risque a = 5 %, I'hypoth&egrave;se nulle est rejet&eacute;e. En fait Ho peut &ecirc;tre rejet&eacute;e d&egrave;s que l'on trouve, sur &eacute;chantillon une valeur au moins &eacute;gale &agrave;:<br/>= 50 + (1,64) . (60/ 100<sup>1/2</sup>) = 59,84</p>
+
+</slide>
+<slide>
+<title>c) Les risques associ&eacute;s au test d'hypoth&egrave;se</title>
+<p>La proc&eacute;dure qui vient d'&ecirc;tre expos&eacute;e ne s'int&eacute;resse qu'&agrave; une seule cat&eacute;gorie de risque, celui de rejeter Ho alors qu'elle est vraie. C'est le risque a ,risque de premi&egrave;re esp&egrave;ce ou encore de risque de type 1. Il sera souvent n&eacute;cessaire de prendre &eacute;galement en consid&eacute;ration le risque d'accepter &agrave; tort Ho : c'est le risque b, risque de seconde esp&egrave;ce ou encore de type II.</p>
+
+<p>Le tableau 3 reproduit les r&eacute;sultats possibles d'un test d'hypoth&egrave;se</p>
+<table width="" align="">
+<tbody>
+<tr>
+<td>&nbsp;</td><td><b>DECISION</b></td>
+</tr>
+<tr>
+<td><b>SITUATION</b><b>REELLE&nbsp;</b></td><td><b>Ho n'est pas rejet&eacute;e&nbsp;</b></td><td><b>Ho est rejet&eacute;e&nbsp;</b></td>
+
+</tr>
+<tr>
+<td><b>Ho est vraie&nbsp;</b></td><td><b>D&eacute;cision correcte</b><b>Seuil de confiance:</b><i>Proba =</i> 1 - a</td><td><b>D&eacute;cision incorrecte</b><b>Erreur de type I</b><i>Proba =</i> <i>a</i></td>
+</tr>
+
+<tr>
+<td><b>Ho n'est pas vraie&nbsp;</b></td><td><b>D&eacute;cision incorrecte</b><b>Erreur de type II</b><i>Proba =</i><i>b</i></td><td><b>D&eacute;cision correcte</b><b>Puissance du test:</b><i>Proba = 1 -</i> <i>b</i></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b><i>Tableau 1.3.: R&eacute;sultats d'un test hypoth&egrave;se</i></b>
+</p>
+<p>Il est bien &eacute;vident que, pour une taille d'&eacute;chantillon donn&eacute;e, le risque a et le risque b &eacute;voluent de fa&ccedil;on oppos&eacute;e. R&eacute;duire le risque a demande de choisir une valeur-seuil X* plus forte, mais ceci s'accompagne d'une augmentation du risque b, puisqu'il y aura plus de chances d'accepter &agrave; tort l'hypoth&egrave;se nulle .</p>
+
+</slide>
+<slide>
+<title>Exemple</title>
+<p>Avec les donn&eacute;es de l'exemple pr&eacute;c&eacute;dent, on a vu que le risque a &eacute;tait limit&eacute; &agrave; 5 % si l'on choisissait une valeur-seuil de 59,84.<br/>Supposons que la v&eacute;ritable valeur des ventes moyennes par entreprise soit 62. Avec une vraie moyenne de 62 et un &eacute;cart type des moyennes d'&eacute;chantillon de 6 (60/100<sup>1/2</sup> = 6), il y a une probabilit&eacute; de 35,94 % de s&eacute;lectionner un &eacute;chantillon dont la moyenne observ&eacute;e sera inf&eacute;rieure ou &eacute;gale &agrave; 59,84. En effet:<br/>Z = (59,84 - 62)/6 = - 0,36 et P(Z $ 0,36) = 0,3594<br/>Il y a donc ici une probabilit&eacute; de 35,94 % d'accepter &agrave; tort l'hypoth&egrave;se nulle. C'est la valeur du risque b.<br/>Si l'entreprise veut se pr&eacute;munir plus fortement contre le rejet &agrave; tort de Ho avec un risque a de 2,5 % seulement, elle sera amen&eacute;e &agrave; choisir une valeur seuil plus forte, &eacute;gale &agrave;:<br/>X* = 50 + 1,96(6) = 61,76<br/>La s&eacute;lection d'une telle valeur-seuil augmente le risque b. Dans l'hypoth&egrave;se o&ugrave; la moyenne vraie est 62:<br/>Z = (61,76 - 62)/6 = - 0,04 et P(Z $ -0,04) = 0,484<br/>Le risque b est ici de 48,4 %.</p>
+
+</slide>
+</section>
+<section>
+<title>Les tests d'hypoth&egrave;se: Donn&eacute;es qualitatives</title>
+<slide>
+<title>Analogies</title>
+<p>En ce qui concerne les test d'hypoth&egrave;se, les m&ecirc;mes proc&eacute;dures que pour les variables quantitatives sont employ&eacute;es. C'est la formule (15) qui servira d&eacute;sormais dans le calcul des probabilit&eacute;s critiques et des valeurs-seuil.</p>
+
+</slide>
+<slide>
+<title>Exemple</title>
+<p>Le taux de notori&eacute;t&eacute; de la marque M dont il &eacute;tait question dans l'exemple pr&eacute;c&eacute;dent a &eacute;t&eacute; mesur&eacute; &agrave; la suite d'une campagne publicitaire. Le taux de notori&eacute;t&eacute; pr&eacute;c&eacute;demment connu s'&eacute;levait &agrave; 21%. Peut-on en conclure que la publicit&eacute; a fait augmenter de fa&ccedil;on significative la connaissance de la marque ?<br/>L'hypoth&egrave;se nulle correspond ici au cas o&ugrave; la publicit&eacute; n'a eu aucun effet sur la notori&eacute;t&eacute; de la marque et donc que la proportion vraie est toujours au niveau ancien de 21%. Le rejet &eacute;ventuel de l'hypoth&egrave;se nulle demande de calculer la probabilit&eacute; critique p.c., d&eacute;finie ici comme la probabilit&eacute; d'obtenir une proportion observ&eacute;e sur &eacute;chantillon au moins &eacute;gale &agrave; 25 % dans une population o&ugrave; la proportion vraie est 21%.<br/>La proportion observ&eacute;e p correspond, en valeur centr&eacute;e r&eacute;duite<br/>Zp = (0,25 - 0,21)/0,0158 = 2,53 probabilit&eacute; critique est donc: P(Z &gt; Zp) = 0,57 %</p>
+
+</slide>
+<slide>
+<title>Les tests de conformit&eacute; avec une distribution th&eacute;orique</title>
+<p>Les r&eacute;sultats du d&eacute;pouillement d'une question qualitative se pr&eacute;sentent comme une distribution de fr&eacute;quences d'apparition des diff&eacute;rentes modalit&eacute;s de la variable concern&eacute;e.</p>
+<p>Cette distribution peut &ecirc;tre compar&eacute;e &agrave; une distribution a priori, dite distribution th&eacute;orique. Comme dans les tests d'hypoth&egrave;ses vus plus haut, deux hypoth&egrave;ses sont alors test&eacute;es:</p>
+
+<p>- Ho la distribution observ&eacute;e n'est pas significativement diff&eacute;rente de la distribution th&eacute;orique.</p>
+<p>- Hl: la distribution observ&eacute;e est significativement diff&eacute;rente de la distribution th&eacute;orique.</p>
+</slide>
+<slide>
+<title>a) Application du test du Khi-Deux</title>
+<p>La loi du Khi-Deux (c<sup>2</sup>) donne la r&eacute;partition des &eacute;carts entre les fr&eacute;quences absolues th&eacute;oriques et les fr&eacute;quences absolues observ&eacute;es, sous hypoth&egrave;se nulle.</p>
+
+<p>On mesure le c<sup>2</sup> par :</p>
+<p>c<sup>2</sup> = S [Nj - qj]<sup>2</sup> /qj (16)</p>
+<p>o&ugrave; <b>Nj</b> = fr&eacute;quence absolue observ&eacute;e pour la modalit&eacute; j; <b><span>q</span>j</b> = fr&eacute;quence absolue th&eacute;orique pour la modalit&eacute; j.</p>
+
+<p>Cette valeur calcul&eacute;e du c<sup>2</sup> est compar&eacute;e avec la valeur lue sur la table du c<sup>2</sup>, pour <b>m - 1</b> degr&eacute;s de libert&eacute; lorsque la variable qualitative comporte m modalit&eacute;s , et pour un seuil de confiance donn&eacute; 1 - a. Si la valeur calcul&eacute;e du c<sup>2</sup> est sup&eacute;rieure &agrave; la valeur de la table, Ho peut &ecirc;tre rejet&eacute;e avec un risque inf&eacute;rieur &agrave; a.</p>
+
+</slide>
+<slide>
+<title>Exemple</title>
+<p>Le tableau 1.4. reproduit une application du test du c<sup>2</sup> pour le traitement des r&eacute;sultats d'une &eacute;tude sur les clients d'une ligne a&eacute;rienne. Il s'agit ici de v&eacute;rifier si l'&eacute;chantillon interrog&eacute; respecte bien les proportions connues des passagers eu &eacute;gard &agrave; leur qualit&eacute; d'abonn&eacute; ou non. Le c<sup>2</sup> calcul&eacute; apparaissant plus faible que le c<sup>2</sup> lu sur la table (5,99 pour 2 degr&eacute;s de libert&eacute; au seuil de 5 %), les diff&eacute;rences constat&eacute;es ne sont pas significatives.</p>
+
+<p>
+<b><i>Tableau 1.4.: Application du test du Khi-Deux</i></b>
+</p>
+<p>&nbsp;</p>
+<table width="307" align="">
+<tbody>
+<tr>
+<td>Modalit&eacute;&nbsp;</td><td>Effectif observ&eacute; Nj&nbsp;</td><td>Effectif th&eacute;orique Qj</td><td>N<sub>j</sub>-Q<span>j</span>;</td><td>(N<sub>j</sub>-Q<span>j</span>)<sup>2</sup></td><td>(N<sub>j</sub>-Q<span>j</span>)<sup>2</sup> /Q</td>
+
+</tr>
+<tr>
+<td>Abonn&eacute; ann&eacute;e&nbsp;</td><td>80&nbsp;</td><td>90&nbsp;</td><td>-10&nbsp;</td><td>100&nbsp;</td><td>1,11&nbsp;</td>
+</tr>
+<tr>
+<td>Abonn&eacute; mois&nbsp;</td><td>50&nbsp;</td><td>45&nbsp;</td><td>5&nbsp;</td><td>25&nbsp;</td><td>0 56&nbsp;</td>
+
+</tr>
+<tr>
+<td>Autre&nbsp;</td><td>100&nbsp;</td><td>95&nbsp;</td><td>5&nbsp;</td><td>25&nbsp;</td><td>0 26&nbsp;</td>
+</tr>
+<tr>
+<td>Total&nbsp;</td><td>230&nbsp;</td><td>230&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>c<sup><span>2</span></sup>= 1,93</td>
+
+</tr>
+</tbody>
+</table>
+<p>Nombre de degr&eacute;s de libert&eacute;: 2 Valeur du Khi-Deux au seuil de 5 %: 5,99</p>
+</slide>
+<slide>
+<title>b) Application du test de Kolmogorov-Smirnov</title>
+<p>La qualit&eacute; de l'ajustement d'une fonction de r&eacute;partition observ&eacute;e &agrave; une fonction de r&eacute;partition a priori peut &eacute;galement &ecirc;tre &eacute;valu&eacute;e &agrave; l'aide du test de Kolmogorov-Smirnov.</p>
+
+<p>On aura recours &agrave; un test chaque fois que les modalit&eacute;s de la variable qualitative consid&eacute;r&eacute;e sont ordonnables, mais aussi lorsque les effectifs des diff&eacute;rentes classes sont trop faibles pour autoriser l'utilisation du test du c<sup>2</sup> .</p>
+<p>Le test demande de calculer des fr&eacute;quence relatives observ&eacute;es cumul&eacute;es Fo(j) et des fr&eacute;quences relatives cumul&eacute;es th&eacute;oriques F<span>q</span>(j) : Fo(j) et F<span>q</span>(j) repr&eacute;sentent respectivement les pourcentages des effectifs observ&eacute;s et th&eacute;oriques enregistr&eacute;s jusqu'&agrave; la modalit&eacute; j. Pour chaque modalit&eacute; la valeur |Fo(j) - F<span>q</span>(j)| est calcul&eacute;e. Un indicateur D est alors &eacute;tabli, tel que :</p>
+
+<p>D = Maxj |Fo(j) - Fq(j)| (17) Cette valeur est compar&eacute;e &agrave; celle lue sur une table du D de Kolmogorov-Smirnov pour un seuil de confiance donn&eacute;. A un seuil de risque de 5%, et pour des effectifs totaux sup&eacute;rieurs &agrave; 35, D est approximativement &eacute;gal &agrave; 1,36/</p>
+</slide>
+<slide>
+<title>Exemple</title>
+<p>Le tableau 1.5. donne une application de ce test &agrave; l'&eacute;tude sur les clients d'une ligne a&eacute;rienne. Le D calcul&eacute; est plus faible que le D de la table au seuil de 5% : les diff&eacute;rences ne sont pas significatives, comme on l'avait d&eacute;j&agrave; constat&eacute; avec le test du c<sup>2</sup>.</p>
+
+<p>
+<b><i>Tableau 1.5.: Application du test de Kolmogorov-Smirnov</i></b>
+</p>
+<p>&nbsp;</p>
+<table width="307" align="">
+<tbody>
+<tr>
+<td>Modalit&eacute;&nbsp;</td><td>Fr&eacute;quence&nbsp;</td><td>Cumul&eacute;&nbsp;</td><td>Fr&eacute;quence&nbsp;</td><td>Cumul&eacute;&nbsp;</td><td>|Fo(J)-Fq(J)|</td>
+
+</tr>
+<tr>
+<td>&nbsp;</td><td>relative&nbsp;</td><td>Fo(j)&nbsp;</td><td>Relative&nbsp;</td><td>Fq(j)</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td><td>observ&eacute;e&nbsp;</td><td>&nbsp;</td><td>Th&eacute;orique&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>Abonn&eacute; ann&eacute;e&nbsp;</td><td>34,78 %&nbsp;</td><td>34,78 %&nbsp;</td><td>39,13 %&nbsp;</td><td>39,13 %&nbsp;</td><td>4,35 %&nbsp;</td>
+
+</tr>
+<tr>
+<td>Abonn&eacute; mois&nbsp;</td><td>21,74 %&nbsp;</td><td>56,52 %&nbsp;</td><td>19,57 %&nbsp;</td><td>58,70 %&nbsp;</td><td>2,17 %&nbsp;</td>
+</tr>
+<tr>
+<td>Autre&nbsp;</td><td>43,48 %&nbsp;</td><td>100,00 %&nbsp;</td><td>41,30 %&nbsp;</td><td>100,00 %&nbsp;</td><td>0,00 %&nbsp;</td>
+
+</tr>
+<tr>
+<td>Total&nbsp;</td><td>100,00 %&nbsp;</td><td>&nbsp;</td><td>100,00 %&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</slide>
+</section>
+</slides>

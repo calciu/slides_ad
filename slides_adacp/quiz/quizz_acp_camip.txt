@@ -1,0 +1,263 @@
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance totale (information totale) dans ce tableau de donnees.{#11.90966:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); sum(diag(mv))
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la premiere variablev,dans la matrice des variances-covariances?.{#0.9542167:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[1,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la deuxieme variable,dans la matrice des variances-covariances? {#1.3139428:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[2,2]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la troisieme variable,dans la matrice des variances-covariances? {#1.3014004:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[3,3]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la quatrieme variable,dans la matrice des variances-covariances?  {#0.9747615:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[4,4]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la variance de la cinquieme variable,dans la matrice des variances-covariances? {#1.4297476:.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[5,5]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la covariance de la cinquieme variable avec la quatrieme,dans la matrice des variances-covariances? {#0.08556479:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[4,5]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la correlation de la premiere variable avec la deuxieme, dans la matrice des corrélations? {#0.52405320:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);n=nrow(df); mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(n/(n-1)));mx=t(mx); mv=t(mx) %*% mx/n; mv[1,2]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la correlation de la premiere variable avec la troisieme, dans la matrice des corrélations ? {#0.6534166:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);n=nrow(df);mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(n/(n-1)));mx=t(mx); mv=t(mx) %*% mx/n; mv[1,3]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la correlation de la premiere variable avec la quatrieme, dans la matrice des corrélations ? {#-0.17680208:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);n=nrow(df);mx=as.matrix((t(df)-mean(df))/sd(df)*sqrt(n/(n-1)));mx=t(mx); mv=t(mx) %*% mx/n; mv[1,4]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %)  de la premiere variable a l'information totale?.{#8.012121:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[1,1]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %)  de la deuxieme variable a l'information totale? {#11.032576:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[2,2]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %)  de la troisieme variable a l'information totale? {#10.927264:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[3,3]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %)  de la quatrieme variable a l'information totale? {#8.184626:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[4,4]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la cinquieme variable? {#12.004936:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la sixieme variable? {#9.694530:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la septieme variable? {#13.885694:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la huitieme variable? {#12.415847:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) el'information totale de la neuvieme variable? {#13.842407:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); mv[5,5]/sum(diag(mv))*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au premier axe factoriel? {#4.0272506:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au deuxieme axe factoriel? {#2.4539096:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[2]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au troisieme axe factoriel? {#2.1075860:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[3]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au quatrieme axe factoriel? {#0.8861835:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[4]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au cinquieme axe factoriel? {#0.6623902:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[5]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au sixieme axe factoriel? {#0.6011783:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[6]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au septieme axe factoriel? {#0.5399134:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[7]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au huitieme axe factoriel? {#0.3574564:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[8]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la valeur propre (variance) qui correspond au neuvieme axe factoriel? {#0.2737965:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$values[9]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le premier axe factoriel?{#33.814980:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[1]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le deuxieme axe factoriel?{#20.604355:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[2]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le troisieme axe factoriel?{#17.696435:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[3]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le quatrieme axe factoriel?{#7.440877:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[4]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le cinquieme axe factoriel?{#5.561787:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[5]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le sixieme axe factoriel?{#5.047819:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[6]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le septieme axe factoriel?{#4.533405:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[7]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le huitieme axe factoriel?{#3.001398:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[8]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la part de l'information totale (en %) captee par le neuvieme axe factoriel?{#2.298944:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); ev=eigen(mv);ev$values[9]/sum(ev$values)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la premiere variable avec le premier axe factoriel? {#-0.2411907:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[1,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la deuxieme variable avec le premier axe factoriel? {#-0.3093355:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[2,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la troisieme variable avec le premier axe factoriel? {#-0.2942241:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[3,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la quatrieme variable avec le premier axe factoriel? {#0.1903666:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[4,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la cinquieme variable avec le premier axe factoriel? {#-0.3027729:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[5,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la sixieme variable avec le premier axe factoriel? {#0.2349807:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[6,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la septieme variable avec le premier axe factoriel? {#-0.5222439:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[7,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la huitieme variable avec le premier axe factoriel? {#0.3092153:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[8,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le cosinus de l'angle que forme la neuvieme variable avec le premier axe factoriel? {#-0.4561700:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df); eigen(mv)$vectors[9,1]
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le vecteur propre norme a la valeur propre de la premiere variable par rapport a l'axe 1 {#-0.4840218:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[1,1]* sqrt(ev$values[1])
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le vecteur propre norme a la valeur propre de la deuxieme variable par rapport a l'axe 1 {#-0.6207749:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[2,1]* sqrt(ev$values[1])
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le vecteur propre norme a la valeur propre de la troisieme variable par rapport a l'axe 1 {#-0.5904493:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);ev$vectors[3,1]* sqrt(ev$values[1])
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la premiere variable au premier axe factoriel?{#5.817295:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la deuxieme variable au premier axe factoriel?{#9.568847:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la troisieme variable au premier axe factoriel? {#8.656785:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la quatrieme variable au premier axe factoriel? {#3.623944:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[4,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la cinquieme variable au premier axe factoriel? {#9.16714:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[5,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la sixieme variable au premier axe factoriel? {#5.521593:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[6,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la septieme variable au premier axe factoriel? {#27.273868:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[7,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la huitieme variable au premier axe factoriel? {#9.561413:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[8,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la neuvieme variable au premier axe factoriel? {#20.809110:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[9,1]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la premiere variable au deuxieme axe factoriel?{#0.003673446:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[1,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la deuxieme variable au deuxieme axe factoriel?{#1.619598049:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[2,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la troisieme variable au deuxieme axe factoriel? {#0.217563752:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[3,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la quatrieme variable au deuxieme axe factoriel? {#16.264783032:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[4,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la cinquieme variable au deuxieme axe factoriel? {#16.730467065:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[5,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la sixieme variable au deuxieme axe factoriel? {#25.249007984:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[6,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la sepieme variable au deuxieme axe factoriel? {#2.231581096:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[7,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la huitieme variable au deuxieme axe factoriel? {#31.621017557:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[8,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quelle est la contribution (en %) de la neuvieme variable au deuxieme axe factoriel? {#6.062308019:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);eigen(mv)$vectors[9,2]^2*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la premiere variable. {#24.56122:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la deuxieme variable. {#32.35338:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la troisieme variable. {#27.19910:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la quatrieme variable. {#55.91813:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la cinquieme variable. {#54.53651:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la sixieme variable. {#72.92278:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la septieme variable. {#69.72972:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la huitieme variable. {#78.51656:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Pour une solution qui retient les premiers deux axes factoriels quelle est la part (en %) de la comunaute (variance reconstitue) dans la variance de la neuvieme variable. {#59.85733:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);ev=eigen(mv);Fl=t(t(ev$vectors[,1:2])* sqrt(ev$values[1:2])); diag(Fl %*%t(Fl))/diag(mv)*100
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la premiere  observation sur le premier axe factoriel ? {#-0.83215071:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la deuxieme observation sur le premier axe factoriel ? {#-1.20951089:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la troisieme observation sur le premier axe factoriel ? {#-2.45109380:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la quatrieme observation sur le premier axe factoriel ? {#1.11827432:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la cinquieme observation sur le premier axe factoriel ? {#1.71509341:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la sixieme observation sur le premier axe factoriel ? {#1.05934061:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la premiere  observation sur le deuxieme axe factoriel ? {#-1.693810254:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la deuxieme observation sur le deuxieme axe factoriel ? {#-1.252687103:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la troisieme observation sur le deuxieme axe factoriel ? {#-2.022834918:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la quatrieme observation sur le deuxieme axe factoriel ? {#-1.706258904:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la cinquieme observation sur le deuxieme axe factoriel ? {#1.111231249:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2] 
+
+Veuillez selectionner des donnees CAMIP les variables de V21 à V29 qui mesurent des attitudes des consommateurs par rapport à l'achat par catalogue. Quel est le score factoriel de la sixieme observation sur le deuxieme axe factoriel ? {#3.266677748:0.001}
+//df=X[,20:28];df[df[,]==0]=NA;df=na.omit(df);mx=scale(df,scale=FALSE); mv=t(mx) %*% mx/nrow(df);mx %*% eigen(mv)$vectors[,1:2]

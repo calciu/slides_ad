@@ -1,0 +1,126 @@
+Combien de réponses manquantes y à-t-il dans la variable V2 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V2[X$V2==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V3 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V3[X$V3==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V4 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V4[X$V4==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V5 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V5[X$V5==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V6 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V6[X$V6==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V7 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V7[X$V7==0] )
+
+Combien de réponses mailsanquantes y à-t-il dans la variable V8 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V8[X$V8==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V9 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V9[X$V9==0] )++
+
+Combien de réponses manquantes y à-t-il dans la variable V10 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V10[X$V10==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V11 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V11[X$V11==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V12 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V12[X$V12==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V13 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V13[X$V13==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V14 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V14[X$V14==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V15 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V15[X$V15==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V16 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V16[X$V16==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V17 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V17[X$V17==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V18 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V18[X$V18==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V19 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V19[X$V19==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V20 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V20[X$V20==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V21 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#8.0 } 
+//length( X$V21[X$V21==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V22 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#6.0 } 
+//length( X$V22[X$V22==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V23 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#8.0 } 
+//length( X$V23[X$V23==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V24 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#1.0 } 
+//length( X$V24[X$V24==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V25 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#1.0 } 
+//length( X$V25[X$V25==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V26 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V26[X$V26==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V27 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#1.0 } 
+//length( X$V27[X$V27==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V28 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#2.0 } 
+//length( X$V28[X$V28==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V29 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#1.0 } 
+//length( X$V29[X$V29==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V30 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#5.0 } 
+//length( X$V30[X$V30==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V31 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#13.0 } 
+//length( X$V31[X$V31==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V32 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#6.0 } 
+//length( X$V32[X$V32==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V33 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#15.0 } 
+//length( X$V33[X$V33==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V34 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#4.0 } 
+//length( X$V34[X$V34==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V35 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#12.0 } 
+//length( X$V35[X$V35==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V36 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#5.0 } 
+//length( X$V36[X$V36==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V37 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#13.0 } 
+//length( X$V37[X$V37==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V38 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#9.0 } 
+//length( X$V38[X$V38==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V39 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V39[X$V39==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V40 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V40[X$V40==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V42 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V42[X$V42==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V43 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V43[X$V43==0] )
+
+Combien de réponses manquantes y à-t-il dans la variable V44 (<a href="http://localhost/Claree/Rweb">Vous pouvez utiliser le système statique R</a>) {#0.0 } 
+//length( X$V44[X$V44==0] )
+

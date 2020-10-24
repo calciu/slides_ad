@@ -1,0 +1,586 @@
+<?xml version="1.0"?>
+<?cocoon-process type="xslt"?>
+<?xml-stylesheet href="navigation.xsl" type="text/xsl"?>
+<!DOCTYPE slides[
+<!ENTITY hellip "&#x2026;">
+<!ENTITY agrave "&#xE0;">
+<!ENTITY aacute "&#xE1;">
+<!ENTITY acirc "&#xE2;">
+<!ENTITY atilde "&#xE3;">
+<!ENTITY auml "&#xE4;">
+<!ENTITY aring "&#xE5;">
+<!ENTITY aelig "&#xE6;">
+<!ENTITY ccedil "&#xE7;">
+<!ENTITY egrave "&#xE8;">
+<!ENTITY eacute "&#xE9;">
+<!ENTITY ecirc "&#xEA;">
+<!ENTITY euml "&#xEB;">
+<!ENTITY igrave "&#xEC;">
+<!ENTITY iacute "&#xED;">
+<!ENTITY icirc "&#xEE;">
+<!ENTITY iuml "&#xEF;">
+<!ENTITY eth "&#xF0;">
+<!ENTITY ntilde "&#xF1;">
+<!ENTITY ograve "&#xF2;">
+<!ENTITY oacute "&#xF3;">
+<!ENTITY ocirc "&#xF4;">
+<!ENTITY otilde "&#xF5;">
+<!ENTITY ouml "&#xF6;">
+<!ENTITY divide "&#xF7;">
+<!ENTITY oslash "&#xF8;">
+<!ENTITY ugrave "&#xF9;">
+<!ENTITY uacute "&#xFA;">
+<!ENTITY ucirc "&#xFB;">
+<!ENTITY uuml "&#xFC;">
+<!ENTITY yacute "&#xFD;">
+<!ENTITY thorn "&#xFE;">
+<!ENTITY yuml "&#xFF;">
+<!ENTITY oelig "&#x153;">
+<!ENTITY euro "&#x20AC;">
+<!ENTITY deg "&#xB0;">
+<!ENTITY nbsp "&#xA0;">
+<!ENTITY ndash "&#x2013;">
+<!ENTITY mdash "&#x2014;">
+<!ENTITY ldquo "&#x201C;">
+<!ENTITY rdquo "&#x201D;">
+<!ENTITY lsquo "&#x2018;">
+<!ENTITY rsquo "&#x2019;">
+]>
+<slides style="apachecon">
+<title>La typologie</title>
+<authors>
+<person>
+<name>M. Calciu</name>
+<email></email>
+</person>
+</authors>
+<event>
+<name>Cours d'analyse des donn&eacute;es &agrave; l'Universit&eacute; Lille 1</name>
+<date></date>
+<time></time>
+<location></location>
+</event>
+<section>
+<title>Introduction</title>
+<slide>
+<title>Segmentation et typologie</title>
+<p>&nbsp;En marketing il y a un grand int&eacute;r&ecirc;t de d&eacute;velopper des modalit&eacute;s utiles pour classifier des objets. Tr&egrave;s souvent les objets &agrave; classifier sont les clients<fork uri="#_ftn1">
+
+<span>[1]</span>
+</fork> . L'objectif est de grouper les clients potentiels dans des groupes homog&egrave;nes assez grands pour &ecirc;tre profitablement g&eacute;r&eacute;s.</p>
+<p>En marketing on distingue deux modalit&eacute;s de classification: la segmentation et la typologie<fork uri="#_ftn2">
+<span>[2]</span>
+</fork> (Bon, J. et Gregory, P., 1986).</p>
+
+<p>La <b>segmentation</b> essaye de "fractionner l'ensemble de la population en utilisant des crit&egrave;res choisis en fonction de leur pertinence pour le sujet donn&eacute;".</p>
+<p>La <b>typologie</b> essaye de rassembler les individus qui se ressemblent du point de vue des variables qui les caract&eacute;risent, elle cherche &agrave; regrouper les individus selon les ressemblances et proximit&eacute;s.</p>
+<p>La typologie<fork uri="#_ftn3">
+
+<span>[3]</span>
+</fork> a pour objet la description d'un ensemble d'individus ou d'objets caract&eacute;ris&eacute;s par un ensemble d'attributs, &agrave; l'aide de leur regroupement en classes<fork uri="#_ftn4">
+<span>[4]</span>
+</fork> . Ces classes sont &eacute;tablies de telle sorte que les objets appartenant &agrave; la m&ecirc;me classe soient les plus semblables possibles et que les objets appartenant &agrave; deux classes diff&eacute;rentes soient les plus dissemblables possibles.</p>
+
+<p>&nbsp;La r&eacute;partition des individus entre les classes peut &ecirc;tre une finalit&eacute; de la technique, mais &eacute;galement le rep&eacute;rage des attributs qui permettent de mieux diff&eacute;rencier les groupes.</p>
+</slide>
+<slide>
+<title>Exemples:</title>
+<p>‑ <b>L'&eacute;tude de diff&eacute;rentes marques d'un produit selon leurs caract&eacute;ristiques per&ccedil;ues par les consommateurs, de fa&ccedil;on &agrave; &eacute;tablir le positionnement respectif de ces diff&eacute;rentes marques. Les types seront constitu&eacute;s des marques qui b&eacute;n&eacute;ficient de perceptions similaires sur l'ensemble des caract&eacute;ristiques</b>
+
+</p>
+<p>
+<b>&nbsp;</b>‑ <b>L'&eacute;tude d'une population en termes d'activit&eacute;s, d'int&eacute;r&ecirc;ts et d'opinions. Les individus appartenant au m&ecirc;me type manifestent le m&ecirc;me genre d'activit&eacute;s, d'int&eacute;r&ecirc;ts ou d'opinions. Cette &eacute;tude permet d'aboutir &agrave; une typologie de styles de vie.</b>
+
+</p>
+</slide>
+<slide>
+<title>Comparaison</title>
+<p>La typologie rappelle, par ses objectifs, d'autres techniques de traitement de donn&eacute;es, et plus particuli&egrave;rement la segmentation, l'analyse discriminante et l'analyse en composantes principales. Mais elle en diff&egrave;re par les m&eacute;thodes qu'elle utilise et par la pr&eacute;sentation de ses r&eacute;sultats.</p>
+<p>&nbsp;Par rapport aux deux premi&egrave;res techniques, la diff&eacute;rence essentielle provient de l'absence de toute variable &agrave; expliquer &agrave; partir de laquelle le regroupement sera op&eacute;r&eacute;. Par rapport &agrave; l'analyse en composantes principales, pour laquelle il n'est pas non plus n&eacute;cessaire de d&eacute;finir une variable &agrave; expliquer, la diff&eacute;rence provient de la fa&ccedil;on de d&eacute;limiter les groupes : elle n'est qu'implicite ici, alors que cette d&eacute;limitation est l'objet‑m&ecirc;me de la typologie et en constitue le premier.</p>
+
+</slide>
+</section>
+<section>
+<title>La d&eacute;finition des proximit&eacute;s</title>
+<slide>
+<title>a) Les donn&eacute;es</title>
+<p>En typologie, chaque individu est caract&eacute;ris&eacute; par les valeurs prises sur un ensemble de variables. Ces variables peuvent &ecirc;tre de nature tr&egrave;s diff&eacute;rente.</p>
+
+<p>l ‑ On distinguera, en premier lieu, les variables selon le r&ocirc;le qu'elles jouent dans la d&eacute;marche : on distinguera les <b>variables actives</b> et les <b>variables passives</b> de la typologie. Les variables actives servent &agrave; constituer les groupes alors que les variables passives vont servir, dans un deuxi&egrave;me temps, &agrave; expliquer ces groupes.</p>
+<p>2 ‑ En second lieu, les variables diff&egrave;rent selon la nature de la mesure utilis&eacute;e. Les variables les plus fr&eacute;quemment utilis&eacute;es seront soit de nature quantitative soit de nature qualitative.</p>
+
+<p>&nbsp;Les <b>donn&eacute;es quantitatives</b> apparaissent les plus simples &agrave; traiter. Elles soul&egrave;vent cependant certaines difficult&eacute;s lorsque les unit&eacute;s de mesure utilis&eacute;es ne sont pas les m&ecirc;mes d'une variable &agrave; une autre. Dans une telle situation, il conviendra de standardiser les variables afin de ne pas privil&eacute;gier telle ou telle variable.</p>
+</slide>
+
+<slide>
+<title>Exemple:</title>
+</slide>
+<slide>
+<title>Variables qualitatives binaires</title>
+<p>/p&gt;</p>
+<p>
+<b>distance euclidienne.</b> La distance dij entre les objets i et j est alors :</p>
+<p>Erreur&nbsp;! Signet non d&eacute;fini.(Xik ‑ Xjk)<sup>2</sup>]<sup>1/2</sup>
+
+</p>
+<p>o&ugrave; Xjk est la valeur prise par l'objet i sur l'attribut k. Sur la figure.1., cette distance est mat&eacute;rialis&eacute;e par la longueur du segment qui relie i et j <fork uri="#_ftn5">
+<span>[5]</span>
+</fork> .</p>
+<p>&nbsp;<b>La distance rectangulaire</b> (encore appel&eacute;e <b>distance city‑block ou de</b> Manhattan) est mesur&eacute;e par la somme des valeurs absolues des &eacute;carts observ&eacute;s entre les individus sur les diff&eacute;rentes dimensions :</p>
+
+<p>
+<b>d<sub>ij</sub> = <span><span>Erreur&nbsp;! Signet non d&eacute;fini.</span></span>|X<sub>ik</sub> X<sub>jk</sub>|</b>
+</p>
+<p>Sur la figure 1., la distance entre les individus i et j serait mat&eacute;rialis&eacute;e par la somme (a + b).</p>
+
+<p>&nbsp;Le recours &agrave; ces types de distances suppose que les variables soient standardis&eacute;es et non corr&eacute;l&eacute;es entre elles comme on l'a mentionn&eacute; plus haut.</p>
+<p>
+<b>
+<figure src="./slides_fichiers/image002.gif"></figure>
+</b>
+</p>
+<p>
+<b>Figure 1: Evaluation de la proximit&eacute; entre individus</b>
+
+</p>
+<p>Les diff&eacute;rentes distances qui viennent d'&ecirc;tre &eacute;voqu&eacute;es reposent sur une conception sp&eacute;cifique de la proximit&eacute; : deux objets sont proches quand il y a peu d'&eacute;cart entre eux sur l'ensemble des dimensions concern&eacute;es. D'autres indicateurs de distance reposent sur la notion de structure : on consid&egrave;re alors que deux individus sont proches d&egrave;s que leurs structures d'attributs sont similaires.</p>
+</slide>
+<slide>
+<title>La distance du c2</title>
+
+<p>&nbsp;La <b>distance du</b> <b><span>c</span></b>2 pour les tableaux de d&eacute;nombrement, ainsi que le <b>coefficient de corr&eacute;lation</b> entre les caract&eacute;ristiques des individus pour les autres donn&eacute;es quantitatives sont alors utilisables.</p>
+<p>&nbsp;Les donn&eacute;es du tableau 1. permettent d'illustrer ces diff&eacute;rentes conceptions de la proximit&eacute;. En termes de distance euclidienne, a et b paraissent plus proches que a et c d'une part et b et c d'autre part :</p>
+
+<p>
+<b>Tableau 1.: Tableau individu x variable</b>
+</p>
+<table width="" align="">
+<tr>
+<td>Var\I</td><td>a</td><td>B</td><td>c</td>
+</tr>
+<tr>
+<td>X1</td><td>10</td><td>8</td><td>&nbsp;&nbsp; 16</td>
+
+</tr>
+<tr>
+<td>X2</td><td>9</td><td>5</td><td>&nbsp;&nbsp; 10</td>
+</tr>
+</table>
+<table width="" align="">
+<tr>
+<td>d<sub>ab</sub> = 20</td><td>d<sub>ac</sub> = 37</td><td>d<sub>bc</sub>= l09</td>
+
+</tr>
+</table>
+<p>Si l'on emploie la distance du c2, les proximit&eacute;s sont diff&eacute;rentes puisque b et c sont jug&eacute;s identiques:</p>
+<p>d<sub>ab</sub> = 0,257&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d<sub>ac</sub> = 0,318&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d<sub>bc</sub> = 0</p>
+
+</slide>
+<slide>
+<title>Indices de distance pour donn&eacute;es qualitative binaires</title>
+<p>2 ‑ Quand il s'agit de <b>donn&eacute;es qualitatives</b> la proximit&eacute; entre deux individus sera jug&eacute;e d'autant plus forte que ces deux individus pr&eacute;sentent des caract&eacute;ristiques communes. On distinguera ainsi :</p>
+<p>&nbsp;‑ les co&iuml;ncidences positives (P) : nombre de fois o&ugrave;, pour les deux individus, une caract&eacute;ristique donn&eacute;e sera pr&eacute;sente;</p>
+
+<p>&nbsp;‑ les co&iuml;ncidences n&eacute;gatives (N) : nombre de fois o&ugrave;, pour les deux individus une caract&eacute;ristique donn&eacute;e sera absente;</p>
+<p>&nbsp;‑ les non‑co&iuml;ncidences (U): nombre de fois o&ugrave; la caract&eacute;ristique sera pr&eacute;sente pour un des deux individus et absente pour l'autre.</p>
+<p>A partir de ces co&iuml;ncidences ou non‑co&iuml;ncidences plusieurs <b>coefficients d'association</b> peuvent &ecirc;tre d&eacute;finis. Par exemple:</p>
+
+<p>
+<b>P/(P + N + U)</b>
+</p>
+<p>pourcentage de co&iuml;ncidences positives par rapport au nombre total de co&iuml;ncidences positives possibles<fork uri="#_ftn6">
+<span>[6]</span>
+</fork> .</p>
+</slide>
+</section>
+<section>
+<title>Les indicateurs de proximit&eacute; entre groupes</title>
+
+<slide>
+<title>Probl&egrave;mes d&rsquo;agr&eacute;gation de groupes</title>
+<p>Lorsqu'il s'agit d'&eacute;valuer la proximit&eacute; entre deux groupes d'individus, plusieurs proc&eacute;dures sont utilisables.</p>
+<p>Imaginons le cas de cinq objets analys&eacute;s sur deux variables pr&eacute;sent&eacute; dans le tableau 2.</p>
+
+<p>
+<b>Tableau 2</b>
+</p>
+<p>
+<b>Variables\Individus</b>
+</p>
+<table width="" align="">
+<tr>
+<td><b>X<sub>j</sub>\I<sub>i</sub></b></td><td><b><span>a</span></b></td><td><b><span>b</span></b></td><td><b><span>c</span></b></td><td><b><span>d</span></b></td><td><b><span>e</span></b></td>
+
+</tr>
+<tr>
+<td><b><span>n&deg;l</span></b></td><td>8</td><td>2</td><td>6</td><td>5</td><td>6</td>
+</tr>
+<tr>
+<td><b>n&deg;2</b></td><td>10</td><td>8</td><td>3</td><td>2</td><td>9</td>
+
+</tr>
+</table>
+</slide>
+<slide>
+<title>Le plus proche voisin</title>
+<p>l ‑ Dans la <b>m&eacute;thode du plus proche voisin,</b> la distance entre deux groupes I et II est assimil&eacute;e &agrave; la distance entre les deux &eacute;l&eacute;ments les plus proches, l'un appartenant au groupe I et l'autre au groupe II.</p>
+
+<p>&nbsp;Sur la figure 2., le groupe I contient les &eacute;l&eacute;ments a et c; le groupe II les &eacute;l&eacute;ments b et d. L'application de la m&eacute;thode du plus proche voisin am&egrave;ne &agrave; &eacute;valuer la distance entre I et II par la distance dbe.</p>
+<p>
+<b>d[(b),(ea)] = Min[d<sub>be</sub>, d<sub>ba</sub>] = d<sub>be</sub></b>
+
+</p>
+<p>L'utilisation de cette m&eacute;thode entra&icirc;ne le risque de faire appara&icirc;tre des groupes tr&egrave;s h&eacute;t&eacute;rog&egrave;nes, puisqu'on ne se pr&eacute;occupe pas des &eacute;l&eacute;ments les plus extr&ecirc;mes des groupes. Dans l'exemple consid&eacute;r&eacute;, le groupe [b] appara&icirc;t plus proche du groupe [ea] que du groupe [dc], alors que a est tr&egrave;s &eacute;loign&eacute;&nbsp; de b.</p>
+
+<p>
+<imgspan src="./slides_fichiers/image004.gif"></imgspan>
+</p>
+<p>
+<b>Figure 2: Evaluation de la proximit&eacute; entre groupes</b>
+</p>
+</slide>
+<slide>
+<title>Le voisin le plus &eacute;loigne</title>
+<p>2 ‑ Dans la <b>m&eacute;thode du voisin le plus &eacute;loigne,</b> la distance entre deux groupes I et II est assimil&eacute;e &agrave; la distance entre les deux &eacute;l&eacute;ments les plus &eacute;loign&eacute;s, l'un appartenant au groupe I et l'autre au groupe II. Sur la figure 2., la distance entre I et II serait alors mesur&eacute;e par dba</p>
+
+<p>
+<b><span>d[(b),(ea)] = Max[d<sub>be</sub>, d<sub>ba</sub>] = d<sub>ba</sub></span></b>
+</p>
+<p>Dans l'exemple de la figure 2., le groupe I serait associ&eacute; au groupe II et non au groupe I.</p>
+</slide>
+<slide>
+<title>Le cha&icirc;nage moyen</title>
+
+<p>3 ‑ La proc&eacute;dure du <b>cha&icirc;nage moyen</b> consiste &agrave; &eacute;valuer la distance &agrave; partir du barycentre des groupes. Cette m&eacute;thode para&icirc;t plus logique, mais elle demande beaucoup plus de calculs que les deux pr&eacute;c&eacute;dentes : chaque regroupement d'individus demande un nouveau calcul de distance, alors que les autres m&eacute;thodes utilisent seulement les distances interindividuels qui sont calcul&eacute;es une fois pour toutes.</p>
+
+</slide>
+</section>
+<section>
+<title>La constitution des groupes</title>
+<slide>
+<title>Le tableau de distances</title>
+<p>Les donn&eacute;es initiales sont constitu&eacute;es par un tableau individus‑variables o&ugrave; chacun des n individus est caract&eacute;ris&eacute; sur un ensemble de dimensions. A partir de ce tableau initial, une matrice de proximit&eacute; (n.n) peut &ecirc;tre &eacute;tablie : chaque entr&eacute;e ij de la matrice donne la distance dij qui s&eacute;pare l'individu i et l'individu j.</p>
+
+<p>&nbsp;Une fois connues les n(n ‑ 1)/2 proximit&eacute;s entre individus, la constitution de groupes peut &ecirc;tre envisag&eacute;e. Elle se r&eacute;alise selon deux grandes cat&eacute;gories de proc&eacute;dures qui recourent respectivement &agrave; des m&eacute;thodes hi&eacute;rarchiques ou non hi&eacute;rarchiques.</p>
+</slide>
+<slide>
+<title>a) Les m&eacute;thodes hi&eacute;rarchiques</title>
+
+<p>Dans cette premi&egrave;re cat&eacute;gorie de m&eacute;thodes, le nombre de groupes auquel on d&eacute;sire parvenir n'est pas fix&eacute; a priori; il sera d&eacute;termin&eacute; au vu des r&eacute;sultats.</p>
+<p>I ‑ La m&eacute;thode hi&eacute;rarchique <b>ascendante ou agr&eacute;gative</b> utilise la proc&eacute;dure suivante :</p>
+
+<p>&nbsp;I) parmi l'ensemble des n individus on s&eacute;lectionne les deux plus proches par lecture des distances dans la matrice de proximit&eacute; : un premier regroupement est op&eacute;r&eacute; entre ces deux individus;</p>
+<p>2) une nouvelle matrice de distances est &eacute;tablie qui ne comprend que n ‑ l lignes correspondant &agrave; n ‑ 2 individus isol&eacute;s et I groupe comprenant 2 &eacute;l&eacute;ments. A nouveau les deux objets les plus proches sont rep&eacute;r&eacute;s et regroup&eacute;s. Ces deux objets sont soit deux individus isol&eacute;s ou un individu et un groupe;</p>
+
+<p>3) la phase 2 est renouvel&eacute;e jusqu'&agrave; ce que tous les individus soient regroup&eacute;s.</p>
+<p>Cette m&eacute;thode est hi&eacute;rarchique puisque une succession de regroupements sont op&eacute;r&eacute;s, de celui qui met en jeu les proximit&eacute;s les plus fortes vers celui qui correspond aux proximit&eacute;s les plus faibles. Elle est dite ascendante puisque l'analyse remonte de l'individu isol&eacute; vers le groupe <fork uri="#_ftn7">
+<span>[7]</span>
+
+</fork> .</p>
+<p>&nbsp;A premi&egrave;re vue, cette proc&eacute;dure appara&icirc;t assez contradictoire avec l'objectif fixe, puisque, en fin de parcours, tous les individus se retrouvent dans une seule classe. En fait, l'analyste, &agrave; partir de l'&eacute;tude des diff&eacute;rents niveaux de regroupements d&eacute;cidera du nombre de groupes qui lui para&icirc;t le plus judicieux &agrave; l'aide d'un niveau de distance‑seuil au‑del&agrave; de laquelle les regroupements seront jug&eacute;s trop h&eacute;t&eacute;rog&egrave;nes. Cette &eacute;tude est facilit&eacute;e par l'emploi d'une repr&eacute;sentation graphique du processus de regroupement, le <b>dendogramme.</b>
+
+</p>
+</slide>
+<slide>
+<title>Application de la m&eacute;thode</title>
+<p>2 ‑ Le tableau 3, fournit un exemple d'application de la proc&eacute;dure qui vient d'&ecirc;tre pr&eacute;sent&eacute;e. Les donn&eacute;es utilis&eacute;es ont d&eacute;j&egrave; &eacute;t&eacute; pr&eacute;sent&eacute;es au tableau 2, o&ugrave; cinq individus [a,b,c,d,e] sont rep&eacute;r&eacute;s sur deux variables X1, et X2 (voir aussi figure 2). A partir de ces donn&eacute;es la matrice de proximit&eacute;s (tableau 3.a) est construite. Ce sont ici des distances euclidiennes qui sont employ&eacute;es : par exemple la distance dab entre les individus a et b est obtenue par :</p>
+
+<p>
+<b>d<sub>ab</sub> = [(8 - 2)<sup>2</sup> + (l0 - 8)<sup>2</sup> ]<sup>1/2</sup> = 6,3</b>
+</p>
+<p>La distance la plus faible est celle qui s&eacute;pare c et d: ils forment le premier groupe. Une nouvelle matrice de proximit&eacute;s (tableau 3b) est &eacute;tablie pour les individus isol&eacute;s a, b, e et pour le groupe [c,d]. La m&eacute;thode du plus proche voisin a &eacute;t&eacute; employ&eacute;e pour calculer la distance entre le groupe [c,d] et les individus isol&eacute;s.</p>
+
+<p>&nbsp;Pour la deuxi&egrave;me &eacute;tape de regroupement, la plus forte proximit&eacute; appara&icirc;t entre les individus a et e qui forment alors un groupe [a,e]. La nouvelle matrice (tableau 3c) qui d&eacute;coule de ce regroupement permet de voir que b doit &ecirc;tre rattach&eacute; &agrave; ce groupe, d'o&ugrave; la cr&eacute;ation d'un ensemble [a,e,b]. Le tableau 3d montre qu'une distance de 6 s&eacute;pare le groupe [c,d] du groupe [a,e,b].</p>
+<p>
+
+<b>Tableau 3: Proc&eacute;dure de constitution de groupes</b>
+</p>
+<p>
+<b>a) Matrice des distances:</b>
+</p>
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>a</td><td>b</td><td>c</td><td>d</td><td>e</td>
+</tr>
+
+<tr>
+<td>a</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>b</td><td>6,32</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>c</td><td>7,28</td><td>6,40</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>d</td><td>8,54</td><td>6,71</td><td>1,41</td><td>&nbsp;</td><td>&nbsp;</td>
+
+</tr>
+<tr>
+<td>e</td><td>2,24</td><td>4,12</td><td>6,00</td><td>7,07</td><td>&nbsp;</td>
+</tr>
+</table>
+<p>
+<b>b) 1re &eacute;tape: regroupement de (c + d); nouvelle matrice des distances:</b>
+</p>
+<table width="" align="">
+<tr>
+
+<td>&nbsp;</td><td>a</td><td>b</td><td>(cd)</td><td>e</td>
+</tr>
+<tr>
+<td>a</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>b</td><td>6,32</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>(cd)</td><td>7,28</td><td>6,40</td><td>&nbsp;</td><td>&nbsp;</td>
+
+</tr>
+<tr>
+<td>e</td><td>2,24</td><td>4,12</td><td>6</td><td>&nbsp;</td>
+</tr>
+</table>
+<p>
+<b>c) 2e &eacute;tape: regroupement de (a + e); nouvelle matrice de distances:</b>
+</p>
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>ae</td><td>b</td><td>(cd)</td>
+
+</tr>
+<tr>
+<td>(ae)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>b</td><td>4,12</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>(cd)</td><td>6</td><td>6,4</td><td>&nbsp;</td>
+</tr>
+</table>
+
+<p>
+<b>d) 3e &eacute;tape: regroupement de (a + b); nouvelle matrice de distances:</b>
+</p>
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>(aeb)</td><td>(cd)</td>
+</tr>
+<tr>
+<td>(aeb)</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>(cd)</td><td>6</td><td>&nbsp;</td>
+
+</tr>
+</table>
+<p>Les r&eacute;sultats sont visualis&eacute;s par le dendogramme qui aparait dans la figure 3.. Un distance‑seuil de 3 am&egrave;nerait ainsi &agrave; choisir une typologie en trois classes : [c,d], [a,e] et b. Une distance‑seuil de 4,5 ne ferait appara&icirc;tre que deux classes : [c,d] et [a,e,b]; mais le groupe II serait alors moins homog&egrave;ne. Un arbitrage doit &ecirc;tre effectu&eacute; entre l'homog&eacute;n&eacute;it&eacute; des classes et leur nombre.</p>
+
+<p>&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; 7</p>
+
+<p>&nbsp;&nbsp; ____________________________________</p>
+<p>a&nbsp; -----------+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +---------+</p>
+<p>e&nbsp; -----------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +--------+</p>
+
+<p>b&nbsp; ---------------------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</p>
+<p>c&nbsp; -------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +----------------------+</p>
+
+<p>d&nbsp; -------+</p>
+<p>
+<b>Figure 3: Dendogramme</b>
+</p>
+</slide>
+<slide>
+<title>b) Les m&eacute;thodes non hi&eacute;rarchiques</title>
+<p>Les m&eacute;thodes hi&eacute;rarchiques deviennent tr&egrave;s lourdes &agrave; utiliser si le nombre d'objets &agrave; classer est important : pour n individus, il faut passer n ‑ I &eacute;tapes de regroupement qui se traduisent par la construction de n ‑ 1 matrices.</p>
+
+<p>&nbsp;Les m&eacute;thodes non hi&eacute;rarchiques ou encore <b>nodales</b> demandent souvent moins de calculs et sont donc capables de traiter de plus grands nombres d'individus. Dans cette seconde cat&eacute;gorie de m&eacute;thodes, le nombre k de groupes est fix&eacute; a priori.</p>
+<p>&nbsp;Plusieurs proc&eacute;dures sont concevables. La plus simple consiste &agrave; s&eacute;lectionner dans la population &eacute;tudi&eacute;e k individus‑type autour desquels seront agglom&eacute;r&eacute;s, un par un, les autres n ‑ k individus en fonction de leurs distances respectives par rapport aux individus de r&eacute;f&eacute;rence (m&eacute;thode dite des K‑means).</p>
+
+<p>&nbsp;Les k individus‑type sont choisis en fonction de certaines de leurs caract&eacute;ristiques ou plus simplement &agrave; l'issue d'un processus de s&eacute;lection al&eacute;atoire. Dans ce dernier cas, il sera n&eacute;cessaire de proc&eacute;der &agrave;</p>
+<p>plusieurs simulations avant d'aboutir &agrave; une configuration acceptable, c'est‑&agrave;‑dire qui permette de faire appara&icirc;tre des groupes suffisamment homog&egrave;nes et diff&eacute;rents.</p>
+
+<p>&nbsp;Ce sch&eacute;ma de base est susceptible de recevoir de nombreuses variantes. Par exemple, c'est la m&eacute;thode des <b>nu&eacute;es dynamiques'</b> &agrave; la fin d'une premi&egrave;re &eacute;tape d'agr&eacute;gation, les centro&iuml;des de classes sont calcul&eacute;s et servent de bases de r&eacute;f&eacute;rence pour une nouvelle &eacute;tape de calcul. Des individus jusqu'ici assign&eacute;s &agrave; une classe peuvent alors recevoir une nouvelle affectation.</p>
+
+<p>&nbsp;Un <b>processus d'optimisation</b> peut &eacute;galement aider &agrave; la formation des classes. Si k types sont d&eacute;sir&eacute;s, parmi toutes les affectations possibles des n individus, on peut rechercher celle qui minimise la distance moyenne intra-groupe ou tout autre indicateur d'h&eacute;t&eacute;rog&eacute;n&eacute;it&eacute;. Avec un nombre &eacute;lev&eacute; d'individus la masse de calculs n&eacute;cessaire serait &eacute;videmment consid&eacute;rable. On s'en remettra, plus raisonnablement &agrave; des proc&eacute;dures, dont l'objet n'est plus de d&eacute;terminer la solution optimale, mais une solution satisfaisante vis‑&agrave;‑vis de l'indicateur choisi</p>
+
+</slide>
+</section>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<section>
+<title>Explication et validation des groupes</title>
+<slide>
+<title>a) Explication</title>
+<p>Une fois les groupes form&eacute;s, il s'agit de les d&eacute;crire, c'est‑&agrave;‑dire rep&eacute;rer les variables qui ont jou&eacute; le plus grand r&ocirc;le dans leur formation et par la suite caract&eacute;riser les types.</p>
+
+<p>I ‑ La description est tout d'abord r&eacute;alis&eacute;e &agrave; l'aide des variables actives. Pour chaque variable, une moyenne est calcul&eacute;e par groupe. Si les diff&eacute;rences de moyenne qui apparaissent entre les groupes sont faibles pour une variable donn&eacute;e, celle‑ci aura peu contribu&eacute; &agrave; la formation des classes. Au contraire, des diff&eacute;rences significatives seront le signe d'un pouvoir discriminant important.</p>
+<p>&nbsp;Le caract&egrave;re discriminant d'une variable donn&eacute;e pourra &ecirc;tre appr&eacute;ci&eacute; &agrave; l'aide de proc&eacute;dures graphiques permettant de visualiser le profil des diff&eacute;rents groupes. On pourra &eacute;galement avoir recours &agrave; des tests statistiques, l'analyse de la variance par exemple, si l'on a affaire &agrave; des donn&eacute;es quantitatives.</p>
+
+<p>2 ‑ L'utilisation de variables passives permet d'introduire dans la description des groupes d'autres variables que celles qui ont permis la constitution des groupes. Ce seront, par exemple des variables d'identification telles que l'&acirc;ge, la PCS, le sexe. Le fait de pouvoir associer un type de comportement avec ces variables d'identification peut &ecirc;tre de nature &agrave; orienter une strat&eacute;gie de segmentation.</p>
+</slide>
+<slide>
+<title>b) Validation</title>
+<p>Les groupes form&eacute;s sont‑ils r&eacute;ellement diff&eacute;rents les uns des autres ? Plusieurs proc&eacute;dures de validation sont concevables :</p>
+
+<p>&nbsp;‑ recours au test d'analyse de la variance sur chaque variable active;</p>
+<p>&nbsp;‑ application d'une analyse discriminante o&ugrave; la variable &agrave; expliquer est le type de groupe auquel appartiennent les individus;</p>
+<p>&nbsp;‑ refaire une nouvelle typologie sur un ensemble d'individus‑t&eacute;moin qui n'auront pas &eacute;t&eacute; utilis&eacute;s dans la premi&egrave;re analyse.</p>
+</slide>
+
+</section>
+<section>
+<title>Application</title>
+<slide>
+<title>Donn&eacute;es</title>
+<table width="" align="">
+<tr>
+<td>Ville</td><td>Revenu</td><td>Population</td>
+</tr>
+<tr>
+<td>A</td><td>1,14</td><td>1,72</td>
+
+</tr>
+<tr>
+<td>B</td><td>-1,3</td><td>-1,2</td>
+</tr>
+<tr>
+<td>C</td><td>1,62</td><td>0,89</td>
+</tr>
+<tr>
+<td>D</td><td>1,64</td><td>1,35</td>
+
+</tr>
+<tr>
+<td>E</td><td>0,55</td><td>0,1</td>
+</tr>
+<tr>
+<td>F</td><td>-0,9</td><td>-1,3</td>
+</tr>
+<tr>
+<td>G</td><td>0,89</td><td>1,32</td>
+
+</tr>
+<tr>
+<td>H</td><td>-0,9</td><td>-0,6</td>
+</tr>
+<tr>
+<td>I</td><td>-0,4</td><td>-0,1</td>
+</tr>
+<tr>
+<td>J</td><td>0,08</td><td>-0,6</td>
+
+</tr>
+<tr>
+<td>K</td><td>-0,2</td><td>0,62</td>
+</tr>
+<tr>
+<td>L</td><td>-1,3</td><td>-0,9</td>
+</tr>
+<tr>
+<td>M</td><td>-1,1</td><td>-1,4</td>
+
+</tr>
+<tr>
+<td>N</td><td>-0,1</td><td>0,02</td>
+</tr>
+<tr>
+<td>O</td><td>0,21</td><td>-0,1</td>
+</tr>
+</table>
+</slide>
+<slide>
+<title>Nuage de points</title>
+
+<p>
+<figure src="./slides_fichiers/image006.gif"></figure>
+</p>
+</slide>
+<slide>
+<title>Tableau de classification</title>
+<table width="" align="">
+<tr>
+<td>&nbsp;</td><td>&nbsp;</td><td>Etap</td>
+</tr>
+<tr>
+<td>Suiv.</td>
+</tr>
+<tr>
+
+<td>1</td><td>6</td><td>13</td><td>0.033800</td><td>0</td><td>0</td><td>2</td>
+</tr>
+<tr>
+<td>2</td><td>2</td><td>6</td><td>0.076500</td><td>0</td><td>1</td><td>3</td>
+
+</tr>
+<tr>
+<td>3</td><td>2</td><td>12</td><td>0.097700</td><td>2</td><td>0</td><td>10</td>
+</tr>
+<tr>
+<td>4</td><td>14</td><td>15</td><td>0.106900</td><td>0</td><td>0</td><td>5</td>
+
+</tr>
+<tr>
+<td>5</td><td>9</td><td>14</td><td>0.130600</td><td>0</td><td>4</td><td>6</td>
+</tr>
+<tr>
+<td>6</td><td>5</td><td>9</td><td>0.159700</td><td>0</td><td>5</td><td>7</td>
+
+</tr>
+<tr>
+<td>7</td><td>5</td><td>10</td><td>0.210500</td><td>6</td><td>0</td><td>11</td>
+</tr>
+<tr>
+<td>8</td><td>3</td><td>4</td><td>0.212000</td><td>0</td><td>0</td><td>12</td>
+
+</tr>
+<tr>
+<td>9</td><td>1</td><td>7</td><td>0.222500</td><td>0</td><td>0</td><td>12</td>
+</tr>
+<tr>
+<td>10</td><td>2</td><td>8</td><td>0.229300</td><td>3</td><td>0</td><td>13</td>
+
+</tr>
+<tr>
+<td>11</td><td>5</td><td>11</td><td>0.368100</td><td>7</td><td>0</td><td>13</td>
+</tr>
+<tr>
+<td>12</td><td>1</td><td>3</td><td>0.386900</td><td>9</td><td>8</td><td>14</td>
+
+</tr>
+<tr>
+<td>13</td><td>2</td><td>5</td><td>0.498500</td><td>10</td><td>11</td><td>14</td>
+</tr>
+<tr>
+<td>14</td><td>1</td><td>2</td><td>1.604000</td><td>12</td><td>13</td><td>0</td>
+
+</tr>
+</table>
+</slide>
+<slide>
+<title>Dendrogramme (la m&eacute;thode du lien simple)</title>
+<p>&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 25&nbsp;&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp; +---------+---------+---------+---------+---------+&nbsp;&nbsp;</p>
+<p>&nbsp;6&nbsp;&nbsp; -+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</p>
+<p>13&nbsp;&nbsp; -+-+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;2&nbsp;&nbsp; -+ +---+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>12&nbsp;&nbsp; ---+&nbsp;&nbsp; +-------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;8&nbsp;&nbsp; -------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <hr/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>14&nbsp;&nbsp; ---+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<hr/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>15&nbsp;&nbsp; -----+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +---------------------------------+&nbsp;&nbsp;</p>
+<p>&nbsp;9&nbsp;&nbsp; ---+ <hr/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <hr/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <hr/>&nbsp;&nbsp;</p>
+
+<p>&nbsp;5&nbsp;&nbsp; -----------+&nbsp;&nbsp; <hr/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <hr/>&nbsp;&nbsp;</p>
+<p>10&nbsp;&nbsp; -----+&nbsp;&nbsp;&nbsp;&nbsp; +---+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<hr/>&nbsp;&nbsp;</p>
+<p>11&nbsp;&nbsp; -----------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <hr/>&nbsp;&nbsp;</p>
+
+<p>&nbsp;3&nbsp;&nbsp; -----------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <hr/>&nbsp;&nbsp;</p>
+<p>&nbsp;4&nbsp;&nbsp; -----+&nbsp;&nbsp;&nbsp;&nbsp; +-------------------------------------+&nbsp;&nbsp;</p>
+<p>&nbsp;1&nbsp;&nbsp; -----------+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</slide>
+</section>&nbsp;&nbsp;</slides>
